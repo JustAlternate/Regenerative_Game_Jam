@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5fwrbut46wua"]
+
+[ext_resource type="Script" path="res://Scripts/carrot.gd" id="1_5876c"]
+[ext_resource type="Texture2D" uid="uid://cyhknrx0tkoxa" path="res://Assets/sprites/plant/carrot_0.png" id="2_532hk"]
+[ext_resource type="Texture2D" uid="uid://cvspipphtmyml" path="res://Assets/sprites/plant/carrot_1.png" id="3_krqy8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cye4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_532hk")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_krqy8")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}]
+
+[node name="carrot" type="Node2D"]
+scale = Vector2(10, 10)
+script = ExtResource("1_5876c")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_cye4a")
+animation = &"0"
