@@ -1,26 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://5cweiq4ggoob"]
+[gd_scene load_steps=8 format=3 uid="uid://dkv3eat6lhkcn"]
 
-[ext_resource type="Texture2D" uid="uid://dvt57gmxehs6" path="res://Assets/sprites/Encyclopedia.png" id="1_w32mh"]
-[ext_resource type="Texture2D" uid="uid://c4g3so0mf2414" path="res://Assets/icon.svg" id="2_4s01i"]
-[ext_resource type="Texture2D" uid="uid://2aqmmua2kint" path="res://Assets/Encyclopedia_open.png" id="2_x030d"]
+[ext_resource type="Texture2D" uid="uid://dk4emgw742jd6" path="res://Assets/sprites/Encyclopedia.png" id="1_w32mh"]
+[ext_resource type="Texture2D" uid="uid://n2pl1clbc3jw" path="res://Assets/icon.svg" id="2_4s01i"]
+[ext_resource type="Texture2D" uid="uid://bym7yrnxvvlvy" path="res://Assets/sprites/Encyclopedia_open.png" id="2_28k6o"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o57ve"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_notep"]
 atlas = ExtResource("1_w32mh")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mlcg7"]
-atlas = ExtResource("2_x030d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfgvg"]
+atlas = ExtResource("2_28k6o")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v4mja"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvl6v"]
 atlas = ExtResource("2_4s01i")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_oiogg"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_538it"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o57ve")
+"texture": SubResource("AtlasTexture_notep")
 }],
 "loop": true,
 "name": &"book",
@@ -28,7 +28,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mlcg7")
+"texture": SubResource("AtlasTexture_vfgvg")
 }],
 "loop": true,
 "name": &"encyclopedia",
@@ -36,7 +36,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v4mja")
+"texture": SubResource("AtlasTexture_bvl6v")
 }],
 "loop": true,
 "name": &"godot",
@@ -44,7 +44,6 @@ animations = [{
 }]
 
 [node name="Item" type="AnimatedSprite2D"]
-position = Vector2(4.79993, 4.00006)
-scale = Vector2(0.1, 0.1)
-sprite_frames = SubResource("SpriteFrames_oiogg")
-animation = &"book"
+position = Vector2(21, 21)
+sprite_frames = SubResource("SpriteFrames_538it")
+animation = &"encyclopedia"

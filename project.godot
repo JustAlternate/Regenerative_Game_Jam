@@ -24,6 +24,7 @@ GlobalVariables="*res://Scripts/global_variables.gd"
 
 window/size/viewport_width=576
 window/size/viewport_height=320
+window/stretch/mode="canvas_items"
 
 [input]
 
