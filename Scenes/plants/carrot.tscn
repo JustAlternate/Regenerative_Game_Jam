@@ -24,7 +24,6 @@ animations = [{
 }]
 
 [node name="carrot" type="Node2D"]
-scale = Vector2(10, 10)
 script = ExtResource("1_5876c")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]

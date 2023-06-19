@@ -6,6 +6,8 @@ var state = 0 # 0=graine, 1=carrote, -1=morte.
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$sprite.animation = "0"
+	position.x = 0
+	position.y = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
