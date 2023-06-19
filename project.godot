@@ -14,13 +14,8 @@ config/name="Regenerative Game Jam"
 run/main_scene="res://Scenes/home.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
+"[display]window/stretch/mode"="viewport"
 
-<<<<<<< HEAD
-[display]
-
-window/stretch/mode="viewport"
-
-=======
 [autoload]
 
 GlobalVariables="*res://Scripts/global_variables.gd"
@@ -29,7 +24,7 @@ GlobalVariables="*res://Scripts/global_variables.gd"
 
 window/size/viewport_width=576
 window/size/viewport_height=320
->>>>>>> 809319c91d87cf51a42d5f48f7f7b437cd8077f8
+
 [input]
 
 left_click={

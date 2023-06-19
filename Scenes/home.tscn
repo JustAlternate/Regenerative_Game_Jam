@@ -11,7 +11,6 @@
 [node name="plant_spot_container" type="Node2D" parent="Game"]
 
 [node name="plant_spot_1" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
-position = Vector2(256, 256)
 position = Vector2(32, 256)
 
 [node name="plant_spot_2" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
