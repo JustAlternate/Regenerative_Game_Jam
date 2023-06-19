@@ -1,28 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpc1baduxkefv"]
+[gd_scene load_steps=6 format=3 uid="uid://cpc1baduxkefv"]
 
 [ext_resource type="Texture2D" uid="uid://b45mig8wgxsd3" path="res://Assets/sprites/seed_drawer/button_closed.png" id="1_fiswa"]
 [ext_resource type="Script" path="res://Scripts/seed_drawer.gd" id="1_g10ax"]
 [ext_resource type="Texture2D" uid="uid://cmct35b1gr5q6" path="res://Assets/sprites/seed_drawer/container_background.png" id="1_ue06r"]
+[ext_resource type="PackedScene" uid="uid://y7p56ox4gd3m" path="res://Scenes/seed_container.tscn" id="2_ck28v"]
 [ext_resource type="Texture2D" uid="uid://oc0604lpkwhp" path="res://Assets/sprites/seed_drawer/button_opened.png" id="2_r2j8y"]
 
 [node name="seed_drawer" type="Node2D"]
 script = ExtResource("1_g10ax")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 128)
 offset_right = 246.0
 offset_bottom = 83.0
 theme_override_constants/separation = 0
 
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="ContainerCarrot" type="TextureButton" parent="HBoxContainer/GridContainer"]
+[node name="ContainerCarrot" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
-texture_normal = ExtResource("1_ue06r")
 
 [node name="Container2" type="TextureButton" parent="HBoxContainer/GridContainer"]
 layout_mode = 2
