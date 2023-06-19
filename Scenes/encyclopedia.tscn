@@ -23,6 +23,7 @@ offset_right = 32.0
 offset_bottom = 32.0
 
 [node name="Book" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(255, 84)
 scale = Vector2(5, 5)
