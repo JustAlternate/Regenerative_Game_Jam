@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dftuedx82aneu"]
+
+[ext_resource type="Script" path="res://Scripts/encyclopedia.gd" id="1_7x68r"]
+
+[node name="Encyclopedia" type="Node2D"]
+script = ExtResource("1_7x68r")
