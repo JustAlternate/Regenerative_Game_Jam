@@ -13,7 +13,7 @@ func _process(delta):
 
 @export var Pages = [
 	[ #Page 1 - 2
-		["Title1","Body1","godot"], #Page gauche
+		["Encyclopedia","The Encyclopedia is your best friend in this game, nearly everything you must know about your crops and how the game works is in this book, make sure to read it as you progress and as you discover new crops ! ","book"], #Page gauche
 		["Title2","Body2","book"]   #Page droite
 	],
 	[ #Page 3 - 4

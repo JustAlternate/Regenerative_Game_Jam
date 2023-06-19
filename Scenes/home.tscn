@@ -1,16 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://cux0ivx6exq1b"]
+[gd_scene load_steps=7 format=3 uid="uid://cux0ivx6exq1b"]
 
 [ext_resource type="PackedScene" uid="uid://dftuedx82aneu" path="res://Scenes/encyclopedia.tscn" id="1_1gyia"]
 [ext_resource type="PackedScene" uid="uid://bu4wg2rbfgctm" path="res://Scenes/plant_spot.tscn" id="1_4iv55"]
 [ext_resource type="PackedScene" uid="uid://du2q4bvo17ea" path="res://Scenes/dialogue_grand_pere.tscn" id="2_005re"]
 [ext_resource type="PackedScene" uid="uid://cpc1baduxkefv" path="res://Scenes/seed_drawer.tscn" id="4_fw8ti"]
 [ext_resource type="PackedScene" uid="uid://slb4mijat6jh" path="res://Scenes/clock.tscn" id="5_gjtvy"]
+[ext_resource type="PackedScene" uid="uid://c751d7ivsjn33" path="res://Scenes/meteo.tscn" id="6_2mes2"]
 
 [node name="home" type="Node2D"]
 
 [node name="UI" type="Node2D" parent="."]
 
 [node name="Game" type="Node2D" parent="."]
+
+[node name="Meteo" parent="Game" instance=ExtResource("6_2mes2")]
+Sun_color = Color(1, 1, 1, 1)
+
+[node name="background" type="ColorRect" parent="Game"]
+light_mask = 0
+offset_right = 576.0
+offset_bottom = 320.0
+color = Color(0.467119, 0.765718, 1, 1)
 
 [node name="plant_spot_container" type="Node2D" parent="Game"]
 
@@ -49,5 +59,3 @@ position = Vector2(2.47719, 72.0615)
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
 position = Vector2(542.477, 34.0615)
 scale = Vector2(0.5, 0.5)
-
-[node name="background" type="Sprite2D" parent="Game"]
