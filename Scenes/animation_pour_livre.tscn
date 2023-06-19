@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://5cweiq4ggoob"]
+
+[ext_resource type="Texture2D" uid="uid://dc2487t0p2mjm" path="res://Assets/Encyclopedia.png" id="1_y0pdy"]
+[ext_resource type="Texture2D" uid="uid://c4g3so0mf2414" path="res://Assets/icon.svg" id="2_4s01i"]
+[ext_resource type="Texture2D" uid="uid://2aqmmua2kint" path="res://Assets/Encyclopedia_open.png" id="2_x030d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dexmu"]
+atlas = ExtResource("1_y0pdy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlcg7"]
+atlas = ExtResource("2_x030d")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4mja"]
+atlas = ExtResource("2_4s01i")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oiogg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dexmu")
+}],
+"loop": true,
+"name": &"book",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlcg7")
+}],
+"loop": true,
+"name": &"encyclopedia",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4mja")
+}],
+"loop": true,
+"name": &"godot",
+"speed": 5.0
+}]
+
+[node name="Item" type="AnimatedSprite2D"]
+position = Vector2(4.79993, 4.00006)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_oiogg")
+animation = &"encyclopedia"

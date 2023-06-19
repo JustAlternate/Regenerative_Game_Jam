@@ -28,7 +28,6 @@ animations = [{
 }]
 
 [node name="Clock" type="Node2D"]
-position = Vector2(64, 64)
 script = ExtResource("1_23s68")
 
 [node name="BackgroundSprite" type="AnimatedSprite2D" parent="."]
