@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://breehrpwj2i78"]
 
 [ext_resource type="PackedScene" uid="uid://dftuedx82aneu" path="res://Scenes/encyclopedia.tscn" id="1_nnf57"]
 [ext_resource type="PackedScene" uid="uid://du2q4bvo17ea" path="res://Scenes/dialogue_grand_pere.tscn" id="1_qo68f"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://cux0ivx6exq1b"]
+
+[ext_resource type="PackedScene" uid="uid://bu4wg2rbfgctm" path="res://Scenes/plant_spot.tscn" id="1_4iv55"]
+>>>>>>> 809319c91d87cf51a42d5f48f7f7b437cd8077f8
 
 [node name="home" type="Node2D"]
 
@@ -16,3 +22,29 @@ scale = Vector2(1.5, 1.5)
 [node name="Encyclopedia" parent="Game" instance=ExtResource("1_nnf57")]
 
 [node name="plant_spot_container" type="Node2D" parent="Game"]
+
+[node name="plant_spot_1" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(32, 256)
+
+[node name="plant_spot_2" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(96, 256)
+
+[node name="plant_spot_3" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(160, 256)
+
+[node name="plant_spot_4" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(224, 256)
+
+[node name="plant_spot_5" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(352, 256)
+
+[node name="plant_spot_6" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(416, 256)
+
+[node name="plant_spot_7" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(480, 256)
+
+[node name="plant_spot_8" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(544, 256)
+
+[node name="background" type="Sprite2D" parent="Game"]
