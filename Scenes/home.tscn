@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cux0ivx6exq1b"]
+
+[node name="home" type="Node2D"]
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Game" type="Node2D" parent="."]
+
+[node name="plant_spot_container" type="Node2D" parent="Game"]
