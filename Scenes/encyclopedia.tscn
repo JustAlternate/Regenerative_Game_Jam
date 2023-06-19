@@ -1,15 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dftuedx82aneu"]
+[gd_scene load_steps=6 format=3 uid="uid://dftuedx82aneu"]
 
 [ext_resource type="Script" path="res://Scripts/encyclopedia.gd" id="1_7x68r"]
-[ext_resource type="Texture2D" uid="uid://dc2487t0p2mjm" path="res://Assets/Encyclopedia.png" id="2_fty31"]
+[ext_resource type="Texture2D" uid="uid://dvt57gmxehs6" path="res://Assets/sprites/Encyclopedia.png" id="2_g7247"]
 [ext_resource type="Texture2D" uid="uid://2aqmmua2kint" path="res://Assets/Encyclopedia_open.png" id="3_agwnj"]
-[ext_resource type="FontFile" uid="uid://nd3lo3pm6dkn" path="res://fonts/FutilePro.ttf" id="4_npmn0"]
+[ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="4_mllbh"]
 [ext_resource type="PackedScene" uid="uid://5cweiq4ggoob" path="res://Scenes/animation_pour_livre.tscn" id="5_dc2c2"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ds1gt"]
-line_spacing = 1.0
-font = ExtResource("4_npmn0")
-font_color = Color(0, 0, 0, 1)
 
 [node name="Encyclopedia" type="Node2D"]
 position = Vector2(34, 34)
@@ -17,7 +12,7 @@ script = ExtResource("1_7x68r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
-texture = ExtResource("2_fty31")
+texture = ExtResource("2_g7247")
 
 [node name="OpenClose" type="Button" parent="."]
 offset_left = -32.0
@@ -27,7 +22,7 @@ offset_bottom = 32.0
 
 [node name="Book" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(568, 288)
+position = Vector2(510, 220)
 scale = Vector2(10, 10)
 texture = ExtResource("3_agwnj")
 
@@ -55,7 +50,7 @@ offset_right = 113.1
 offset_bottom = 38.2
 scale = Vector2(0.1, 0.1)
 text = "Titre page"
-label_settings = SubResource("LabelSettings_ds1gt")
+label_settings = ExtResource("4_mllbh")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -63,8 +58,6 @@ clip_text = true
 
 [node name="Item" parent="Book/Page_gauche" instance=ExtResource("5_dc2c2")]
 position = Vector2(4.79984, 4.00006)
-scale = Vector2(0.1, 0.1)
-animation = &"book"
 
 [node name="Body" type="Label" parent="Book/Page_gauche"]
 layout_mode = 0
@@ -89,7 +82,7 @@ The item :
 
 
 Thym batard"
-label_settings = SubResource("LabelSettings_ds1gt")
+label_settings = ExtResource("4_mllbh")
 autowrap_mode = 3
 clip_text = true
 
@@ -109,7 +102,7 @@ offset_right = 113.5
 offset_bottom = 38.4
 scale = Vector2(0.1, 0.1)
 text = "Titre page"
-label_settings = SubResource("LabelSettings_ds1gt")
+label_settings = ExtResource("4_mllbh")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -140,7 +133,7 @@ The item :
 
 
 Thym batard"
-label_settings = SubResource("LabelSettings_ds1gt")
+label_settings = ExtResource("4_mllbh")
 autowrap_mode = 3
 clip_text = true
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://5cweiq4ggoob"]
 
-[ext_resource type="Texture2D" uid="uid://dc2487t0p2mjm" path="res://Assets/Encyclopedia.png" id="1_y0pdy"]
+[ext_resource type="Texture2D" uid="uid://dvt57gmxehs6" path="res://Assets/sprites/Encyclopedia.png" id="1_w32mh"]
 [ext_resource type="Texture2D" uid="uid://c4g3so0mf2414" path="res://Assets/icon.svg" id="2_4s01i"]
 [ext_resource type="Texture2D" uid="uid://2aqmmua2kint" path="res://Assets/Encyclopedia_open.png" id="2_x030d"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dexmu"]
-atlas = ExtResource("1_y0pdy")
+[sub_resource type="AtlasTexture" id="AtlasTexture_o57ve"]
+atlas = ExtResource("1_w32mh")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlcg7"]
@@ -20,7 +20,7 @@ region = Rect2(0, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dexmu")
+"texture": SubResource("AtlasTexture_o57ve")
 }],
 "loop": true,
 "name": &"book",
@@ -47,4 +47,4 @@ animations = [{
 position = Vector2(4.79993, 4.00006)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_oiogg")
-animation = &"encyclopedia"
+animation = &"book"

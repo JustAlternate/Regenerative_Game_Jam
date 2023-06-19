@@ -1,9 +1,18 @@
-[gd_scene format=3 uid="uid://cux0ivx6exq1b"]
+[gd_scene load_steps=3 format=3 uid="uid://breehrpwj2i78"]
+
+[ext_resource type="PackedScene" uid="uid://dftuedx82aneu" path="res://Scenes/encyclopedia.tscn" id="1_nnf57"]
+[ext_resource type="PackedScene" uid="uid://du2q4bvo17ea" path="res://Scenes/dialogue_grand_pere.tscn" id="1_qo68f"]
 
 [node name="home" type="Node2D"]
 
 [node name="UI" type="Node2D" parent="."]
 
 [node name="Game" type="Node2D" parent="."]
+
+[node name="Dialogue_grand_pere" parent="Game" instance=ExtResource("1_qo68f")]
+position = Vector2(1108, 381)
+scale = Vector2(1.5, 1.5)
+
+[node name="Encyclopedia" parent="Game" instance=ExtResource("1_nnf57")]
 
 [node name="plant_spot_container" type="Node2D" parent="Game"]
