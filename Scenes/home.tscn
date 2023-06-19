@@ -11,6 +11,27 @@
 [node name="plant_spot_container" type="Node2D" parent="Game"]
 
 [node name="plant_spot_1" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
-position = Vector2(256, 256)
+position = Vector2(32, 256)
+
+[node name="plant_spot_2" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(96, 256)
+
+[node name="plant_spot_3" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(160, 256)
+
+[node name="plant_spot_4" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(224, 256)
+
+[node name="plant_spot_5" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(352, 256)
+
+[node name="plant_spot_6" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(416, 256)
+
+[node name="plant_spot_7" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(480, 256)
+
+[node name="plant_spot_8" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+position = Vector2(544, 256)
 
 [node name="background" type="Sprite2D" parent="Game"]
