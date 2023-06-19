@@ -19,7 +19,7 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	if GlobalVariables.action_picked == "Graine":
+	if GlobalVariables.action_picked == "seed":
 		if plant_type == "None":
 			plant_scene = load("res://Scenes/plants/" + GlobalVariables.seed_picked + ".tscn")
 			plant_instance = plant_scene.instantiate()
