@@ -26,21 +26,17 @@ columns = 3
 [node name="ContainerCarrot" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 
-[node name="Container2" type="TextureButton" parent="HBoxContainer/GridContainer"]
+[node name="Container2" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
-texture_normal = ExtResource("1_ue06r")
 
-[node name="Container3" type="TextureButton" parent="HBoxContainer/GridContainer"]
+[node name="Container3" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
-texture_normal = ExtResource("1_ue06r")
 
-[node name="Container4" type="TextureButton" parent="HBoxContainer/GridContainer"]
+[node name="Container4" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
-texture_normal = ExtResource("1_ue06r")
 
-[node name="Container5" type="TextureButton" parent="HBoxContainer/GridContainer"]
+[node name="Container5" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
-texture_normal = ExtResource("1_ue06r")
 
 [node name="ContainerShovel" type="TextureButton" parent="HBoxContainer/GridContainer"]
 layout_mode = 2

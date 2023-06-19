@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1q5rtqnu0ewb" path="res://Assets/sprites/plant/carrot_1.png" id="2_1kcd3"]
 [ext_resource type="Script" path="res://Scripts/seed_container.gd" id="2_kilvm"]
 
-[node name="ContainerCarrot" type="TextureButton"]
+[node name="SeedContainer" type="TextureButton"]
 texture_filter = 1
 texture_normal = ExtResource("1_qdf2a")
 script = ExtResource("2_kilvm")

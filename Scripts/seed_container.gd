@@ -29,10 +29,7 @@ func remove_seeds(n):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		add_seeds(1)
-	if Input.is_action_just_pressed("ui_cancel"):
-		remove_seeds(1)
+	pass
 
 
 func _on_pressed():
@@ -41,4 +38,3 @@ func _on_pressed():
 	else:
 		GlobalVariables.action_picked = "seed"
 		GlobalVariables.seed_picked = seed_name
-	print("Container pressed")
