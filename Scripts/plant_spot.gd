@@ -15,6 +15,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("left_click") and not $Button.is_hovered():
 		shovel_level = 0
+		$shovel.visible = false
 
 
 
@@ -22,6 +23,7 @@ func _process(delta):
 func _on_button_pressed():
 	if GlobalVariables.action_picked == "seed":
 		if plant_type == "none":
+			plant_type = GlobalVariables.seed_picked
 			plant_scene = load("res://Scenes/plants/" + GlobalVariables.seed_picked + ".tscn")
 			plant_instance = plant_scene.instantiate()
 			plant_instance.name = "plant"
@@ -29,7 +31,8 @@ func _on_button_pressed():
 	if GlobalVariables.action_picked == "shovel" and plant_type != "none":
 		shovel_level += 1
 		if shovel_level == 2:
-			get_node("plant").free
+			plant_type = "none"
+			get_node("plant").free()
 			$shovel.visible = false
 			shovel_level = 0
 		else: 

@@ -32,6 +32,7 @@ action_mode = 0
 ignore_texture_size = true
 
 [node name="shovel" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_jxvp6")
 
