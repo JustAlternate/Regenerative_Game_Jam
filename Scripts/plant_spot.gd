@@ -21,13 +21,4 @@ func _on_button_pressed():
 	if GlobalVariables.action_picked == "seed":
 		if $plant.plant_type == "None":
 			$plant.add_plant(GlobalVariables.seed_picked)
-			
-	if GlobalVariables.action_picked == "shovel" and $plant.plant_type != "None":
-		shovel_level += 1
-		if shovel_level == 2:
-			$plant.remove_plant()
-			$shovel.visible = false
-			shovel_level = 0
-		else: 
-			$shovel.visible = true
 

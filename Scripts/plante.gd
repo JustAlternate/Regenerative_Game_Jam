@@ -125,7 +125,7 @@ var state:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$sprite.animation = plant_type+"_0"
+	$sprite.animation = "vide"
 	position.x = 0
 	position.y = 0
 	state = 0 # 0=graine, 1=plante_1, 2=plant_2, -1=morte.
@@ -136,8 +136,9 @@ func _process(delta):
 	pass
 
 func add_plant(type):
-	plant_type = type
-	$sprite.animation = plant_type+"_0"
+	if type != "None":
+		plant_type = type
+		$sprite.animation = plant_type+"_0"
 
 func remove_plant():
 	if not plant_type == "None":
@@ -148,6 +149,6 @@ func remove_plant():
 func next_quarter_of_season():
 	if not plant_type == "None":
 		print("updating state")
-		if state <= dico_caracteristique["number_of_phases"][plant_type]:
+		if state < dico_caracteristique["number_of_phases"][plant_type]:
 			state += 1
 			$sprite.animation = plant_type+"_"+str(state)

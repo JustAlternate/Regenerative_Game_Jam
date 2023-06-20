@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://y7p56ox4gd3m"]
 
-[ext_resource type="Texture2D" uid="uid://cmct35b1gr5q6" path="res://Assets/sprites/seed_drawer/container_background.png" id="1_qdf2a"]
-[ext_resource type="Texture2D" uid="uid://c1q5rtqnu0ewb" path="res://Assets/sprites/plant/carrot_1.png" id="2_1kcd3"]
+[ext_resource type="Texture2D" uid="uid://dmuw2jjppfoc5" path="res://Assets/sprites/seed_drawer/container_background.png" id="1_qdf2a"]
+[ext_resource type="Texture2D" uid="uid://ckief3u5kca5v" path="res://Assets/sprites/plant/carrot_1.png" id="2_1kcd3"]
 [ext_resource type="Script" path="res://Scripts/seed_container.gd" id="2_kilvm"]
 
 [node name="SeedContainer" type="TextureButton"]

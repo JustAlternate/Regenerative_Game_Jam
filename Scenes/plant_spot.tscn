@@ -19,6 +19,7 @@ animations = [{
 script = ExtResource("1_n4gmj")
 
 [node name="plant" parent="." instance=ExtResource("2_w5nbq")]
+plant_type = "None"
 
 [node name="Button" type="TextureButton" parent="."]
 layout_direction = 1

@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpc1baduxkefv"]
+[gd_scene load_steps=5 format=3 uid="uid://cpc1baduxkefv"]
 
-[ext_resource type="Texture2D" uid="uid://cgbe5isvij3y0" path="res://Assets/sprites/seed_drawer/button_closed.png" id="1_fiswa"]
+[ext_resource type="Texture2D" uid="uid://bejti4xwfm0bd" path="res://Assets/sprites/seed_drawer/button_closed.png" id="1_fiswa"]
 [ext_resource type="Script" path="res://Scripts/seed_drawer.gd" id="1_g10ax"]
-[ext_resource type="Texture2D" uid="uid://cpnssgt024faa" path="res://Assets/sprites/seed_drawer/container_background.png" id="1_ue06r"]
 [ext_resource type="PackedScene" uid="uid://y7p56ox4gd3m" path="res://Scenes/seed_container.tscn" id="2_ck28v"]
-[ext_resource type="Texture2D" uid="uid://cedsyw2jb654w" path="res://Assets/sprites/seed_drawer/button_opened.png" id="2_r2j8y"]
-[ext_resource type="Texture2D" uid="uid://b7qergjl8gme0" path="res://Assets/sprites/shovel.png" id="3_06koj"]
+[ext_resource type="Texture2D" uid="uid://cinea1fhapo7t" path="res://Assets/sprites/seed_drawer/button_opened.png" id="2_r2j8y"]
 
 [node name="seed_drawer" type="Node2D"]
 script = ExtResource("1_g10ax")
@@ -24,12 +22,6 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="ContainerChovel" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
-layout_mode = 2
-Seed_Texture = ExtResource("3_06koj")
-is_shovel = true
-activated = true
-
 [node name="Container3" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 
@@ -43,9 +35,11 @@ activated = true
 [node name="Container5" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 
-[node name="ContainerShovel" type="TextureButton" parent="HBoxContainer/GridContainer"]
+[node name="Container6" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
-texture_normal = ExtResource("1_ue06r")
+
+[node name="Container7" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+layout_mode = 2
 
 [node name="OpenDrawerButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2

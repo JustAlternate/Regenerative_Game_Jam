@@ -35,20 +35,9 @@ func _process(delta):
 
 
 func _on_pressed():
-	print("a")
-	if not is_shovel:
-		if (GlobalVariables.action_picked == "seed" and GlobalVariables.seed_picked == seed_name): #this seed is selected
-			print("b")
-			GlobalVariables.action_picked = "none"
-		else:
-			print("c")
-			GlobalVariables.action_picked = "seed"
-			GlobalVariables.seed_picked = seed_name
-	else: #is_shovel
-		if (GlobalVariables.action_picked == "shovel"):
-			print("d")
-			GlobalVariables.action_picked = "none"
-		else:
-			print("e")
-			GlobalVariables.action_picked = "shovel"
-		
+	if (GlobalVariables.action_picked == "seed" and GlobalVariables.seed_picked == seed_name): #this seed is selected
+		GlobalVariables.action_picked = "none"
+	else:
+		GlobalVariables.action_picked = "seed"
+		GlobalVariables.seed_picked = seed_name
+	
