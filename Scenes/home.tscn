@@ -14,7 +14,6 @@
 [node name="Game" type="Node2D" parent="."]
 
 [node name="Meteo" parent="Game" instance=ExtResource("6_2mes2")]
-Sun_color = Color(1, 1, 1, 1)
 
 [node name="background" type="ColorRect" parent="Game"]
 light_mask = 0
@@ -58,4 +57,3 @@ position = Vector2(2.47719, 72.0615)
 
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
 position = Vector2(542.477, 34.0615)
-scale = Vector2(0.5, 0.5)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c751d7ivsjn33"]
 
 [ext_resource type="Script" path="res://Scripts/meteo.gd" id="1_8kb7b"]
-[ext_resource type="Texture2D" uid="uid://dllp0fjpm8e8t" path="res://Assets/particles/light_01.png" id="1_to760"]
+[ext_resource type="Texture2D" uid="uid://bhfbiudkrjxvk" path="res://Assets/particles/light_01.png" id="1_to760"]
 
 [node name="Meteo" type="Node2D"]
 z_index = 1
@@ -9,6 +9,7 @@ script = ExtResource("1_8kb7b")
 Sun_color = Color(1, 1, 1, 1)
 
 [node name="Rain" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(288, -20)
 scale = Vector2(2, 2)
 amount = 50

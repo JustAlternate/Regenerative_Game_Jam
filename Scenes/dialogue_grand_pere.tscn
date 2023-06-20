@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://du2q4bvo17ea"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_grand_pere.gd" id="1_5a700"]
-[ext_resource type="Texture2D" uid="uid://c5gtg4uni025m" path="res://Assets/sprites/grandad.png" id="1_x0k8r"]
+[ext_resource type="Texture2D" uid="uid://y5ly38ihohnl" path="res://Assets/sprites/grandad.png" id="1_x0k8r"]
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="2_56v54"]
 
 [node name="Dialogue_grand_pere" type="Node2D"]
