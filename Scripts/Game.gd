@@ -19,6 +19,6 @@ func _on_clock_phase_changed(new_phase):
 	
 	# Updating every plants
 	for i in range(8):
-		$plant_spot_container.get_child(i).get_child(0).next_quarter_of_season()
+		$plant_spot_container.get_child(i).get_node("plant").next_quarter_of_season()
 	
 	

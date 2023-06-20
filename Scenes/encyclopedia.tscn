@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dftuedx82aneu"]
 
 [ext_resource type="Script" path="res://Scripts/encyclopedia.gd" id="1_7x68r"]
-[ext_resource type="Texture2D" uid="uid://dk4emgw742jd6" path="res://Assets/sprites/Encyclopedia.png" id="2_g7247"]
+[ext_resource type="Texture2D" uid="uid://cssbl0ckgwq74" path="res://Assets/sprites/closed_book.png" id="2_u8kre"]
 [ext_resource type="Texture2D" uid="uid://bym7yrnxvvlvy" path="res://Assets/sprites/Encyclopedia_open.png" id="3_1f71s"]
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="4_mllbh"]
 [ext_resource type="PackedScene" uid="uid://dkv3eat6lhkcn" path="res://Scenes/animation_pour_livre.tscn" id="5_smlq5"]
@@ -13,13 +13,15 @@ script = ExtResource("1_7x68r")
 [node name="OpenClose" type="Button" parent="."]
 offset_left = -32.0
 offset_top = -32.0
-offset_bottom = -3.0
+offset_right = 4.0
+offset_bottom = 1.0
 
 [node name="petit_livre" type="Sprite2D" parent="OpenClose"]
 z_index = 1
-position = Vector2(16, 16)
+texture_filter = 1
+position = Vector2(18, 16)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_g7247")
+texture = ExtResource("2_u8kre")
 
 [node name="Book" type="Sprite2D" parent="."]
 texture_filter = 1

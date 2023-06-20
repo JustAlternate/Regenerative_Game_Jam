@@ -143,7 +143,7 @@ func add_plant(type):
 func remove_plant():
 	if not plant_type == "None":
 		state = 0
-		plant_type = "None"
+		plant_type = "None"	
 		$sprite.animation = "vide"
 	
 func next_quarter_of_season():
