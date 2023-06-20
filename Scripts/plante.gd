@@ -2,11 +2,12 @@ extends Node2D
 
 @export var plant_type = "None" #"carrot", "pea", "leek", "corn", "wheat", "pumpkin", "tomatoes", "thym", "vine", "courgette"
 var bonus_season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
-var required_season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
+var season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
+@export var damage_out_seasons = 3
 var number_of_phase:int
-var required_humidities_values = [] # 0 = sec, 1 = humide, 2 = très humide
+var humidities_values = [] # 0 = sec, 1 = humide, 2 = très humide
 var minimum_nutriment_values = [] # 0 = pas de nutriment, 1 = un peu nutriment, 2 = tres nutriments
-var required_sunlight = [] # 0 = vulnerable to sun, 1 = dont care about sunlight, 2 = absolutly need sunlight
+var sunlight = [] # 0 = dont want sunlight, 1 = absolutly need sunlight
 var sickness = [] # "mildiou", "Oïdium", "Furariose"
 var appreciated_adjacents_plants = [] # "carrot", "pea", "leek", "corn", "wheat", "mint", "pumpkin", "tomatoes", "thym", "vine", "courgette"
 var unapreciated_adjacents_plants = [] # pareil que au dessus.
@@ -14,7 +15,7 @@ var unapreciated_adjacents_plants = [] # pareil que au dessus.
 var dico_caracteristique = {
 	"bonus_season":
 	{# (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
-		"pea":[[2,1],[2,0]],
+		"pea":[[2,1],[2,2]],
 		"leek":[[1,2],[0,1]],
 		"corn":[[1,1]],
 		"wheat":[[2,2]],
@@ -26,7 +27,7 @@ var dico_caracteristique = {
 		"vine":[[2,1],[2,2]],
 		"courgette":[[1,1]],
 	},
-	"required_season":
+	"season":
 	{# (0,1] = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
 		"pea":[[1,1],[0,2]],
 		"leek":[[3,2],[0,2]],
@@ -53,7 +54,7 @@ var dico_caracteristique = {
 		"vine":4,
 		"courgette":2,
 	},
-	"required_humidities_values":{ # 0 = sec, 1 = humide, 2 = très humide
+	"humidities_values":{ # 0 = sec, 1 = humide, 2 = très humide
 		"pea":[1],
 		"leek":[0,1],
 		"corn":[2],
@@ -79,7 +80,7 @@ var dico_caracteristique = {
 		"vine":0,
 		"courgette":2,
 	},
-	"required_sunlight":{
+	"sunlight":{
 		"pea":0,
 		"leek":1,
 		"corn":2,
@@ -128,7 +129,7 @@ func _ready():
 	$sprite.animation = "vide"
 	position.x = 0
 	position.y = 0
-	state = 0 # 0=graine, 1=plante_1, 2=plant_2, -1=morte.
+	state = 0 # 0=graine, 1=plante_1, 2=plant_2, ... -1=morte.
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
