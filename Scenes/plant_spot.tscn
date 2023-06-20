@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu4wg2rbfgctm"]
+[gd_scene load_steps=4 format=3 uid="uid://bu4wg2rbfgctm"]
 
 [ext_resource type="Script" path="res://Scripts/plant_spot.gd" id="1_n4gmj"]
+[ext_resource type="Texture2D" uid="uid://b7qergjl8gme0" path="res://Assets/sprites/shovel.png" id="2_x8st6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jxvp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x8st6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="plant_spot" type="Node2D"]
 script = ExtResource("1_n4gmj")
@@ -18,5 +30,9 @@ grow_horizontal = 2
 grow_vertical = 2
 action_mode = 0
 ignore_texture_size = true
+
+[node name="shovel" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_jxvp6")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
