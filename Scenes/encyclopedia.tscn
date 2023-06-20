@@ -15,7 +15,7 @@ offset_left = -32.0
 offset_top = -32.0
 offset_bottom = -3.0
 
-[node name="Sprite2D" type="Sprite2D" parent="OpenClose"]
+[node name="petit_livre" type="Sprite2D" parent="OpenClose"]
 z_index = 1
 position = Vector2(16, 16)
 scale = Vector2(0.5, 0.5)
@@ -24,6 +24,7 @@ texture = ExtResource("2_g7247")
 [node name="Book" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(255, 84)
+scale = Vector2(5, 5)
 texture = ExtResource("3_1f71s")
 
 [node name="Close" type="Button" parent="Book"]
@@ -44,20 +45,19 @@ offset_bottom = 15.0
 
 [node name="Title" type="Label" parent="Book/Page_gauche"]
 layout_mode = 0
-offset_left = 8.09998
-offset_top = 2.2
-offset_right = 113.1
-offset_bottom = 38.2
+offset_left = 8.89999
+offset_top = 1.40001
+offset_right = 113.9
+offset_bottom = 37.4
 scale = Vector2(0.1, 0.1)
 text = "Titre page"
 label_settings = ExtResource("4_mllbh")
-horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
 
 [node name="Item" parent="Book/Page_gauche" instance=ExtResource("5_smlq5")]
-position = Vector2(4.90009, 4.3)
+position = Vector2(4.90009, 3.50001)
 scale = Vector2(0.1, 0.1)
 animation = &"book"
 
@@ -99,20 +99,19 @@ offset_bottom = 15.0
 
 [node name="Title" type="Label" parent="Book/Page_droite"]
 layout_mode = 0
-offset_left = 8.49994
-offset_top = 2.4
-offset_right = 113.5
-offset_bottom = 38.4
+offset_left = 8.8999
+offset_top = 1.40002
+offset_right = 113.9
+offset_bottom = 37.4
 scale = Vector2(0.1, 0.1)
-text = "Titre page"
+text = "Carrot"
 label_settings = ExtResource("4_mllbh")
-horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
 
 [node name="Item" parent="Book/Page_droite" instance=ExtResource("5_smlq5")]
-position = Vector2(4.90021, 4.3)
+position = Vector2(4.90021, 3.50001)
 scale = Vector2(0.1, 0.1)
 animation = &"book"
 

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Regenerative Game Jam"
-run/main_scene="res://Scenes/home.tscn"
+run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 "[display]window/stretch/mode"="viewport"

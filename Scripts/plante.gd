@@ -1,8 +1,6 @@
 extends Node2D
 
-var state = 0 # 0=graine, 1=plante, -1=morte.
-
-@export var type_plant= "None" #"carrot", "pea", "leek", "corn", "wheat", "pumpkin", "tomatoes", "thym", "vine", "courgette"
+@export var plant_type = "None" #"carrot", "pea", "leek", "corn", "wheat", "pumpkin", "tomatoes", "thym", "vine", "courgette"
 var bonus_season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
 var required_season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
 var number_of_phase:int
@@ -123,27 +121,33 @@ var dico_caracteristique = {
 	
 }
 
+var state:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$sprite.animation = "0"
+	$sprite.animation = plant_type+"_0"
 	position.x = 0
 	position.y = 0
+	state = 0 # 0=graine, 1=plante_1, 2=plant_2, -1=morte.
 	
-	if type_plant != "None" :
-		pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func next_state():
-	state += 1
-	if state == number_of_phase:
-		state = -1 #a changer en fonction de ce qui se passe lorsque la plante meurt.
-	$sprite.animation = str(state)  
+func add_plant(type):
+	plant_type = type
+	$sprite.animation = plant_type+"_0"
 
-func dying():
-	state = -1
-	$sprite.animation = str(state)  #a changer en fonction de ce qui se passe lorsque la plante meurt.
-
+func remove_plant():
+	if not plant_type == "None":
+		state = 0
+		plant_type = "None"
+		$sprite.animation = "vide"
+	
+func next_quarter_of_season():
+	if not plant_type == "None":
+		print("updating state")
+		if state <= dico_caracteristique["number_of_phases"][plant_type]:
+			state += 1
+			$sprite.animation = plant_type+"_"+str(state)

@@ -2,9 +2,9 @@ extends Node2D
 
 var plant_scene:Resource
 var plant_instance
-var plant_type:String = "none"
 var intance:Node
 var shovel_level:int = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,22 +17,15 @@ func _process(delta):
 		shovel_level = 0
 		$shovel.visible = false
 
-
-
-
 func _on_button_pressed():
 	if GlobalVariables.action_picked == "seed":
-		if plant_type == "none":
-			plant_type = GlobalVariables.seed_picked
-			plant_scene = load("res://Scenes/plants/" + GlobalVariables.seed_picked + ".tscn")
-			plant_instance = plant_scene.instantiate()
-			plant_instance.name = "plant"
-			add_child(plant_instance)
-	if GlobalVariables.action_picked == "shovel" and plant_type != "none":
+		if $plant.plant_type == "None":
+			$plant.add_plant(GlobalVariables.seed_picked)
+			
+	if GlobalVariables.action_picked == "shovel" and $plant.plant_type != "None":
 		shovel_level += 1
 		if shovel_level == 2:
-			plant_type = "none"
-			get_node("plant").free()
+			$plant.remove_plant()
 			$shovel.visible = false
 			shovel_level = 0
 		else: 
