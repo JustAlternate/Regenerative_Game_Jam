@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dftuedx82aneu"]
 
 [ext_resource type="Script" path="res://Scripts/encyclopedia.gd" id="1_7x68r"]
-[ext_resource type="Texture2D" uid="uid://ca02qx36cynd" path="res://Assets/sprites/Encyclopedia.png" id="2_g7247"]
-[ext_resource type="Texture2D" uid="uid://cuic82segb73i" path="res://Assets/sprites/Encyclopedia_open.png" id="3_1f71s"]
+[ext_resource type="Texture2D" uid="uid://dk4emgw742jd6" path="res://Assets/sprites/Encyclopedia.png" id="2_g7247"]
+[ext_resource type="Texture2D" uid="uid://bym7yrnxvvlvy" path="res://Assets/sprites/Encyclopedia_open.png" id="3_1f71s"]
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="4_mllbh"]
 [ext_resource type="PackedScene" uid="uid://dkv3eat6lhkcn" path="res://Scenes/animation_pour_livre.tscn" id="5_smlq5"]
 
@@ -10,22 +10,20 @@
 position = Vector2(34, 34)
 script = ExtResource("1_7x68r")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(-16, -16)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_g7247")
-
-[node name="OpenClose" type="Button" parent="Sprite2D"]
+[node name="OpenClose" type="Button" parent="."]
 offset_left = -32.0
 offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
+offset_bottom = -3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="OpenClose"]
+z_index = 1
+position = Vector2(16, 16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_g7247")
 
 [node name="Book" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(255, 84)
-scale = Vector2(5, 5)
 texture = ExtResource("3_1f71s")
 
 [node name="Close" type="Button" parent="Book"]
@@ -161,7 +159,7 @@ offset_bottom = 27.0
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
 
-[connection signal="button_down" from="Sprite2D/OpenClose" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="OpenClose" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Book/Close" to="." method="_on_close_button_down"]
 [connection signal="button_down" from="Book/Next_Page" to="." method="_on_next_page_button_down"]
 [connection signal="button_down" from="Book/Previous_Page" to="." method="_on_previous_page_button_down"]

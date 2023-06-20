@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://slb4mijat6jh"]
 
 [ext_resource type="Script" path="res://Scripts/Clock.gd" id="1_23s68"]
-[ext_resource type="Texture2D" uid="uid://027oblgjxr11" path="res://Assets/sprites/clock/clock_background.png" id="2_7aaup"]
-[ext_resource type="Texture2D" uid="uid://cmgpxtvl744pa" path="res://Assets/sprites/clock/clock_arrow.png" id="3_phxmu"]
-[ext_resource type="Texture2D" uid="uid://btraowheaj3ds" path="res://Assets/sprites/clock/clock_advance_time.png" id="4_l7wrc"]
+[ext_resource type="Texture2D" uid="uid://dirqp4kiye1tb" path="res://Assets/sprites/clock/clock_background.png" id="2_7aaup"]
+[ext_resource type="Texture2D" uid="uid://diq31p2yv4itd" path="res://Assets/sprites/clock/clock_arrow.png" id="3_phxmu"]
+[ext_resource type="Texture2D" uid="uid://dvwaoed5y3v3i" path="res://Assets/sprites/clock/clock_advance_time.png" id="4_l7wrc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sxf4i"]
 animations = [{
