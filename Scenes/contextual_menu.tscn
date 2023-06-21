@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0odcgveyh6r3"]
+
+[ext_resource type="Script" path="res://Scripts/contextual_menu.gd" id="1_on6no"]
+[ext_resource type="Texture2D" uid="uid://13g4j2i7eaff" path="res://Assets/sprites/UI/icon_harvest.png" id="2_wfqac"]
+[ext_resource type="Texture2D" uid="uid://jiw77f43qqdl" path="res://Assets/sprites/UI/icon_remove.png" id="3_muy21"]
+[ext_resource type="Texture2D" uid="uid://b7s5n13ggekmp" path="res://Assets/sprites/UI/icon_advice.png" id="4_ywbs1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqmkj"]
+bg_color = Color(1, 0.321569, 0.415686, 1)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+
+[node name="conextual_menu" type="Node2D"]
+script = ExtResource("1_on6no")
+
+[node name="button_hervest" type="Button" parent="."]
+texture_filter = 1
+offset_top = -28.0
+offset_right = 16.0
+offset_bottom = -12.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kqmkj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kqmkj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kqmkj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kqmkj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kqmkj")
+icon = ExtResource("2_wfqac")
+metadata/_edit_use_anchors_ = true
+
+[node name="button_remove" type="Button" parent="."]
+texture_filter = 1
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 24.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kqmkj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kqmkj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kqmkj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kqmkj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kqmkj")
+icon = ExtResource("3_muy21")
+metadata/_edit_use_anchors_ = true
+
+[node name="button_info" type="Button" parent="."]
+texture_filter = 1
+offset_top = 12.0
+offset_right = 16.0
+offset_bottom = 28.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kqmkj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kqmkj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kqmkj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kqmkj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kqmkj")
+icon = ExtResource("4_ywbs1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_muy21")
+
+[connection signal="pressed" from="button_hervest" to="." method="_on_button_hervest_pressed"]
+[connection signal="pressed" from="button_remove" to="." method="_on_button_remove_pressed"]
+[connection signal="pressed" from="button_info" to="." method="_on_button_info_pressed"]
