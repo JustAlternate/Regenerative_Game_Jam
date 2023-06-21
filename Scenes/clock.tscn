@@ -36,6 +36,7 @@ sprite_frames = SubResource("SpriteFrames_sxf4i")
 
 [node name="ArrowSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_nw3rf")
 
 [node name="TextureButton" type="TextureButton" parent="."]

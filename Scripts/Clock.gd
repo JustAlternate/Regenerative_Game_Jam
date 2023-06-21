@@ -4,7 +4,7 @@ signal phase_changed(new_phase: int)
 
 @export var number_of_phases = 8
 var current_phase
-@export var starting_arrow_angle = 0
+@export var starting_arrow_angle = -90
 var arrow_rotation_offset = (TAU * starting_arrow_angle) / 360.0 + PI
 
 # Called when the node enters the scene tree for the first time.
