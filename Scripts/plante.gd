@@ -223,8 +223,8 @@ func next_quarter_of_season(new_phase,random_event):
 	
 	var actual_season = [new_phase/2 +1 ,new_phase%2 +1]
 	var before_season = [((new_phase+7)%8)/2 +1, ((new_phase+7)%8)%2 +1]
-	print("before_season : " + str(before_season))
-	print("actual_season : " + str(actual_season))
+	#print("before_season : " + str(before_season))
+	#print("actual_season : " + str(actual_season))
 	
 	if plant_type == "None":
 		# Si la terre est vide, on lui fait regagner des nutriments a chaque passage de quarter of season.

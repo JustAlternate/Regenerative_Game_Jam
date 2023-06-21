@@ -52,6 +52,9 @@ position = Vector2(546, 174)
 text = "Yo bento"
 time_betwen_carac = 0.05
 
+[node name="seed_drawer" parent="Game" instance=ExtResource("4_fw8ti")]
+position = Vector2(2.47719, 72.0615)
+
 [node name="plant_spot_container" type="Node2D" parent="Game"]
 
 [node name="plant_spot_1" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
@@ -77,9 +80,6 @@ position = Vector2(480, 256)
 
 [node name="plant_spot_8" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
 position = Vector2(544, 256)
-
-[node name="seed_drawer" parent="Game" instance=ExtResource("4_fw8ti")]
-position = Vector2(2.47719, 72.0615)
 
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
 position = Vector2(542.477, 34.0615)
