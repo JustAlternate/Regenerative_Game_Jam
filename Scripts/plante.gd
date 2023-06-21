@@ -3,7 +3,7 @@ extends Node2D
 @export var plant_type = "None" #"carrot", "pea", "leek", "corn", "wheat", "pumpkin", "tomatoes", "thym", "vine", "courgette"
 var bonus_season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
 var season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
-@export var damage_out_seasons = 3
+
 var number_of_phase:int
 var humidities_values = [] # 0 = sec, 1 = humide, 2 = très humide
 var minimum_nutriment_values = [] # 0 = pas de nutriment, 1 = un peu nutriment, 2 = tres nutriments
@@ -11,6 +11,10 @@ var sunlight = [] # 0 = dont want sunlight, 1 = absolutly need sunlight
 var sickness = [] # "mildiou", "Oïdium", "Furariose"
 var appreciated_adjacents_plants = [] # "carrot", "pea", "leek", "corn", "wheat", "mint", "pumpkin", "tomatoes", "thym", "vine", "courgette"
 var unapreciated_adjacents_plants = [] # pareil que au dessus.
+
+signal calling_contextual_menu
+
+@export var number_of_tile_from_river:int
 
 # Spring1 = [1,1] , Summer2 = [2,2], Automn1 = [3,1] , Winter2 = [4,2]
 var dico_caracteristique = {
@@ -48,7 +52,7 @@ var dico_caracteristique = {
 	"number_of_phases":{
 		"pea":2,
 		"leek":3,
-		"corn":2,
+		"corn":4,
 		"wheat":4,
 		"carrot":3,
 		"mint":3,
@@ -160,8 +164,6 @@ var temp_sunlight_value
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$sprite.animation = "vide"
-	position.x = 0
-	position.y = 0
 	state = 0 # 0=graine, 1=plante_1, 2=plant_2, ... -1=morte.
 	plant_health = 5
 	nutriment_value = 0
@@ -179,11 +181,17 @@ func add_plant(type):
 		plant_health = 5
 		state = 0
 
+func harvest_plant():
+	print("harvested")
+	if not plant_type == "None":
+		plant_type = "None"
+		$sprite.animation = "vide"
+
 func remove_plant():
+	print("removed")
 	if not plant_type == "None":
 		plant_type = "None"	
 		$sprite.animation = "vide"
-	
 	
 func bonus_malus_seasons(actual_season):
 	if state == 0: # Si la plante est une graine
@@ -196,7 +204,6 @@ func bonus_malus_seasons(actual_season):
 		else:
 			# Si la plante est une graine mais quelle n'est pas dans une season valide alors on met le malus.
 			plant_health += dico_bonus_malus["season"][1]
-			
 func bonus_malus_nutriment(nutriment_value):
 	if state == 0: # Si la plante est une graine
 		if nutriment_value >= dico_caracteristique["minimum_nutriment_values"][plant_type]:
@@ -274,3 +281,12 @@ func next_quarter_of_season(new_phase,random_event):
 		print("nutriment_value : "+str(nutriment_value))
 		print("humidity_value : "+str(humidity_value))
 		print("sunlight_value : "+str(sunlight_value))
+
+
+func _on_button_pressed():
+	print("pressed")
+	if GlobalVariables.action_picked == "seed":
+		if plant_type == "None":
+			add_plant(GlobalVariables.seed_picked)
+
+	calling_contextual_menu.emit(self)

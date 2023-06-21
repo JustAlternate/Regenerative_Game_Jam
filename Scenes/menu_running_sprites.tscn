@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://olb5ewo4ysgy"]
+
+[ext_resource type="Texture2D" uid="uid://iypy24yjk1fb" path="res://Assets/sprites/plant/carrot_1.png" id="1_2hanl"]
+
+[node name="Sprite_deroulant" type="Node2D"]
+
+[node name="carrot" type="Sprite2D" parent="."]
+position = Vector2(-200, 184)
+texture = ExtResource("1_2hanl")
+
+[node name="carrot2" type="Sprite2D" parent="."]
+position = Vector2(-400, 184)
+texture = ExtResource("1_2hanl")
+
+[node name="carrot3" type="Sprite2D" parent="."]
+position = Vector2(-600, 184)
+texture = ExtResource("1_2hanl")
+
+[node name="carrot4" type="Sprite2D" parent="."]
+position = Vector2(-800, 184)
+texture = ExtResource("1_2hanl")
+
+[node name="carrot5" type="Sprite2D" parent="."]
+position = Vector2(-1000, 184)
+texture = ExtResource("1_2hanl")

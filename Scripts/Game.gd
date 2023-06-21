@@ -11,10 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("left_click") and len(tab_context_menu) >= 1:
-		print("hop")
-		var context_menu_to_delet_name = tab_context_menu.pop_front()
-		get_node(context_menu_to_delet_name).free()
+	pass
 	
 
 # new_phase : 0 = Winter2, 1 = Spring1 .... 7 = Winter1
@@ -56,17 +53,25 @@ func _on_clock_phase_changed(new_phase):
 	
 	# Updating every plants
 	for i in range(8):
-		$plant_spot_container.get_child(i).get_node("plant").next_quarter_of_season(new_phase,random_event)
+		$plant_spot_container.get_child(i).next_quarter_of_season(new_phase,random_event)
 
 
-
-func _on_plant_spot_calling_contextual_menu():
-	print("had")
+func _on_plant_calling_contextual_menu(plant_node):
+	if not(tab_context_menu==[]):
+		tab_context_menu[-1].free()
+		tab_context_menu.pop_front()
+	print(tab_context_menu)
+	#print(plant_node)
 	var context_menu_scene = load("res://Scenes/contextual_menu.tscn")
 	var context_menu_instance = context_menu_scene.instantiate()
 	var name = "context_menu_" + str(id_new_context_menu)
 	context_menu_instance.name = name
-	tab_context_menu.append(name)
 	add_child(context_menu_instance)
-	get_node(name).open_menu(get_node(name))
-	
+	get_node(name).open_menu()
+	get_node(name).targeted_plant = plant_node
+	tab_context_menu.append(context_menu_instance)
+	await get_tree().create_timer(3.0).timeout
+	if context_menu_instance in tab_context_menu:
+		tab_context_menu.pop_front()
+		context_menu_instance.free()
+

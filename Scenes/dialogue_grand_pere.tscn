@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://du2q4bvo17ea"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_grand_pere.gd" id="1_5a700"]
-[ext_resource type="Texture2D" uid="uid://bhy2ngrrm2v0b" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
-[ext_resource type="FontFile" uid="uid://dinlurcky8yjo" path="res://fonts/FutilePro.ttf" id="3_j6ie8"]
+[ext_resource type="Texture2D" uid="uid://jh1pda531gv5" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
+[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="3_j6ie8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_imwlg"]
 line_spacing = 1.0
@@ -12,7 +12,6 @@ font = ExtResource("3_j6ie8")
 position = Vector2(200, 200)
 script = ExtResource("1_5a700")
 text = "Le scale c'est la vie"
-time_betwen_carac = 0.05
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
