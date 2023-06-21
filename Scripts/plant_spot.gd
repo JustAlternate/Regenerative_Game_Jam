@@ -29,3 +29,9 @@ func _on_button_pressed():
 	else:
 		calling_contextual_menu.emit()
 		print("caling2")
+
+func remove_plante():
+	pass
+
+func harvest_node():
+	pass

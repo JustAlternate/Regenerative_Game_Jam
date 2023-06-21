@@ -1,34 +1,33 @@
 extends Node2D
 
-var plant_targeted:Node2D
+var targeted_plant:Node
 
-signal button_harvest
-signal button_remove
-signal button_info
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	open_menu()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func open_menu():
+func open_menu(plant_to_target:Node):
 	global_position = get_global_mouse_position()
 	visible = true
+	targeted_plant = plant_to_target 
 
 
 
-func _on_button_hervest_pressed():
+func _on_button_harvest_pressed():
 	print("harvest")
-	button_harvest.emit()
+	targeted_plant.harvest()
+	
 
 func _on_button_remove_pressed():
 	print("remove")
-	button_remove.emit()
+	targeted_plant.remove()
 
 func _on_button_info_pressed():
 	print("info")
-	button_info.emit()
+	#hummm
