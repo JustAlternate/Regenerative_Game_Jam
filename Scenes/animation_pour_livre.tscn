@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dkv3eat6lhkcn"]
 
-[ext_resource type="Texture2D" uid="uid://cssbl0ckgwq74" path="res://Assets/sprites/closed_book.png" id="1_xprjw"]
+[ext_resource type="Texture2D" uid="uid://uh3tmhppdxia" path="res://Assets/sprites/little_book.png" id="1_m12mt"]
 [ext_resource type="Texture2D" uid="uid://n2pl1clbc3jw" path="res://Assets/icon.svg" id="2_4s01i"]
 [ext_resource type="Texture2D" uid="uid://ckief3u5kca5v" path="res://Assets/sprites/plant/carrot_1.png" id="2_88wjd"]
 [ext_resource type="Texture2D" uid="uid://bseg02j0osr58" path="res://Assets/sprites/vide.png" id="5_x3mth"]
@@ -17,7 +17,7 @@ region = Rect2(0, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_xprjw")
+"texture": ExtResource("1_m12mt")
 }],
 "loop": true,
 "name": &"book",
@@ -49,6 +49,7 @@ animations = [{
 }]
 
 [node name="Item" type="AnimatedSprite2D"]
+texture_filter = 1
 position = Vector2(21, 21)
 sprite_frames = SubResource("SpriteFrames_538it")
 animation = &"book"
