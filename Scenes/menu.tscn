@@ -2,9 +2,9 @@
 
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="1_ni0yg"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_vd1g2"]
-[ext_resource type="Texture2D" uid="uid://oxbd8e2vdokl" path="res://Assets/sprites/Encyclopedia.png" id="2_mmtqr"]
-[ext_resource type="Texture2D" uid="uid://disxqkh3yu7ng" path="res://Assets/sprites/plant/carrot_1.png" id="3_25wju"]
-[ext_resource type="FontFile" uid="uid://dyrrkmpqsoqfp" path="res://fonts/CompassPro.ttf" id="5_eewky"]
+[ext_resource type="Texture2D" uid="uid://dk4emgw742jd6" path="res://Assets/sprites/Encyclopedia.png" id="2_mmtqr"]
+[ext_resource type="Texture2D" uid="uid://ckief3u5kca5v" path="res://Assets/sprites/plant/carrot_1.png" id="3_25wju"]
+[ext_resource type="FontFile" uid="uid://cli5wucjii3yd" path="res://fonts/CompassPro.ttf" id="5_eewky"]
 
 [sub_resource type="Theme" id="Theme_up03c"]
 
