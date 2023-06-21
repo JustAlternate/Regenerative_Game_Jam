@@ -13,7 +13,8 @@ func _process(delta):
 	pass
 
 func open_menu(plant_to_target:Node):
-	global_position = get_global_mouse_position()
+	global_position.x = int(get_global_mouse_position().x)
+	global_position.y = int(get_global_mouse_position().y)
 	visible = true
 	targeted_plant = plant_to_target 
 
