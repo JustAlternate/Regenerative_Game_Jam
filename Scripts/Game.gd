@@ -33,7 +33,9 @@ func _on_plant_spot_calling_contextual_menu():
 	print("had")
 	var context_menu_scene = load("res://Scenes/contextual_menu.tscn")
 	var context_menu_instance = context_menu_scene.instantiate()
-	context_menu_instance.name = "context_menu_" + str(id_new_context_menu)
-	tab_context_menu.append("context_menu_" + str(id_new_context_menu))
+	var name = "context_menu_" + str(id_new_context_menu)
+	context_menu_instance.name = name
+	tab_context_menu.append(name)
 	add_child(context_menu_instance)
+	get_node(name).open_menu(get_node(name))
 	
