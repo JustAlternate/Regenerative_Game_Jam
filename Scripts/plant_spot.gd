@@ -33,5 +33,5 @@ func _on_button_pressed():
 func remove_plante():
 	pass
 
-func harvest_node():
+func harvest_plant():
 	pass

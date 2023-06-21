@@ -21,12 +21,12 @@ func open_menu(plant_to_target:Node):
 
 func _on_button_harvest_pressed():
 	print("harvest")
-	targeted_plant.harvest()
+	targeted_plant.harvest_plant()
 	
 
 func _on_button_remove_pressed():
 	print("remove")
-	targeted_plant.remove()
+	targeted_plant.remove_plant()
 
 func _on_button_info_pressed():
 	print("info")
