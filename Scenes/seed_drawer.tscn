@@ -12,87 +12,88 @@ script = ExtResource("1_g10ax")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 texture_filter = 1
+clip_contents = true
 custom_minimum_size = Vector2(0, 128)
-offset_right = 246.0
-offset_bottom = 83.0
+offset_right = 573.0
+offset_bottom = 320.0
 theme_override_constants/separation = 0
 
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
 texture_filter = 1
+clip_contents = true
 layout_mode = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
-columns = 3
 
-[node name="ContainerTomatoes" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_tomatoes" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 seed_name = "tomatoes"
 activated = true
 
-[node name="ContainerRadish" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_radish" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 seed_name = "radish"
 activated = true
 
-[node name="ContainerCarrot" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_carrot" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 activated = true
 
-[node name="ContainerWheat" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_wheat" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 Seed_Texture = ExtResource("3_j83ai")
 seed_name = "wheat"
 activated = true
 
-[node name="ContainerZucchini" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_zucchini" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 Seed_Texture = ExtResource("4_ig05v")
 seed_name = "zucchini"
 activated = true
 
-[node name="ContainerAil" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_ail" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 seed_name = "ail"
 activated = true
 
-[node name="ContainerPumpkin" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_pumpkin" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 seed_name = "pumpkin"
 activated = true
 
-[node name="ContainerCorn" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_corn" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 seed_name = "corn"
 activated = true
 
-[node name="ContainerMint" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_mint" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 seed_name = "mint"
 activated = true
 
-[node name="ContainerThym" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_thym" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 seed_name = "thym"
 activated = true
 
-[node name="ContainerPea" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_pea" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 seed_name = "pea"
 activated = true
 
-[node name="ContainerVine" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_vine" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 seed_name = "vine"
 activated = true
 
-[node name="ContainerLeek" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_leek" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
 seed_name = "leek"
 activated = true
 
 [node name="OpenDrawerButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 0
 toggle_mode = true
 texture_normal = ExtResource("1_fiswa")
 texture_pressed = ExtResource("2_r2j8y")
