@@ -12,9 +12,9 @@ var sickness = [] # "mildiou", "Oïdium", "Furariose"
 var appreciated_adjacents_plants = [] # "carrot", "pea", "leek", "corn", "wheat", "mint", "pumpkin", "tomatoes", "thym", "vine", "courgette"
 var unapreciated_adjacents_plants = [] # pareil que au dessus.
 
+# Spring1 = [1,1] , Summer2 = [2,2], Automn1 = [3,1] , Winter2 = [4,2]
 var dico_caracteristique = {
 	"bonus_season":{
-	 # Spring1 = [1,1] , Summer2 = [2,2], Automn1 = [3,1] , Winter2 = [4,2]
 		"pea":[[4,1],[4,2]],
 		"leek":[[2,2]],
 		"corn":[[1,1]],
@@ -31,7 +31,6 @@ var dico_caracteristique = {
 	},
 	"season":
 	{
-	# Spring1 = [1,1] , Summer2 = [2,2], Automn1 = [3,1] , Winter2 = [4,2]
 		"pea":[[1,1],[3,2]],
 		"leek":[[2,1],[2,2],[3,1]],
 		"corn":[[1,2]],
@@ -61,7 +60,7 @@ var dico_caracteristique = {
 		"ail":3,
 		"radish":1,
 	},
-	"humidities_values":{ # 0 = sec, 1 = humide, 2 = très humide
+	"humidities_values":{
 		"pea":[1],
 		"leek":[0,1],
 		"corn":[2],
