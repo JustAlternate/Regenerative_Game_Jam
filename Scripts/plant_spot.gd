@@ -31,7 +31,7 @@ func _on_button_pressed():
 		print("caling2")
 
 func remove_plante():
-	pass
+	$plant.remove
 
 func harvest_plant():
 	pass

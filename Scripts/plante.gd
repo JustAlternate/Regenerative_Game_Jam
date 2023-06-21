@@ -207,9 +207,6 @@ func bonus_malus_nutriment(nutriment_value):
 			else:
 				plant_health += dico_bonus_malus["minimum_nutriment_values"][1]
 
-
-
-
 func next_quarter_of_season(new_phase):
 	var actual_season = [new_phase/2 +1 ,new_phase%2 +1]
 	

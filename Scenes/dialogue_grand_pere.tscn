@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://du2q4bvo17ea"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_grand_pere.gd" id="1_5a700"]
-[ext_resource type="Texture2D" uid="uid://y5ly38ihohnl" path="res://Assets/sprites/grandad.png" id="1_x0k8r"]
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="2_56v54"]
+[ext_resource type="Texture2D" uid="uid://cvwqs7osof5vw" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
 
 [node name="Dialogue_grand_pere" type="Node2D"]
 script = ExtResource("1_5a700")
+text = "Le scale c'est la vie"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
-texture = ExtResource("1_x0k8r")
+texture = ExtResource("2_uole0")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = -133.0
