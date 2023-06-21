@@ -61,7 +61,6 @@ clip_text = true
 [node name="Item" parent="Book/Page_gauche" instance=ExtResource("5_smlq5")]
 position = Vector2(4.90009, 3.50001)
 scale = Vector2(0.1, 0.1)
-animation = &"book"
 
 [node name="Body" type="Label" parent="Book/Page_gauche"]
 layout_mode = 0
@@ -115,7 +114,6 @@ clip_text = true
 [node name="Item" parent="Book/Page_droite" instance=ExtResource("5_smlq5")]
 position = Vector2(4.90021, 3.50001)
 scale = Vector2(0.1, 0.1)
-animation = &"book"
 
 [node name="Body" type="Label" parent="Book/Page_droite"]
 layout_mode = 0

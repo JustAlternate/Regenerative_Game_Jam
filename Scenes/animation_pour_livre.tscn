@@ -1,18 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkv3eat6lhkcn"]
+[gd_scene load_steps=8 format=3 uid="uid://dkv3eat6lhkcn"]
 
 [ext_resource type="Texture2D" uid="uid://cssbl0ckgwq74" path="res://Assets/sprites/closed_book.png" id="1_xprjw"]
 [ext_resource type="Texture2D" uid="uid://n2pl1clbc3jw" path="res://Assets/icon.svg" id="2_4s01i"]
-[ext_resource type="Texture2D" uid="uid://bym7yrnxvvlvy" path="res://Assets/sprites/Encyclopedia_open.png" id="2_28k6o"]
 [ext_resource type="Texture2D" uid="uid://ckief3u5kca5v" path="res://Assets/sprites/plant/carrot_1.png" id="2_88wjd"]
 [ext_resource type="Texture2D" uid="uid://bseg02j0osr58" path="res://Assets/sprites/vide.png" id="5_x3mth"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkemp"]
 atlas = ExtResource("2_88wjd")
 region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vfgvg"]
-atlas = ExtResource("2_28k6o")
-region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvl6v"]
 atlas = ExtResource("2_4s01i")
@@ -34,14 +29,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"carrot",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vfgvg")
-}],
-"loop": true,
-"name": &"encyclopedia",
 "speed": 5.0
 }, {
 "frames": [{
