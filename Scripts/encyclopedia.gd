@@ -1,7 +1,7 @@
 extends Node2D
 
 var actual_page_number = 0
-@export var Pages_unlocked = 1
+@export var Pages_unlocked = 2
 @export var Pages = [
 	[ #Page 1 - 2
 		["Encyclopedia","The Encyclopedia is your best friend in this game, nearly everything you must know about your crops and how the game works is in this book, make sure to read it as you progress and as you discover new crops ! ","book"], #Page gauche
@@ -25,8 +25,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
-
 func _on_button_button_down():
 	print("Openage of zi encyclopedia")
 	$Book.visible = not($Book.visible)
@@ -36,7 +34,7 @@ func _on_close_button_down():
 	$Book.visible = false
 
 func maj_book(actual_page_number):
-	if actual_page_number <= Pages_unlocked:
+	if actual_page_number < Pages_unlocked:
 		$Book/Page_gauche/Title.text = Pages[actual_page_number][0][0]
 		$Book/Page_gauche/Body.text = Pages[actual_page_number][0][1]
 		$Book/Page_gauche/Item.set_animation(Pages[actual_page_number][0][2])
@@ -45,18 +43,29 @@ func maj_book(actual_page_number):
 		$Book/Page_gauche/Body.text = ""
 		$Book/Page_gauche/Item.set_animation("vide")
 	
-	if actual_page_number <= Pages_unlocked+1:
+	if actual_page_number < Pages_unlocked:
 		$Book/Page_droite/Title.text = Pages[actual_page_number][1][0]
 		$Book/Page_droite/Body.text = Pages[actual_page_number][1][1]
 		$Book/Page_droite/Item.set_animation(Pages[actual_page_number][1][2])
 	else:
-		$Book/Page_gauche/Title.text = ""
-		$Book/Page_gauche/Body.text = ""
-		$Book/Page_gauche/Item.set_animation("vide")
+		$Book/Page_droite/Title.text = ""
+		$Book/Page_droite/Body.text = ""
+		$Book/Page_droite/Item.set_animation("vide")
+		
+	if actual_page_number == Pages_unlocked-1:
+		$Book/Next_Page.visible = false
+	else:
+		$Book/Next_Page.visible = true
+	
+	if actual_page_number == 0:
+		$Book/Previous_Page.visible = false
+	else:
+		$Book/Previous_Page.visible = true
+
 	
 
 func _on_next_page_button_down():
-	if actual_page_number < len(Pages)-1:
+	if not(actual_page_number == Pages_unlocked-1):
 		actual_page_number += 1
 		maj_book(actual_page_number)
 
