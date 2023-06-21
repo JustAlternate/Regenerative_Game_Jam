@@ -5,4 +5,3 @@
 [resource]
 line_spacing = 1.0
 font = ExtResource("1_gl0qe")
-font_color = Color(0, 0, 0, 1)

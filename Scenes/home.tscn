@@ -50,6 +50,7 @@ color = Color(0.341176, 0.321569, 1, 1)
 [node name="Dialogue_grand_pere" parent="Game" instance=ExtResource("2_005re")]
 position = Vector2(546, 174)
 text = "Yo bento"
+time_betwen_carac = 0.05
 
 [node name="plant_spot_container" type="Node2D" parent="Game"]
 

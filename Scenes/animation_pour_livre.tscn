@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkv3eat6lhkcn"]
+[gd_scene load_steps=8 format=3 uid="uid://dkv3eat6lhkcn"]
 
 [ext_resource type="Texture2D" uid="uid://uh3tmhppdxia" path="res://Assets/sprites/little_book.png" id="1_m12mt"]
 [ext_resource type="Texture2D" uid="uid://n2pl1clbc3jw" path="res://Assets/icon.svg" id="2_4s01i"]
+[ext_resource type="Texture2D" uid="uid://dl0necjenbq6y" path="res://Assets/Plant/sprite-carrot.png" id="2_ux8t1"]
 [ext_resource type="Texture2D" uid="uid://bseg02j0osr58" path="res://Assets/sprites/vide.png" id="5_x3mth"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5qfo"]
+atlas = ExtResource("2_ux8t1")
+region = Rect2(0, 128, 64, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvl6v"]
 atlas = ExtResource("2_4s01i")
@@ -16,6 +21,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"book",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5qfo")
+}],
+"loop": true,
+"name": &"carrot",
 "speed": 5.0
 }, {
 "frames": [{
@@ -39,4 +52,4 @@ animations = [{
 texture_filter = 1
 position = Vector2(21, 21)
 sprite_frames = SubResource("SpriteFrames_538it")
-animation = &"book"
+animation = &"carrot"
