@@ -55,6 +55,41 @@ layout_mode = 2
 seed_name = "ail"
 activated = true
 
+[node name="ContainerPumpkin" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+layout_mode = 2
+seed_name = "pumpkin"
+activated = true
+
+[node name="ContainerCorn" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+layout_mode = 2
+seed_name = "corn"
+activated = true
+
+[node name="ContainerMint" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+layout_mode = 2
+seed_name = "mint"
+activated = true
+
+[node name="ContainerThym" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+layout_mode = 2
+seed_name = "thym"
+activated = true
+
+[node name="ContainerPea" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+layout_mode = 2
+seed_name = "pea"
+activated = true
+
+[node name="ContainerVine" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+layout_mode = 2
+seed_name = "vine"
+activated = true
+
+[node name="ContainerLeek" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+layout_mode = 2
+seed_name = "leek"
+activated = true
+
 [node name="OpenDrawerButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4

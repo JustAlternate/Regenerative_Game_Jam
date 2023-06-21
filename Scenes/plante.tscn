@@ -1,13 +1,16 @@
-[gd_scene load_steps=31 format=3 uid="uid://c5fwrbut46wua"]
+[gd_scene load_steps=43 format=3 uid="uid://c5fwrbut46wua"]
 
 [ext_resource type="Script" path="res://Scripts/plante.gd" id="1_y1icu"]
 [ext_resource type="Texture2D" uid="uid://5yxt58j0mkrs" path="res://Assets/Plant/sprite-ail.png" id="2_f3og3"]
 [ext_resource type="Texture2D" uid="uid://dl0necjenbq6y" path="res://Assets/Plant/sprite-carrot.png" id="2_yptac"]
 [ext_resource type="Texture2D" uid="uid://pts8h1by5qsp" path="res://Assets/Plant/sprite-radis.png" id="3_pf3go"]
 [ext_resource type="Texture2D" uid="uid://lw0eltv4ru73" path="res://Assets/Plant/sprite-ble-V2.png" id="4_5w2th"]
+[ext_resource type="Texture2D" uid="uid://b0bpy4kwug6gy" path="res://Assets/Plant/sprite-poirreau.png" id="4_r44fc"]
 [ext_resource type="Texture2D" uid="uid://jsyuv6a85ary" path="res://Assets/Plant/sprite-tomate.png" id="4_v1td6"]
+[ext_resource type="Texture2D" uid="uid://cnla173it74y0" path="res://Assets/Plant/sprite-petit-pois.png" id="5_ohc3g"]
 [ext_resource type="Texture2D" uid="uid://t84je3pbsk8q" path="res://Assets/Plant/sprite-courgette.png" id="5_y042f"]
 [ext_resource type="Texture2D" uid="uid://d2ngbx1uvmcf1" path="res://Assets/sprites/vide_64x128.png" id="6_gtc40"]
+[ext_resource type="Texture2D" uid="uid://djqh34qxcq278" path="res://Assets/Plant/sprite-vigne1.png" id="9_dv5hg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4iqdw"]
 atlas = ExtResource("2_f3og3")
@@ -41,6 +44,30 @@ region = Rect2(128, 0, 64, 128)
 atlas = ExtResource("2_yptac")
 region = Rect2(0, 128, 64, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbxa4"]
+atlas = ExtResource("4_r44fc")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5qoj"]
+atlas = ExtResource("4_r44fc")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k7k7"]
+atlas = ExtResource("4_r44fc")
+region = Rect2(0, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtlhg"]
+atlas = ExtResource("5_ohc3g")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvkla"]
+atlas = ExtResource("5_ohc3g")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3fob"]
+atlas = ExtResource("5_ohc3g")
+region = Rect2(0, 128, 64, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6php"]
 atlas = ExtResource("3_pf3go")
 region = Rect2(0, 0, 64, 128)
@@ -59,6 +86,18 @@ region = Rect2(64, 0, 64, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3xdr"]
 atlas = ExtResource("4_v1td6")
+region = Rect2(0, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fir4"]
+atlas = ExtResource("9_dv5hg")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmksl"]
+atlas = ExtResource("9_dv5hg")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suc7d"]
+atlas = ExtResource("9_dv5hg")
 region = Rect2(0, 128, 64, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cj3sh"]
@@ -161,6 +200,54 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_kbxa4")
+}],
+"loop": true,
+"name": &"leek_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5qoj")
+}],
+"loop": true,
+"name": &"leek_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k7k7")
+}],
+"loop": true,
+"name": &"leek_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtlhg")
+}],
+"loop": true,
+"name": &"pea_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvkla")
+}],
+"loop": true,
+"name": &"pea_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3fob")
+}],
+"loop": true,
+"name": &"pea_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_d6php")
 }],
 "loop": true,
@@ -205,6 +292,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"vide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fir4")
+}],
+"loop": true,
+"name": &"vine_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmksl")
+}],
+"loop": true,
+"name": &"vine_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suc7d")
+}],
+"loop": true,
+"name": &"vine_2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -278,4 +389,4 @@ script = ExtResource("1_y1icu")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_cye4a")
-animation = &"ail_3"
+animation = &"pea_2"
