@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cux0ivx6exq1b"]
+[gd_scene load_steps=9 format=3 uid="uid://cux0ivx6exq1b"]
 
 [ext_resource type="PackedScene" uid="uid://dftuedx82aneu" path="res://Scenes/encyclopedia.tscn" id="1_1gyia"]
 [ext_resource type="PackedScene" uid="uid://bu4wg2rbfgctm" path="res://Scenes/plant_spot.tscn" id="1_4iv55"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cpc1baduxkefv" path="res://Scenes/seed_drawer.tscn" id="4_fw8ti"]
 [ext_resource type="PackedScene" uid="uid://slb4mijat6jh" path="res://Scenes/clock.tscn" id="5_gjtvy"]
 [ext_resource type="PackedScene" uid="uid://c751d7ivsjn33" path="res://Scenes/meteo.tscn" id="6_2mes2"]
+[ext_resource type="PackedScene" uid="uid://b0odcgveyh6r3" path="res://Scenes/contextual_menu.tscn" id="8_0le58"]
 
 [node name="home" type="Node2D"]
 
@@ -73,5 +74,8 @@ position = Vector2(2.47719, 72.0615)
 
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
 position = Vector2(542.477, 34.0615)
+
+[node name="conextual_menu" parent="Game" instance=ExtResource("8_0le58")]
+position = Vector2(225, 279)
 
 [connection signal="phase_changed" from="Game/Clock" to="Game" method="_on_clock_phase_changed"]
