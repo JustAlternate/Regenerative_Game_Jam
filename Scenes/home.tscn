@@ -78,4 +78,12 @@ position = Vector2(542.477, 34.0615)
 [node name="conextual_menu" parent="Game" instance=ExtResource("8_0le58")]
 position = Vector2(225, 279)
 
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_1" to="Game" method="_on_plant_spot_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_2" to="Game" method="_on_plant_spot_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_3" to="Game" method="_on_plant_spot_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_4" to="Game" method="_on_plant_spot_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_5" to="Game" method="_on_plant_spot_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_6" to="Game" method="_on_plant_spot_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_7" to="Game" method="_on_plant_spot_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_8" to="Game" method="_on_plant_spot_calling_contextual_menu"]
 [connection signal="phase_changed" from="Game/Clock" to="Game" method="_on_clock_phase_changed"]

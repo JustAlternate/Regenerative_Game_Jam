@@ -19,10 +19,13 @@ func _process(delta):
 		$shovel.visible = false
 
 func _on_button_pressed():
+	print("clic")
 	if GlobalVariables.action_picked == "seed":
 		if $plant.plant_type == "None":
 			$plant.add_plant(GlobalVariables.seed_picked)
 		else:
 			calling_contextual_menu.emit()
+			print("caling")
 	else:
 		calling_contextual_menu.emit()
+		print("caling2")

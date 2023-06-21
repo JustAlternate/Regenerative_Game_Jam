@@ -11,6 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("left_click") and len(tab_context_menu) >= 1:
+		print("hop")
 		var context_menu_to_delet_name = tab_context_menu.pop_front()
 		get_node(context_menu_to_delet_name).free()
 		
@@ -29,8 +30,9 @@ func _on_clock_phase_changed(new_phase):
 
 
 func _on_plant_spot_calling_contextual_menu():
+	print("had")
 	var context_menu_scene = load("res://Scenes/contextual_menu.tscn")
-	var context_menu_instance = context_menu_scene.instanciate()
+	var context_menu_instance = context_menu_scene.instantiate()
 	context_menu_instance.name = "context_menu_" + str(id_new_context_menu)
 	tab_context_menu.append("context_menu_" + str(id_new_context_menu))
 	add_child(context_menu_instance)
