@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpc1baduxkefv"]
+[gd_scene load_steps=7 format=3 uid="uid://cpc1baduxkefv"]
 
 [ext_resource type="Texture2D" uid="uid://bejti4xwfm0bd" path="res://Assets/sprites/seed_drawer/button_closed.png" id="1_fiswa"]
 [ext_resource type="Script" path="res://Scripts/seed_drawer.gd" id="1_g10ax"]
 [ext_resource type="PackedScene" uid="uid://y7p56ox4gd3m" path="res://Scenes/seed_container.tscn" id="2_ck28v"]
 [ext_resource type="Texture2D" uid="uid://cinea1fhapo7t" path="res://Assets/sprites/seed_drawer/button_opened.png" id="2_r2j8y"]
+[ext_resource type="Texture2D" uid="uid://1nsylq4hxgu7" path="res://Assets/sprites/tombe.png" id="3_j83ai"]
+[ext_resource type="Texture2D" uid="uid://bfvtjkcqoxbou" path="res://Assets/sprites/shovel.png" id="4_ig05v"]
 
 [node name="seed_drawer" type="Node2D"]
 script = ExtResource("1_g10ax")
@@ -32,11 +34,17 @@ layout_mode = 2
 layout_mode = 2
 activated = true
 
-[node name="Container5" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="ContainerWheat" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
+Seed_Texture = ExtResource("3_j83ai")
+seed_name = "wheat"
+activated = true
 
-[node name="Container6" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="ContainerZucchini" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
+Seed_Texture = ExtResource("4_ig05v")
+seed_name = "zucchini"
+activated = true
 
 [node name="Container7" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2

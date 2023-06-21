@@ -25,7 +25,7 @@ var dico_caracteristique = {
 		"tomatoes":[[1,1]],
 		"thym":[[3,1]],
 		"vine":[[4,1],[4,2]],
-		"courgette":[[1,1]],
+		"zucchini":[[1,1]],
 		"ail":[],
 		"radish":[],
 	},
@@ -41,7 +41,7 @@ var dico_caracteristique = {
 		"tomatoes":[[4,2],[1,2]],
 		"thym":[[1,1],[1,2]],
 		"vine":[[3,2],[1,1]],
-		"courgette":[[4,2],[1,2]],
+		"zucchini":[[4,2],[1,2]],
 		"ail":[[3,2],[4,2]],
 		"radish":[[4,1],[4,2],[1,1],[1,2],[2,1],[2,2],[3,1]],
 	},
@@ -56,11 +56,11 @@ var dico_caracteristique = {
 		"tomatoes":2,
 		"thym":4,
 		"vine":4,
-		"courgette":2,
+		"zucchini":2,
 		"ail":3,
 		"radish":1,
 	},
-	"humidities_values":{
+	"humidities_values":{ #0 = sec, 1 = normal, 2 = trempé
 		"pea":[1],
 		"leek":[0,1],
 		"corn":[2],
@@ -71,7 +71,7 @@ var dico_caracteristique = {
 		"tomatoes":[1,2],
 		"thym":[0],
 		"vine":[1],
-		"courgette":[2],
+		"zucchini":[2],
 		"ail":[0],
 		"radish":[2],
 	},
@@ -86,7 +86,7 @@ var dico_caracteristique = {
 		"tomatoes":1,
 		"thym":0,
 		"vine":0,
-		"courgette":2,
+		"zucchini":2,
 		"ail":0,
 		"radish":2,
 	},
@@ -101,7 +101,7 @@ var dico_caracteristique = {
 		"tomatoes":2,
 		"thym":2,
 		"vine":2,
-		"courgette":2,
+		"zucchini":2,
 		"ail":2,
 		"radish":0,
 	},
@@ -116,7 +116,7 @@ var dico_caracteristique = {
 		"tomatoes":[],
 		"thym":["mint"],
 		"vine":[],
-		"courgette":["pea"],
+		"zucchini":["pea"],
 		"ail":["tomatoes"],
 		"radish":["carrot","ail","pea","tomatoes"],
 	},
@@ -131,7 +131,7 @@ var dico_caracteristique = {
 		"tomatoes":[],
 		"thym":[],
 		"vine":[],
-		"courgette":[],
+		"zucchini":[],
 		"ail":["pea"],
 		"radish":[],
 	},
@@ -141,7 +141,7 @@ var dico_caracteristique = {
 var dico_bonus_malus = {
 	"bonus_season":[2,0],
 	"season":[0,-4],
-	"humidities_values":[1,"requis-actual"], # ATTENTION NE PAS CHANGER CETTE LIGNE
+	"humidities_values":[1,-2],
 	"minimum_nutriment_values":[1,"requis-actual"], # ATTENTION NE PAS CHANGER CETTE LIGNE
 	"sunlight":[1,-2], 
 	"appreciated_adjacents_plants":[1,0],
@@ -151,6 +151,11 @@ var dico_bonus_malus = {
 var state:int
 var plant_health:int
 var nutriment_value:int
+var humidity_value:int # 0 = sec, 1 = mouillé, 2 = trempé
+var sunlight_value:int  # 0 = ombre, 1 = soleil
+
+var temp_humidity_value
+var temp_sunlight_value
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -160,6 +165,8 @@ func _ready():
 	state = 0 # 0=graine, 1=plante_1, 2=plant_2, ... -1=morte.
 	plant_health = 5
 	nutriment_value = 0
+	humidity_value = 1 # 0 = sec, 1= humide, 2 = trempé
+	sunlight_value = 1  # 0 = ombre, 1 = soleil
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -183,18 +190,13 @@ func bonus_malus_seasons(actual_season):
 		if actual_season in dico_caracteristique["bonus_season"][plant_type]:
 			# Si la plante est une graine est quelle est a la bonne bonus saison alors boom, elle prend le bonus.
 			plant_health += dico_bonus_malus["bonus_season"][0]
-		
-		else:
-			# On met le malus du bonus season
-			plant_health += dico_bonus_malus["bonus_season"][1]
-		
-		if actual_season in dico_caracteristique["season"][plant_type]:
+		elif actual_season in dico_caracteristique["season"][plant_type]:
 			# Si la plant est dans une season valide
 			plant_health += dico_bonus_malus["season"][0]
 		else:
 			# Si la plante est une graine mais quelle n'est pas dans une season valide alors on met le malus.
 			plant_health += dico_bonus_malus["season"][1]
-
+			
 func bonus_malus_nutriment(nutriment_value):
 	if state == 0: # Si la plante est une graine
 		if nutriment_value >= dico_caracteristique["minimum_nutriment_values"][plant_type]:
@@ -206,28 +208,54 @@ func bonus_malus_nutriment(nutriment_value):
 				plant_health += abs(dico_caracteristique["minimum_nutriment_values"][plant_type] - nutriment_value)
 			else:
 				plant_health += dico_bonus_malus["minimum_nutriment_values"][1]
-
-func next_quarter_of_season(new_phase):
+func bonus_malus_humidity(humidity_value):
+	if humidity_value in dico_caracteristique["humidities_values"][plant_type]:
+		plant_health += dico_bonus_malus["humidities_values"][0]
+	else:
+		plant_health += dico_bonus_malus["humidities_values"][1]
+func bonus_malus_sunlight(sunlight_value):
+	if sunlight_value >= dico_caracteristique["sunlight"][plant_type]:
+		plant_health += dico_bonus_malus["sunlight"][0]
+	else:
+		plant_health += dico_bonus_malus["sunlight"][1]
+	
+func next_quarter_of_season(new_phase,random_event):
+	
 	var actual_season = [new_phase/2 +1 ,new_phase%2 +1]
+	var before_season = [((new_phase+7)%8)/2 +1, ((new_phase+7)%8)%2 +1]
+	print("before_season : " + str(before_season))
+	print("actual_season : " + str(actual_season))
 	
 	if plant_type == "None":
 		# Si la terre est vide, on lui fait regagner des nutriments a chaque passage de quarter of season.
 		if nutriment_value <= 2:
 			nutriment_value += 1
-	
 	else:
 		if state == 0:
 			# Si on a posé une graine au quarter de season précédent, alors on baisse le nutriment de la terre de 1.
 			nutriment_value -= 1
+		
+		if random_event == "pluie" and humidity_value < 2:
+			temp_humidity_value = humidity_value + 1
+		else:
+			temp_humidity_value = humidity_value
+			
+		if random_event == "sunlight" and humidity_value > 0:
+			temp_sunlight_value = sunlight_value + 1
+		else:
+			temp_sunlight_value = sunlight_value
 		
 		if state < dico_caracteristique["number_of_phases"][plant_type]:
 			# Alors la plante peut encore poussé :
 			
 			# On applique les bonus / malus sur la vie de le a plante.
 			
-			bonus_malus_seasons(actual_season)
-			#bonus_malus_sunlight(sunlight)
+			print("plant_health : "+str(plant_health))
+			bonus_malus_seasons(before_season)
+			bonus_malus_humidity(temp_humidity_value)
 			bonus_malus_nutriment(nutriment_value)
+			bonus_malus_sunlight(temp_sunlight_value)
+			print("plant_health : "+str(plant_health))
 			
 			# On fait poussé la plante si elle est toujours vivante :
 			if plant_health > 0:
@@ -236,6 +264,7 @@ func next_quarter_of_season(new_phase):
 			else:
 				# Sinon on la remove pour l'instant.
 				remove_plant()
+				print("la plante est morte")
 				
 	if plant_type != "None":
 		print("actual_season : "+str(actual_season))
@@ -243,3 +272,5 @@ func next_quarter_of_season(new_phase):
 		print("plant_type : "+str(plant_type))
 		print("plant_health : "+str(plant_health))
 		print("nutriment_value : "+str(nutriment_value))
+		print("humidity_value : "+str(humidity_value))
+		print("sunlight_value : "+str(sunlight_value))

@@ -9,10 +9,11 @@ script = ExtResource("1_8kb7b")
 Sun_color = Color(1, 1, 1, 1)
 
 [node name="Rain" type="CPUParticles2D" parent="."]
-visible = false
-position = Vector2(288, -20)
+position = Vector2(288, -10)
 scale = Vector2(2, 2)
-amount = 50
+amount = 20
+lifetime = 0.72
+lifetime_randomness = 0.2
 emission_shape = 3
 emission_rect_extents = Vector2(150, 1)
 scale_amount_min = 2.0
@@ -24,6 +25,8 @@ scale_amount_max = 2.0
 position = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sun/DirectionalLight2D"]
+visible = false
+position = Vector2(9, -20)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_to760")
 
