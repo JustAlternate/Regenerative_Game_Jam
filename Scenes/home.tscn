@@ -37,6 +37,20 @@ offset_right = 576.0
 offset_bottom = 350.0
 color = Color(0.584314, 0.407843, 0.278431, 1)
 
+[node name="background_sol3" type="ColorRect" parent="Game"]
+light_mask = 0
+offset_left = 261.0
+offset_top = 250.0
+offset_right = 321.0
+offset_bottom = 294.0
+color = Color(0.341176, 0.321569, 1, 1)
+
+[node name="Encyclopedia" parent="Game" instance=ExtResource("1_1gyia")]
+
+[node name="Dialogue_grand_pere" parent="Game" instance=ExtResource("2_005re")]
+position = Vector2(546, 174)
+text = "Yo bento"
+
 [node name="plant_spot_container" type="Node2D" parent="Game"]
 
 [node name="plant_spot_1" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
@@ -62,12 +76,6 @@ position = Vector2(480, 256)
 
 [node name="plant_spot_8" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
 position = Vector2(544, 256)
-
-[node name="Encyclopedia" parent="Game" instance=ExtResource("1_1gyia")]
-
-[node name="Dialogue_grand_pere" parent="Game" instance=ExtResource("2_005re")]
-position = Vector2(546, 174)
-text = "Yo bento"
 
 [node name="seed_drawer" parent="Game" instance=ExtResource("4_fw8ti")]
 position = Vector2(2.47719, 72.0615)

@@ -24,11 +24,15 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="Container3" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="ContainerTomatoes" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
+seed_name = "tomatoes"
+activated = true
 
-[node name="Container4" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="ContainerRadish" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
+seed_name = "radish"
+activated = true
 
 [node name="ContainerCarrot" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
@@ -46,8 +50,10 @@ Seed_Texture = ExtResource("4_ig05v")
 seed_name = "zucchini"
 activated = true
 
-[node name="Container7" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="ContainerAil" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 layout_mode = 2
+seed_name = "ail"
+activated = true
 
 [node name="OpenDrawerButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2

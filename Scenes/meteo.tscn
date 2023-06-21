@@ -9,6 +9,7 @@ script = ExtResource("1_8kb7b")
 Sun_color = Color(1, 1, 1, 1)
 
 [node name="Rain" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(288, -10)
 scale = Vector2(2, 2)
 amount = 20
