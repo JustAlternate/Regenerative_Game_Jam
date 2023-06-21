@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0odcgveyh6r3"]
 
 [ext_resource type="Script" path="res://Scripts/contextual_menu.gd" id="1_on6no"]
-[ext_resource type="Texture2D" uid="uid://13g4j2i7eaff" path="res://Assets/sprites/UI/icon_harvest.png" id="2_wfqac"]
-[ext_resource type="Texture2D" uid="uid://jiw77f43qqdl" path="res://Assets/sprites/UI/icon_remove.png" id="3_muy21"]
-[ext_resource type="Texture2D" uid="uid://b7s5n13ggekmp" path="res://Assets/sprites/UI/icon_advice.png" id="4_ywbs1"]
+[ext_resource type="Texture2D" path="res://Assets/sprites/UI/icon_harvest.png" id="2_wfqac"]
+[ext_resource type="Texture2D" path="res://Assets/sprites/UI/icon_remove.png" id="3_muy21"]
+[ext_resource type="Texture2D" path="res://Assets/sprites/UI/icon_advice.png" id="4_ywbs1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqmkj"]
 bg_color = Color(1, 0.321569, 0.415686, 1)
