@@ -41,10 +41,11 @@ sprite_frames = SubResource("SpriteFrames_nw3rf")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 texture_filter = 1
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = -19.0
+offset_top = -20.0
+offset_right = 109.0
+offset_bottom = 108.0
+scale = Vector2(0.3, 0.3)
 texture_pressed = ExtResource("4_l7wrc")
 texture_hover = ExtResource("4_l7wrc")
 stretch_mode = 3

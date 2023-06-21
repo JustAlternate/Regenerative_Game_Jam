@@ -51,6 +51,7 @@ offset_top = -80.0
 offset_right = 74.0
 offset_bottom = -44.0
 scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Titre page"
 label_settings = ExtResource("4_mllbh")
 horizontal_alignment = 1
@@ -69,6 +70,7 @@ offset_top = -53.0
 offset_right = 130.0
 offset_bottom = 261.0
 scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Bonjour aventurier bien ou quoi ?
 
 The item :
@@ -106,6 +108,7 @@ offset_top = -80.0
 offset_right = 74.0
 offset_bottom = -44.0
 scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Titre page"
 label_settings = ExtResource("4_mllbh")
 horizontal_alignment = 1
@@ -124,6 +127,7 @@ offset_top = -53.0
 offset_right = 130.0
 offset_bottom = 261.0
 scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Bonjour aventurier bien ou quoi ?
 
 The item :

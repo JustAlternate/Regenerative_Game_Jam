@@ -49,7 +49,7 @@ func _on_clock_phase_changed(new_phase):
 		$Meteo/Rain.visible = false
 	
 	if random_event=="soleil":
-		$Meteo/Sun/DirectionalLight2D.energy = 1.5
+		$Meteo/Sun/DirectionalLight2D.energy = 1.3
 	else:
 		$Meteo/Sun/DirectionalLight2D.energy = 1
 		
