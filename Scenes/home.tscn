@@ -67,6 +67,7 @@ position = Vector2(544, 256)
 
 [node name="Dialogue_grand_pere" parent="Game" instance=ExtResource("2_005re")]
 position = Vector2(546, 174)
+text = "Yo bento"
 
 [node name="seed_drawer" parent="Game" instance=ExtResource("4_fw8ti")]
 position = Vector2(2.47719, 72.0615)
