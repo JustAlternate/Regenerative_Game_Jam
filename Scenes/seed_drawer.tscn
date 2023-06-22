@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpc1baduxkefv"]
+[gd_scene load_steps=7 format=3 uid="uid://cpc1baduxkefv"]
 
 [ext_resource type="Texture2D" uid="uid://b45mig8wgxsd3" path="res://Assets/sprites/seed_drawer/button_closed.png" id="1_fiswa"]
 [ext_resource type="Script" path="res://Scripts/seed_drawer.gd" id="1_g10ax"]
 [ext_resource type="PackedScene" uid="uid://y7p56ox4gd3m" path="res://Scenes/seed_container.tscn" id="2_ck28v"]
 [ext_resource type="Texture2D" uid="uid://oc0604lpkwhp" path="res://Assets/sprites/seed_drawer/button_opened.png" id="2_r2j8y"]
+[ext_resource type="AudioStream" uid="uid://dokm4y2fgdsfd" path="res://Assets/sfx/drawer/drawer_open.wav" id="5_yhb4k"]
+[ext_resource type="AudioStream" uid="uid://dg8epblt7wgfr" path="res://Assets/sfx/drawer/drawer_close.wav" id="6_lojwq"]
 
 [node name="seed_drawer" type="Node2D"]
 script = ExtResource("1_g10ax")
@@ -107,5 +109,15 @@ toggle_mode = true
 texture_normal = ExtResource("1_fiswa")
 texture_pressed = ExtResource("2_r2j8y")
 stretch_mode = 3
+
+[node name="OpenSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yhb4k")
+volume_db = -6.559
+bus = &"SFX"
+
+[node name="CloseSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lojwq")
+volume_db = -6.559
+bus = &"SFX"
 
 [connection signal="toggled" from="HBoxContainer/OpenDrawerButton" to="." method="_on_open_drawer_button_toggled"]

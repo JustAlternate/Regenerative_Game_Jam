@@ -13,7 +13,7 @@ func _process(delta):
 		$Sprite_deroulant.get_child(i).position.x +=1
 
 func _on_play_pressed():
-	$ClickSFX.play_random_sound()
+	$"/root/PersistentSfx/Click_sfx".play()
 	# This is like autoloading the scene, only
 	# it happens after already loading the main scene.
 	get_tree().change_scene_to_file("res://Scenes/home.tscn")
@@ -21,5 +21,5 @@ func _on_play_pressed():
 
 
 func _on_options_pressed():
-	$ClickSFX.play_random_sound
+	$"/root/PersistentSfx/Click_sfx".play()
 	get_tree().change_scene_to_file("res://Scenes/options.tscn")

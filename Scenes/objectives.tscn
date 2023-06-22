@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkpgjhi1acick"]
+[gd_scene load_steps=7 format=3 uid="uid://6ugxyexyc7yj"]
 
-[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="1_hjrsp"]
+[ext_resource type="FontFile" uid="uid://btnbktdas72q5" path="res://fonts/FutilePro.ttf" id="1_hjrsp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3j7r"]
 bg_color = Color(0.121569, 0.054902, 0.109804, 1)
