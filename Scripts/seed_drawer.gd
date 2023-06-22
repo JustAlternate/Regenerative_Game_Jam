@@ -30,5 +30,6 @@ func remove_seed_from_drawer(seed):
 	$HBoxContainer/GridContainer.get_node("Container_"+seed).visible = false
 
 func _on_open_drawer_button_toggled(button_pressed):
+	GlobalVariables.action_picked = "none"
 	$HBoxContainer/GridContainer.visible = not $HBoxContainer/GridContainer.visible
 	refresh_drawer()
