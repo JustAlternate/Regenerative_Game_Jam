@@ -198,7 +198,7 @@ func add_plant(type):
 		$PlantingSFX.play()
 		$sprite.animation = plant_type+"_0"
 		$sign_container.show()
-		$sign_container/plant_icone.animation = plant_type
+		$sign_container/plant_icon.animation = plant_type
 		plant_health = 5
 		state = 0
 
