@@ -3,7 +3,7 @@ extends Node2D
 var id_new_context_menu = 0
 var tab_context_menu = []
 var random_event = "rien"
-
+@export var nombre_de_plante_consomed_par_quart_de_saison:int = 10
 
 
 # Called when the node enters the scene tree for the first time.
@@ -51,6 +51,10 @@ func generate_random_event(new_phase):
 	return "rien"
 
 func _on_clock_phase_changed(new_phase):
+	
+	#On update les objectives :
+	GlobalVariables.update_invertory("all","plant",nombre_de_plante_consomed_par_quart_de_saison)
+	
 	# Envoie un message a grand_pere pour lui dire que le joueur vient de planter une certaine plante
 	get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["skiped_to_next_season",background_season_animation_dico[new_phase]])
 	$background/AnimatedSprite2D.animation = background_season_animation_dico[new_phase]

@@ -2,22 +2,22 @@
 
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="1_ni0yg"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_vd1g2"]
-[ext_resource type="Texture2D" uid="uid://dv32s2qmf15fc" path="res://Assets/sprites/dirt-dry-to-moist.png" id="2_5cl7r"]
-[ext_resource type="Texture2D" uid="uid://bo7r4g84a0nb1" path="res://Assets/Plant/background-automne.png" id="2_7kua1"]
-[ext_resource type="Texture2D" uid="uid://c56kxoux30gtd" path="res://Assets/sprites/closed_book.png" id="2_scljm"]
-[ext_resource type="Texture2D" uid="uid://ci8m2wxpa45u0" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_u67cp"]
-[ext_resource type="Texture2D" uid="uid://dq1f0ra5bpicr" path="res://Assets/sprites/dirt-moist.png" id="3_3cs7c"]
-[ext_resource type="Texture2D" uid="uid://dehbjqaeiu2ki" path="res://Assets/Plant/background-printemps.png" id="3_05tdx"]
+[ext_resource type="Texture2D" uid="uid://dscx6ipnh0l0d" path="res://Assets/sprites/dirt-dry-to-moist.png" id="2_5cl7r"]
+[ext_resource type="Texture2D" uid="uid://226bayh71d64" path="res://Assets/Plant/background-automne.png" id="2_7kua1"]
+[ext_resource type="Texture2D" uid="uid://c316bp5qubrnl" path="res://Assets/sprites/closed_book.png" id="2_scljm"]
+[ext_resource type="Texture2D" uid="uid://7iu6ttth2wqn" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_u67cp"]
+[ext_resource type="Texture2D" uid="uid://b61vvtpmx54qh" path="res://Assets/sprites/dirt-moist.png" id="3_3cs7c"]
+[ext_resource type="Texture2D" uid="uid://dnuahomsep6bt" path="res://Assets/Plant/background-printemps.png" id="3_05tdx"]
 [ext_resource type="PackedScene" uid="uid://olb5ewo4ysgy" path="res://Scenes/menu_running_sprites.tscn" id="4_fap7w"]
-[ext_resource type="Texture2D" uid="uid://du7b54amy5unx" path="res://Assets/sprites/dirt-moist-to-soaked.png" id="4_ihp8w"]
-[ext_resource type="Texture2D" uid="uid://n1huiucq2lns" path="res://Assets/Plant/background-ete.png" id="4_v6s1t"]
-[ext_resource type="Texture2D" uid="uid://1loi3yh8r0ak" path="res://Assets/Plant/background-hiver.png" id="5_4imjg"]
+[ext_resource type="Texture2D" uid="uid://d2b0lh4uk7rri" path="res://Assets/sprites/dirt-moist-to-soaked.png" id="4_ihp8w"]
+[ext_resource type="Texture2D" uid="uid://dla63gt3en6l2" path="res://Assets/Plant/background-ete.png" id="4_v6s1t"]
+[ext_resource type="Texture2D" uid="uid://bf81ak5wtl4g7" path="res://Assets/Plant/background-hiver.png" id="5_4imjg"]
 [ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="5_c6ra6"]
-[ext_resource type="FontFile" uid="uid://btnbktdas72q5" path="res://fonts/FutilePro.ttf" id="5_eewky"]
-[ext_resource type="Texture2D" uid="uid://ddox0qv3u5snp" path="res://Assets/sprites/dirt-soaked.png" id="5_hc7wq"]
+[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="5_eewky"]
+[ext_resource type="Texture2D" uid="uid://cfphv0b6rly3m" path="res://Assets/sprites/dirt-soaked.png" id="5_hc7wq"]
 [ext_resource type="StyleBox" uid="uid://d3vi3glx4440d" path="res://button_type_normal.tres" id="6_nunw6"]
-[ext_resource type="PackedScene" uid="uid://b05j16p7wwoul" path="res://Scenes/sound_pool.tscn" id="8_n17uy"]
-[ext_resource type="AudioStream" uid="uid://od3ncvyhu8io" path="res://Assets/sfx/menu_click.wav" id="9_cbrca"]
+[ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="8_n17uy"]
+[ext_resource type="AudioStream" uid="uid://c8mdmwc7y5ima" path="res://Assets/sfx/menu_click.wav" id="9_cbrca"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4w73x"]
 atlas = ExtResource("2_u67cp")
@@ -109,6 +109,7 @@ Button/styles/hover = ExtResource("5_c6ra6")
 Button/styles/normal = ExtResource("6_nunw6")
 
 [node name="Menu" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_vd1g2")
 
 [node name="backgound" type="Node2D" parent="."]
@@ -195,7 +196,7 @@ theme = SubResource("Theme_1q6uv")
 theme_override_font_sizes/font_size = 16
 text = "Play"
 
-[node name="Options" type="Button" parent="."]
+[node name="options" type="Button" parent="."]
 texture_filter = 1
 offset_left = 195.0
 offset_top = 181.0
@@ -205,9 +206,9 @@ scale = Vector2(2, 2)
 focus_mode = 0
 theme = SubResource("Theme_1q6uv")
 theme_override_font_sizes/font_size = 16
-text = "Options"
+text = "Settings"
 
-[node name="Exit" type="Button" parent="."]
+[node name="Play3" type="Button" parent="."]
 texture_filter = 1
 offset_left = 195.0
 offset_top = 245.0
@@ -217,13 +218,12 @@ scale = Vector2(2, 2)
 focus_mode = 0
 theme = SubResource("Theme_1q6uv")
 theme_override_font_sizes/font_size = 16
-text = "Exit"
+text = "Quit"
 
 [node name="ClickSFX" parent="." instance=ExtResource("8_n17uy")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ClickSFX"]
 stream = ExtResource("9_cbrca")
-bus = &"SFX"
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="options" to="." method="_on_options_pressed"]

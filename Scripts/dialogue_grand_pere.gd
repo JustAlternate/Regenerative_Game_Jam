@@ -5,8 +5,8 @@ extends Node2D
 @export var text = "Grosse murge"
 @export var taille_police:int
 @export var time_betwen_carac:float = 0.05
-@export var time_betwen_dialogue:float = 5
-@export var time_after_dialogue:float = 5
+@export var time_betwen_dialogue:float = 3
+@export var time_after_dialogue:float = 4
 var Talking:bool = false
 
 var tutorial_progress = 0
@@ -46,9 +46,13 @@ func player_just_did_something(thing):
 				grandpa_talk("radish_recolte")
 				grandpa_talk("Encyclopedia")
 				tutorial_progress+=1
+	
 	if thing[0] == "talk":
-		if thing[1] == "Encyclopedia":
-			get_tree().root.get_node("home/Game/seed_drawer").add_seed_in_drawer("pea")
+		if thing[1] == "radish_unlock_debut":
+			GlobalVariables.update_invertory("radish","seed",1)
+	if thing[0] == "talk":
+		if thing[1] == "radish_recolte":
+			GlobalVariables.update_invertory("pea","seed",1)
 
 
 
@@ -85,7 +89,6 @@ func show_buttons():
 func writing_text(text):
 	$Panel/Label.text = ""
 	for letter in text: 
-		if Talking:#NE PAS TOUCHER A CETTE CONDITION TALKING
 			$Panel/Label.text += letter
 			await get_tree().create_timer(time_betwen_carac).timeout
 
@@ -100,15 +103,14 @@ func grandpa_start_talk():
 	
 	$GrandpaSFX/AudioStreamPlayer2.play()
 	for i in range(len(dico_dialogue[text][1])):
-		if Talking: #NE PAS TOUCHER A CETTE CONDITION TALKING
 			await writing_text(dico_dialogue[text][1][i])
-		if Talking: #NE PAS TOUCHER A CETTE CONDITION TALKING
 			await get_tree().create_timer(time_betwen_dialogue).timeout
-		if Talking: #NE PAS TOUCHER A CETTE CONDITION TALKING
 			$GrandpaSFX/AudioStreamPlayer.play()
 	
 	Talking = false
 	$Panel.visible = false
+	
+	player_just_did_something(["talk",text])
 
 func _process(delta):
 	
@@ -124,5 +126,4 @@ func _process(delta):
 
 func _on_button_pressed():
 	Talking = false
-	$Panel.visible = false
 	

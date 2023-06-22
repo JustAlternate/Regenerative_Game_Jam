@@ -199,36 +199,43 @@ func _process(delta):
 func add_plant(type):
 	
 	if plant_type == "None":
-		
-		# Envoie un message a grand_pere pour lui dire que le joueur vient de planter une certaine plante
-		get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["planted",type])
-		
-		plant_type = type
-		$PlantingSFX.play()
-		$sprite.animation = plant_type+"_0"
-		$sign_container.show()
-		$sign_container/plant_icon.animation = plant_type
-		plant_health = 5
-		state = 0
+		if GlobalVariables.inventory[plant_type]["seeds"]>0:
+			# Envoie un message a grand_pere pour lui dire que le joueur vient de planter une certaine plante
+			get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["planted",type])
+			
+			# Remove a seed from this plant
+			GlobalVariables.update_invertory(type,"seed",-1)
+			
+			plant_type = type
+			$PlantingSFX.play()
+			$sprite.animation = plant_type+"_0"
+			$sign_container.show()
+			$sign_container/plant_icon.animation = plant_type
+			plant_health = 5
+			state = 0
 
 func harvest_plant():
 	
-	# Envoie un message a grand_pere pour lui dire que le joueur vient d'harvest une certaine plante
-	get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["harvested",plant_type])
-	
-	if plant_health >= 10:
-		GlobalVariables.inventory[plant_type]["seed"] += 2
-	else:
-		GlobalVariables.inventory[plant_type]["seed"] += 1
-	GlobalVariables.inventory[plant_type]["plant"] += plant_health
-	plant_type = "None"
-	$sprite.animation = "vide"
-	$sign_container.hide()
-	$HarvestSFX.play_random_sound()
+	if plant_type != "None":
+		# Envoie un message a grand_pere pour lui dire que le joueur vient d'harvest une certaine plante
+		get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["harvested",plant_type])
+		
+		# On recolte les seeds
+		if plant_health >= 8:
+			GlobalVariables.update_invertory(plant_type,"seed",3)
+		elif plant_health >= 4:
+			GlobalVariables.update_invertory(plant_type,"seed",2)
+		else:
+			GlobalVariables.update_invertory(plant_type,"seed",1)
+		
+		plant_type = "None"
+		$sprite.animation = "vide"
+		$sign_container.hide()
+		$HarvestSFX.play_random_sound()
 
 func remove_plant():
 	print("removed")
-	if state == 0:
+	if state == 0 and plant_type != "None":
 		GlobalVariables.inventory[plant_type]["seed"] += 1
 	plant_type = "None"	
 	$sprite.animation = "vide"

@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://dg0h8dcgh7872"]
 
 [ext_resource type="Script" path="res://Scripts/contextual_menu.gd" id="1_on6no"]
-[ext_resource type="Texture2D" uid="uid://13g4j2i7eaff" path="res://Assets/sprites/UI/icon_harvest.png" id="2_wfqac"]
-[ext_resource type="FontFile" uid="uid://dinlurcky8yjo" path="res://fonts/FutilePro.ttf" id="3_12xxr"]
-[ext_resource type="Texture2D" uid="uid://jiw77f43qqdl" path="res://Assets/sprites/UI/icon_remove.png" id="3_muy21"]
-[ext_resource type="Texture2D" uid="uid://b7s5n13ggekmp" path="res://Assets/sprites/UI/icon_advice.png" id="4_ywbs1"]
+[ext_resource type="Texture2D" uid="uid://2e0oq8raycq5" path="res://Assets/sprites/UI/icon_harvest.png" id="2_wfqac"]
+[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="3_12xxr"]
+[ext_resource type="Texture2D" uid="uid://cfopf3uhyrhgj" path="res://Assets/sprites/UI/icon_remove.png" id="3_muy21"]
+[ext_resource type="Texture2D" uid="uid://cokj42mp4pr6o" path="res://Assets/sprites/UI/icon_advice.png" id="4_ywbs1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqmkj"]
 bg_color = Color(1, 0.321569, 0.415686, 0)
@@ -52,10 +52,9 @@ autowrap_mode = 3
 
 [node name="button_remove" type="Button" parent="."]
 texture_filter = 1
-offset_left = 8.0
-offset_top = -8.0
-offset_right = 24.0
-offset_bottom = 8.0
+offset_top = 12.0
+offset_right = 16.0
+offset_bottom = 28.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_kqmkj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kqmkj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kqmkj")
@@ -81,9 +80,10 @@ autowrap_mode = 3
 
 [node name="button_info" type="Button" parent="."]
 texture_filter = 1
-offset_top = 12.0
-offset_right = 16.0
-offset_bottom = 28.0
+offset_left = 10.0
+offset_top = -8.0
+offset_right = 26.0
+offset_bottom = 8.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_kqmkj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kqmkj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kqmkj")

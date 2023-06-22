@@ -1,24 +1,24 @@
 [gd_scene load_steps=20 format=3 uid="uid://cpc1baduxkefv"]
 
-[ext_resource type="Texture2D" uid="uid://bejti4xwfm0bd" path="res://Assets/sprites/seed_drawer/button_closed.png" id="1_fiswa"]
+[ext_resource type="Texture2D" uid="uid://cr62jv3kvycj0" path="res://Assets/sprites/seed_drawer/button_closed.png" id="1_fiswa"]
 [ext_resource type="Script" path="res://Scripts/seed_drawer.gd" id="1_g10ax"]
 [ext_resource type="PackedScene" uid="uid://y7p56ox4gd3m" path="res://Scenes/seed_container.tscn" id="2_ck28v"]
-[ext_resource type="Texture2D" uid="uid://cinea1fhapo7t" path="res://Assets/sprites/seed_drawer/button_opened.png" id="2_r2j8y"]
-[ext_resource type="Texture2D" uid="uid://r1w5qdk3a3oy" path="res://Assets/Plant/icon/sprite-tomate.png" id="3_lfjpa"]
-[ext_resource type="Texture2D" uid="uid://toajeuc5yikv" path="res://Assets/Plant/icon/sprite-radis.png" id="4_ckpgx"]
-[ext_resource type="Texture2D" uid="uid://bo5a83wpru08t" path="res://Assets/Plant/icon/sprite-carrot.png" id="5_lsr2i"]
-[ext_resource type="AudioStream" uid="uid://d4gn8dmxblhgr" path="res://Assets/sfx/drawer/drawer_open.wav" id="5_yhb4k"]
-[ext_resource type="Texture2D" uid="uid://curd8kw5yfvjf" path="res://Assets/Plant/icon/sprite-blé.png" id="6_5c1sn"]
-[ext_resource type="AudioStream" uid="uid://dcb10lre3bwgd" path="res://Assets/sfx/drawer/drawer_close.wav" id="6_lojwq"]
-[ext_resource type="Texture2D" uid="uid://bviv07gfn4b3d" path="res://Assets/Plant/icon/sprite-courgette.png" id="7_mv0fx"]
-[ext_resource type="Texture2D" uid="uid://bggt2w0nj62wo" path="res://Assets/Plant/icon/sprite-ail.png" id="8_vguxo"]
-[ext_resource type="Texture2D" uid="uid://m4m3o3ximqr5" path="res://Assets/Plant/icon/sprite-citrouille.png" id="9_6qvmy"]
-[ext_resource type="Texture2D" uid="uid://ctl1ihfpovljy" path="res://Assets/Plant/icon/sprite-mais.png" id="10_ginfl"]
-[ext_resource type="Texture2D" uid="uid://boe4lns2uqrji" path="res://Assets/Plant/icon/sprite-menthe.png" id="11_5is7y"]
-[ext_resource type="Texture2D" uid="uid://cgbtkgmcay5s" path="res://Assets/Plant/icon/sprite-thym.png" id="12_svm74"]
-[ext_resource type="Texture2D" uid="uid://1jjw81mvabw0" path="res://Assets/Plant/icon/sprite-petit-pois.png" id="13_d4g0b"]
-[ext_resource type="Texture2D" uid="uid://c1k6m6oefhy7u" path="res://Assets/Plant/icon/sprite-vigne.png" id="14_hmlxu"]
-[ext_resource type="Texture2D" uid="uid://d1jwmhbev0snd" path="res://Assets/Plant/icon/sprite-poireau.png" id="15_i7x0d"]
+[ext_resource type="Texture2D" uid="uid://brs4lket2o4gf" path="res://Assets/sprites/seed_drawer/button_opened.png" id="2_r2j8y"]
+[ext_resource type="Texture2D" uid="uid://jh0ntdt5rrq1" path="res://Assets/Plant/icon/sprite-tomate.png" id="3_lfjpa"]
+[ext_resource type="Texture2D" uid="uid://bpy5qjbck531n" path="res://Assets/Plant/icon/sprite-radis.png" id="4_ckpgx"]
+[ext_resource type="Texture2D" uid="uid://c4p2j165mlnkd" path="res://Assets/Plant/icon/sprite-carrot.png" id="5_lsr2i"]
+[ext_resource type="AudioStream" uid="uid://dlawj0itgpknd" path="res://Assets/sfx/drawer/drawer_open.wav" id="5_yhb4k"]
+[ext_resource type="Texture2D" uid="uid://7ractb7872e5" path="res://Assets/Plant/icon/sprite-blé.png" id="6_5c1sn"]
+[ext_resource type="AudioStream" uid="uid://bdbe10r5fxudh" path="res://Assets/sfx/drawer/drawer_close.wav" id="6_lojwq"]
+[ext_resource type="Texture2D" uid="uid://c7uy484ywf30i" path="res://Assets/Plant/icon/sprite-courgette.png" id="7_mv0fx"]
+[ext_resource type="Texture2D" uid="uid://sihnoins1ygw" path="res://Assets/Plant/icon/sprite-ail.png" id="8_vguxo"]
+[ext_resource type="Texture2D" uid="uid://cfc5eb7fky8dg" path="res://Assets/Plant/icon/sprite-citrouille.png" id="9_6qvmy"]
+[ext_resource type="Texture2D" uid="uid://dyi3lrs0sa2uf" path="res://Assets/Plant/icon/sprite-mais.png" id="10_ginfl"]
+[ext_resource type="Texture2D" uid="uid://didvxvyq4bv5y" path="res://Assets/Plant/icon/sprite-menthe.png" id="11_5is7y"]
+[ext_resource type="Texture2D" uid="uid://b4t3dnuaasvco" path="res://Assets/Plant/icon/sprite-thym.png" id="12_svm74"]
+[ext_resource type="Texture2D" uid="uid://bcv0prpswiphk" path="res://Assets/Plant/icon/sprite-petit-pois.png" id="13_d4g0b"]
+[ext_resource type="Texture2D" uid="uid://di85mgsolq7mv" path="res://Assets/Plant/icon/sprite-vigne.png" id="14_hmlxu"]
+[ext_resource type="Texture2D" uid="uid://5j5ol1e3fobb" path="res://Assets/Plant/icon/sprite-poireau.png" id="15_i7x0d"]
 
 [node name="seed_drawer" type="Node2D"]
 script = ExtResource("1_g10ax")
@@ -43,89 +43,77 @@ visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("3_lfjpa")
 seed_name = "tomatoes"
-activated = true
 
 [node name="Container_radish" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("4_ckpgx")
 seed_name = "radish"
-activated = true
 
 [node name="Container_carrot" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("5_lsr2i")
-activated = true
 
 [node name="Container_wheat" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("6_5c1sn")
 seed_name = "wheat"
-activated = true
 
 [node name="Container_zucchini" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("7_mv0fx")
 seed_name = "zucchini"
-activated = true
 
 [node name="Container_ail" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("8_vguxo")
 seed_name = "ail"
-activated = true
 
 [node name="Container_pumpkin" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("9_6qvmy")
 seed_name = "pumpkin"
-activated = true
 
 [node name="Container_corn" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("10_ginfl")
 seed_name = "corn"
-activated = true
 
 [node name="Container_mint" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("11_5is7y")
 seed_name = "mint"
-activated = true
 
 [node name="Container_thym" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("12_svm74")
 seed_name = "thym"
-activated = true
 
 [node name="Container_pea" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("13_d4g0b")
 seed_name = "pea"
-activated = true
 
 [node name="Container_vine" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("14_hmlxu")
 seed_name = "vine"
-activated = true
 
 [node name="Container_leek" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("15_i7x0d")
 seed_name = "leek"
-activated = true
 
 [node name="OpenDrawerButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
@@ -138,11 +126,9 @@ stretch_mode = 3
 [node name="OpenSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_yhb4k")
 volume_db = -6.559
-bus = &"SFX"
 
 [node name="CloseSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_lojwq")
 volume_db = -6.559
-bus = &"SFX"
 
 [connection signal="toggled" from="HBoxContainer/OpenDrawerButton" to="." method="_on_open_drawer_button_toggled"]

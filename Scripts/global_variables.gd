@@ -8,6 +8,23 @@ var master_volume = -2
 var music_volume = -2
 var sfx_volume = -2
 
+func update_invertory(plant,type,number): #pea, seed, 4  ou  carott, plant, -4
+	# ajout dans inventory :
+	if type == "seed":
+		GlobalVariables.inventory[plant]["seed"] += number
+		get_tree().root.get_node("home/Game/seed_drawer/HBoxContainer/GridContainer/Container_"+plant).update_number_seed()
+
+	if type == "plant":
+		if plant == "all":
+			get_tree().root.get_node("home/Game/UI/Objectives/Food_ressources_bar").value -= number
+		else:
+			GlobalVariables.inventory[plant]["plant"] += number
+			get_tree().root.get_node("home/Game/UI/Objectives/Food_ressources_bar").value += number
+		
+	
+	pass
+	
+
 var inventory = {
 	"pea": {"seed": 0, "plant": 0},
 	"leek":{"seed": 0, "plant": 0},
