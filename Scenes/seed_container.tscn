@@ -26,6 +26,7 @@ Seed_Texture = ExtResource("2_1kcd3")
 seed_name = "carrot"
 
 [node name="SeedNumberLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 2.0
 offset_right = 63.0
@@ -36,6 +37,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 56.0
 offset_right = 153.0

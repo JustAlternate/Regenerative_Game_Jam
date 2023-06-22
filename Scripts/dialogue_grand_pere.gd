@@ -4,33 +4,52 @@ extends Node2D
 @export var hauteur_bulle_texte:int
 @export var text = "Grosse murge"
 @export var taille_police:int
-@export var time_betwen_carac:float = 0.03
-@export var time_betwen_dialogue:float = 5
+@export var time_betwen_carac:float = 0.05
+@export var time_betwen_dialogue:float = 3
+@export var time_after_dialogue:float = 4
 var Talking:bool = false
 
-var dialogue_queue = ["rain"] #liste des dialogues à dire(key du dico_dialogue)
-	
-var dialogue_progress:int #nombre de caractères écrits
-var dialogue_section:int = 0
-@export var dialogue_unlocked = 1
 var dico_dialogue = {
-	"rain":[true,["machin","machin2"]],
-	"sun":[true,["truc","truc2"]],
-	"radish_recolte":[true,["Well done harvesting those radishes!", "Here, you can try planting these peas."]],
-	"tomato_unlock":[true,["Take these tomato seeds.", "Now is the perfect time to plant them!"]],
-	"wheat_leek_unlock":[true,"I found new seeds, you can have them!"],
-	"pumpkin_unlock":[true,"Now's the right time to plant pumpkins!", "Plant these so we will have some for next Halloween!"],
-	"zucchini_unlock":[true,"Here, take these zucchini seeds.", "Zucchinis don't grow well with rain, so be careful!"]
-	
+	"Rain":[true,["The rain make your soil watered."]],
+	"Sunlight":[true,["The sun dry your soil.","Be carefull when planting for summer"]],
+	"Nutirment":[true,["Worms make your soil richer for certain crop to grow."]],
+	"radish_unlock":[false,["unlock radish"]],
+	"radish_recolte":[false,["Well done harvesting those radishes!", "Here, you can try planting these peas."]],
+	"tomato_unlock":[false,["Take these tomato seeds.", "Now is the perfect time to plant them!"]],
+	"wheat_leek_unlock":[false,"I found new seeds, you can have them!"],
+	"pumpkin_unlock":[false,"Now's the right time to plant pumpkins!", "Plant these so we will have some for next Halloween!"],
+	"zucchini_unlock":[false,"Here, take these zucchini seeds.", "Zucchinis don't grow well with rain, so be careful!"]
 }
 
-func _ready():
-	show_buttons(dialogue_unlocked)
-	grandpa_talk("rain")
+func _on_button_for_grandpa_button_activated(texte_name):
+	if not(Talking):
+		grandpa_talk(texte_name)
 
-func show_buttons(nbr_buttons):
-	for i in range(nbr_buttons):
-		$RichTextLabel/VBoxContainer.get_child(i).visible = true
+func maj_buttons():
+	
+	for elem in $RichTextLabel/VBoxContainer.get_children():
+		elem.free()
+		
+	
+	var button_scene = load("res://Scenes/button_for_grandpa.tscn")
+	for dialogue_name in dico_dialogue:
+		if dico_dialogue[dialogue_name][0]:
+			var dialogue_button_instance = button_scene.instantiate()
+			dialogue_button_instance.name = ("button_" + dialogue_name)
+			dialogue_button_instance.texte = dialogue_name
+			dialogue_button_instance.text = dialogue_name
+			dialogue_button_instance.button_activated.connect(_on_button_for_grandpa_button_activated)
+			$RichTextLabel/VBoxContainer.add_child(dialogue_button_instance)
+
+
+func _ready():
+	maj_buttons()
+	show_buttons()
+	grandpa_talk("radish_unlock")
+
+func show_buttons():
+	for child in $RichTextLabel/VBoxContainer.get_children():
+		child.visible = true
 
 func writing_text(text):
 	$Panel/Label.text = ""
@@ -46,14 +65,15 @@ func grandpa_talk(text):
 	for i in range(len(dico_dialogue[text][1])):
 		$GrandpaSFX/AudioStreamPlayer.play()
 		writing_text(dico_dialogue[text][1][i])
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(time_betwen_dialogue).timeout
+	
+	
+	await get_tree().create_timer(time_after_dialogue).timeout
 	
 	Talking = false
 	$Panel.visible = false
 
-func _on_button_for_grandpa_button_activated(texte_name):
-	if not(Talking):
-		grandpa_talk(texte_name)
+
 
 func _process(delta):
 	if ($RichTextLabel.position.x <= get_local_mouse_position()[0] and get_local_mouse_position()[0] <=  $RichTextLabel.position.x + $RichTextLabel.size.x and $RichTextLabel.position.y <= get_local_mouse_position()[1] and get_local_mouse_position()[1] <= $RichTextLabel.position.y + $RichTextLabel.size.y) :
