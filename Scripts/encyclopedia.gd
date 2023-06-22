@@ -45,6 +45,8 @@ func _process(delta):
 	pass
 
 func _on_button_button_down():
+	if GlobalVariables.game_state == "clock":
+		return
 	print("Openage of zi encyclopedia")
 	$Book.visible = not($Book.visible)
 	if $Book.visible:
@@ -54,6 +56,11 @@ func _on_button_button_down():
 	maj_book(actual_page_number)
 	
 func _on_close_button_down():
+	if GlobalVariables.game_state == "clock":
+		return
+	close_enciclopedia()
+
+func close_enciclopedia():
 	$Book.visible = false
 	$BookCloseSFX.play_random_sound()
 
@@ -89,12 +96,16 @@ func maj_book(actual_page_number):
 	
 
 func _on_next_page_button_down():
+	if GlobalVariables.game_state == "clock":
+		return
 	if not(actual_page_number == Pages_unlocked-1):
 		actual_page_number += 1
 		$PageFlipSFX.play_random_sound()
 		maj_book(actual_page_number)
 
 func _on_previous_page_button_down():
+	if GlobalVariables.game_state == "clock":
+		return
 	if actual_page_number > 0:
 		actual_page_number -= 1
 		$PageFlipSFX.play_random_sound()

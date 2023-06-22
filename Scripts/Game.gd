@@ -6,7 +6,8 @@ var random_event = "rien"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	GlobalVariables.game_state = "playing"
+	pass # Replace with function body
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,6 +38,9 @@ func generate_random_event(new_phase):
 
 func _on_clock_phase_changed(new_phase):
 	# Here on va decider des random events :
+	GlobalVariables.game_state = "clock"
+	if $Encyclopedia/Book.visible == true:
+		$Encyclopedia.close_enciclopedia()
 	random_event = generate_random_event(new_phase)
 	
 	$Meteo/Nuages.kill_nuages()
@@ -80,6 +84,10 @@ func _on_clock_phase_changed(new_phase):
 		$"/root/PersistentSfx/WinterMusic".play_song_phase1()
 	elif new_phase == 7:
 		$"/root/PersistentSfx/WinterMusic".play_song_phase2()
+	
+	#wait then turn on the game:
+	await get_tree().create_timer(5).timeout
+	GlobalVariables.game_state = "playing"
 
 
 func _on_plant_calling_contextual_menu(plant_node):

@@ -370,6 +370,8 @@ func next_quarter_of_season(new_phase,random_event):
 
 func _on_button_pressed():
 	#print("pressed")
+	if GlobalVariables.game_state == "clock":
+		return #pas le droit
 	if GlobalVariables.action_picked == "seed" and plant_type == "None":
 		add_plant(GlobalVariables.seed_picked)
 	else:
