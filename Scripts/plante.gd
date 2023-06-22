@@ -54,7 +54,7 @@ var dico_caracteristique = {
 	"number_of_phases":{
 		"pea":2,
 		"leek":3,
-		"corn":4,
+		"corn":2,
 		"wheat":4,
 		"carrot":3,
 		"mint":3,
@@ -68,7 +68,7 @@ var dico_caracteristique = {
 	},
 	"humidities_values":{ #0 = sec, 1 = normal, 2 = trempé
 		"pea":[1],
-		"leek":[0,1],
+		"leek":[1],
 		"corn":[2],
 		"wheat":[1],
 		"carrot":[1,2],
@@ -181,6 +181,7 @@ var sunlight_value:int  # 0 = ombre, 1 = soleil
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$sprite.animation = "vide"
+	$sign_container.hide()
 	state = 0 # 0=graine, 1=plante_1, 2=plant_2, ... -1=morte.
 	plant_health = 5
 	nutriment_value = 0
@@ -195,6 +196,8 @@ func add_plant(type):
 	if type != "None":
 		plant_type = type
 		$sprite.animation = plant_type+"_0"
+		$sign_container.show()
+		$sign_container/plant_icone.animation = plant_type
 		plant_health = 5
 		state = 0
 
@@ -203,12 +206,14 @@ func harvest_plant():
 	if not plant_type == "None":
 		plant_type = "None"
 		$sprite.animation = "vide"
+		$sign_container.hide()
 
 func remove_plant():
 	print("removed")
 	if not plant_type == "None":
 		plant_type = "None"	
 		$sprite.animation = "vide"
+		$sign_container.hide()
 
 func bonus_malus_seasons(actual_season):
 	if state == 0: # Si la plante est une graine
@@ -238,13 +243,13 @@ func bonus_malus_humidity(humidity_value):
 	else:
 		plant_health += dico_bonus_malus["humidities_values"][1]
 func bonus_malus_sunlight(sunlight_value):
-	if sunlight_value in dico_caracteristique["sunlight_bonus"][plant_type]:
+	if sunlight_value == dico_caracteristique["sunlight_bonus"][plant_type]:
 		plant_health += dico_bonus_malus["sunlight_bonus"][0]
 	else:
 		plant_health += dico_bonus_malus["sunlight_bonus"][1]
 	
-	if not(sunlight_value in dico_caracteristique["sunlight_bonus"][plant_type]):
-		if sunlight_value in dico_caracteristique["sunlight_bonus"][plant_type]:
+	if not(sunlight_value == dico_caracteristique["sunlight_bonus"][plant_type]):
+		if sunlight_value in dico_caracteristique["sunlight_possible"][plant_type]:
 			plant_health += dico_bonus_malus["sunlight_possible"][0]
 		else:
 			plant_health += dico_bonus_malus["sunlight_possible"][1]
@@ -313,6 +318,7 @@ func next_quarter_of_season(new_phase,random_event):
 			if plant_health > 0:
 				state += 1
 				$sprite.animation = plant_type+"_"+str(state)
+				$sign_container.hide()
 			else:
 				# Sinon on la remove pour l'instant.
 				remove_plant()
