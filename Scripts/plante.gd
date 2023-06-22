@@ -14,7 +14,7 @@ var unapreciated_adjacents_plants = [] # pareil que au dessus.
 
 signal calling_contextual_menu
 
-@export var number_of_tile_from_river:int
+@export var humidity_from_river:int
 
 # Spring1 = [1,1] , Summer2 = [2,2], Automn1 = [3,1] , Winter2 = [4,2]
 var dico_caracteristique = {
@@ -158,17 +158,14 @@ var nutriment_value:int
 var humidity_value:int # 0 = sec, 1 = mouillé, 2 = trempé
 var sunlight_value:int  # 0 = ombre, 1 = soleil
 
-var temp_humidity_value
-var temp_sunlight_value
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$sprite.animation = "vide"
 	state = 0 # 0=graine, 1=plante_1, 2=plant_2, ... -1=morte.
 	plant_health = 5
 	nutriment_value = 0
-	humidity_value = 1 # 0 = sec, 1= humide, 2 = trempé
-	sunlight_value = 1  # 0 = ombre, 1 = soleil
+	humidity_value = humidity_from_river # 0 = sec, 1= humide, 2 = trempé
+	sunlight_value = 1  # 0 = ombre, 1 = ni_l'un_ni_l'autre, 2 = soleil 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -233,36 +230,39 @@ func next_quarter_of_season(new_phase,random_event):
 	#print("before_season : " + str(before_season))
 	#print("actual_season : " + str(actual_season))
 	
+	var temp_humidity_value = humidity_value
+	var temp_sunlight_value = sunlight_value
+	
 	if plant_type == "None":
 		# Si la terre est vide, on lui fait regagner des nutriments a chaque passage de quarter of season.
 		if nutriment_value <= 2:
 			nutriment_value += 1
 	else:
-		if state == 0:
+		if state == 0 and nutriment_value > 0:
 			# Si on a posé une graine au quarter de season précédent, alors on baisse le nutriment de la terre de 1.
 			nutriment_value -= 1
 		
-		if random_event == "pluie" and humidity_value < 2:
-			temp_humidity_value = humidity_value + 1
-		else:
-			temp_humidity_value = humidity_value
+		if random_event == "pluie":
+			if temp_humidity_value < 2:
+				temp_humidity_value += 1
+			temp_sunlight_value -= 1
 			
-		if random_event == "sunlight" and humidity_value > 0:
-			temp_sunlight_value = sunlight_value + 1
-		else:
-			temp_sunlight_value = sunlight_value
+		if random_event == "soleil":
+			temp_sunlight_value += 1
+			if temp_humidity_value > 0:
+				temp_humidity_value -= 1
 		
 		if state < dico_caracteristique["number_of_phases"][plant_type]:
 			# Alors la plante peut encore poussé :
 			
 			# On applique les bonus / malus sur la vie de le a plante.
 			
-			print("plant_health : "+str(plant_health))
+			print("plant_health_avant_bonus_malus : "+str(plant_health))
 			bonus_malus_seasons(before_season)
 			bonus_malus_humidity(temp_humidity_value)
 			bonus_malus_nutriment(nutriment_value)
 			bonus_malus_sunlight(temp_sunlight_value)
-			print("plant_health : "+str(plant_health))
+			print("plant_health_apres_bonus_malus : "+str(plant_health))
 			
 			# On fait poussé la plante si elle est toujours vivante :
 			if plant_health > 0:
@@ -279,12 +279,12 @@ func next_quarter_of_season(new_phase,random_event):
 		print("plant_type : "+str(plant_type))
 		print("plant_health : "+str(plant_health))
 		print("nutriment_value : "+str(nutriment_value))
-		print("humidity_value : "+str(humidity_value))
-		print("sunlight_value : "+str(sunlight_value))
+		print("temp_humidity_value : "+str(temp_humidity_value))
+		print("temp_sunlight_value : "+str(temp_sunlight_value))
 
 
 func _on_button_pressed():
-	print("pressed")
+	#print("pressed")
 	if GlobalVariables.action_picked == "seed":
 		if plant_type == "None":
 			add_plant(GlobalVariables.seed_picked)

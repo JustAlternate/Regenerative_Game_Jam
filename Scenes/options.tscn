@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://b2sblst4m6bns"]
 
 [ext_resource type="Script" path="res://Scripts/options.gd" id="1_ym2a3"]
-[ext_resource type="Texture2D" uid="uid://c316bp5qubrnl" path="res://Assets/sprites/closed_book.png" id="2_0qkgk"]
+[ext_resource type="Texture2D" uid="uid://cssbl0ckgwq74" path="res://Assets/sprites/closed_book.png" id="2_0qkgk"]
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="3_7eb2p"]
 [ext_resource type="PackedScene" uid="uid://olb5ewo4ysgy" path="res://Scenes/menu_running_sprites.tscn" id="4_t5g25"]
-[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="5_5jcpg"]
+[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="5_5jcpg"]
 [ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="5_r67c7"]
 [ext_resource type="StyleBox" uid="uid://d3vi3glx4440d" path="res://button_type_normal.tres" id="6_emf77"]
 
@@ -45,6 +45,7 @@ theme = SubResource("Theme_g0ibw")
 [node name="ColorRect" type="ColorRect" parent="Menu_title"]
 z_index = -1
 texture_filter = 1
+layout_mode = 0
 offset_top = 1.0
 offset_right = 576.0
 offset_bottom = 320.0
@@ -110,6 +111,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="HSlider" type="HSlider" parent="Music"]
+layout_mode = 0
 offset_left = 21.0
 offset_top = 30.0
 offset_right = 269.0
@@ -129,6 +131,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="HSlider" type="HSlider" parent="SFX"]
+layout_mode = 0
 offset_left = 21.0
 offset_top = 30.0
 offset_right = 269.0
