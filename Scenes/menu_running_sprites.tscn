@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://olb5ewo4ysgy"]
 
-[ext_resource type="Texture2D" uid="uid://iypy24yjk1fb" path="res://Assets/sprites/plant/carrot_1.png" id="1_2hanl"]
+[ext_resource type="Texture2D" uid="uid://ckief3u5kca5v" path="res://Assets/sprites/plant/carrot_1.png" id="1_2hanl"]
 
 [node name="Sprite_deroulant" type="Node2D"]
 
