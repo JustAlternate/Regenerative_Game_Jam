@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://du2q4bvo17ea"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_grand_pere.gd" id="1_5a700"]
-[ext_resource type="Texture2D" uid="uid://bhy2ngrrm2v0b" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
-[ext_resource type="FontFile" uid="uid://dinlurcky8yjo" path="res://fonts/FutilePro.ttf" id="3_j6ie8"]
+[ext_resource type="Texture2D" uid="uid://jh1pda531gv5" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
+[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="3_j6ie8"]
 [ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="4_tce1e"]
-[ext_resource type="AudioStream" uid="uid://0i1c11ht5jc4" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
-[ext_resource type="AudioStream" uid="uid://bl3ims3fja3ed" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
+[ext_resource type="AudioStream" uid="uid://bry0bfjp10mlg" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
+[ext_resource type="AudioStream" uid="uid://cb11fdf7ie1mb" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_imwlg"]
 line_spacing = 1.0
@@ -54,8 +54,8 @@ autowrap_mode = 3
 show_behind_parent = true
 light_mask = 0
 layout_mode = 0
-offset_right = 120.0
-offset_bottom = 66.0
+offset_right = 118.0
+offset_bottom = 65.0
 focus_mode = 0
 
 [node name="GrandpaSFX" parent="." instance=ExtResource("4_tce1e")]

@@ -63,15 +63,17 @@ func _process(delta):
 
 
 func _on_button_button_down():
-	print("Openage of zi encyclopedia")
+	print("Openage et closage of zi encyclopedia")
 	$Book.visible = not($Book.visible)
 	if $Book.visible:
 		$PageFlipSFX.play_random_sound()
 	else:
 		$BookCloseSFX.play_random_sound()
+		get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["closed_book",actual_page_number])
 	maj_book(actual_page_number)
 	
 func _on_close_button_down():
+	get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["closed_book",actual_page_number])
 	$Book.visible = false
 	$BookCloseSFX.play_random_sound()
 
