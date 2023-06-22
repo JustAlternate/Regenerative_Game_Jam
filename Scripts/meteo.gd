@@ -13,11 +13,11 @@ func _ready():
 func _process(delta):
 	pass
 
-func go_meteo():
+func go_meteo(a,b):
 	$Sun/DirectionalLight2D.energy = Energy
 	$Sun/CanvasModulate.color = Canvas_modulate_color
 	$Sun/DirectionalLight2D.color = Sun_color
-	$Nuages.go_nuages()
+	$Nuages.go_nuages(a,b)
 
 func rain_fade_in():
 	var sfx_tween = create_tween()

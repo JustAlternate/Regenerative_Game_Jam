@@ -214,7 +214,6 @@ func harvest_plant():
 	$sprite.animation = "vide"
 	$sign_container.hide()
 	$HarvestSFX.play_random_sound()
-	print(GlobalVariables.inventory)
 
 func remove_plant():
 	print("removed")
@@ -224,23 +223,39 @@ func remove_plant():
 	$sprite.animation = "vide"
 	$sign_container.hide()
 
+func afficher_feeling(name):
+	await get_tree().create_timer(0.5).timeout #pour pas que les feeling soient les uns sur les autres
+	
+	var feeling_icon_scene = load("res://Scenes/feeling_icon.tscn")
+	var feeling_icon_instance = feeling_icon_scene.instantiate()
+	feeling_icon_instance.position = Vector2(5,5)
+	print("ajout feeling")
+	feeling_icon_instance.feeling_type = name
+	add_child(feeling_icon_instance)
+
+
+
 func bonus_malus_seasons(actual_season):
 	if state == 0: # Si la plante est une graine
 		if actual_season in dico_caracteristique["bonus_season"][plant_type]:
+			await afficher_feeling("season+")
 			# Si la plante est une graine est quelle est a la bonne bonus saison alors boom, elle prend le bonus.
 			plant_health += dico_bonus_malus["bonus_season"][0]
 		elif actual_season in dico_caracteristique["season"][plant_type]:
 			# Si la plant est dans une season valide
 			plant_health += dico_bonus_malus["season"][0]
 		else:
+			await afficher_feeling("season-")
 			# Si la plante est une graine mais quelle n'est pas dans une season valide alors on met le malus.
 			plant_health += dico_bonus_malus["season"][1]
 func bonus_malus_nutriment(nutriment_value):
 	if state == 0: # Si la plante est une graine
 		if nutriment_value >= dico_caracteristique["minimum_nutriment_values"][plant_type]:
+			await afficher_feeling("nutrient+")
 			# On met le bonus.
 			plant_health += dico_bonus_malus["minimum_nutriment_values"][0]
 		else:
+			await afficher_feeling("nutrient-")
 			# On met le malus.
 			if dico_bonus_malus["minimum_nutriment_values"][1] == "requis-actual":
 				plant_health += abs(dico_caracteristique["minimum_nutriment_values"][plant_type] - nutriment_value)
@@ -248,11 +263,14 @@ func bonus_malus_nutriment(nutriment_value):
 				plant_health += dico_bonus_malus["minimum_nutriment_values"][1]
 func bonus_malus_humidity(humidity_value):
 	if humidity_value in dico_caracteristique["humidities_values"][plant_type]:
+		await afficher_feeling("humidity+")
 		plant_health += dico_bonus_malus["humidities_values"][0]
 	else:
+		await afficher_feeling("humidity-")
 		plant_health += dico_bonus_malus["humidities_values"][1]
 func bonus_malus_sunlight(sunlight_value):
 	if sunlight_value == dico_caracteristique["sunlight_bonus"][plant_type]:
+		await afficher_feeling("sun+")
 		plant_health += dico_bonus_malus["sunlight_bonus"][0]
 	else:
 		plant_health += dico_bonus_malus["sunlight_bonus"][1]
@@ -261,17 +279,20 @@ func bonus_malus_sunlight(sunlight_value):
 		if sunlight_value in dico_caracteristique["sunlight_possible"][plant_type]:
 			plant_health += dico_bonus_malus["sunlight_possible"][0]
 		else:
+			await afficher_feeling("sun-")
 			plant_health += dico_bonus_malus["sunlight_possible"][1]
 	
 func bonus_malus_voisin(voisin_droit,voisin_gauche):
-	if voisin_droit in dico_caracteristique["appreciated_adjacents_plants"]:
+	if voisin_droit in dico_caracteristique["appreciated_adjacents_plants"][plant_type]:
+		await afficher_feeling("friend+")
 		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][0]
-	elif not(voisin_droit in dico_caracteristique["appreciated_adjacents_plants"]):
+	else:
 		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][1]
 	
-	if voisin_droit in dico_caracteristique["unapreciated_adjacents_plants"]:
+	if voisin_droit in dico_caracteristique["unapreciated_adjacents_plants"][plant_type]:
+		await afficher_feeling("friend-")
 		plant_health += dico_bonus_malus["unapreciated_adjacents_plants"][0]
-	elif not(voisin_droit in dico_caracteristique["unapreciated_adjacents_plants"]):
+	else:
 		plant_health += dico_bonus_malus["unapreciated_adjacents_plants"][1]
 
 func next_quarter_of_season(new_phase,random_event):
@@ -310,18 +331,18 @@ func next_quarter_of_season(new_phase,random_event):
 			# On applique les bonus / malus sur la vie de le a plante.
 			
 			print("plant_health_avant_bonus_malus : "+str(plant_health))
-			bonus_malus_humidity(temp_humidity_value)
-			bonus_malus_sunlight(temp_sunlight_value)
+			await bonus_malus_humidity(temp_humidity_value)
+			await bonus_malus_sunlight(temp_sunlight_value)
 			if state == 0:
-				bonus_malus_seasons(before_season)
-				bonus_malus_nutriment(nutriment_value)
+				await bonus_malus_seasons(before_season)
+				await bonus_malus_nutriment(nutriment_value)
 			
 			if voisin_droit != null:
 				voisin_droit_plant = voisin_droit.plant_type
 			if voisin_gauche != null:
 				voisin_gauche_plant = voisin_gauche.plant_type
 			
-			bonus_malus_voisin(voisin_droit_plant,voisin_gauche_plant)
+			await bonus_malus_voisin(voisin_droit_plant,voisin_gauche_plant)
 			print("plant_health_apres_bonus_malus : "+str(plant_health))
 			
 			# On fait poussé la plante si elle est toujours vivante :
@@ -349,6 +370,8 @@ func next_quarter_of_season(new_phase,random_event):
 
 func _on_button_pressed():
 	#print("pressed")
+	if GlobalVariables.game_state == "clock":
+		return #pas le droit
 	if GlobalVariables.action_picked == "seed" and plant_type == "None":
 		add_plant(GlobalVariables.seed_picked)
 	else:

@@ -31,5 +31,6 @@ func _process(delta):
 
 
 func _on_texture_button_pressed():
-	if GlobalVariables.game_state == "playing":
-		increase_phase()
+	if GlobalVariables.game_state == "clock":
+		return
+	increase_phase()

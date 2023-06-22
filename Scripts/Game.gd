@@ -6,7 +6,8 @@ var random_event = "rien"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	GlobalVariables.game_state = "playing"
+	pass # Replace with function body
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,11 +37,16 @@ func generate_random_event(new_phase):
 	return "rien"
 
 func _on_clock_phase_changed(new_phase):
-	$Meteo.go_meteo()
 	# Here on va decider des random events :
+	GlobalVariables.game_state = "clock"
+	if $Encyclopedia/Book.visible == true:
+		$Encyclopedia.close_enciclopedia()
 	random_event = generate_random_event(new_phase)
 	
+	$Meteo/Nuages.kill_nuages()
+	
 	if random_event == "pluie":
+		$Meteo.go_meteo(3,5)
 		$Meteo/Rain.visible = true
 		$Meteo.rain_fade_in()
 		$Meteo/Sun/DirectionalLight2D.energy = 0.8
@@ -52,8 +58,8 @@ func _on_clock_phase_changed(new_phase):
 		$Meteo/Sun/DirectionalLight2D.energy = 1.3
 	else:
 		$Meteo/Sun/DirectionalLight2D.energy = 1
+		$Meteo.go_meteo(0,2)
 		
-	
 	# Updating every plants
 	for i in range(8):
 		$plant_spot_container.get_child(i).next_quarter_of_season(new_phase,random_event)
@@ -78,6 +84,10 @@ func _on_clock_phase_changed(new_phase):
 		$"/root/PersistentSfx/WinterMusic".play_song_phase1()
 	elif new_phase == 7:
 		$"/root/PersistentSfx/WinterMusic".play_song_phase2()
+	
+	#wait then turn on the game:
+	await get_tree().create_timer(5).timeout
+	GlobalVariables.game_state = "playing"
 
 
 func _on_plant_calling_contextual_menu(plant_node):
