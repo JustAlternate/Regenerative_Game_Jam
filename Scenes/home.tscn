@@ -57,34 +57,28 @@ text = "Yo bento"
 [node name="plant_spot_container" type="Node2D" parent="Game"]
 
 [node name="plant1" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
-position = Vector2(32, 264)
-number_of_tile_from_river = 3
+position = Vector2(32, 256)
 
 [node name="plant2" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
-position = Vector2(96, 264)
-number_of_tile_from_river = 2
+position = Vector2(96, 256)
 
 [node name="plant3" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
-position = Vector2(160, 264)
-number_of_tile_from_river = 1
+position = Vector2(160, 256)
 
 [node name="plant4" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
-position = Vector2(224, 264)
+position = Vector2(224, 256)
 
 [node name="plant5" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
-position = Vector2(352, 264)
+position = Vector2(352, 256)
 
 [node name="plant6" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
-position = Vector2(416, 264)
-number_of_tile_from_river = 1
+position = Vector2(416, 256)
 
 [node name="plant7" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
-position = Vector2(480, 264)
-number_of_tile_from_river = 2
+position = Vector2(480, 256)
 
 [node name="plant8" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
-position = Vector2(544, 264)
-number_of_tile_from_river = 3
+position = Vector2(544, 256)
 
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
 position = Vector2(542.477, 34.0615)
