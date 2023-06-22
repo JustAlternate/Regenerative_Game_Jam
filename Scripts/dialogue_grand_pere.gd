@@ -10,9 +10,9 @@ extends Node2D
 var Talking:bool = false
 
 var dico_dialogue = {
-	"Rain":[true,["The rain make your soil watered."]],
-	"Sunlight":[true,["The sun dry your soil.","Be carefull when planting for summer"]],
-	"Nutirment":[true,["Worms make your soil richer for certain crop to grow."]],
+	"Rain":[true,["Your soil gets wet when it rains."]],
+	"Sunlight":[true,["The sun dry your soil.","Be carefull when planting for summer!"]],
+	"Nutrients":[true,["Worms make your soil richer for certain crop to grow."]],
 	"radish_unlock":[false,["unlock radish"]],
 	"radish_recolte":[false,["Well done harvesting those radishes!", "Here, you can try planting these peas."]],
 	"tomato_unlock":[false,["Take these tomato seeds.", "Now is the perfect time to plant them!"]],
