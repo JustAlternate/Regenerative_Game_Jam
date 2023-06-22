@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cux0ivx6exq1b"]
+[gd_scene load_steps=19 format=3 uid="uid://cux0ivx6exq1b"]
 
 [ext_resource type="PackedScene" uid="uid://dftuedx82aneu" path="res://Scenes/encyclopedia.tscn" id="1_1gyia"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_mivhc"]
 [ext_resource type="PackedScene" uid="uid://du2q4bvo17ea" path="res://Scenes/dialogue_grand_pere.tscn" id="2_005re"]
+[ext_resource type="Texture2D" uid="uid://chtvt0u57khvi" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_bqiwa"]
 [ext_resource type="Texture2D" uid="uid://cqemdebiu2vyn" path="res://Assets/Plant/background-automne.png" id="2_pi25p"]
 [ext_resource type="Texture2D" uid="uid://bjwcvxhdyymu" path="res://Assets/Plant/background-printemps.png" id="3_lswv8"]
 [ext_resource type="Texture2D" uid="uid://baekq7aujb1pc" path="res://Assets/Plant/background-ete.png" id="4_2d7xi"]
@@ -11,7 +12,42 @@
 [ext_resource type="Texture2D" uid="uid://dyj33o55lscxg" path="res://Assets/Plant/background-hiver.png" id="5_l38m1"]
 [ext_resource type="PackedScene" uid="uid://c751d7ivsjn33" path="res://Scenes/meteo.tscn" id="6_2mes2"]
 [ext_resource type="PackedScene" uid="uid://c5fwrbut46wua" path="res://Scenes/plante.tscn" id="6_5hxrd"]
-[ext_resource type="Texture2D" uid="uid://dg8yjs0r274jp" path="res://Assets/Plant/sprite-case-eau-centre.png" id="8_tf5h7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w73x"]
+atlas = ExtResource("2_bqiwa")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57w2v"]
+atlas = ExtResource("2_bqiwa")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rscqe"]
+atlas = ExtResource("2_bqiwa")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kja0x"]
+atlas = ExtResource("2_bqiwa")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ssav"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w73x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57w2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rscqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kja0x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6c8pp"]
 animations = [{
@@ -56,6 +92,12 @@ animations = [{
 script = ExtResource("1_mivhc")
 
 [node name="background" type="Node2D" parent="Game"]
+
+[node name="riviere" type="AnimatedSprite2D" parent="Game/background"]
+texture_filter = 1
+position = Vector2(288, 288)
+sprite_frames = SubResource("SpriteFrames_5ssav")
+frame_progress = 0.99453
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Game/background"]
 texture_filter = 1
@@ -108,11 +150,6 @@ position = Vector2(544, 256)
 
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
 position = Vector2(542.477, 34.0615)
-
-[node name="riviere" type="Sprite2D" parent="Game"]
-texture_filter = 1
-position = Vector2(288, 288)
-texture = ExtResource("8_tf5h7")
 
 [connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant1" to="Game" method="_on_plant_calling_contextual_menu"]
 [connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant2" to="Game" method="_on_plant_calling_contextual_menu"]
