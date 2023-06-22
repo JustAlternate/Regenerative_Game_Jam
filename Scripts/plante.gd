@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var transition:bool
 @export var flip_dirt = false
 @export var plant_type = "None" #"carrot", "pea", "leek", "corn", "wheat", "pumpkin", "tomatoes", "thym", "vine", "courgette"
 var bonus_season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
@@ -181,7 +182,7 @@ var sunlight_value:int  # 0 = ombre, 1 = soleil
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	change_dirt(humidity_value, "None")
 	$dirt.flip_h = flip_dirt
 	$sprite.animation = "vide"
 	$sign_container.hide()
@@ -311,6 +312,20 @@ func bonus_malus_voisin(voisin_droit,voisin_gauche):
 	else:
 		plant_health += dico_bonus_malus["unapreciated_adjacents_plants"][1]
 
+func change_dirt(temp_humidity_value, random_event):
+	if temp_humidity_value == 0:
+		if transition and not (random_event == "soleil" and humidity_from_river == 0):
+			$dirt.animation = "dry_transition"
+		else:
+			$dirt.animation = "dry"
+	if temp_humidity_value == 1:
+		if transition:
+			$dirt.animation = "normal_transition"
+		else:
+			$dirt.animation = "normal"
+	if temp_humidity_value == 2:
+		$dirt.animation = "soak"
+
 func next_quarter_of_season(new_phase,random_event):
 	var actual_season = [new_phase/2 +1 ,new_phase%2 +1]
 	var before_season = [((new_phase+7)%8)/2 +1, ((new_phase+7)%8)%2 +1]
@@ -320,6 +335,19 @@ func next_quarter_of_season(new_phase,random_event):
 	
 	var voisin_droit_plant = "None"
 	var voisin_gauche_plant = "None"
+	
+	
+	if random_event == "pluie":
+		if temp_humidity_value < 2:
+			temp_humidity_value += 1
+		temp_sunlight_value -= 1
+		
+	if random_event == "soleil":
+		temp_sunlight_value += 1
+		if temp_humidity_value > 0:
+			temp_humidity_value -= 1
+	
+	change_dirt(temp_humidity_value, random_event)
 	
 	if plant_type == "None":
 		# Si la terre est vide, on lui fait regagner des nutriments a chaque passage de quarter of season.

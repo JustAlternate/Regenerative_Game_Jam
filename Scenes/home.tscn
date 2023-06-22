@@ -3,13 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://dftuedx82aneu" path="res://Scenes/encyclopedia.tscn" id="1_1gyia"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_mivhc"]
 [ext_resource type="PackedScene" uid="uid://du2q4bvo17ea" path="res://Scenes/dialogue_grand_pere.tscn" id="2_005re"]
-[ext_resource type="Texture2D" uid="uid://chtvt0u57khvi" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_bqiwa"]
-[ext_resource type="Texture2D" uid="uid://cqemdebiu2vyn" path="res://Assets/Plant/background-automne.png" id="2_pi25p"]
-[ext_resource type="Texture2D" uid="uid://bjwcvxhdyymu" path="res://Assets/Plant/background-printemps.png" id="3_lswv8"]
-[ext_resource type="Texture2D" uid="uid://baekq7aujb1pc" path="res://Assets/Plant/background-ete.png" id="4_2d7xi"]
+[ext_resource type="Texture2D" uid="uid://n0ykyaljticb" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_bqiwa"]
+[ext_resource type="Texture2D" uid="uid://c68e523dycwtf" path="res://Assets/Plant/background-automne.png" id="2_pi25p"]
+[ext_resource type="Texture2D" uid="uid://bp78tul1ocy20" path="res://Assets/Plant/background-printemps.png" id="3_lswv8"]
+[ext_resource type="Texture2D" uid="uid://8hfiiya5jrcx" path="res://Assets/Plant/background-ete.png" id="4_2d7xi"]
 [ext_resource type="PackedScene" uid="uid://cpc1baduxkefv" path="res://Scenes/seed_drawer.tscn" id="4_fw8ti"]
 [ext_resource type="PackedScene" uid="uid://slb4mijat6jh" path="res://Scenes/clock.tscn" id="5_gjtvy"]
-[ext_resource type="Texture2D" uid="uid://dyj33o55lscxg" path="res://Assets/Plant/background-hiver.png" id="5_l38m1"]
+[ext_resource type="Texture2D" uid="uid://dse48s3ss5feq" path="res://Assets/Plant/background-hiver.png" id="5_l38m1"]
 [ext_resource type="PackedScene" uid="uid://c751d7ivsjn33" path="res://Scenes/meteo.tscn" id="6_2mes2"]
 [ext_resource type="PackedScene" uid="uid://c5fwrbut46wua" path="res://Scenes/plante.tscn" id="6_5hxrd"]
 
@@ -118,6 +118,7 @@ text = ""
 
 [node name="plant1" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
 position = Vector2(32, 256)
+transition = true
 
 [node name="plant2" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
 position = Vector2(96, 256)
@@ -125,6 +126,7 @@ humidity_from_river = 1
 
 [node name="plant3" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
 position = Vector2(160, 256)
+transition = true
 humidity_from_river = 1
 
 [node name="plant4" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
@@ -133,18 +135,24 @@ humidity_from_river = 2
 
 [node name="plant5" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
 position = Vector2(352, 256)
+flip_dirt = true
 humidity_from_river = 2
 
 [node name="plant6" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
 position = Vector2(416, 256)
+transition = true
+flip_dirt = true
 humidity_from_river = 1
 
 [node name="plant7" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
 position = Vector2(480, 256)
+flip_dirt = true
 humidity_from_river = 1
 
 [node name="plant8" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
 position = Vector2(544, 256)
+transition = true
+flip_dirt = true
 
 [node name="Encyclopedia" parent="Game" instance=ExtResource("1_1gyia")]
 

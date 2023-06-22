@@ -54,8 +54,6 @@ func _on_clock_phase_changed(new_phase):
 	
 	# Here on va decider des random events :
 	GlobalVariables.game_state = "clock"
-	if $Encyclopedia/Book.visible == true:
-		$Encyclopedia.close_enciclopedia()
 	random_event = generate_random_event(new_phase)
 	
 	$Meteo/Nuages.kill_nuages()
@@ -64,13 +62,13 @@ func _on_clock_phase_changed(new_phase):
 		$Meteo.go_meteo(3,5)
 		$Meteo/Rain.visible = true
 		$Meteo.rain_fade_in()
-		$Meteo/Sun/DirectionalLight2D.energy = 0.8
+		$Meteo/Sun/DirectionalLight2D.energy = 0.5
 	else:
 		$Meteo/Rain.visible = false
 		$Meteo.rain_fade_out()
 	
 	if random_event=="soleil":
-		$Meteo/Sun/DirectionalLight2D.energy = 1.3
+		$Meteo/Sun/DirectionalLight2D.energy = 1.2
 	else:
 		$Meteo/Sun/DirectionalLight2D.energy = 1
 		$Meteo.go_meteo(0,2)
@@ -79,29 +77,29 @@ func _on_clock_phase_changed(new_phase):
 	for i in range(8):
 		$plant_spot_container.get_child(i).next_quarter_of_season(new_phase,random_event)
 	
-	if new_phase == 0:
+	if new_phase == 1:
 		$"/root/PersistentSfx/WinterMusic".music_stop()
 		$"/root/PersistentSfx/SpringMusic".play_song_phase1()
-	elif new_phase == 1:
-		$"/root/PersistentSfx/SpringMusic".play_song_phase2()
 	elif new_phase == 2:
+		$"/root/PersistentSfx/SpringMusic".play_song_phase2()
+	elif new_phase == 3:
 		$"/root/PersistentSfx/SpringMusic".music_stop()
 		$"/root/PersistentSfx/SummerMusic".play_song_phase1()
-	elif new_phase == 3:
-		$"/root/PersistentSfx/SummerMusic".play_song_phase2()
 	elif new_phase == 4:
+		$"/root/PersistentSfx/SummerMusic".play_song_phase2()
+	elif new_phase == 5:
 		$"/root/PersistentSfx/SummerMusic".music_stop()
 		$"/root/PersistentSfx/FallMusic".play_song_phase1()
-	elif new_phase == 5:
-		$"/root/PersistentSfx/FallMusic".play_song_phase2()
 	elif new_phase == 6:
+		$"/root/PersistentSfx/FallMusic".play_song_phase2()
+	elif new_phase == 7:
 		$"/root/PersistentSfx/FallMusic".music_stop()
 		$"/root/PersistentSfx/WinterMusic".play_song_phase1()
-	elif new_phase == 7:
+	elif new_phase == 0:
 		$"/root/PersistentSfx/WinterMusic".play_song_phase2()
 	
 	#wait then turn on the game:
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(3).timeout
 	GlobalVariables.game_state = "playing"
 
 

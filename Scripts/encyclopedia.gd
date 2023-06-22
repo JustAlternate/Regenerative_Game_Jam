@@ -6,7 +6,8 @@ var actual_page_number = 0
 	#Page 1 - 2
 		["Encyclopedia","The Encyclopedia is your best friend in this game, nearly everything you must know about your crops and how the game works is in this book, make sure to read it as you progress and as you discover new crops ! ","Encyclopedia"], #Page gauche
 		["Radish","Radish is a vegetable that can be sown all the year, except in fall 2.\nIt takes 1 phase to grow.\n\nIt prefers the shade or the rain, but can grow in any weather except under strong sunlight.\n\nNutrient-rich soil is necessary.\n\nIt needs soaked soil to grow.\n\nRadish appreciates to be next to carrots, garlic, peas and tomatoes.","radish"],   #Page droite
-	 #Page 3 - 4
+
+	#Page 3 - 4
 		["Pea","Pea is a vegetable that can be sown in spring 1 and fall 2, but prefers to be planted in winter 1 & 2.\nIt takes 2 phases to grow.\n\nIt prefers the shade or the rain, but can grow in any weather except under strong sunlight.\n\nNutrient-poor soil is sufficient.\n\nIt needs moist soil to grow.","pea"], #Page gauche
 		["Tomato","Tomato is a vegetable that can be sown in winter 2 and spring 2, but prefers to be planted in spring 1.\nIt takes 2 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nIt must have a minimum of nutrients in the soil.\n\nIt needs soaked soil to grow.\n\nTomatoes like to be next to radishes.","tomatoes"],   #Page droite
 
