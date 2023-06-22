@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://do6kg650xnlrx"]
+
+[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="2_8p0q4"]
+[ext_resource type="Script" path="res://Scripts/button_for_grandpa.gd" id="3_0h5ig"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57o6u"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.392157, 0.490196, 0.203922, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3dwv"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_obpcp"]
+default_font = ExtResource("2_8p0q4")
+Button/styles/hover = SubResource("StyleBoxFlat_57o6u")
+Button/styles/normal = SubResource("StyleBoxFlat_x3dwv")
+
+[node name="Button_for_grandpa" type="Button"]
+texture_filter = 1
+focus_mode = 0
+theme = SubResource("Theme_obpcp")
+script = ExtResource("3_0h5ig")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
