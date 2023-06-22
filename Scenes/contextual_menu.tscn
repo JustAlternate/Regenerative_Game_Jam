@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://dg0h8dcgh7872"]
 
 [ext_resource type="Script" path="res://Scripts/contextual_menu.gd" id="1_on6no"]
-[ext_resource type="Texture2D" uid="uid://2e0oq8raycq5" path="res://Assets/sprites/UI/icon_harvest.png" id="2_wfqac"]
-[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="3_12xxr"]
-[ext_resource type="Texture2D" uid="uid://cfopf3uhyrhgj" path="res://Assets/sprites/UI/icon_remove.png" id="3_muy21"]
-[ext_resource type="Texture2D" uid="uid://cokj42mp4pr6o" path="res://Assets/sprites/UI/icon_advice.png" id="4_ywbs1"]
+[ext_resource type="Texture2D" uid="uid://13g4j2i7eaff" path="res://Assets/sprites/UI/icon_harvest.png" id="2_wfqac"]
+[ext_resource type="FontFile" uid="uid://dinlurcky8yjo" path="res://fonts/FutilePro.ttf" id="3_12xxr"]
+[ext_resource type="Texture2D" uid="uid://jiw77f43qqdl" path="res://Assets/sprites/UI/icon_remove.png" id="3_muy21"]
+[ext_resource type="Texture2D" uid="uid://b7s5n13ggekmp" path="res://Assets/sprites/UI/icon_advice.png" id="4_ywbs1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqmkj"]
-bg_color = Color(1, 0.321569, 0.415686, 1)
+bg_color = Color(1, 0.321569, 0.415686, 0)
 corner_radius_top_left = 500
 corner_radius_top_right = 500
 corner_radius_bottom_right = 500
@@ -106,11 +106,6 @@ label_settings = SubResource("LabelSettings_1hxj8")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_muy21")
 
 [connection signal="mouse_entered" from="button_harvest" to="." method="_on_button_harvest_mouse_entered"]
 [connection signal="mouse_exited" from="button_harvest" to="." method="_on_button_harvest_mouse_exited"]
