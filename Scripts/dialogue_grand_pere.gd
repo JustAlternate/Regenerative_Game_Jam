@@ -7,7 +7,8 @@ extends Node2D
 @export var time_betwen_carac:float = 0.05
 @export var time_betwen_dialogue:float = 3
 @export var time_after_dialogue:float = 4
-var Talking:bool = false
+
+var state = "none"
 
 var tutorial_progress = 0
 
@@ -32,6 +33,7 @@ func player_just_did_something(thing):
 	if thing[0] == "planted":
 		if thing[1] == "radish":
 			if tutorial_progress == 0:
+				print("tuto2")
 				grandpa_talk("apres_plantage_radish")
 				tutorial_progress+=1
 	
@@ -57,8 +59,7 @@ func player_just_did_something(thing):
 
 
 func _on_button_for_grandpa_button_activated(texte_name):
-	if not(Talking):
-		grandpa_talk(texte_name)
+	grandpa_talk(texte_name)
 
 func maj_buttons():
 	
@@ -87,27 +88,32 @@ func show_buttons():
 		child.visible = true
 
 func writing_text(text):
+	state = "talking"
 	$Panel/Label.text = ""
 	for letter in text: 
-			$Panel/Label.text += letter
-			await get_tree().create_timer(time_betwen_carac).timeout
+		if state == "speed_talk":
+			$Panel/Label.text = text
+			return
+		$Panel/Label.text += letter
+		await get_tree().create_timer(time_betwen_carac).timeout
 
 func grandpa_talk(text):
 	dialogue_queue.append(text)
 	
 func grandpa_start_talk():
-	Talking = true
+	state = "talking"
 	$Panel.visible = true
 	
 	text = dialogue_queue.pop_front()
 	
 	$GrandpaSFX/AudioStreamPlayer2.play()
 	for i in range(len(dico_dialogue[text][1])):
-			await writing_text(dico_dialogue[text][1][i])
-			await get_tree().create_timer(time_betwen_dialogue).timeout
-			$GrandpaSFX/AudioStreamPlayer.play()
+		await writing_text(dico_dialogue[text][1][i])
+		state = "pending"
+		await get_tree().create_timer(time_betwen_dialogue).timeout #attend prochain dialogue
+		$GrandpaSFX/AudioStreamPlayer.play()
 	
-	Talking = false
+	state = "none"
 	$Panel.visible = false
 	
 	player_just_did_something(["talk",text])
@@ -115,7 +121,7 @@ func grandpa_start_talk():
 func _process(delta):
 	
 	#look if something is in dialogue queue, if so, say if nothing is being said already
-	if dialogue_queue != [] and not(Talking):
+	if dialogue_queue != [] and state == "none":
 		grandpa_start_talk()
 		
 	
@@ -125,5 +131,6 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	Talking = false
+	if state == "talking":
+		state = "speed_talk"
 	
