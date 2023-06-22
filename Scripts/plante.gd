@@ -74,7 +74,7 @@ var dico_caracteristique = {
 		"carrot":[1,2],
 		"mint":[2],
 		"pumpkin":[1,2],
-		"tomatoes":[1,2],
+		"tomatoes":[2],
 		"thym":[0],
 		"vine":[1],
 		"zucchini":[2],
@@ -101,8 +101,8 @@ var dico_caracteristique = {
 		"leek":[0,1,2],
 		"corn":[1,2],
 		"wheat":[1,2],
-		"carrot":[1,2],
-		"mint":[1,2],
+		"carrot":[0,1,2],
+		"mint":[0,1,2],
 		"pumpkin":[0,1],
 		"tomatoes":[1,2],
 		"thym":[1,2],
@@ -131,10 +131,10 @@ var dico_caracteristique = {
 		"leek":["carrot","tomatoes"],
 		"corn":["pumpkin"],
 		"wheat":[],
-		"carrot":["tomatoes","leek","pea"],
-		"mint":["thym","tomatoes","pea"],
+		"carrot":["tomatoes","leek","pea","radish","ail"],
+		"mint":["thym","tomatoes","pea","fadish"],
 		"pumpkin":[],
-		"tomatoes":[],
+		"tomatoes":["radish"],
 		"thym":["mint"],
 		"vine":[],
 		"zucchini":["pea"],
@@ -193,7 +193,8 @@ func _process(delta):
 	pass
 
 func add_plant(type):
-	if type != "None":
+	if plant_type == "None":
+		print("planting")
 		plant_type = type
 		$PlantingSFX.play()
 		$sprite.animation = plant_type+"_0"
@@ -204,23 +205,24 @@ func add_plant(type):
 
 func harvest_plant():
 	print("harvested")
-	plant_type = "None"
-	$sprite.animation = "vide"
-	$sign_container.hide()
-	$HarvestSFX.play_random_sound()
 	if plant_health >= 10:
 		GlobalVariables.inventory[plant_type]["seed"] += 2
 	else:
 		GlobalVariables.inventory[plant_type]["seed"] += 1
 	GlobalVariables.inventory[plant_type]["plant"] += plant_health
+	plant_type = "None"
+	$sprite.animation = "vide"
+	$sign_container.hide()
+	$HarvestSFX.play_random_sound()
+	print(GlobalVariables.inventory)
 
 func remove_plant():
 	print("removed")
+	if state == 0:
+		GlobalVariables.inventory[plant_type]["seed"] += 1
 	plant_type = "None"	
 	$sprite.animation = "vide"
 	$sign_container.hide()
-	if state == 0:
-		GlobalVariables.inventory[plant_type]["seed"] += 1
 
 func bonus_malus_seasons(actual_season):
 	if state == 0: # Si la plante est une graine
@@ -308,10 +310,11 @@ func next_quarter_of_season(new_phase,random_event):
 			# On applique les bonus / malus sur la vie de le a plante.
 			
 			print("plant_health_avant_bonus_malus : "+str(plant_health))
-			bonus_malus_seasons(before_season)
 			bonus_malus_humidity(temp_humidity_value)
-			bonus_malus_nutriment(nutriment_value)
 			bonus_malus_sunlight(temp_sunlight_value)
+			if state == 0:
+				bonus_malus_seasons(before_season)
+				bonus_malus_nutriment(nutriment_value)
 			
 			if voisin_droit != null:
 				voisin_droit_plant = voisin_droit.plant_type
@@ -346,8 +349,7 @@ func next_quarter_of_season(new_phase,random_event):
 
 func _on_button_pressed():
 	#print("pressed")
-	if GlobalVariables.action_picked == "seed":
-		if plant_type == "None":
-			add_plant(GlobalVariables.seed_picked)
-
-	calling_contextual_menu.emit(self)
+	if GlobalVariables.action_picked == "seed" and plant_type == "None":
+		add_plant(GlobalVariables.seed_picked)
+	else:
+		calling_contextual_menu.emit(self)
