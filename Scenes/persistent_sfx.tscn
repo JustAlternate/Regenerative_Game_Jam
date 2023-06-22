@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://do4656e8b6dje"]
+
+[ext_resource type="AudioStream" uid="uid://od3ncvyhu8io" path="res://Assets/sfx/menu_click.wav" id="1_dt27u"]
+
+[node name="Persistent_sfx" type="Node"]
+
+[node name="Click_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_dt27u")
+bus = &"SFX"

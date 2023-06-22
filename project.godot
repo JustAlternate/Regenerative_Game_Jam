@@ -19,6 +19,7 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 GlobalVariables="*res://Scripts/global_variables.gd"
+PersistentSfx="*res://Scenes/persistent_sfx.tscn"
 
 [display]
 
