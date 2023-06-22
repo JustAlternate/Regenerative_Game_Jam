@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" path="res://Scripts/encyclopedia.gd" id="1_7x68r"]
 [ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="2_80t7u"]
-[ext_resource type="Texture2D" uid="uid://dvmoa8jrih7j0" path="res://Assets/sprites/new_book.png" id="3_20t2i"]
+[ext_resource type="Texture2D" uid="uid://dhyiyryo1t544" path="res://Assets/sprites/new_book.png" id="3_20t2i"]
 [ext_resource type="StyleBox" uid="uid://d3vi3glx4440d" path="res://button_type_normal.tres" id="3_dedpf"]
-[ext_resource type="Texture2D" uid="uid://ded7nvuwpx3h0" path="res://Assets/sprites/little_book.png" id="4_k0b1x"]
+[ext_resource type="Texture2D" uid="uid://0b35hwa50m60" path="res://Assets/sprites/little_book.png" id="4_k0b1x"]
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="4_mllbh"]
 [ext_resource type="PackedScene" uid="uid://dkv3eat6lhkcn" path="res://Scenes/animation_pour_livre.tscn" id="5_smlq5"]
 [ext_resource type="PackedScene" uid="uid://b05j16p7wwoul" path="res://Scenes/sound_pool.tscn" id="8_vkj6q"]
-[ext_resource type="AudioStream" uid="uid://h0o0ilsxapjf" path="res://Assets/sfx/book/page_flip/page_flip1.wav" id="9_u1oxv"]
-[ext_resource type="AudioStream" uid="uid://cthtkiotyrm2g" path="res://Assets/sfx/book/page_flip/page_flip2.wav" id="10_8ajfx"]
-[ext_resource type="AudioStream" uid="uid://krcfylv23rtj" path="res://Assets/sfx/book/page_flip/page_flip3.wav" id="11_oyfbd"]
-[ext_resource type="AudioStream" uid="uid://8jmeh8nn8dw8" path="res://Assets/sfx/book/book_close.wav" id="12_3gjbs"]
+[ext_resource type="AudioStream" uid="uid://7mia7s2l2krr" path="res://Assets/sfx/book/page_flip/page_flip1.wav" id="9_u1oxv"]
+[ext_resource type="AudioStream" uid="uid://c3i7mtth4e0tx" path="res://Assets/sfx/book/page_flip/page_flip2.wav" id="10_8ajfx"]
+[ext_resource type="AudioStream" uid="uid://dj4y6whr8nqay" path="res://Assets/sfx/book/page_flip/page_flip3.wav" id="11_oyfbd"]
+[ext_resource type="AudioStream" uid="uid://dl8uq24ke4sig" path="res://Assets/sfx/book/book_close.wav" id="12_3gjbs"]
 
 [sub_resource type="Theme" id="Theme_re47q"]
 Button/styles/hover = ExtResource("2_80t7u")
