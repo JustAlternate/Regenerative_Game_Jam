@@ -1,16 +1,21 @@
-[gd_scene load_steps=85 format=3 uid="uid://c5fwrbut46wua"]
+[gd_scene load_steps=90 format=3 uid="uid://c5fwrbut46wua"]
 
 [ext_resource type="Script" path="res://Scripts/plante.gd" id="1_y1icu"]
 [ext_resource type="Texture2D" uid="uid://dlf15quy3vi4o" path="res://Assets/Plant/sprite-ail.png" id="2_f3og3"]
+[ext_resource type="Texture2D" uid="uid://cjf5kl2hclmxy" path="res://Assets/sprites/dirt-dry.png" id="2_wdmma"]
 [ext_resource type="Texture2D" uid="uid://stit1ck0fe3n" path="res://Assets/Plant/sprite-carrot.png" id="2_yptac"]
+[ext_resource type="Texture2D" uid="uid://dl2omtggckx28" path="res://Assets/sprites/dirt-dry-to-moist.png" id="3_iv6o1"]
 [ext_resource type="Texture2D" uid="uid://1qfyyj5kqiq7" path="res://Assets/Plant/sprite-radis.png" id="3_pf3go"]
 [ext_resource type="Texture2D" uid="uid://dfyv2cyqd7tqp" path="res://Assets/Plant/sprite-ble-V2.png" id="4_5w2th"]
+[ext_resource type="Texture2D" uid="uid://bdihpqtp185id" path="res://Assets/sprites/dirt-moist.png" id="4_8qpwo"]
 [ext_resource type="Texture2D" uid="uid://b72rlkx0ml7jh" path="res://Assets/Plant/sprite-mais.png" id="4_ibk1u"]
 [ext_resource type="Texture2D" uid="uid://cga7nl1a7721d" path="res://Assets/Plant/sprite-poirreau.png" id="4_r44fc"]
 [ext_resource type="Texture2D" uid="uid://cktraf36cd2nw" path="res://Assets/Plant/sprite-tomate.png" id="4_v1td6"]
+[ext_resource type="Texture2D" uid="uid://by04g77f6hrtt" path="res://Assets/sprites/dirt-moist-to-soaked.png" id="5_cmjkf"]
 [ext_resource type="Texture2D" uid="uid://drjki2aan2g47" path="res://Assets/Plant/sprite-menthe.png" id="5_isf36"]
 [ext_resource type="Texture2D" uid="uid://b1st0s7somxas" path="res://Assets/Plant/sprite-petit-pois.png" id="5_ohc3g"]
 [ext_resource type="Texture2D" uid="uid://b0k8j38u0e0xo" path="res://Assets/Plant/sprite-courgette.png" id="5_y042f"]
+[ext_resource type="Texture2D" uid="uid://coo43vjv8jjge" path="res://Assets/sprites/dirt-soaked.png" id="6_fm4k7"]
 [ext_resource type="Texture2D" uid="uid://bqx2eit3830my" path="res://Assets/sprites/vide_64x128.png" id="6_gtc40"]
 [ext_resource type="Texture2D" uid="uid://jyd8cx3guki8" path="res://Assets/Plant/sprite-thym.png" id="7_hduq0"]
 [ext_resource type="Texture2D" uid="uid://olofimri6ccx" path="res://Assets/Plant/sprite-citrouille.png" id="8_1cvg5"]
@@ -25,9 +30,44 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_74itx"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wdmma")
+}],
 "loop": true,
-"name": &"0_0",
+"name": &"dry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_iv6o1")
+}],
+"loop": true,
+"name": &"dry_transition",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8qpwo")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cmjkf")
+}],
+"loop": true,
+"name": &"normal_transition",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_fm4k7")
+}],
+"loop": true,
+"name": &"soak",
 "speed": 5.0
 }]
 
@@ -760,7 +800,7 @@ script = ExtResource("1_y1icu")
 texture_filter = 1
 position = Vector2(0, 32)
 sprite_frames = SubResource("SpriteFrames_74itx")
-animation = &"0_0"
+animation = &"dry"
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

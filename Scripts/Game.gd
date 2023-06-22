@@ -7,6 +7,7 @@ var random_event = "rien"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalVariables.game_state = "playing"
+	$background/riviere.play("default")
 	pass # Replace with function body
 
 
@@ -14,7 +15,18 @@ func _ready():
 func _process(delta):
 	#print(GlobalVariables.inventory)
 	pass
-	
+
+var background_season_animation_dico = [
+	"spring", # Spring1
+	"spring",
+	"summer", # Ete1
+	"summer",
+	"fall", # Autumn1
+	"fall",
+	"winter", # Winter1
+	"winter", # Winter2
+]
+
 # new_phase : 0 = Winter2, 1 = Spring1 .... 7 = Winter1
 var list_proba_events = [
 	#[pluie, soleil, rien]
@@ -37,10 +49,11 @@ func generate_random_event(new_phase):
 	return "rien"
 
 func _on_clock_phase_changed(new_phase):
+	
+	$background/AnimatedSprite2D.animation = background_season_animation_dico[new_phase]
+	
 	# Here on va decider des random events :
 	GlobalVariables.game_state = "clock"
-	if $Encyclopedia/Book.visible == true:
-		$Encyclopedia.close_enciclopedia()
 	random_event = generate_random_event(new_phase)
 	
 	$Meteo/Nuages.kill_nuages()
@@ -49,13 +62,13 @@ func _on_clock_phase_changed(new_phase):
 		$Meteo.go_meteo(3,5)
 		$Meteo/Rain.visible = true
 		$Meteo.rain_fade_in()
-		$Meteo/Sun/DirectionalLight2D.energy = 0.8
+		$Meteo/Sun/DirectionalLight2D.energy = 0.5
 	else:
 		$Meteo/Rain.visible = false
 		$Meteo.rain_fade_out()
 	
 	if random_event=="soleil":
-		$Meteo/Sun/DirectionalLight2D.energy = 1.3
+		$Meteo/Sun/DirectionalLight2D.energy = 1.2
 	else:
 		$Meteo/Sun/DirectionalLight2D.energy = 1
 		$Meteo.go_meteo(0,2)
@@ -86,7 +99,7 @@ func _on_clock_phase_changed(new_phase):
 		$"/root/PersistentSfx/WinterMusic".play_song_phase2()
 	
 	#wait then turn on the game:
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(3).timeout
 	GlobalVariables.game_state = "playing"
 
 

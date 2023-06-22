@@ -4,5 +4,6 @@
 [ext_resource type="Script" path="res://Scripts/nuage.gd" id="2_1k1dj"]
 
 [node name="nuage_normal" type="Sprite2D"]
+texture_filter = 1
 texture = ExtResource("1_pgmob")
 script = ExtResource("2_1k1dj")
