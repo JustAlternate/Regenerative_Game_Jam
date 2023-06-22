@@ -31,41 +31,41 @@ alignment = 2
 [node name="Button_for_grandpa" parent="RichTextLabel/VBoxContainer" instance=ExtResource("7_3caav")]
 layout_mode = 2
 text = "Rain"
-texte = "pluie"
+texte = "rain"
 
 [node name="Button_for_grandpa2" parent="RichTextLabel/VBoxContainer" instance=ExtResource("7_3caav")]
 layout_mode = 2
 text = "Rain"
-texte = "pluie"
+texte = "rain"
 
 [node name="Button_for_grandpa3" parent="RichTextLabel/VBoxContainer" instance=ExtResource("7_3caav")]
 layout_mode = 2
 text = "Sunlight"
-texte = "soleil"
+texte = "sun"
 
 [node name="Button_for_grandpa4" parent="RichTextLabel/VBoxContainer" instance=ExtResource("7_3caav")]
 visible = false
 layout_mode = 2
 text = "Sunlight"
-texte = "soleil"
+texte = "sun"
 
 [node name="Button_for_grandpa5" parent="RichTextLabel/VBoxContainer" instance=ExtResource("7_3caav")]
 visible = false
 layout_mode = 2
 text = "Sunlight"
-texte = "soleil"
+texte = "sun"
 
 [node name="Button_for_grandpa6" parent="RichTextLabel/VBoxContainer" instance=ExtResource("7_3caav")]
 visible = false
 layout_mode = 2
 text = "Sunlight"
-texte = "soleil"
+texte = "sun"
 
 [node name="Button_for_grandpa7" parent="RichTextLabel/VBoxContainer" instance=ExtResource("7_3caav")]
 visible = false
 layout_mode = 2
 text = "Sunlight"
-texte = "soleil"
+texte = "sun"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
