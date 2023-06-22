@@ -111,61 +111,68 @@ Button/styles/normal = ExtResource("6_nunw6")
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_vd1g2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="backgound" type="Node2D" parent="."]
 position = Vector2(32, 288)
+
+[node name="Sprite2D" type="Sprite2D" parent="backgound"]
 texture = ExtResource("2_5cl7r")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(96, 288)
+[node name="Sprite2D2" type="Sprite2D" parent="backgound"]
+position = Vector2(64, 0)
 texture = ExtResource("3_3cs7c")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(160, 288)
+[node name="Sprite2D3" type="Sprite2D" parent="backgound"]
+position = Vector2(128, 0)
 texture = ExtResource("4_ihp8w")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(224, 288)
+[node name="Sprite2D4" type="Sprite2D" parent="backgound"]
+position = Vector2(192, 0)
 texture = ExtResource("5_hc7wq")
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
-position = Vector2(352, 288)
+[node name="Sprite2D5" type="Sprite2D" parent="backgound"]
+position = Vector2(320, 0)
 texture = ExtResource("5_hc7wq")
 
-[node name="Sprite2D6" type="Sprite2D" parent="."]
-position = Vector2(416, 288)
+[node name="Sprite2D6" type="Sprite2D" parent="backgound"]
+position = Vector2(384, 0)
 texture = ExtResource("4_ihp8w")
 flip_h = true
 
-[node name="Sprite2D7" type="Sprite2D" parent="."]
-position = Vector2(480, 288)
+[node name="Sprite2D7" type="Sprite2D" parent="backgound"]
+position = Vector2(448, 0)
 texture = ExtResource("3_3cs7c")
 
-[node name="Sprite2D8" type="Sprite2D" parent="."]
-position = Vector2(544, 288)
+[node name="Sprite2D8" type="Sprite2D" parent="backgound"]
+position = Vector2(512, 0)
 texture = ExtResource("2_5cl7r")
 flip_h = true
 
-[node name="riviere" type="AnimatedSprite2D" parent="."]
+[node name="riviere" type="AnimatedSprite2D" parent="backgound"]
 texture_filter = 1
-position = Vector2(288, 288)
+position = Vector2(256, 0)
 sprite_frames = SubResource("SpriteFrames_j1puk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="backgound"]
 texture_filter = 1
-position = Vector2(288, 128)
+position = Vector2(256, -160)
 sprite_frames = SubResource("SpriteFrames_ucd87")
 animation = &"spring"
 
-[node name="Menu_title" type="Panel" parent="."]
-offset_right = 576.0
-offset_bottom = 52.0
+[node name="Sprite_deroulant" parent="backgound" instance=ExtResource("4_fap7w")]
+position = Vector2(-32, -288)
+
+[node name="Menu_title" type="Panel" parent="backgound"]
+offset_left = -32.0
+offset_top = -288.0
+offset_right = 544.0
+offset_bottom = -236.0
 theme = SubResource("Theme_up03c")
 
-[node name="Sprite2D" type="Sprite2D" parent="Menu_title"]
+[node name="Sprite2D" type="Sprite2D" parent="backgound/Menu_title"]
 position = Vector2(140, 25)
 texture = ExtResource("2_scljm")
 
-[node name="Title" type="Label" parent="Menu_title"]
+[node name="Title" type="Label" parent="backgound/Menu_title"]
 layout_mode = 0
 offset_top = -17.0
 offset_right = 576.0
@@ -175,8 +182,6 @@ label_settings = ExtResource("1_ni0yg")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-
-[node name="Sprite_deroulant" parent="." instance=ExtResource("4_fap7w")]
 
 [node name="Play" type="Button" parent="."]
 texture_filter = 1
