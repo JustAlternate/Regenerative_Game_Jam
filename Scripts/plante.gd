@@ -204,18 +204,23 @@ func add_plant(type):
 
 func harvest_plant():
 	print("harvested")
-	if not plant_type == "None":
-		plant_type = "None"
-		$sprite.animation = "vide"
-		$sign_container.hide()
-		$HarvestSFX.play_random_sound()
+	plant_type = "None"
+	$sprite.animation = "vide"
+	$sign_container.hide()
+	$HarvestSFX.play_random_sound()
+	if plant_health >= 10:
+		GlobalVariables.inventory[plant_type]["seed"] += 2
+	else:
+		GlobalVariables.inventory[plant_type]["seed"] += 1
+	GlobalVariables.inventory[plant_type]["plant"] += plant_health
 
 func remove_plant():
 	print("removed")
-	if not plant_type == "None":
-		plant_type = "None"	
-		$sprite.animation = "vide"
-		$sign_container.hide()
+	plant_type = "None"	
+	$sprite.animation = "vide"
+	$sign_container.hide()
+	if state == 0:
+		GlobalVariables.inventory[plant_type]["seed"] += 1
 
 func bonus_malus_seasons(actual_season):
 	if state == 0: # Si la plante est une graine

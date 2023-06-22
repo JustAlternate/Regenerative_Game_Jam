@@ -4,7 +4,6 @@ extends TextureButton
 @export var seed_name: String
 @export var is_shovel: bool = false
 @export var activated: bool = false
-var number_of_seeds = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,17 +16,17 @@ func _ready():
 # Add n seeds to number_of_seeds and changes sprite visibility and enables button accordingly
 func add_seeds(n):
 	if (n > 0):
-		number_of_seeds += n
+		GlobalVariables.inventory[seed_name]["seed"] += n
 		$Sprite2D.visible = true
 		disabled = false
-		$Sprite2D/SeedNumberLabel.text = str(number_of_seeds)
+		$Sprite2D/SeedNumberLabel.text = str(GlobalVariables.inventory[seed_name]["seed"])
 
 # Removes n seeds to number_of_seeds and if there are no seeds left, hides the seed sprite and disables the button
 func remove_seeds(n):
-	number_of_seeds -= n
-	$Sprite2D/SeedNumberLabel.text = str(number_of_seeds)
-	if (number_of_seeds <= 0):
-		number_of_seeds = 0
+	GlobalVariables.inventory[seed_name]["seed"] -= n
+	$Sprite2D/SeedNumberLabel.text = str(GlobalVariables.inventory[seed_name]["seed"])
+	if (GlobalVariables.inventory[seed_name]["seed"] <= 0):
+		GlobalVariables.inventory[seed_name]["seed"] = 0
 		$Sprite2D.visible = false
 		disabled = true
 

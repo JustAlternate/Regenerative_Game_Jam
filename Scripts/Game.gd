@@ -11,7 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	print(GlobalVariables.inventory)
 	
 
 # new_phase : 0 = Winter2, 1 = Spring1 .... 7 = Winter1
