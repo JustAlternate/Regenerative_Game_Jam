@@ -4,6 +4,10 @@ var action_picked = "Graine"
 var seed_picked = "carrot"
 var game_state = "playing"
 
+var master_volume = -2
+var music_volume = -2
+var sfx_volume = -2
+
 var inventory = {
 	"pea": {"seed": 0, "plant": 0},
 	"leek":{"seed": 0, "plant": 0},
