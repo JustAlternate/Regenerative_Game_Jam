@@ -38,6 +38,12 @@ Button/styles/normal = SubResource("StyleBoxFlat_x3dwv")
 
 [node name="Button_for_grandpa" type="Button"]
 texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -4.0
+offset_bottom = 4.0
+grow_horizontal = 0
 focus_mode = 0
 theme = SubResource("Theme_obpcp")
 script = ExtResource("3_0h5ig")
