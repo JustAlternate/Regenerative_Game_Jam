@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://c751d7ivsjn33"]
+[gd_scene load_steps=5 format=3 uid="uid://c751d7ivsjn33"]
 
 [ext_resource type="Script" path="res://Scripts/meteo.gd" id="1_8kb7b"]
-[ext_resource type="Texture2D" uid="uid://casagodwg71cx" path="res://Assets/particles/light_01.png" id="1_to760"]
-[ext_resource type="AudioStream" uid="uid://c2fyq1dgy1mq" path="res://Assets/sfx/rain.wav" id="3_u3dxd"]
+[ext_resource type="Texture2D" uid="uid://bhfbiudkrjxvk" path="res://Assets/particles/light_01.png" id="1_to760"]
+[ext_resource type="PackedScene" uid="uid://drclhc5oqo7ar" path="res://Scenes/nuages.tscn" id="2_lspsf"]
+[ext_resource type="AudioStream" uid="uid://dxdi82hb1bb8y" path="res://Assets/sfx/rain.wav" id="3_u3dxd"]
 
 [node name="Meteo" type="Node2D"]
 z_index = 1
 script = ExtResource("1_8kb7b")
 Sun_color = Color(1, 1, 1, 1)
+
+[node name="Nuages" parent="." instance=ExtResource("2_lspsf")]
 
 [node name="Rain" type="CPUParticles2D" parent="."]
 visible = false

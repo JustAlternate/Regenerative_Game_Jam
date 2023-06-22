@@ -14,7 +14,6 @@ func _process(delta):
 	#print(GlobalVariables.inventory)
 	pass
 	
-
 # new_phase : 0 = Winter2, 1 = Spring1 .... 7 = Winter1
 var list_proba_events = [
 	#[pluie, soleil, rien]
@@ -37,6 +36,7 @@ func generate_random_event(new_phase):
 	return "rien"
 
 func _on_clock_phase_changed(new_phase):
+	$Meteo.go_meteo()
 	# Here on va decider des random events :
 	random_event = generate_random_event(new_phase)
 	

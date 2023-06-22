@@ -14,13 +14,19 @@ var dialogue_progress:int #nombre de caractères écrits
 var dialogue_section:int = 0
 @export var dialogue_unlocked = 1
 var dico_dialogue = {
-	"pluie":[true,["machin","machin2"]],
-	"soleil":[true,["truc","truc2"]]
+	"rain":[true,["machin","machin2"]],
+	"sun":[true,["truc","truc2"]],
+	"radish_recolte":[true,["Well done harvesting those radishes!", "Here, you can try planting these peas."]],
+	"tomato_unlock":[true,["Take these tomato seeds.", "Now is the perfect time to plant them!"]],
+	"wheat_leek_unlock":[true,"I found new seeds, you can have them!"],
+	"pumpkin_unlock":[true,"Now's the right time to plant pumpkins!", "Plant these so we will have some for next Halloween!"],
+	"zucchini_unlock":[true,"Here, take these zucchini seeds.", "Zucchinis don't grow well with rain, so be careful!"]
+	
 }
 
 func _ready():
 	show_buttons(dialogue_unlocked)
-	grandpa_talk("pluie")
+	grandpa_talk("rain")
 
 func show_buttons(nbr_buttons):
 	for i in range(nbr_buttons):
