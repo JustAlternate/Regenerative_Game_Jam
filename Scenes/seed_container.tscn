@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://y7p56ox4gd3m"]
+[gd_scene load_steps=11 format=3 uid="uid://y7p56ox4gd3m"]
 
-[ext_resource type="Texture2D" uid="uid://q826660poqfo" path="res://Assets/sprites/seed_drawer/container_background.png" id="1_qdf2a"]
-[ext_resource type="Texture2D" uid="uid://iypy24yjk1fb" path="res://Assets/sprites/plant/carrot_1.png" id="2_1kcd3"]
+[ext_resource type="Texture2D" uid="uid://cmct35b1gr5q6" path="res://Assets/sprites/seed_drawer/container_background.png" id="1_qdf2a"]
+[ext_resource type="Texture2D" uid="uid://c1q5rtqnu0ewb" path="res://Assets/sprites/plant/carrot_1.png" id="2_1kcd3"]
 [ext_resource type="Script" path="res://Scripts/seed_container.gd" id="2_kilvm"]
-[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="4_qmunb"]
+[ext_resource type="FontFile" uid="uid://btnbktdas72q5" path="res://fonts/FutilePro.ttf" id="4_qmunb"]
+[ext_resource type="PackedScene" uid="uid://b05j16p7wwoul" path="res://Scenes/sound_pool.tscn" id="5_ljx6v"]
+[ext_resource type="AudioStream" uid="uid://b3ywv6pjsri4a" path="res://Assets/sfx/seed_bag/seed_bag1.wav" id="6_vhbff"]
+[ext_resource type="AudioStream" uid="uid://ces4c22n5hjl8" path="res://Assets/sfx/seed_bag/seed_bag2.wav" id="7_mr3pn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_asshp"]
 line_spacing = 1.0
@@ -48,6 +51,16 @@ label_settings = SubResource("LabelSettings_fklot")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="SoundPool" parent="." instance=ExtResource("5_ljx6v")]
+
+[node name="SeedBagSFX1" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("6_vhbff")
+bus = &"SFX"
+
+[node name="SeedBagSFX2" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("7_mr3pn")
+bus = &"SFX"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -14,5 +14,6 @@ func _process(delta):
 		$Sprite_deroulant.get_child(i).position.x +=1
 
 func _on_exit_pressed():
+	$ClickSFX.play_random_sound()
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	

@@ -96,7 +96,22 @@ var dico_caracteristique = {
 		"ail":0,
 		"radish":2,
 	},
-	"sunlight":{
+	"sunlight_possible":{
+		"pea":[0,1],
+		"leek":[0,1,2],
+		"corn":[1,2],
+		"wheat":[1,2],
+		"carrot":[1,2],
+		"mint":[1,2],
+		"pumpkin":[0,1],
+		"tomatoes":[1,2],
+		"thym":[1,2],
+		"vine":[1,2],
+		"zucchini":[1,2],
+		"ail":[1,2],
+		"radish":[0,1],
+	},
+	"sunlight_bonus":{
 		"pea":0,
 		"leek":1,
 		"corn":2,
@@ -143,10 +158,9 @@ var dico_caracteristique = {
 		"radish":[],
 		"None":[]
 	},
-	
 }
 
-var dico_bonus_malus = {
+var dico_bonus_malus = { #[Bonus si respectée, Bonus si pas respectée]
 	"bonus_season":[2,0],
 	"season":[0,-4],
 	"humidities_values":[1,-2],
@@ -154,6 +168,8 @@ var dico_bonus_malus = {
 	"sunlight":[1,-2], 
 	"appreciated_adjacents_plants":[1,0],
 	"unapreciated_adjacents_plants":[-1,0],
+	"sunlight_bonus":[1,0],
+	"sunlight_possible":[0,-1],
 }
 
 var state:int
@@ -193,7 +209,7 @@ func remove_plant():
 	if not plant_type == "None":
 		plant_type = "None"	
 		$sprite.animation = "vide"
-	
+
 func bonus_malus_seasons(actual_season):
 	if state == 0: # Si la plante est une graine
 		if actual_season in dico_caracteristique["bonus_season"][plant_type]:
@@ -222,10 +238,17 @@ func bonus_malus_humidity(humidity_value):
 	else:
 		plant_health += dico_bonus_malus["humidities_values"][1]
 func bonus_malus_sunlight(sunlight_value):
-	if sunlight_value >= dico_caracteristique["sunlight"][plant_type]:
-		plant_health += dico_bonus_malus["sunlight"][0]
+	if sunlight_value in dico_caracteristique["sunlight_bonus"][plant_type]:
+		plant_health += dico_bonus_malus["sunlight_bonus"][0]
 	else:
-		plant_health += dico_bonus_malus["sunlight"][1]
+		plant_health += dico_bonus_malus["sunlight_bonus"][1]
+	
+	if not(sunlight_value in dico_caracteristique["sunlight_bonus"][plant_type]):
+		if sunlight_value in dico_caracteristique["sunlight_bonus"][plant_type]:
+			plant_health += dico_bonus_malus["sunlight_possible"][0]
+		else:
+			plant_health += dico_bonus_malus["sunlight_possible"][1]
+	
 func bonus_malus_voisin(voisin_droit,voisin_gauche):
 	if voisin_droit in dico_caracteristique["appreciated_adjacents_plants"]:
 		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][0]

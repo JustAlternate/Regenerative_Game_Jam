@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c751d7ivsjn33"]
+[gd_scene load_steps=4 format=3 uid="uid://c751d7ivsjn33"]
 
 [ext_resource type="Script" path="res://Scripts/meteo.gd" id="1_8kb7b"]
-[ext_resource type="Texture2D" uid="uid://bhfbiudkrjxvk" path="res://Assets/particles/light_01.png" id="1_to760"]
+[ext_resource type="Texture2D" uid="uid://casagodwg71cx" path="res://Assets/particles/light_01.png" id="1_to760"]
+[ext_resource type="AudioStream" uid="uid://c2fyq1dgy1mq" path="res://Assets/sfx/rain.wav" id="3_u3dxd"]
 
 [node name="Meteo" type="Node2D"]
 z_index = 1
@@ -33,3 +34,7 @@ texture = ExtResource("1_to760")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Sun"]
 color = Color(0, 0, 0, 1)
+
+[node name="RainSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u3dxd")
+bus = &"SFX"

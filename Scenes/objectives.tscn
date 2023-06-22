@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkpgjhi1acick"]
+
+[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="1_hjrsp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3j7r"]
+bg_color = Color(0.121569, 0.054902, 0.109804, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwshg"]
+bg_color = Color(0.752941, 0.780392, 0.254902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_4uqi2"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_f3j7r")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_xwshg")
+
+[sub_resource type="LabelSettings" id="LabelSettings_t3gkx"]
+line_spacing = 1.0
+font = ExtResource("1_hjrsp")
+font_color = Color(0.615686, 0.188235, 0.231373, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2i0vt"]
+line_spacing = 1.0
+font = ExtResource("1_hjrsp")
+font_color = Color(0.823529, 0.392157, 0.443137, 1)
+
+[node name="Objectives" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Food_ressources_bar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 27.0
+theme = SubResource("Theme_4uqi2")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Food_ressources_bar"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 189.0
+offset_bottom = 25.0
+text = "Food Ressources"
+label_settings = SubResource("LabelSettings_t3gkx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="diversity_bar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 192.0
+offset_bottom = 59.0
+theme = SubResource("Theme_4uqi2")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="diversity_bar"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 189.0
+offset_bottom = 25.0
+text = "Food Diversity"
+label_settings = SubResource("LabelSettings_2i0vt")
+horizontal_alignment = 1
+vertical_alignment = 1

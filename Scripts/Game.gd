@@ -41,9 +41,11 @@ func _on_clock_phase_changed(new_phase):
 	
 	if random_event == "pluie":
 		$Meteo/Rain.visible = true
+		$Meteo/RainSFX.play()
 		$Meteo/Sun/DirectionalLight2D.energy = 0.8
 	else:
 		$Meteo/Rain.visible = false
+		$Meteo/RainSFX.stop()
 	
 	if random_event=="soleil":
 		$Meteo/Sun/DirectionalLight2D.energy = 1.3
