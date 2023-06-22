@@ -14,6 +14,7 @@ func _ready():
 	$Bass.stream = bass
 	$Drums.stream = drums
 	
+	
 
 	
 
