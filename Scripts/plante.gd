@@ -125,6 +125,7 @@ var dico_caracteristique = {
 		"zucchini":["pea"],
 		"ail":["tomatoes"],
 		"radish":["carrot","ail","pea","tomatoes"],
+		"None":[]
 	},
 	"unapreciated_adjacents_plants":{
 		"pea":[],
@@ -140,6 +141,7 @@ var dico_caracteristique = {
 		"zucchini":[],
 		"ail":["pea"],
 		"radish":[],
+		"None":[]
 	},
 	
 }
@@ -151,7 +153,7 @@ var dico_bonus_malus = {
 	"minimum_nutriment_values":[1,"requis-actual"], # ATTENTION NE PAS CHANGER CETTE LIGNE
 	"sunlight":[1,-2], 
 	"appreciated_adjacents_plants":[1,0],
-	"unapreciated_adjacents_plants":[1,0],
+	"unapreciated_adjacents_plants":[-1,0],
 }
 
 var state:int
@@ -224,21 +226,33 @@ func bonus_malus_sunlight(sunlight_value):
 		plant_health += dico_bonus_malus["sunlight"][0]
 	else:
 		plant_health += dico_bonus_malus["sunlight"][1]
+func bonus_malus_voisin(voisin_droit,voisin_gauche):
+	if voisin_droit in dico_caracteristique["appreciated_adjacents_plants"]:
+		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][0]
+	elif not(voisin_droit in dico_caracteristique["appreciated_adjacents_plants"]):
+		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][1]
 	
+	if voisin_droit in dico_caracteristique["unapreciated_adjacents_plants"]:
+		plant_health += dico_bonus_malus["unapreciated_adjacents_plants"][0]
+	elif not(voisin_droit in dico_caracteristique["unapreciated_adjacents_plants"]):
+		plant_health += dico_bonus_malus["unapreciated_adjacents_plants"][1]
+
 func next_quarter_of_season(new_phase,random_event):
-	
 	var actual_season = [new_phase/2 +1 ,new_phase%2 +1]
 	var before_season = [((new_phase+7)%8)/2 +1, ((new_phase+7)%8)%2 +1]
 	
 	var temp_humidity_value = humidity_value
 	var temp_sunlight_value = sunlight_value
 	
+	var voisin_droit_plant = "None"
+	var voisin_gauche_plant = "None"
 	
 	if plant_type == "None":
 		# Si la terre est vide, on lui fait regagner des nutriments a chaque passage de quarter of season.
 		if nutriment_value <= 2:
 			nutriment_value += 1
 	else:
+		
 		if state == 0 and nutriment_value > 0:
 			# Si on a posé une graine au quarter de season précédent, alors on baisse le nutriment de la terre de 1.
 			nutriment_value -= 1
@@ -263,6 +277,13 @@ func next_quarter_of_season(new_phase,random_event):
 			bonus_malus_humidity(temp_humidity_value)
 			bonus_malus_nutriment(nutriment_value)
 			bonus_malus_sunlight(temp_sunlight_value)
+			
+			if voisin_droit != null:
+				voisin_droit_plant = voisin_droit.plant_type
+			if voisin_gauche != null:
+				voisin_gauche_plant = voisin_gauche.plant_type
+			
+			bonus_malus_voisin(voisin_droit_plant,voisin_gauche_plant)
 			print("plant_health_apres_bonus_malus : "+str(plant_health))
 			
 			# On fait poussé la plante si elle est toujours vivante :
@@ -275,8 +296,9 @@ func next_quarter_of_season(new_phase,random_event):
 				print("la plante est morte")
 				
 	if plant_type != "None":
-		print("voisin_droit : "+str(voisin_droit))
-		print("voisin_gauche : "+str(voisin_gauche))
+		print("==================================")
+		print("voisin_droit : "+str(voisin_droit_plant))
+		print("voisin_gauche : "+str(voisin_gauche_plant))
 		print("actual_season : "+str(actual_season))
 		print("state : "+str(state))
 		print("plant_type : "+str(plant_type))
@@ -284,6 +306,7 @@ func next_quarter_of_season(new_phase,random_event):
 		print("nutriment_value : "+str(nutriment_value))
 		print("temp_humidity_value : "+str(temp_humidity_value))
 		print("temp_sunlight_value : "+str(temp_sunlight_value))
+		print("==================================")
 
 func _on_button_pressed():
 	#print("pressed")
