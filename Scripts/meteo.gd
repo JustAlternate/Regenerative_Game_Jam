@@ -10,9 +10,21 @@ func _ready():
 	$Sun/DirectionalLight2D.energy = Energy
 	$Sun/CanvasModulate.color = Canvas_modulate_color
 	$Sun/DirectionalLight2D.color = Sun_color
+	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 
+func rain_fade_in():
+	var sfx_tween = create_tween()
+	$RainSFX.volume_db = -80
+	$RainSFX.play()
+	sfx_tween.tween_property($RainSFX, "volume_db", 0, 1)
+	
+func rain_fade_out():
+	var sfx_tween = create_tween()
+	sfx_tween.tween_property($RainSFX, "volume_db", -80, 1)
+	# $RainSFX.stop()
