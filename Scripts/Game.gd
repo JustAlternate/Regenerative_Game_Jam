@@ -4,6 +4,8 @@ var id_new_context_menu = 0
 var tab_context_menu = []
 var random_event = "rien"
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalVariables.game_state = "playing"
@@ -49,9 +51,9 @@ func generate_random_event(new_phase):
 	return "rien"
 
 func _on_clock_phase_changed(new_phase):
-	
+	# Envoie un message a grand_pere pour lui dire que le joueur vient de planter une certaine plante
+	get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["skiped_to_next_season",background_season_animation_dico[new_phase]])
 	$background/AnimatedSprite2D.animation = background_season_animation_dico[new_phase]
-	
 	# Here on va decider des random events :
 	GlobalVariables.game_state = "clock"
 	random_event = generate_random_event(new_phase)

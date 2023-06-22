@@ -197,8 +197,12 @@ func _process(delta):
 	pass
 
 func add_plant(type):
+	
 	if plant_type == "None":
-		print("planting")
+		
+		# Envoie un message a grand_pere pour lui dire que le joueur vient de planter une certaine plante
+		get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["planted",type])
+		
 		plant_type = type
 		$PlantingSFX.play()
 		$sprite.animation = plant_type+"_0"
@@ -208,7 +212,10 @@ func add_plant(type):
 		state = 0
 
 func harvest_plant():
-	print("harvested")
+	
+	# Envoie un message a grand_pere pour lui dire que le joueur vient d'harvest une certaine plante
+	get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["harvested",plant_type])
+	
 	if plant_health >= 10:
 		GlobalVariables.inventory[plant_type]["seed"] += 2
 	else:
