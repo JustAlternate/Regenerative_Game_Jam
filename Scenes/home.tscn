@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://cux0ivx6exq1b"]
 
 [ext_resource type="PackedScene" uid="uid://dftuedx82aneu" path="res://Scenes/encyclopedia.tscn" id="1_1gyia"]
-[ext_resource type="PackedScene" uid="uid://bu4wg2rbfgctm" path="res://Scenes/plant_spot.tscn" id="1_4iv55"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_mivhc"]
 [ext_resource type="PackedScene" uid="uid://du2q4bvo17ea" path="res://Scenes/dialogue_grand_pere.tscn" id="2_005re"]
 [ext_resource type="PackedScene" uid="uid://cpc1baduxkefv" path="res://Scenes/seed_drawer.tscn" id="4_fw8ti"]
 [ext_resource type="PackedScene" uid="uid://slb4mijat6jh" path="res://Scenes/clock.tscn" id="5_gjtvy"]
 [ext_resource type="PackedScene" uid="uid://c751d7ivsjn33" path="res://Scenes/meteo.tscn" id="6_2mes2"]
+[ext_resource type="PackedScene" uid="uid://c5fwrbut46wua" path="res://Scenes/plante.tscn" id="6_5hxrd"]
 
 [node name="home" type="Node2D"]
 
@@ -45,51 +45,68 @@ offset_right = 321.0
 offset_bottom = 294.0
 color = Color(0.341176, 0.321569, 1, 1)
 
+[node name="seed_drawer" parent="Game" instance=ExtResource("4_fw8ti")]
+position = Vector2(2.47719, 72.0615)
+
 [node name="Encyclopedia" parent="Game" instance=ExtResource("1_1gyia")]
 
 [node name="Dialogue_grand_pere" parent="Game" instance=ExtResource("2_005re")]
 position = Vector2(546, 174)
 text = "Yo bento"
-time_betwen_carac = 0.05
 
 [node name="plant_spot_container" type="Node2D" parent="Game"]
 
-[node name="plant_spot_1" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+[node name="plant1" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_droit") instance=ExtResource("6_5hxrd")]
 position = Vector2(32, 256)
+voisin_droit = NodePath("../plant2")
 
-[node name="plant_spot_2" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+[node name="plant2" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_droit", "voisin_gauche") instance=ExtResource("6_5hxrd")]
 position = Vector2(96, 256)
+humidity_from_river = 1
+voisin_droit = NodePath("../plant3")
+voisin_gauche = NodePath("../plant1")
 
-[node name="plant_spot_3" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+[node name="plant3" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_droit", "voisin_gauche") instance=ExtResource("6_5hxrd")]
 position = Vector2(160, 256)
+humidity_from_river = 1
+voisin_droit = NodePath("../plant4")
+voisin_gauche = NodePath("../plant2")
 
-[node name="plant_spot_4" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+[node name="plant4" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_gauche") instance=ExtResource("6_5hxrd")]
 position = Vector2(224, 256)
+humidity_from_river = 2
+voisin_gauche = NodePath("../plant3")
 
-[node name="plant_spot_5" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+[node name="plant5" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_droit") instance=ExtResource("6_5hxrd")]
 position = Vector2(352, 256)
+humidity_from_river = 2
+voisin_droit = NodePath("../plant6")
 
-[node name="plant_spot_6" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+[node name="plant6" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_droit", "voisin_gauche") instance=ExtResource("6_5hxrd")]
 position = Vector2(416, 256)
+humidity_from_river = 1
+voisin_droit = NodePath("../plant7")
+voisin_gauche = NodePath("../plant5")
 
-[node name="plant_spot_7" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+[node name="plant7" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_droit", "voisin_gauche") instance=ExtResource("6_5hxrd")]
 position = Vector2(480, 256)
+humidity_from_river = 1
+voisin_droit = NodePath("../plant8")
+voisin_gauche = NodePath("../plant6")
 
-[node name="plant_spot_8" parent="Game/plant_spot_container" instance=ExtResource("1_4iv55")]
+[node name="plant8" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_gauche") instance=ExtResource("6_5hxrd")]
 position = Vector2(544, 256)
-
-[node name="seed_drawer" parent="Game" instance=ExtResource("4_fw8ti")]
-position = Vector2(2.47719, 72.0615)
+voisin_gauche = NodePath("../plant7")
 
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
 position = Vector2(542.477, 34.0615)
 
-[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_1" to="Game" method="_on_plant_spot_calling_contextual_menu"]
-[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_2" to="Game" method="_on_plant_spot_calling_contextual_menu"]
-[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_3" to="Game" method="_on_plant_spot_calling_contextual_menu"]
-[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_4" to="Game" method="_on_plant_spot_calling_contextual_menu"]
-[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_5" to="Game" method="_on_plant_spot_calling_contextual_menu"]
-[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_6" to="Game" method="_on_plant_spot_calling_contextual_menu"]
-[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_7" to="Game" method="_on_plant_spot_calling_contextual_menu"]
-[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant_spot_8" to="Game" method="_on_plant_spot_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant1" to="Game" method="_on_plant_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant2" to="Game" method="_on_plant_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant3" to="Game" method="_on_plant_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant4" to="Game" method="_on_plant_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant5" to="Game" method="_on_plant_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant6" to="Game" method="_on_plant_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant7" to="Game" method="_on_plant_calling_contextual_menu"]
+[connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant8" to="Game" method="_on_plant_calling_contextual_menu"]
 [connection signal="phase_changed" from="Game/Clock" to="Game" method="_on_clock_phase_changed"]

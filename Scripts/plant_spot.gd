@@ -1,9 +1,6 @@
 extends Node2D
 
-var plant_scene:Resource
-var plant_instance
-var intance:Node
-var shovel_level:int = 0
+@export var number_of_tile_from_river:int
 
 signal calling_contextual_menu
 
@@ -14,10 +11,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("left_click") and not $Button.is_hovered():
-		shovel_level = 0
-		$shovel.visible = false
-
+	pass
+	
 func _on_button_pressed():
 	if GlobalVariables.action_picked == "seed":
 		if $plant.plant_type == "None":
@@ -26,9 +21,3 @@ func _on_button_pressed():
 			calling_contextual_menu.emit()
 	else:
 		calling_contextual_menu.emit()
-
-func remove_plante():
-	$plant.remove_plant()
-
-func harvest_plant():
-	pass

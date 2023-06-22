@@ -8,6 +8,8 @@ var number_of_seeds = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Sprite2D/Label.visible = false
+	$Sprite2D/Label.text = seed_name
 	$Sprite2D.set_texture(Seed_Texture)
 	$Sprite2D.visible = activated
 	disabled = not activated
@@ -41,3 +43,13 @@ func _on_pressed():
 		GlobalVariables.action_picked = "seed"
 		GlobalVariables.seed_picked = seed_name
 	
+
+
+func _on_mouse_entered():
+	$Sprite2D/Label.visible = true
+	$Sprite2D/SeedNumberLabel.visible = true
+
+
+func _on_mouse_exited():
+	$Sprite2D/Label.visible = false
+	$Sprite2D/SeedNumberLabel.visible = false

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg0h8dcgh7872"]
+[gd_scene load_steps=9 format=3 uid="uid://dg0h8dcgh7872"]
 
 [ext_resource type="Script" path="res://Scripts/contextual_menu.gd" id="1_on6no"]
-[ext_resource type="Texture2D" uid="uid://c2n1eiiyswhpd" path="res://Assets/sprites/UI/icon_harvest.png" id="2_wfqac"]
-[ext_resource type="Texture2D" uid="uid://bddwsfmwhi1o3" path="res://Assets/sprites/UI/icon_remove.png" id="3_muy21"]
-[ext_resource type="Texture2D" uid="uid://cjhjiruxlemfg" path="res://Assets/sprites/UI/icon_advice.png" id="4_ywbs1"]
+[ext_resource type="Texture2D" uid="uid://2e0oq8raycq5" path="res://Assets/sprites/UI/icon_harvest.png" id="2_wfqac"]
+[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="3_12xxr"]
+[ext_resource type="Texture2D" uid="uid://cfopf3uhyrhgj" path="res://Assets/sprites/UI/icon_remove.png" id="3_muy21"]
+[ext_resource type="Texture2D" uid="uid://cokj42mp4pr6o" path="res://Assets/sprites/UI/icon_advice.png" id="4_ywbs1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqmkj"]
 bg_color = Color(1, 0.321569, 0.415686, 1)
@@ -12,10 +13,16 @@ corner_radius_top_right = 500
 corner_radius_bottom_right = 500
 corner_radius_bottom_left = 500
 
+[sub_resource type="Theme" id="Theme_2ncuf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1hxj8"]
+line_spacing = 1.0
+font = ExtResource("3_12xxr")
+
 [node name="conextual_menu" type="Node2D"]
 script = ExtResource("1_on6no")
 
-[node name="button_hervest" type="Button" parent="."]
+[node name="button_harvest" type="Button" parent="."]
 texture_filter = 1
 offset_top = -28.0
 offset_right = 16.0
@@ -27,6 +34,21 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_kqmkj")
 theme_override_styles/focus = SubResource("StyleBoxFlat_kqmkj")
 icon = ExtResource("2_wfqac")
 metadata/_edit_use_anchors_ = true
+
+[node name="Label_Harvest" type="Label" parent="button_harvest"]
+visible = false
+layout_mode = 0
+offset_left = 17.0
+offset_top = 1.0
+offset_right = 81.0
+offset_bottom = 27.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_2ncuf")
+text = "Harvest"
+label_settings = SubResource("LabelSettings_1hxj8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="button_remove" type="Button" parent="."]
 texture_filter = 1
@@ -42,6 +64,21 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_kqmkj")
 icon = ExtResource("3_muy21")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label_remove" type="Label" parent="button_remove"]
+visible = false
+layout_mode = 0
+offset_left = 17.0
+offset_top = 1.0
+offset_right = 81.0
+offset_bottom = 27.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_2ncuf")
+text = "Remove"
+label_settings = SubResource("LabelSettings_1hxj8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="button_info" type="Button" parent="."]
 texture_filter = 1
 offset_top = 12.0
@@ -55,11 +92,32 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_kqmkj")
 icon = ExtResource("4_ywbs1")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label_Info" type="Label" parent="button_info"]
+visible = false
+layout_mode = 0
+offset_left = 17.0
+offset_top = 1.0
+offset_right = 119.0
+offset_bottom = 27.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_2ncuf")
+text = "Information"
+label_settings = SubResource("LabelSettings_1hxj8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_muy21")
 
-[connection signal="pressed" from="button_hervest" to="." method="_on_button_hervest_pressed"]
+[connection signal="mouse_entered" from="button_harvest" to="." method="_on_button_harvest_mouse_entered"]
+[connection signal="mouse_exited" from="button_harvest" to="." method="_on_button_harvest_mouse_exited"]
+[connection signal="pressed" from="button_harvest" to="." method="_on_button_harvest_pressed"]
+[connection signal="mouse_entered" from="button_remove" to="." method="_on_button_remove_mouse_entered"]
+[connection signal="mouse_exited" from="button_remove" to="." method="_on_button_remove_mouse_exited"]
 [connection signal="pressed" from="button_remove" to="." method="_on_button_remove_pressed"]
+[connection signal="mouse_entered" from="button_info" to="." method="_on_button_info_mouse_entered"]
+[connection signal="mouse_exited" from="button_info" to="." method="_on_button_info_mouse_exited"]
 [connection signal="pressed" from="button_info" to="." method="_on_button_info_pressed"]

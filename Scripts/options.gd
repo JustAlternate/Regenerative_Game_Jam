@@ -5,6 +5,7 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	for i in range ($Sprite_deroulant.get_child_count()):
@@ -12,12 +13,6 @@ func _process(delta):
 			$Sprite_deroulant.get_child(i).position.x = -100
 		$Sprite_deroulant.get_child(i).position.x +=1
 
-func _on_play_pressed():
-	# This is like autoloading the scene, only
-	# it happens after already loading the main scene.
-	get_tree().change_scene_to_file("res://Scenes/home.tscn")
-
-
-
-func _on_options_pressed():
-	get_tree().change_scene_to_file("res://Scenes/options.tscn")
+func _on_exit_pressed():
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	

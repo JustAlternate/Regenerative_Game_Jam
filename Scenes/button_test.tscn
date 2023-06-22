@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdoa7ou1t5brc"]
+
+[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="1_lduh4"]
+[ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="2_bjayo"]
+[ext_resource type="StyleBox" uid="uid://d3vi3glx4440d" path="res://button_type_normal.tres" id="3_4w7kd"]
+
+[sub_resource type="Theme" id="Theme_ih4ax"]
+Button/fonts/font = ExtResource("1_lduh4")
+Button/styles/hover = ExtResource("2_bjayo")
+Button/styles/normal = ExtResource("3_4w7kd")
+Button/styles/pressed = ExtResource("3_4w7kd")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_ih4ax")
