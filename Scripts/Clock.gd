@@ -19,6 +19,7 @@ func set_phase(phase_number):
 	phase_changed.emit(current_phase)
 	
 func increase_phase():
+	$TickSFX.play()
 	current_phase = (current_phase + 1) % number_of_phases
 	$ArrowSprite.rotation = (current_phase * TAU / number_of_phases) + arrow_rotation_offset
 	phase_changed.emit(current_phase)
