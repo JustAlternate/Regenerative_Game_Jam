@@ -1,0 +1,183 @@
+[gd_scene load_steps=18 format=3 uid="uid://14gsbacpe48u"]
+
+[ext_resource type="Script" path="res://Scripts/feeling_icon.gd" id="1_lkfoe"]
+[ext_resource type="Texture2D" uid="uid://cfp60ctmi77qp" path="res://Assets/sprites/feeling_icon.png" id="2_y4baq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dra5s"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(0, 48, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61kw4"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(64, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s66ep"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(32, 64, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkqs6"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(32, 48, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml6cb"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(64, 48, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mxse"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(0, 64, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y45ue"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdeyb"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojgpx"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(32, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgd6g"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(0, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujmrd"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(64, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwq5u"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(32, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvjj3"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2hn1"]
+atlas = ExtResource("2_y4baq")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rsoy4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dra5s")
+}],
+"loop": true,
+"name": &"friend+",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61kw4")
+}],
+"loop": true,
+"name": &"friend-",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s66ep")
+}],
+"loop": true,
+"name": &"head_dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkqs6")
+}],
+"loop": true,
+"name": &"head_happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml6cb")
+}],
+"loop": true,
+"name": &"head_meh",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mxse")
+}],
+"loop": true,
+"name": &"head_sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y45ue")
+}],
+"loop": true,
+"name": &"humidity+",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdeyb")
+}],
+"loop": true,
+"name": &"humidity-",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojgpx")
+}],
+"loop": true,
+"name": &"nutrient+",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgd6g")
+}],
+"loop": true,
+"name": &"nutrient-",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujmrd")
+}],
+"loop": true,
+"name": &"season+",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwq5u")
+}],
+"loop": true,
+"name": &"season-",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvjj3")
+}],
+"loop": true,
+"name": &"sun+",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2hn1")
+}],
+"loop": true,
+"name": &"sun-",
+"speed": 5.0
+}]
+
+[node name="feeling_icon" type="Node2D"]
+script = ExtResource("1_lkfoe")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_rsoy4")
+animation = &"friend-"
