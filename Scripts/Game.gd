@@ -71,10 +71,12 @@ func _on_clock_phase_changed(new_phase):
 	
 	if random_event=="soleil":
 		$Meteo/Sun/DirectionalLight2D.energy = 1.2
+		$background/DirtBehindRiver.animation = "normal"
 	else:
 		$Meteo/Sun/DirectionalLight2D.energy = 1
 		$Meteo.go_meteo(0,2)
-		
+		$background/DirtBehindRiver.animation = "soaked"
+
 	# Updating every plants
 	for i in range(8):
 		$plant_spot_container.get_child(i).next_quarter_of_season(new_phase,random_event)
