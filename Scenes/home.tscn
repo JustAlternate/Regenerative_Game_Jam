@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cux0ivx6exq1b"]
+[gd_scene load_steps=9 format=3 uid="uid://cux0ivx6exq1b"]
 
 [ext_resource type="PackedScene" uid="uid://dftuedx82aneu" path="res://Scenes/encyclopedia.tscn" id="1_1gyia"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_mivhc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://slb4mijat6jh" path="res://Scenes/clock.tscn" id="5_gjtvy"]
 [ext_resource type="PackedScene" uid="uid://c751d7ivsjn33" path="res://Scenes/meteo.tscn" id="6_2mes2"]
 [ext_resource type="PackedScene" uid="uid://c5fwrbut46wua" path="res://Scenes/plante.tscn" id="6_5hxrd"]
+[ext_resource type="Texture2D" uid="uid://dg8yjs0r274jp" path="res://Assets/Plant/sprite-case-eau-centre.png" id="8_tf5h7"]
 
 [node name="home" type="Node2D"]
 
@@ -28,25 +29,10 @@ light_mask = 0
 offset_top = 100.0
 offset_right = 576.0
 offset_bottom = 320.0
-color = Color(0.329412, 0.498039, 0.364706, 1)
-
-[node name="background_sol2" type="ColorRect" parent="Game"]
-light_mask = 0
-offset_top = 250.0
-offset_right = 576.0
-offset_bottom = 350.0
-color = Color(0.584314, 0.407843, 0.278431, 1)
-
-[node name="background_sol3" type="ColorRect" parent="Game"]
-light_mask = 0
-offset_left = 261.0
-offset_top = 250.0
-offset_right = 321.0
-offset_bottom = 294.0
-color = Color(0.341176, 0.321569, 1, 1)
+color = Color(0.392157, 0.490196, 0.203922, 1)
 
 [node name="seed_drawer" parent="Game" instance=ExtResource("4_fw8ti")]
-position = Vector2(2.47719, 72.0615)
+position = Vector2(-0.52281, 59.0615)
 
 [node name="Encyclopedia" parent="Game" instance=ExtResource("1_1gyia")]
 
@@ -88,6 +74,11 @@ position = Vector2(544, 256)
 
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
 position = Vector2(542.477, 34.0615)
+
+[node name="riviere" type="Sprite2D" parent="Game"]
+texture_filter = 1
+position = Vector2(288, 288)
+texture = ExtResource("8_tf5h7")
 
 [connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant1" to="Game" method="_on_plant_calling_contextual_menu"]
 [connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant2" to="Game" method="_on_plant_calling_contextual_menu"]
