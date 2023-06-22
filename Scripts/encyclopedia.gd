@@ -28,10 +28,15 @@ func _process(delta):
 func _on_button_button_down():
 	print("Openage of zi encyclopedia")
 	$Book.visible = not($Book.visible)
+	if $Book.visible:
+		$PageFlipSFX.play_random_sound()
+	else:
+		$BookCloseSFX.play_random_sound()
 	maj_book(actual_page_number)
 	
 func _on_close_button_down():
 	$Book.visible = false
+	$BookCloseSFX.play_random_sound()
 
 func maj_book(actual_page_number):
 	if actual_page_number < Pages_unlocked:
@@ -67,9 +72,11 @@ func maj_book(actual_page_number):
 func _on_next_page_button_down():
 	if not(actual_page_number == Pages_unlocked-1):
 		actual_page_number += 1
+		$PageFlipSFX.play_random_sound()
 		maj_book(actual_page_number)
 
 func _on_previous_page_button_down():
 	if actual_page_number > 0:
 		actual_page_number -= 1
+		$PageFlipSFX.play_random_sound()
 		maj_book(actual_page_number)

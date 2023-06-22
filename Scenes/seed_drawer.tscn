@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cpc1baduxkefv"]
 
-[ext_resource type="Texture2D" uid="uid://cr62jv3kvycj0" path="res://Assets/sprites/seed_drawer/button_closed.png" id="1_fiswa"]
+[ext_resource type="Texture2D" uid="uid://b45mig8wgxsd3" path="res://Assets/sprites/seed_drawer/button_closed.png" id="1_fiswa"]
 [ext_resource type="Script" path="res://Scripts/seed_drawer.gd" id="1_g10ax"]
 [ext_resource type="PackedScene" uid="uid://y7p56ox4gd3m" path="res://Scenes/seed_container.tscn" id="2_ck28v"]
-[ext_resource type="Texture2D" uid="uid://brs4lket2o4gf" path="res://Assets/sprites/seed_drawer/button_opened.png" id="2_r2j8y"]
+[ext_resource type="Texture2D" uid="uid://oc0604lpkwhp" path="res://Assets/sprites/seed_drawer/button_opened.png" id="2_r2j8y"]
 
 [node name="seed_drawer" type="Node2D"]
 script = ExtResource("1_g10ax")

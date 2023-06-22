@@ -21,6 +21,7 @@ var dico_dialogue = {
 func grandpa_come(): #a appeler seulement quand le grandpa parle
 	GlobalVariables.game_state = "grandpa"
 	visible = true
+	$GrandpaSFX.play_random_sound()
 
 func grandpa_leave():
 	GlobalVariables.game_state = "playing"
@@ -37,6 +38,7 @@ func _ready():
 func next_dialogue_if_needed():
 	print("len:", len(dialogue_queue))
 	if len(dialogue_queue) >= 1:
+		$GrandpaSFX.play_random_sound()
 		dialogue_state = "on"
 		$Panel/Label.text = ""
 		dialogue_progress = 0
@@ -51,6 +53,7 @@ func process_input():
 		if dialogue_state == "pending":
 			dialogue_state = "on"
 			$Panel/Label.text = ""
+			$GrandpaSFX.play_random_sound()
 			return
 		if dialogue_state == "pending_off":
 			next_dialogue_if_needed()

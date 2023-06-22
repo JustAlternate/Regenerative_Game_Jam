@@ -42,6 +42,7 @@ func _on_pressed():
 	else:
 		GlobalVariables.action_picked = "seed"
 		GlobalVariables.seed_picked = seed_name
+		$SoundPool.play_random_sound()
 	
 
 

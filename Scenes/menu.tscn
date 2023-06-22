@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://d4idxbd54drta"]
+[gd_scene load_steps=13 format=3 uid="uid://d4idxbd54drta"]
 
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="1_ni0yg"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_vd1g2"]
-[ext_resource type="Texture2D" uid="uid://c316bp5qubrnl" path="res://Assets/sprites/closed_book.png" id="2_scljm"]
+[ext_resource type="Texture2D" uid="uid://c56kxoux30gtd" path="res://Assets/sprites/closed_book.png" id="2_scljm"]
 [ext_resource type="PackedScene" uid="uid://olb5ewo4ysgy" path="res://Scenes/menu_running_sprites.tscn" id="4_fap7w"]
 [ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="5_c6ra6"]
-[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="5_eewky"]
+[ext_resource type="FontFile" uid="uid://btnbktdas72q5" path="res://fonts/FutilePro.ttf" id="5_eewky"]
 [ext_resource type="StyleBox" uid="uid://d3vi3glx4440d" path="res://button_type_normal.tres" id="6_nunw6"]
+[ext_resource type="PackedScene" uid="uid://b05j16p7wwoul" path="res://Scenes/sound_pool.tscn" id="8_n17uy"]
+[ext_resource type="AudioStream" uid="uid://od3ncvyhu8io" path="res://Assets/sfx/menu_click.wav" id="9_cbrca"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_expnd"]
 bg_color = Color(0.752941, 0.780392, 0.254902, 1)
@@ -37,6 +39,7 @@ theme = SubResource("Theme_up03c")
 [node name="ColorRect" type="ColorRect" parent="Menu_title"]
 z_index = -1
 texture_filter = 1
+layout_mode = 0
 offset_top = 1.0
 offset_right = 576.0
 offset_bottom = 320.0
@@ -95,6 +98,12 @@ focus_mode = 0
 theme = SubResource("Theme_1q6uv")
 theme_override_font_sizes/font_size = 16
 text = "Exit"
+
+[node name="ClickSFX" parent="." instance=ExtResource("8_n17uy")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ClickSFX"]
+stream = ExtResource("9_cbrca")
+bus = &"SFX"
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]

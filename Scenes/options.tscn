@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2sblst4m6bns"]
+[gd_scene load_steps=15 format=3 uid="uid://b2sblst4m6bns"]
 
 [ext_resource type="Script" path="res://Scripts/options.gd" id="1_ym2a3"]
-[ext_resource type="Texture2D" uid="uid://cssbl0ckgwq74" path="res://Assets/sprites/closed_book.png" id="2_0qkgk"]
+[ext_resource type="Texture2D" uid="uid://c56kxoux30gtd" path="res://Assets/sprites/closed_book.png" id="2_0qkgk"]
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="3_7eb2p"]
 [ext_resource type="PackedScene" uid="uid://olb5ewo4ysgy" path="res://Scenes/menu_running_sprites.tscn" id="4_t5g25"]
-[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="5_5jcpg"]
+[ext_resource type="FontFile" uid="uid://btnbktdas72q5" path="res://fonts/FutilePro.ttf" id="5_5jcpg"]
 [ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="5_r67c7"]
 [ext_resource type="StyleBox" uid="uid://d3vi3glx4440d" path="res://button_type_normal.tres" id="6_emf77"]
+[ext_resource type="PackedScene" uid="uid://b05j16p7wwoul" path="res://Scenes/sound_pool.tscn" id="8_44u63"]
+[ext_resource type="AudioStream" uid="uid://od3ncvyhu8io" path="res://Assets/sfx/menu_click.wav" id="9_0lft4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8n4h"]
 bg_color = Color(0.752941, 0.780392, 0.254902, 1)
@@ -137,5 +139,10 @@ offset_top = 30.0
 offset_right = 269.0
 offset_bottom = 46.0
 theme = SubResource("Theme_ylm01")
+
+[node name="ClickSFX" parent="." instance=ExtResource("8_44u63")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ClickSFX"]
+stream = ExtResource("9_0lft4")
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
