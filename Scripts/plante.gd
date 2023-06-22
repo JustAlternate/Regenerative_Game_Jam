@@ -254,7 +254,7 @@ func afficher_feeling(name):
 func show_emotions():
 	if plant_health <= 0:
 		await afficher_feeling(("head_dead"))
-	elif plant_health <= 3:
+	elif plant_health <= 4:
 		await afficher_feeling(("head_sad"))
 	elif plant_health <= 8:
 		await afficher_feeling(("head_meh"))
