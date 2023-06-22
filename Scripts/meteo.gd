@@ -7,16 +7,17 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Sun/DirectionalLight2D.energy = Energy
-	$Sun/CanvasModulate.color = Canvas_modulate_color
-	$Sun/DirectionalLight2D.color = Sun_color
+	pass
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
+func go_meteo():
+	$Sun/DirectionalLight2D.energy = Energy
+	$Sun/CanvasModulate.color = Canvas_modulate_color
+	$Sun/DirectionalLight2D.color = Sun_color
+	$Nuages.go_nuages()
 
 func rain_fade_in():
 	var sfx_tween = create_tween()

@@ -16,8 +16,6 @@
 [node name="Game" type="Node2D" parent="."]
 script = ExtResource("1_mivhc")
 
-[node name="Meteo" parent="Game" instance=ExtResource("6_2mes2")]
-
 [node name="background_ciel" type="ColorRect" parent="Game"]
 light_mask = 0
 offset_right = 576.0
@@ -74,6 +72,8 @@ position = Vector2(544, 256)
 
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
 position = Vector2(542.477, 34.0615)
+
+[node name="Meteo" parent="Game" instance=ExtResource("6_2mes2")]
 
 [node name="riviere" type="Sprite2D" parent="Game"]
 texture_filter = 1

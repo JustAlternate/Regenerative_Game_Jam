@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd0kbqpyxc3v2"]
+
+[ext_resource type="Texture2D" uid="uid://c3gg3gqgdw2bo" path="res://Assets/Plant/icon/sprite-nuage-classique.png" id="1_pgmob"]
+[ext_resource type="Script" path="res://Scripts/nuage.gd" id="2_1k1dj"]
+
+[node name="nuage_normal" type="Sprite2D"]
+texture = ExtResource("1_pgmob")
+script = ExtResource("2_1k1dj")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drclhc5oqo7ar"]
+
+[ext_resource type="Script" path="res://Scripts/nuages.gd" id="1_n7bf1"]
+
+[node name="Nuages" type="Node2D"]
+script = ExtResource("1_n7bf1")
