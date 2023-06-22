@@ -1,17 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkv3eat6lhkcn"]
+[gd_scene load_steps=17 format=3 uid="uid://dkv3eat6lhkcn"]
 
+[ext_resource type="Texture2D" uid="uid://bggt2w0nj62wo" path="res://Assets/Plant/icon/sprite-ail.png" id="1_adgwt"]
 [ext_resource type="Texture2D" uid="uid://uh3tmhppdxia" path="res://Assets/sprites/little_book.png" id="1_m12mt"]
-[ext_resource type="Texture2D" uid="uid://n2pl1clbc3jw" path="res://Assets/icon.svg" id="2_4s01i"]
-[ext_resource type="Texture2D" uid="uid://dl0necjenbq6y" path="res://Assets/Plant/sprite-carrot.png" id="2_ux8t1"]
+[ext_resource type="Texture2D" uid="uid://bo5a83wpru08t" path="res://Assets/Plant/icon/sprite-carrot.png" id="2_l2m0m"]
+[ext_resource type="Texture2D" uid="uid://d1jwmhbev0snd" path="res://Assets/Plant/icon/sprite-poireau.png" id="3_3r58c"]
+[ext_resource type="Texture2D" uid="uid://ctl1ihfpovljy" path="res://Assets/Plant/icon/sprite-mais.png" id="3_ohph5"]
+[ext_resource type="Texture2D" uid="uid://1jjw81mvabw0" path="res://Assets/Plant/icon/sprite-petit-pois.png" id="4_81ndc"]
+[ext_resource type="Texture2D" uid="uid://boe4lns2uqrji" path="res://Assets/Plant/icon/sprite-menthe.png" id="4_ycgmq"]
 [ext_resource type="Texture2D" uid="uid://bseg02j0osr58" path="res://Assets/sprites/vide.png" id="5_x3mth"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o5qfo"]
-atlas = ExtResource("2_ux8t1")
-region = Rect2(0, 128, 64, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bvl6v"]
-atlas = ExtResource("2_4s01i")
-region = Rect2(0, 0, 64, 64)
+[ext_resource type="Texture2D" uid="uid://m4m3o3ximqr5" path="res://Assets/Plant/icon/sprite-citrouille.png" id="6_ng12o"]
+[ext_resource type="Texture2D" uid="uid://cgbtkgmcay5s" path="res://Assets/Plant/icon/sprite-thym.png" id="7_81g7v"]
+[ext_resource type="Texture2D" uid="uid://r1w5qdk3a3oy" path="res://Assets/Plant/icon/sprite-tomate.png" id="8_om7ut"]
+[ext_resource type="Texture2D" uid="uid://toajeuc5yikv" path="res://Assets/Plant/icon/sprite-radis.png" id="8_xiyav"]
+[ext_resource type="Texture2D" uid="uid://c1k6m6oefhy7u" path="res://Assets/Plant/icon/sprite-vigne.png" id="10_d3kug"]
+[ext_resource type="Texture2D" uid="uid://curd8kw5yfvjf" path="res://Assets/Plant/icon/sprite-blé.png" id="11_jf45e"]
+[ext_resource type="Texture2D" uid="uid://bviv07gfn4b3d" path="res://Assets/Plant/icon/sprite-courgette.png" id="12_gmnkc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_538it"]
 animations = [{
@@ -20,12 +23,20 @@ animations = [{
 "texture": ExtResource("1_m12mt")
 }],
 "loop": true,
-"name": &"book",
+"name": &"Encyclopedia",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o5qfo")
+"texture": ExtResource("1_adgwt")
+}],
+"loop": true,
+"name": &"ail",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l2m0m")
 }],
 "loop": true,
 "name": &"carrot",
@@ -33,10 +44,66 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bvl6v")
+"texture": ExtResource("3_ohph5")
 }],
 "loop": true,
-"name": &"godot",
+"name": &"corn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3r58c")
+}],
+"loop": true,
+"name": &"leek",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ycgmq")
+}],
+"loop": true,
+"name": &"mint",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_81ndc")
+}],
+"loop": true,
+"name": &"pea",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ng12o")
+}],
+"loop": true,
+"name": &"pumpkin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xiyav")
+}],
+"loop": true,
+"name": &"radish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_81g7v")
+}],
+"loop": true,
+"name": &"thym",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_om7ut")
+}],
+"loop": true,
+"name": &"tomatoes",
 "speed": 5.0
 }, {
 "frames": [{
@@ -46,10 +113,34 @@ animations = [{
 "loop": true,
 "name": &"vide",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_d3kug")
+}],
+"loop": true,
+"name": &"vine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_jf45e")
+}],
+"loop": true,
+"name": &"wheat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_gmnkc")
+}],
+"loop": true,
+"name": &"zucchini",
+"speed": 5.0
 }]
 
 [node name="Item" type="AnimatedSprite2D"]
 texture_filter = 1
-position = Vector2(21, 21)
+position = Vector2(25, 3)
 sprite_frames = SubResource("SpriteFrames_538it")
-animation = &"carrot"
+animation = &"Encyclopedia"
