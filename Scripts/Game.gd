@@ -14,7 +14,18 @@ func _ready():
 func _process(delta):
 	#print(GlobalVariables.inventory)
 	pass
-	
+
+var background_season_animation_dico = [
+	"winter", # Winter2
+	"spring", # Spring1
+	"spring",
+	"summer", # Ete1
+	"summer",
+	"fall", # Autumn1
+	"fall",
+	"winter", # Winter1
+]
+
 # new_phase : 0 = Winter2, 1 = Spring1 .... 7 = Winter1
 var list_proba_events = [
 	#[pluie, soleil, rien]
@@ -37,6 +48,9 @@ func generate_random_event(new_phase):
 	return "rien"
 
 func _on_clock_phase_changed(new_phase):
+	
+	$background/AnimatedSprite2D.animation = background_season_animation_dico[new_phase]
+	
 	# Here on va decider des random events :
 	GlobalVariables.game_state = "clock"
 	if $Encyclopedia/Book.visible == true:

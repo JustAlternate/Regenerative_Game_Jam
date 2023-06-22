@@ -1,13 +1,52 @@
-[gd_scene load_steps=9 format=3 uid="uid://cux0ivx6exq1b"]
+[gd_scene load_steps=14 format=3 uid="uid://cux0ivx6exq1b"]
 
 [ext_resource type="PackedScene" uid="uid://dftuedx82aneu" path="res://Scenes/encyclopedia.tscn" id="1_1gyia"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_mivhc"]
 [ext_resource type="PackedScene" uid="uid://du2q4bvo17ea" path="res://Scenes/dialogue_grand_pere.tscn" id="2_005re"]
+[ext_resource type="Texture2D" uid="uid://cqemdebiu2vyn" path="res://Assets/Plant/background-automne.png" id="2_pi25p"]
+[ext_resource type="Texture2D" uid="uid://bjwcvxhdyymu" path="res://Assets/Plant/background-printemps.png" id="3_lswv8"]
+[ext_resource type="Texture2D" uid="uid://baekq7aujb1pc" path="res://Assets/Plant/background-ete.png" id="4_2d7xi"]
 [ext_resource type="PackedScene" uid="uid://cpc1baduxkefv" path="res://Scenes/seed_drawer.tscn" id="4_fw8ti"]
 [ext_resource type="PackedScene" uid="uid://slb4mijat6jh" path="res://Scenes/clock.tscn" id="5_gjtvy"]
+[ext_resource type="Texture2D" uid="uid://dyj33o55lscxg" path="res://Assets/Plant/background-hiver.png" id="5_l38m1"]
 [ext_resource type="PackedScene" uid="uid://c751d7ivsjn33" path="res://Scenes/meteo.tscn" id="6_2mes2"]
 [ext_resource type="PackedScene" uid="uid://c5fwrbut46wua" path="res://Scenes/plante.tscn" id="6_5hxrd"]
 [ext_resource type="Texture2D" uid="uid://dg8yjs0r274jp" path="res://Assets/Plant/sprite-case-eau-centre.png" id="8_tf5h7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6c8pp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pi25p")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lswv8")
+}],
+"loop": true,
+"name": &"spring",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2d7xi")
+}],
+"loop": true,
+"name": &"summer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_l38m1")
+}],
+"loop": true,
+"name": &"winter",
+"speed": 5.0
+}]
 
 [node name="home" type="Node2D"]
 
@@ -16,13 +55,21 @@
 [node name="Game" type="Node2D" parent="."]
 script = ExtResource("1_mivhc")
 
+[node name="background" type="Node2D" parent="Game"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Game/background"]
+texture_filter = 1
+position = Vector2(288, 128)
+sprite_frames = SubResource("SpriteFrames_6c8pp")
+animation = &"fall"
+
 [node name="Meteo" parent="Game" instance=ExtResource("6_2mes2")]
 
 [node name="seed_drawer" parent="Game" instance=ExtResource("4_fw8ti")]
 position = Vector2(-0.52281, 59.0615)
 
 [node name="Dialogue_grand_pere" parent="Game" instance=ExtResource("2_005re")]
-position = Vector2(546, 174)
+position = Vector2(546, 192)
 text = ""
 
 [node name="plant_spot_container" type="Node2D" parent="Game"]
