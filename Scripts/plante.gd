@@ -198,8 +198,8 @@ func _process(delta):
 
 func add_plant(type):
 	
-	if plant_type == "None":
-		if GlobalVariables.inventory[plant_type]["seeds"]>0:
+	if type != "None":
+		if GlobalVariables.inventory[type]["seed"]>0:
 			# Envoie un message a grand_pere pour lui dire que le joueur vient de planter une certaine plante
 			get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["planted",type])
 			
