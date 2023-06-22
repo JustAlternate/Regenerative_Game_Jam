@@ -183,6 +183,7 @@ var sunlight_value:int  # 0 = ombre, 1 = soleil
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	change_dirt(humidity_value, "None")
+	change_nutrient_visual()
 	$dirt.flip_h = flip_dirt
 	$sprite.animation = "vide"
 	$sign_container.hide()
@@ -348,6 +349,13 @@ func change_dirt(temp_humidity_value, random_event):
 	if temp_humidity_value == 2:
 		$dirt.animation = "soak"
 
+func change_nutrient_visual():
+	print("nutrient:", nutriment_value)
+	$nutrient.animation = str(nutriment_value)
+	$nutrient.speed_scale = randf_range(0.5,1)
+	$nutrient.play()
+	
+
 func next_quarter_of_season(new_phase,random_event):
 	var actual_season = [new_phase/2 +1 ,new_phase%2 +1]
 	var before_season = [((new_phase+7)%8)/2 +1, ((new_phase+7)%8)%2 +1]
@@ -370,10 +378,10 @@ func next_quarter_of_season(new_phase,random_event):
 			temp_humidity_value -= 1
 	
 	change_dirt(temp_humidity_value, random_event)
-	
+	change_nutrient_visual()
 	if plant_type == "None":
 		# Si la terre est vide, on lui fait regagner des nutriments a chaque passage de quarter of season.
-		if nutriment_value <= 2:
+		if nutriment_value < 2:
 			nutriment_value += 1
 	else:
 		
