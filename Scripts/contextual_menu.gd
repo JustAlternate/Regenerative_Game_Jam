@@ -10,7 +10,12 @@ func _ready():
 func _process(delta):
 	pass
 
-func open_menu():
+func open_menu(plant:Node):
+	targeted_plant = plant
+	if targeted_plant.state == targeted_plant.dico_caracteristique["number_of_phases"][targeted_plant.plant_type]:
+		$button_harvest.show()
+	else:
+		$button_harvest.hide()
 	global_position = get_global_mouse_position().round()
 	visible = true
 

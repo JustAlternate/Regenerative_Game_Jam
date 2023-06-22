@@ -59,6 +59,8 @@ func _on_clock_phase_changed(new_phase):
 
 
 func _on_plant_calling_contextual_menu(plant_node):
+	if plant_node.plant_type == "None":
+		return
 	if not(tab_context_menu==[]):
 		tab_context_menu[-1].free()
 		tab_context_menu.pop_front()
@@ -69,8 +71,7 @@ func _on_plant_calling_contextual_menu(plant_node):
 	var name = "context_menu_" + str(id_new_context_menu)
 	context_menu_instance.name = name
 	add_child(context_menu_instance)
-	get_node(name).open_menu()
-	get_node(name).targeted_plant = plant_node
+	get_node(name).open_menu(plant_node)
 	tab_context_menu.append(context_menu_instance)
 	await get_tree().create_timer(3.0).timeout
 	if context_menu_instance in tab_context_menu:
