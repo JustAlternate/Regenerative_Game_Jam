@@ -18,16 +18,21 @@ var scene_nuage = load("res://Scenes/nuage_normal.tscn")
 func _process(delta):
 	pass
 
-func go_nuages():
+func kill_nuages():
+	for i in get_children():
+		i.free()
+
+func go_nuages(prob_nuage1,prob_nuage2):
 	direction = randi_range(0,1)
-	for i in range(1):
+	var proba_nuage = randi_range(prob_nuage1,prob_nuage2)
+	for i in range(proba_nuage):
 		time_beforme_moving_again = randf_range(0.5,0.8)
 		pos_y = randi_range(20,60)
 		vitesse = randi_range(1,1)
 		if direction == 0: # vers la gauche
-			pos_x = randi_range(9*64 - 200,9*64)
+			pos_x = randi_range(9*64 - 600,9*64)
 		else:
-			pos_x = randi_range(0,200)
+			pos_x = randi_range(0,600)
 		
 		var nuage_instance = scene_nuage.instantiate()
 		nuage_instance.direction = direction
@@ -38,4 +43,3 @@ func go_nuages():
 		var name = "nuage_" + str(id_nuage)
 		nuage_instance.name = name
 		add_child(nuage_instance)
-		print("hi")

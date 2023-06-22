@@ -11,6 +11,7 @@ script = ExtResource("1_8kb7b")
 Sun_color = Color(1, 1, 1, 1)
 
 [node name="Nuages" parent="." instance=ExtResource("2_lspsf")]
+z_index = -1
 
 [node name="Rain" type="CPUParticles2D" parent="."]
 visible = false

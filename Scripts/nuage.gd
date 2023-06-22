@@ -8,7 +8,6 @@ var pos_y
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("heho")
 	while position.x > 0 or position.x < 9*64:
 		await get_tree().create_timer(time_beforme_moving_again).timeout
 		if direction == 1:
