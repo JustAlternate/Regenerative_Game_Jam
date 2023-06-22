@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var flip_dirt = false
 @export var plant_type = "None" #"carrot", "pea", "leek", "corn", "wheat", "pumpkin", "tomatoes", "thym", "vine", "courgette"
 var bonus_season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
 var season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
@@ -180,6 +181,8 @@ var sunlight_value:int  # 0 = ombre, 1 = soleil
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	$dirt.flip_h = flip_dirt
 	$sprite.animation = "vide"
 	$sign_container.hide()
 	state = 0 # 0=graine, 1=plante_1, 2=plant_2, ... -1=morte.
@@ -283,6 +286,7 @@ func bonus_malus_sunlight(sunlight_value):
 			plant_health += dico_bonus_malus["sunlight_possible"][1]
 	
 func bonus_malus_voisin(voisin_droit,voisin_gauche):
+	#voisin droit
 	if voisin_droit in dico_caracteristique["appreciated_adjacents_plants"][plant_type]:
 		await afficher_feeling("friend+")
 		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][0]
@@ -290,6 +294,18 @@ func bonus_malus_voisin(voisin_droit,voisin_gauche):
 		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][1]
 	
 	if voisin_droit in dico_caracteristique["unapreciated_adjacents_plants"][plant_type]:
+		await afficher_feeling("friend-")
+		plant_health += dico_bonus_malus["unapreciated_adjacents_plants"][0]
+	else:
+		plant_health += dico_bonus_malus["unapreciated_adjacents_plants"][1]
+	#voisin gauche
+	if voisin_gauche in dico_caracteristique["appreciated_adjacents_plants"][plant_type]:
+		await afficher_feeling("friend+")
+		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][0]
+	else:
+		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][1]
+
+	if voisin_gauche in dico_caracteristique["unapreciated_adjacents_plants"][plant_type]:
 		await afficher_feeling("friend-")
 		plant_health += dico_bonus_malus["unapreciated_adjacents_plants"][0]
 	else:
