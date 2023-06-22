@@ -235,8 +235,8 @@ func harvest_plant():
 
 func remove_plant():
 	print("removed")
-	if state == 0 and plant_type != "None":
-		GlobalVariables.inventory[plant_type]["seed"] += 1
+	if state == 0 and plant_type != "None" and plant_health > 0:
+		GlobalVariables.update_invertory(plant_type,"seed",1)
 	plant_type = "None"	
 	$sprite.animation = "vide"
 	$sign_container.hide()

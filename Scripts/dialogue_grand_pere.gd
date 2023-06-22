@@ -5,8 +5,8 @@ extends Node2D
 @export var text = "Grosse murge"
 @export var taille_police:int
 @export var time_betwen_carac:float = 0.05
-@export var time_betwen_dialogue:float = 3
-@export var time_after_dialogue:float = 4
+@export var time_betwen_dialogue:float = 1
+@export var time_after_dialogue:float = 2
 
 var state = "none"
 
@@ -15,48 +15,63 @@ var tutorial_progress = 0
 var dialogue_queue = []
 
 var dico_dialogue = {
-	"Rain":[true,["Your soil gets wet when it rains."]],
-	"Sunlight":[true,["The sun dry your soil.","Be carefull when planting for summer!"]],
+	
+	"Meteo":[true,["Rain make the soil wetter, and strong sunlight dryer."]],
 	"Nutrients":[true,["Worms make your soil richer for certain crop to grow."]],
-	"radish_unlock_debut":[false,["Hello grandson, its time for you to help and feed our family","Try planting this seed of radish in the ground","You can do so by taking this seed from the drawer on the left"]],
-	"apres_plantage_radish":[false,["Superbe, now we must wait for it to grow !","Click on the seasonal clock to skip some time."]],
-	"explain_how_to_harvest":[false,["Hello grandson, finally those radish are ready to be harvested !","Click on it and select the hoe to harvest them !"]],
-	"radish_recolte":[false,["Well done harvesting those radishes!", "Here, you can try planting these peas."]],
-	"Encyclopedia":[true,["You can use your Encyclopedia to learn what are the perfect conditions to grow each plants"]],
-	"tomato_unlock":[false,["Take these tomato seeds.", "Now is the perfect time to plant them!"]],
-	"wheat_leek_unlock":[false,"I found new seeds, you can have them!"],
-	"pumpkin_unlock":[false,"Now's the right time to plant pumpkins!", "Plant these so we will have some for next Halloween!"],
-	"zucchini_unlock":[false,"Here, take these zucchini seeds.", "Zucchinis don't grow well with rain, so be careful!"]
+	"Soil":[true,["As you can see, the soil can be dry, moist or soaked.","The closer the soil is from the river, the wetter it becomes."]],
+	"Seasons":[true,["Seeds have to be sown in specific parts of seasons","If you sow in the favorite part of the season of the plant, you will harvest more."]],
+	"Clock":[true,["You can go forward in time by « clicking » on the seasonal clock."]],
+	"Proximity":[true,["Remember that plants influence each other","Some plants like to be close to specific plants, some others don’t"]],
+	
+	"Lore1":[false,["Hello my grandchild ! So this is it : our society is falling appart…","We must survive by our own ! We are far from everything","Here, take this book"]],
+	"Lore2":[false,["There’s not much in it because in the past","we didn’t have to know how to produce food by ourselves","What fools we’ve been…","Anyway, I will teach you the few I know"]],
+	"Lore3":[false,["Now look in the book what is the best for the radishes"]],
+	"Lore4":[false,["The soil can be poor, average or rich of nutrients.","Plants have a minimum of nutrients necessary to grow.","Open the drawer on your left, pick a bag of radish seeds.","And then plant them on the right type of soil."]],
+	"Lore5":[false,["Well done grandchild ! Now let’s wait a little."]],
+	"Lore6":[false,["Now harvest the results of your production by « clicking » on the plant and then on « HARVEST »"]],
+	"Lore7":[false,["Congratulations ! There, take this. This is some pea seeds I’ve found in the granary."]],
+	"Lore8":[false,["Now I let you work in peace. If you need something you can ask me !","I will come back to you later, bye !"]]
 }
-
 func player_just_did_something(thing):
 	if thing[0] == "planted":
 		if thing[1] == "radish":
-			if tutorial_progress == 0:
-				print("tuto2")
-				grandpa_talk("apres_plantage_radish")
-				tutorial_progress+=1
+			pass
+	
+	if thing[0] == "talk":
+		if thing[1] == "Lore1":
+			GlobalVariables.update_invertory("radish","seed",1)
+			get_tree().root.get_node("home/Game/Encyclopedia").open_on_name("radish")
+	
+	if thing[0] == "closed_book":
+		if tutorial_progress == 0:
+			grandpa_talk("Lore2")
+			grandpa_talk("Soil")
+			grandpa_talk("Meteo")
+			grandpa_talk("Lore3")
+			grandpa_talk("Seasons")
+			grandpa_talk("Lore4")
+			tutorial_progress+=1
+	
+	if thing[0] == "planted":
+		if thing[1] == "radish":
+			if tutorial_progress == 1:
+				tutorial_progress += 1
+				grandpa_talk("Lore5")
+				grandpa_talk("Clock")
 	
 	if thing[0] == "skiped_to_next_season":
-		if tutorial_progress == 1:
-			grandpa_talk("explain_how_to_harvest")
-			tutorial_progress+=1
+		if tutorial_progress == 2:
+			tutorial_progress += 1
+			grandpa_talk("Lore6")
 	
 	if thing[0] == "harvested":
 		if thing[1] == "radish":
-			if tutorial_progress == 2:
-				grandpa_talk("radish_recolte")
-				grandpa_talk("Encyclopedia")
-				tutorial_progress+=1
-	
-	if thing[0] == "talk":
-		if thing[1] == "radish_unlock_debut":
-			GlobalVariables.update_invertory("radish","seed",1)
-	if thing[0] == "talk":
-		if thing[1] == "radish_recolte":
-			GlobalVariables.update_invertory("pea","seed",1)
-
-
+			if tutorial_progress == 3:
+				tutorial_progress += 1
+				grandpa_talk("Lore7")
+				GlobalVariables.update_invertory("pea","seed",1)
+				grandpa_talk("Proximity")
+				grandpa_talk("Lore8")
 
 func _on_button_for_grandpa_button_activated(texte_name):
 	grandpa_talk(texte_name)
@@ -81,7 +96,7 @@ func maj_buttons():
 func _ready():
 	maj_buttons()
 	show_buttons()
-	grandpa_talk("radish_unlock_debut")
+	grandpa_talk("Lore1")
 
 func show_buttons():
 	for child in $RichTextLabel/VBoxContainer.get_children():
