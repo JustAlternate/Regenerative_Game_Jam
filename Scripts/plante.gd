@@ -244,7 +244,15 @@ func afficher_feeling(name):
 	feeling_icon_instance.feeling_type = name
 	add_child(feeling_icon_instance)
 
-
+func show_emotions():
+	if plant_health <= 0:
+		await afficher_feeling(("head_dead"))
+	elif plant_health <= 3:
+		await afficher_feeling(("head_sad"))
+	elif plant_health <= 8:
+		await afficher_feeling(("head_meh"))
+	else:
+		await afficher_feeling(("head_happy"))
 
 func bonus_malus_seasons(actual_season):
 	if state == 0: # Si la plante est une graine
@@ -395,6 +403,8 @@ func next_quarter_of_season(new_phase,random_event):
 			
 			await bonus_malus_voisin(voisin_droit_plant,voisin_gauche_plant)
 			print("plant_health_apres_bonus_malus : "+str(plant_health))
+			
+			await show_emotions()
 			
 			# On fait poussé la plante si elle est toujours vivante :
 			if plant_health > 0:
