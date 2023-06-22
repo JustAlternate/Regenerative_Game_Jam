@@ -1,25 +1,101 @@
-[gd_scene load_steps=2 format=3 uid="uid://olb5ewo4ysgy"]
+[gd_scene load_steps=14 format=3 uid="uid://olb5ewo4ysgy"]
 
-[ext_resource type="Texture2D" uid="uid://ckief3u5kca5v" path="res://Assets/sprites/plant/carrot_1.png" id="1_2hanl"]
+[ext_resource type="Texture2D" uid="uid://toajeuc5yikv" path="res://Assets/Plant/icon/sprite-radis.png" id="1_3hseo"]
+[ext_resource type="Texture2D" uid="uid://bo5a83wpru08t" path="res://Assets/Plant/icon/sprite-carrot.png" id="2_rv3x1"]
+[ext_resource type="Texture2D" uid="uid://bggt2w0nj62wo" path="res://Assets/Plant/icon/sprite-ail.png" id="3_pd78v"]
+[ext_resource type="Texture2D" uid="uid://curd8kw5yfvjf" path="res://Assets/Plant/icon/sprite-blé.png" id="4_3wyxd"]
+[ext_resource type="Texture2D" uid="uid://m4m3o3ximqr5" path="res://Assets/Plant/icon/sprite-citrouille.png" id="5_afpk5"]
+[ext_resource type="Texture2D" uid="uid://bviv07gfn4b3d" path="res://Assets/Plant/icon/sprite-courgette.png" id="6_khhf6"]
+[ext_resource type="Texture2D" uid="uid://ctl1ihfpovljy" path="res://Assets/Plant/icon/sprite-mais.png" id="7_6kbrd"]
+[ext_resource type="Texture2D" uid="uid://boe4lns2uqrji" path="res://Assets/Plant/icon/sprite-menthe.png" id="8_015dv"]
+[ext_resource type="Texture2D" uid="uid://1jjw81mvabw0" path="res://Assets/Plant/icon/sprite-petit-pois.png" id="9_duc2y"]
+[ext_resource type="Texture2D" uid="uid://d1jwmhbev0snd" path="res://Assets/Plant/icon/sprite-poireau.png" id="10_qevg8"]
+[ext_resource type="Texture2D" uid="uid://cgbtkgmcay5s" path="res://Assets/Plant/icon/sprite-thym.png" id="11_icv0e"]
+[ext_resource type="Texture2D" uid="uid://r1w5qdk3a3oy" path="res://Assets/Plant/icon/sprite-tomate.png" id="12_o4wss"]
+[ext_resource type="Texture2D" uid="uid://c1k6m6oefhy7u" path="res://Assets/Plant/icon/sprite-vigne.png" id="13_yu1ct"]
 
 [node name="Sprite_deroulant" type="Node2D"]
 
 [node name="carrot" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-200, 184)
-texture = ExtResource("1_2hanl")
+scale = Vector2(4, 4)
+texture = ExtResource("1_3hseo")
 
 [node name="carrot2" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-400, 184)
-texture = ExtResource("1_2hanl")
+scale = Vector2(4, 4)
+texture = ExtResource("2_rv3x1")
 
 [node name="carrot3" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-600, 184)
-texture = ExtResource("1_2hanl")
+scale = Vector2(4, 4)
+texture = ExtResource("3_pd78v")
 
 [node name="carrot4" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-800, 184)
-texture = ExtResource("1_2hanl")
+scale = Vector2(4, 4)
+texture = ExtResource("4_3wyxd")
 
 [node name="carrot5" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-1000, 184)
-texture = ExtResource("1_2hanl")
+scale = Vector2(4, 4)
+texture = ExtResource("5_afpk5")
+
+[node name="carrot6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1200, 184)
+scale = Vector2(4, 4)
+texture = ExtResource("6_khhf6")
+
+[node name="carrot7" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1400, 184)
+scale = Vector2(4, 4)
+texture = ExtResource("7_6kbrd")
+
+[node name="carrot8" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1600, 184)
+scale = Vector2(4, 4)
+texture = ExtResource("8_015dv")
+
+[node name="carrot9" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1800, 184)
+scale = Vector2(4, 4)
+texture = ExtResource("9_duc2y")
+
+[node name="carrot10" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2000, 184)
+scale = Vector2(4, 4)
+texture = ExtResource("10_qevg8")
+
+[node name="carrot11" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2000, 184)
+scale = Vector2(4, 4)
+texture = ExtResource("10_qevg8")
+
+[node name="carrot12" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2200, 184)
+scale = Vector2(4, 4)
+texture = ExtResource("11_icv0e")
+
+[node name="carrot13" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2400, 184)
+scale = Vector2(4, 4)
+texture = ExtResource("12_o4wss")
+
+[node name="carrot14" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2600, 184)
+scale = Vector2(4, 4)
+texture = ExtResource("13_yu1ct")

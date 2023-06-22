@@ -1,14 +1,90 @@
-[gd_scene load_steps=13 format=3 uid="uid://d4idxbd54drta"]
+[gd_scene load_steps=24 format=3 uid="uid://d4idxbd54drta"]
 
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="1_ni0yg"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_vd1g2"]
-[ext_resource type="Texture2D" uid="uid://c56kxoux30gtd" path="res://Assets/sprites/closed_book.png" id="2_scljm"]
+[ext_resource type="Texture2D" uid="uid://cqemdebiu2vyn" path="res://Assets/Plant/background-automne.png" id="2_7kua1"]
+[ext_resource type="Texture2D" uid="uid://cssbl0ckgwq74" path="res://Assets/sprites/closed_book.png" id="2_scljm"]
+[ext_resource type="Texture2D" uid="uid://chtvt0u57khvi" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_u67cp"]
+[ext_resource type="Texture2D" uid="uid://bjwcvxhdyymu" path="res://Assets/Plant/background-printemps.png" id="3_05tdx"]
 [ext_resource type="PackedScene" uid="uid://olb5ewo4ysgy" path="res://Scenes/menu_running_sprites.tscn" id="4_fap7w"]
+[ext_resource type="Texture2D" uid="uid://baekq7aujb1pc" path="res://Assets/Plant/background-ete.png" id="4_v6s1t"]
+[ext_resource type="Texture2D" uid="uid://dyj33o55lscxg" path="res://Assets/Plant/background-hiver.png" id="5_4imjg"]
 [ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="5_c6ra6"]
-[ext_resource type="FontFile" uid="uid://btnbktdas72q5" path="res://fonts/FutilePro.ttf" id="5_eewky"]
+[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="5_eewky"]
 [ext_resource type="StyleBox" uid="uid://d3vi3glx4440d" path="res://button_type_normal.tres" id="6_nunw6"]
-[ext_resource type="PackedScene" uid="uid://b05j16p7wwoul" path="res://Scenes/sound_pool.tscn" id="8_n17uy"]
-[ext_resource type="AudioStream" uid="uid://od3ncvyhu8io" path="res://Assets/sfx/menu_click.wav" id="9_cbrca"]
+[ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="8_n17uy"]
+[ext_resource type="AudioStream" uid="uid://cv17wb2bjrhr" path="res://Assets/sfx/menu_click.wav" id="9_cbrca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w73x"]
+atlas = ExtResource("2_u67cp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57w2v"]
+atlas = ExtResource("2_u67cp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rscqe"]
+atlas = ExtResource("2_u67cp")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kja0x"]
+atlas = ExtResource("2_u67cp")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j1puk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w73x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57w2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rscqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kja0x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucd87"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7kua1")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_05tdx")
+}],
+"loop": true,
+"name": &"spring",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_v6s1t")
+}],
+"loop": true,
+"name": &"summer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4imjg")
+}],
+"loop": true,
+"name": &"winter",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_expnd"]
 bg_color = Color(0.752941, 0.780392, 0.254902, 1)
@@ -31,31 +107,32 @@ Button/styles/normal = ExtResource("6_nunw6")
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_vd1g2")
 
+[node name="riviere" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(288, 288)
+sprite_frames = SubResource("SpriteFrames_j1puk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(288, 128)
+sprite_frames = SubResource("SpriteFrames_ucd87")
+animation = &"fall"
+
 [node name="Menu_title" type="Panel" parent="."]
 offset_right = 576.0
-offset_bottom = 91.0
+offset_bottom = 52.0
 theme = SubResource("Theme_up03c")
 
-[node name="ColorRect" type="ColorRect" parent="Menu_title"]
-z_index = -1
-texture_filter = 1
-layout_mode = 0
-offset_top = 1.0
-offset_right = 576.0
-offset_bottom = 320.0
-color = Color(0.741176, 1, 1, 1)
-
 [node name="Sprite2D" type="Sprite2D" parent="Menu_title"]
-position = Vector2(164, 44)
+position = Vector2(140, 25)
 texture = ExtResource("2_scljm")
 
 [node name="Title" type="Label" parent="Menu_title"]
 layout_mode = 0
-offset_top = 2.0
+offset_top = -17.0
 offset_right = 576.0
-offset_bottom = 87.0
-text = "The Ascension farming
-"
+offset_bottom = 68.0
+text = "The Garden of the day after"
 label_settings = ExtResource("1_ni0yg")
 horizontal_alignment = 1
 vertical_alignment = 1
