@@ -1,6 +1,22 @@
 extends Node2D
 
 var actual_page_number = 0
+var summary = {
+	"introduction":0,
+	"radish":1,
+	"pea":2,
+	"tomatoes":3,
+	"leak":4,
+	"wheat":5,
+	"pumpkin":6,
+	"zucchini":7,
+	"mint":8,
+	"corn":9,
+	"carrot":10,
+	"garlic":11,
+	"vine":12,
+	"thyme":13,
+}
 @export var Pages_unlocked = 14
 @export var Pages = [
 	#Page 1 - 2
@@ -42,6 +58,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+
 
 func _on_button_button_down():
 	print("Openage of zi encyclopedia")
@@ -86,6 +105,12 @@ func maj_book(actual_page_number):
 		$Book/Previous_Page.visible = true
 
 	
+	
+func open_on_name(plant:String):
+	actual_page_number = summary[plant]
+	$Book.show()
+	$PageFlipSFX.play_random_sound()
+	maj_book(actual_page_number)
 
 func _on_next_page_button_down():
 	if not(actual_page_number == Pages_unlocked-2):

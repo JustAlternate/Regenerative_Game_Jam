@@ -29,7 +29,8 @@ func _on_button_remove_pressed():
 
 func _on_button_info_pressed():
 	print("info")
-	#humm
+	var a = get_tree().root
+	get_tree().root.get_node("home/Game/Encyclopedia").open_on_name(targeted_plant.plant_type)
 
 func _on_button_harvest_mouse_entered():
 	$button_harvest/Label_Harvest.visible = true
