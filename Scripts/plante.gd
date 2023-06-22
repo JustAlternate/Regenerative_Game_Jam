@@ -143,7 +143,6 @@ var dico_caracteristique = {
 		"radish":[],
 		"None":[]
 	},
-	
 }
 
 var dico_bonus_malus = {
@@ -193,7 +192,7 @@ func remove_plant():
 	if not plant_type == "None":
 		plant_type = "None"	
 		$sprite.animation = "vide"
-	
+
 func bonus_malus_seasons(actual_season):
 	if state == 0: # Si la plante est une graine
 		if actual_season in dico_caracteristique["bonus_season"][plant_type]:
