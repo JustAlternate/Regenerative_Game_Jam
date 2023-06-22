@@ -15,6 +15,8 @@ var unapreciated_adjacents_plants = [] # pareil que au dessus.
 signal calling_contextual_menu
 
 @export var humidity_from_river:int
+@export var voisin_droit:Node2D = null
+@export var voisin_gauche:Node2D = null
 
 # Spring1 = [1,1] , Summer2 = [2,2], Automn1 = [3,1] , Winter2 = [4,2]
 var dico_caracteristique = {
@@ -227,11 +229,10 @@ func next_quarter_of_season(new_phase,random_event):
 	
 	var actual_season = [new_phase/2 +1 ,new_phase%2 +1]
 	var before_season = [((new_phase+7)%8)/2 +1, ((new_phase+7)%8)%2 +1]
-	#print("before_season : " + str(before_season))
-	#print("actual_season : " + str(actual_season))
 	
 	var temp_humidity_value = humidity_value
 	var temp_sunlight_value = sunlight_value
+	
 	
 	if plant_type == "None":
 		# Si la terre est vide, on lui fait regagner des nutriments a chaque passage de quarter of season.
@@ -274,6 +275,8 @@ func next_quarter_of_season(new_phase,random_event):
 				print("la plante est morte")
 				
 	if plant_type != "None":
+		print("voisin_droit : "+str(voisin_droit))
+		print("voisin_gauche : "+str(voisin_gauche))
 		print("actual_season : "+str(actual_season))
 		print("state : "+str(state))
 		print("plant_type : "+str(plant_type))
@@ -281,7 +284,6 @@ func next_quarter_of_season(new_phase,random_event):
 		print("nutriment_value : "+str(nutriment_value))
 		print("temp_humidity_value : "+str(temp_humidity_value))
 		print("temp_sunlight_value : "+str(temp_sunlight_value))
-
 
 func _on_button_pressed():
 	#print("pressed")

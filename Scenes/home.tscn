@@ -56,29 +56,47 @@ text = "Yo bento"
 
 [node name="plant_spot_container" type="Node2D" parent="Game"]
 
-[node name="plant1" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
+[node name="plant1" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_droit") instance=ExtResource("6_5hxrd")]
 position = Vector2(32, 256)
+voisin_droit = NodePath("../plant2")
 
-[node name="plant2" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
+[node name="plant2" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_droit", "voisin_gauche") instance=ExtResource("6_5hxrd")]
 position = Vector2(96, 256)
+humidity_from_river = 1
+voisin_droit = NodePath("../plant3")
+voisin_gauche = NodePath("../plant1")
 
-[node name="plant3" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
+[node name="plant3" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_droit", "voisin_gauche") instance=ExtResource("6_5hxrd")]
 position = Vector2(160, 256)
+humidity_from_river = 1
+voisin_droit = NodePath("../plant4")
+voisin_gauche = NodePath("../plant2")
 
-[node name="plant4" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
+[node name="plant4" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_gauche") instance=ExtResource("6_5hxrd")]
 position = Vector2(224, 256)
+humidity_from_river = 2
+voisin_gauche = NodePath("../plant3")
 
-[node name="plant5" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
+[node name="plant5" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_droit") instance=ExtResource("6_5hxrd")]
 position = Vector2(352, 256)
+humidity_from_river = 2
+voisin_droit = NodePath("../plant6")
 
-[node name="plant6" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
+[node name="plant6" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_droit", "voisin_gauche") instance=ExtResource("6_5hxrd")]
 position = Vector2(416, 256)
+humidity_from_river = 1
+voisin_droit = NodePath("../plant7")
+voisin_gauche = NodePath("../plant5")
 
-[node name="plant7" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
+[node name="plant7" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_droit", "voisin_gauche") instance=ExtResource("6_5hxrd")]
 position = Vector2(480, 256)
+humidity_from_river = 1
+voisin_droit = NodePath("../plant8")
+voisin_gauche = NodePath("../plant6")
 
-[node name="plant8" parent="Game/plant_spot_container" instance=ExtResource("6_5hxrd")]
+[node name="plant8" parent="Game/plant_spot_container" node_paths=PackedStringArray("voisin_gauche") instance=ExtResource("6_5hxrd")]
 position = Vector2(544, 256)
+voisin_gauche = NodePath("../plant7")
 
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
 position = Vector2(542.477, 34.0615)
