@@ -17,7 +17,6 @@ func _process(delta):
 	pass
 
 var background_season_animation_dico = [
-	"winter", # Winter2
 	"spring", # Spring1
 	"spring",
 	"summer", # Ete1
@@ -25,6 +24,7 @@ var background_season_animation_dico = [
 	"fall", # Autumn1
 	"fall",
 	"winter", # Winter1
+	"winter", # Winter2
 ]
 
 # new_phase : 0 = Winter2, 1 = Spring1 .... 7 = Winter1
@@ -77,25 +77,25 @@ func _on_clock_phase_changed(new_phase):
 	for i in range(8):
 		$plant_spot_container.get_child(i).next_quarter_of_season(new_phase,random_event)
 	
-	if new_phase == 1:
+	if new_phase == 0:
 		$"/root/PersistentSfx/WinterMusic".music_stop()
 		$"/root/PersistentSfx/SpringMusic".play_song_phase1()
-	elif new_phase == 2:
+	elif new_phase == 1:
 		$"/root/PersistentSfx/SpringMusic".play_song_phase2()
-	elif new_phase == 3:
+	elif new_phase == 2:
 		$"/root/PersistentSfx/SpringMusic".music_stop()
 		$"/root/PersistentSfx/SummerMusic".play_song_phase1()
-	elif new_phase == 4:
+	elif new_phase == 3:
 		$"/root/PersistentSfx/SummerMusic".play_song_phase2()
-	elif new_phase == 5:
+	elif new_phase == 4:
 		$"/root/PersistentSfx/SummerMusic".music_stop()
 		$"/root/PersistentSfx/FallMusic".play_song_phase1()
-	elif new_phase == 6:
+	elif new_phase == 5:
 		$"/root/PersistentSfx/FallMusic".play_song_phase2()
-	elif new_phase == 7:
+	elif new_phase == 6:
 		$"/root/PersistentSfx/FallMusic".music_stop()
 		$"/root/PersistentSfx/WinterMusic".play_song_phase1()
-	elif new_phase == 0:
+	elif new_phase == 7:
 		$"/root/PersistentSfx/WinterMusic".play_song_phase2()
 	
 	#wait then turn on the game:
