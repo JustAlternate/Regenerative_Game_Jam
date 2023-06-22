@@ -46,7 +46,9 @@ func player_just_did_something(thing):
 				grandpa_talk("radish_recolte")
 				grandpa_talk("Encyclopedia")
 				tutorial_progress+=1
-				get_tree().root.get_node("home/Game/seed_drawer").add_seed_in_drawer("pea")
+	if thing[0] == "talk":
+		if thing[1] == "Encyclopedia":
+			get_tree().root.get_node("home/Game/seed_drawer").add_seed_in_drawer("pea")
 
 
 
