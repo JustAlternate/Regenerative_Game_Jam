@@ -31,5 +31,9 @@ func remove_seed_from_drawer(seed):
 
 func _on_open_drawer_button_toggled(button_pressed):
 	GlobalVariables.action_picked = "none"
+	if $HBoxContainer/GridContainer.visible:
+		$CloseSFX.play()
+	else:
+		$OpenSFX.play()
 	$HBoxContainer/GridContainer.visible = not $HBoxContainer/GridContainer.visible
 	refresh_drawer()

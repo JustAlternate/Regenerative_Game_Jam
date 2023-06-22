@@ -195,6 +195,7 @@ func _process(delta):
 func add_plant(type):
 	if type != "None":
 		plant_type = type
+		$PlantingSFX.play()
 		$sprite.animation = plant_type+"_0"
 		$sign_container.show()
 		$sign_container/plant_icon.animation = plant_type
@@ -207,6 +208,7 @@ func harvest_plant():
 		plant_type = "None"
 		$sprite.animation = "vide"
 		$sign_container.hide()
+		$HarvestSFX.play_random_sound()
 
 func remove_plant():
 	print("removed")
