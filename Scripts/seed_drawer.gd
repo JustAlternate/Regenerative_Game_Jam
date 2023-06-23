@@ -25,9 +25,11 @@ func count_nombre_container_visible():
 
 func add_seed_in_drawer(seed):
 	$HBoxContainer/GridContainer.get_node("Container_"+seed).visible = true
+	refresh_drawer()
 	
 func remove_seed_from_drawer(seed):
 	$HBoxContainer/GridContainer.get_node("Container_"+seed).visible = false
+	refresh_drawer()
 
 func _on_open_drawer_button_toggled(button_pressed):
 	GlobalVariables.action_picked = "none"
@@ -38,3 +40,4 @@ func _on_open_drawer_button_toggled(button_pressed):
 		$OpenSFX.play()
 	$HBoxContainer/GridContainer.visible = not $HBoxContainer/GridContainer.visible
 	refresh_drawer()
+

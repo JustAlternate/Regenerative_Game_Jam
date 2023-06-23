@@ -3,6 +3,8 @@ extends TextureButton
 @export var Seed_Texture: Texture2D
 @export var seed_name: String
 
+signal draweeeer
+
 var arrow_game = load("res://Assets/sprites/cursor_game.png")
 var arrow_farm = load("res://Assets/sprites/cursor_farm.png")
 
@@ -16,8 +18,10 @@ func _ready():
 func update_number_seed():
 	if GlobalVariables.inventory[seed_name]["seed"] > 0:
 		self.visible = true
+		draweeeer.emit()
 	else:
 		self.visible = false
+		draweeeer.emit()
 		if GlobalVariables.action_picked == "seed" and GlobalVariables.seed_picked == seed_name:
 			Input.set_custom_mouse_cursor(arrow_game)
 			GlobalVariables.action_picked = "none"
