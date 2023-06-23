@@ -5,11 +5,14 @@ var tab_context_menu = []
 var random_event = "rien"
 @export var nombre_de_plante_consomed_par_quart_de_saison:int = 10
 
+# Load the custom images for the mouse cursor.
+var arrow_game = load("res://Assets/sprites/cursor_game.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalVariables.game_state = "playing"
 	$background/riviere.play("default")
+	Input.set_custom_mouse_cursor(arrow_game)
 	pass # Replace with function body
 
 
