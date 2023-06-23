@@ -1,20 +1,17 @@
-[gd_scene load_steps=29 format=3 uid="uid://cux0ivx6exq1b"]
+[gd_scene load_steps=42 format=3 uid="uid://cux0ivx6exq1b"]
 
 [ext_resource type="PackedScene" uid="uid://dftuedx82aneu" path="res://Scenes/encyclopedia.tscn" id="1_1gyia"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_mivhc"]
 [ext_resource type="PackedScene" uid="uid://du2q4bvo17ea" path="res://Scenes/dialogue_grand_pere.tscn" id="2_005re"]
-[ext_resource type="Texture2D" uid="uid://chtvt0u57khvi" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_bqiwa"]
-[ext_resource type="Texture2D" uid="uid://cqemdebiu2vyn" path="res://Assets/Plant/background-automne.png" id="2_pi25p"]
-[ext_resource type="Texture2D" uid="uid://c3wmlok5t45pt" path="res://Assets/Plant/case-eau-centre-transparent.png" id="2_yhosm"]
-[ext_resource type="Texture2D" uid="uid://bjwcvxhdyymu" path="res://Assets/Plant/background-printemps.png" id="3_lswv8"]
-[ext_resource type="Texture2D" uid="uid://baekq7aujb1pc" path="res://Assets/Plant/background-ete.png" id="4_2d7xi"]
+[ext_resource type="Texture2D" uid="uid://ci8m2wxpa45u0" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_bqiwa"]
+[ext_resource type="Texture2D" uid="uid://dsrtwu3k6cq3m" path="res://Assets/Plant/case-eau-centre-transparent.png" id="2_yhosm"]
+[ext_resource type="Texture2D" uid="uid://bxdxqds5x3fdu" path="res://Assets/Plant/background-animé.png" id="4_7lsg4"]
 [ext_resource type="PackedScene" uid="uid://cpc1baduxkefv" path="res://Scenes/seed_drawer.tscn" id="4_fw8ti"]
 [ext_resource type="PackedScene" uid="uid://slb4mijat6jh" path="res://Scenes/clock.tscn" id="5_gjtvy"]
-[ext_resource type="Texture2D" uid="uid://dyj33o55lscxg" path="res://Assets/Plant/background-hiver.png" id="5_l38m1"]
 [ext_resource type="PackedScene" uid="uid://c751d7ivsjn33" path="res://Scenes/meteo.tscn" id="6_2mes2"]
 [ext_resource type="PackedScene" uid="uid://c5fwrbut46wua" path="res://Scenes/plante.tscn" id="6_5hxrd"]
-[ext_resource type="Texture2D" uid="uid://cm5b0440ki4dm" path="res://Assets/sprites/dirt-moist.png" id="8_dmgkt"]
-[ext_resource type="Texture2D" uid="uid://bfan0jrfsep6l" path="res://Assets/sprites/dirt-soaked.png" id="9_2h3e1"]
+[ext_resource type="Texture2D" uid="uid://dq1f0ra5bpicr" path="res://Assets/sprites/dirt-moist.png" id="8_dmgkt"]
+[ext_resource type="Texture2D" uid="uid://ddox0qv3u5snp" path="res://Assets/sprites/dirt-soaked.png" id="9_2h3e1"]
 [ext_resource type="PackedScene" uid="uid://cv2dfr0drakgr" path="res://Scenes/objectives.tscn" id="16_5d8l5"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="16_yoaqu"]
 
@@ -87,39 +84,139 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vidop"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(1152, 512, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwyg0"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(0, 768, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lbjt"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(576, 768, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxje4"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(1152, 768, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1s74"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(576, 256, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85m1t"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(1152, 256, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rvki"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(0, 512, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfwpc"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(576, 512, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvqc6"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(0, 0, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5y4w"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(576, 0, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvrs4"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(1152, 0, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvmks"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(0, 256, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwxij"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(0, 1024, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rs8l"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(576, 1024, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceyb1"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(1152, 1024, 576, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua7rr"]
+atlas = ExtResource("4_7lsg4")
+region = Rect2(0, 1280, 576, 256)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6c8pp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_pi25p")
+"texture": SubResource("AtlasTexture_vidop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwyg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lbjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxje4")
 }],
 "loop": true,
 "name": &"fall",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_lswv8")
+"texture": SubResource("AtlasTexture_u1s74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85m1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rvki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfwpc")
 }],
 "loop": true,
 "name": &"spring",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_2d7xi")
+"texture": SubResource("AtlasTexture_nvqc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5y4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvrs4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvmks")
 }],
 "loop": true,
 "name": &"summer",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_l38m1")
+"texture": SubResource("AtlasTexture_iwxij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rs8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceyb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua7rr")
 }],
 "loop": true,
 "name": &"winter",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hjora"]
@@ -158,7 +255,7 @@ sprite_frames = SubResource("SpriteFrames_5ssav")
 texture_filter = 1
 position = Vector2(288, 128)
 sprite_frames = SubResource("SpriteFrames_6c8pp")
-animation = &"fall"
+animation = &"winter"
 
 [node name="DirtBehindRiver" type="AnimatedSprite2D" parent="Game/background"]
 show_behind_parent = true
