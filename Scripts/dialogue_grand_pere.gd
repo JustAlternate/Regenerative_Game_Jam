@@ -29,8 +29,13 @@ var dico_dialogue = {
 	"Lore4":[false,["The soil can be poor, average or rich of nutrients.","Plants have a minimum of nutrients necessary to grow.","Open the drawer on your left, pick a bag of radish seeds.","And then plant them on the right type of soil."]],
 	"Lore5":[false,["Well done grandchild ! Now let’s wait a little."]],
 	"Lore6":[false,["Now harvest the results of your production by « clicking » on the plant and then on « HARVEST »"]],
-	"Lore7":[false,["Congratulations ! There, take this. This is some pea seeds I’ve found in the granary."]],
-	"Lore8":[false,["Now I let you work in peace. If you need something you can ask me !","I will come back to you later, bye !"]]
+	"Lore7":[false,["Congratulations ! There, take this. This is some leaks seeds I’ve found in the granary."]],
+	"Lore8":[false,["Now I let you work in peace. If you need something you can ask me !","I will come back to you later, bye !"]],
+	
+	"give_tomatoes":[false,["Well I think you should take those tomatoes seeds, Winter 2 is the best season to plant them !"]],
+	"give_pea_and_wheat":[false,["Hello grandchild, look I found multiple new seeds for our garden !"]],
+	"give_pumpkin":[false,["Its time to plant some pumpkins so we can have them next Fall season !"]],
+	"give_zucchini":[false,["Its rainy today,  becareful and avoid  planting those zucchini seeds on rainy seasons !"]],
 }
 func player_just_did_something(thing):
 	if thing[0] == "planted":
@@ -48,7 +53,6 @@ func player_just_did_something(thing):
 			grandpa_talk("Soil")
 			grandpa_talk("Meteo")
 			grandpa_talk("Lore3")
-			grandpa_talk("Seasons")
 			grandpa_talk("Lore4")
 			tutorial_progress+=1
 	
@@ -69,10 +73,38 @@ func player_just_did_something(thing):
 			if tutorial_progress == 3:
 				tutorial_progress += 1
 				grandpa_talk("Lore7")
-				GlobalVariables.update_invertory("pea","seed",1)
-				grandpa_talk("Proximity")
+				GlobalVariables.update_invertory("leek","seed",2)
 				grandpa_talk("Lore8")
-
+				
+	if thing[0] == "skiped_to_next_season":
+		if thing[1] == "winter":
+			if tutorial_progress == 4:
+				tutorial_progress += 1
+				grandpa_talk("give_tomatoes")
+				GlobalVariables.update_invertory("tomatoes","seed",2)
+			
+	
+	if GlobalVariables.inventory["tomatoes"]["plant"] > 4 or GlobalVariables.inventory["tomatoes"]["seed"] == 0:
+		if tutorial_progress == 5:
+			tutorial_progress += 1
+			grandpa_talk("give_pea_and_wheat")
+			GlobalVariables.update_invertory("pea","seed",2)
+			GlobalVariables.update_invertory("wheat","seed",2)
+			
+	if thing[0] == "skiped_to_next_season":
+		if thing[1] == "spring":
+			if tutorial_progress == 6:
+				tutorial_progress +=1
+				grandpa_talk("give_pumpkin")
+				GlobalVariables.update_invertory("pumpkin","seed",2)
+				
+	if thing[0] == "meteo":
+		if thing[1] == "pluie":
+			if tutorial_progress == 7:
+				tutorial_progress += 1
+				grandpa_talk("give_zucchini")
+				GlobalVariables.update_invertory("zucchini","seed",2)
+	
 func _on_button_for_grandpa_button_activated(texte_name):
 	grandpa_talk(texte_name)
 

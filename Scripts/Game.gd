@@ -77,10 +77,12 @@ func _on_clock_phase_changed(new_phase):
 		$Meteo/Sun/DirectionalLight2D.energy = 1.2
 		$background/DirtBehindRiver.animation = "normal"
 	else:
+		random_event == "rien"
 		$Meteo/Sun/DirectionalLight2D.energy = 1
 		$Meteo.go_meteo(0,2)
 		$background/DirtBehindRiver.animation = "soaked"
 
+	get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["meteo",random_event])
 	# Updating every plants
 	for i in range(8):
 		$plant_spot_container.get_child(i).next_quarter_of_season(new_phase,random_event)
