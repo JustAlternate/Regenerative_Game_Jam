@@ -5,14 +5,8 @@
 [node name="Music" type="Node"]
 script = ExtResource("1_vf0ku")
 
-[node name="Melody" type="AudioStreamPlayer" parent="."]
+[node name="Phase1" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
 
-[node name="Chords" type="AudioStreamPlayer" parent="."]
-bus = &"Music"
-
-[node name="Bass" type="AudioStreamPlayer" parent="."]
-bus = &"Music"
-
-[node name="Drums" type="AudioStreamPlayer" parent="."]
+[node name="DrumsBass" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
