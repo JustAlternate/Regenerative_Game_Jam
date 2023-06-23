@@ -239,10 +239,13 @@ func harvest_plant():
 		# On recolte les seeds
 		if plant_health >= 8:
 			GlobalVariables.update_invertory(plant_type,"seed",3)
+			GlobalVariables.update_invertory(plant_type,"plant",10)
 		elif plant_health >= 4:
 			GlobalVariables.update_invertory(plant_type,"seed",2)
+			GlobalVariables.update_invertory(plant_type,"plant",7)
 		else:
 			GlobalVariables.update_invertory(plant_type,"seed",1)
+			GlobalVariables.update_invertory(plant_type,"plant",4)
 		
 		plant_type = "None"
 		$sprite.animation = "vide"

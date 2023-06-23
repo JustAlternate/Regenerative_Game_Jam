@@ -1,29 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv2dfr0drakgr"]
+[gd_scene load_steps=9 format=3 uid="uid://cv2dfr0drakgr"]
 
-[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="1_hjrsp"]
+[ext_resource type="FontFile" uid="uid://dinlurcky8yjo" path="res://fonts/FutilePro.ttf" id="1_hjrsp"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3j7r"]
-bg_color = Color(0.121569, 0.054902, 0.109804, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rey18"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwshg"]
 bg_color = Color(0.752941, 0.780392, 0.254902, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.121569, 0.054902, 0.109804, 1)
 
-[sub_resource type="Theme" id="Theme_4uqi2"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_f3j7r")
+[sub_resource type="Theme" id="Theme_4eecs"]
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_rey18")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_xwshg")
 
 [sub_resource type="LabelSettings" id="LabelSettings_t3gkx"]
 line_spacing = 1.0
 font = ExtResource("1_hjrsp")
 font_color = Color(0.615686, 0.188235, 0.231373, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h05td"]
+
+[sub_resource type="Theme" id="Theme_4uqi2"]
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_rey18")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_h05td")
 
 [sub_resource type="LabelSettings" id="LabelSettings_2i0vt"]
 line_spacing = 1.0
@@ -43,7 +45,7 @@ layout_mode = 0
 offset_right = 192.0
 offset_bottom = 27.0
 scale = Vector2(0.5, 0.5)
-theme = SubResource("Theme_4uqi2")
+theme = SubResource("Theme_4eecs")
 value = 80.0
 show_percentage = false
 
