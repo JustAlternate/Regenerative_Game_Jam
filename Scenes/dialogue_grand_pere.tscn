@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://du2q4bvo17ea"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_grand_pere.gd" id="1_5a700"]
-[ext_resource type="Texture2D" uid="uid://bhy2ngrrm2v0b" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
-[ext_resource type="Texture2D" uid="uid://ccomxjtjn2283" path="res://Assets/Plant/bulle-dialogue.png" id="3_cxmly"]
-[ext_resource type="FontFile" uid="uid://dinlurcky8yjo" path="res://fonts/FutilePro.ttf" id="3_j6ie8"]
+[ext_resource type="Texture2D" uid="uid://cvwqs7osof5vw" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
+[ext_resource type="Texture2D" uid="uid://bj3cpgukwmya4" path="res://Assets/Plant/bulle-dialogue.png" id="3_cxmly"]
+[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="3_j6ie8"]
 [ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="4_tce1e"]
-[ext_resource type="AudioStream" uid="uid://0i1c11ht5jc4" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
-[ext_resource type="AudioStream" uid="uid://bl3ims3fja3ed" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
+[ext_resource type="AudioStream" uid="uid://blfejlquw22a4" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
+[ext_resource type="AudioStream" uid="uid://6eowc6smsx3x" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tnvqk"]
 

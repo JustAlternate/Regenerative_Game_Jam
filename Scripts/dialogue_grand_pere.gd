@@ -4,9 +4,9 @@ extends Node2D
 @export var hauteur_bulle_texte:int
 @export var text = "Grosse murge"
 @export var taille_police:int
-@export var time_betwen_carac:float = 0.05
-@export var time_betwen_dialogue:float = 5
-@export var time_after_dialogue:float = 5
+@export var time_betwen_carac:float = 0.03
+@export var time_betwen_dialogue:float = 2
+@export var time_after_dialogue:float = 3
 
 var state = "none"
 
