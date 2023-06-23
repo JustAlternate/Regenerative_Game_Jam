@@ -5,7 +5,6 @@ var seedList = []
 func refresh_drawer():
 	$HBoxContainer/GridContainer.columns = ceil(count_nombre_container_visible()/2 +1)
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HBoxContainer/GridContainer.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://c5fwrbut46wua"]
+[gd_scene load_steps=97 format=3 uid="uid://c5fwrbut46wua"]
 
 [ext_resource type="Script" path="res://Scripts/plante.gd" id="1_y1icu"]
 [ext_resource type="Texture2D" uid="uid://dlf15quy3vi4o" path="res://Assets/Plant/sprite-ail.png" id="2_f3og3"]
@@ -25,7 +25,9 @@
 [ext_resource type="AudioStream" uid="uid://bjjypqp0etxuf" path="res://Assets/sfx/planting.wav" id="19_p0ofx"]
 [ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="20_2bs1f"]
 [ext_resource type="AudioStream" uid="uid://cs6h0dx2ju80v" path="res://Assets/sfx/shovel/shovel1.wav" id="21_b4wsd"]
+[ext_resource type="Texture2D" uid="uid://bcgtpjahr4cw5" path="res://Assets/sprites/nutrient-poor.png" id="21_ymkyc"]
 [ext_resource type="AudioStream" uid="uid://b5p6ifbtcobea" path="res://Assets/sfx/shovel/shovel2.wav" id="22_8l6by"]
+[ext_resource type="Texture2D" uid="uid://cvnhyvjgejtrk" path="res://Assets/sprites/nutrient-rich.png" id="22_s2sjv"]
 [ext_resource type="AudioStream" uid="uid://b84lmpl8n1371" path="res://Assets/sfx/shovel/shovel3.wav" id="23_p2nfk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_74itx"]
@@ -68,6 +70,52 @@ animations = [{
 }],
 "loop": true,
 "name": &"soak",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0xb6"]
+atlas = ExtResource("21_ymkyc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aq241"]
+atlas = ExtResource("21_ymkyc")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htx20"]
+atlas = ExtResource("22_s2sjv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svvkw"]
+atlas = ExtResource("22_s2sjv")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwwy6"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0xb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aq241")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htx20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svvkw")
+}],
+"loop": true,
+"name": &"2",
 "speed": 5.0
 }]
 
@@ -802,6 +850,13 @@ position = Vector2(0, 32)
 sprite_frames = SubResource("SpriteFrames_74itx")
 animation = &"dry"
 
+[node name="nutrient" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_gwwy6")
+animation = &"0"
+centered = false
+offset = Vector2(-32, 0)
+
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_cye4a")
@@ -835,20 +890,16 @@ animation = &"thym"
 
 [node name="PlantingSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_p0ofx")
-bus = &"SFX"
 
 [node name="HarvestSFX" parent="." instance=ExtResource("20_2bs1f")]
 
 [node name="SFX1" type="AudioStreamPlayer" parent="HarvestSFX"]
 stream = ExtResource("21_b4wsd")
-bus = &"SFX"
 
 [node name="SFX2" type="AudioStreamPlayer" parent="HarvestSFX"]
 stream = ExtResource("22_8l6by")
-bus = &"SFX"
 
 [node name="SFX3" type="AudioStreamPlayer" parent="HarvestSFX"]
 stream = ExtResource("23_p2nfk")
-bus = &"SFX"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

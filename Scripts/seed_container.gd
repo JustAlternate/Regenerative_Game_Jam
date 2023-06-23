@@ -2,33 +2,17 @@ extends TextureButton
 
 @export var Seed_Texture: Texture2D
 @export var seed_name: String
-@export var is_shovel: bool = false
-@export var activated: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Label.visible = false
 	$Label.text = seed_name
 	$Sprite2D.set_texture(Seed_Texture)
-	$Sprite2D.visible = activated
-	disabled = not activated
+	$Sprite2D.visible = true
 
-# Add n seeds to number_of_seeds and changes sprite visibility and enables button accordingly
-func add_seeds(n):
-	if (n > 0):
-		GlobalVariables.inventory[seed_name]["seed"] += n
-		$Sprite2D.visible = true
-		disabled = false
-		$Sprite2D/SeedNumberLabel.text = str(GlobalVariables.inventory[seed_name]["seed"])
-
-# Removes n seeds to number_of_seeds and if there are no seeds left, hides the seed sprite and disables the button
-func remove_seeds(n):
-	GlobalVariables.inventory[seed_name]["seed"] -= n
-	$Sprite2D/SeedNumberLabel.text = str(GlobalVariables.inventory[seed_name]["seed"])
-	if (GlobalVariables.inventory[seed_name]["seed"] <= 0):
-		GlobalVariables.inventory[seed_name]["seed"] = 0
-		$Sprite2D.visible = false
-		disabled = true
+func update_number_seed():
+	self.visible = (GlobalVariables.inventory[seed_name]["seed"] > 0)
+	$SeedNumberLabel.text = str(GlobalVariables.inventory[seed_name]["seed"])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

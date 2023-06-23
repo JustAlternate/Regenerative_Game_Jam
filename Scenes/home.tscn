@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cux0ivx6exq1b"]
+[gd_scene load_steps=29 format=3 uid="uid://cux0ivx6exq1b"]
 
 [ext_resource type="PackedScene" uid="uid://dftuedx82aneu" path="res://Scenes/encyclopedia.tscn" id="1_1gyia"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_mivhc"]
 [ext_resource type="PackedScene" uid="uid://du2q4bvo17ea" path="res://Scenes/dialogue_grand_pere.tscn" id="2_005re"]
 [ext_resource type="Texture2D" uid="uid://chtvt0u57khvi" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_bqiwa"]
 [ext_resource type="Texture2D" uid="uid://cqemdebiu2vyn" path="res://Assets/Plant/background-automne.png" id="2_pi25p"]
+[ext_resource type="Texture2D" uid="uid://c3wmlok5t45pt" path="res://Assets/Plant/case-eau-centre-transparent.png" id="2_yhosm"]
 [ext_resource type="Texture2D" uid="uid://bjwcvxhdyymu" path="res://Assets/Plant/background-printemps.png" id="3_lswv8"]
 [ext_resource type="Texture2D" uid="uid://baekq7aujb1pc" path="res://Assets/Plant/background-ete.png" id="4_2d7xi"]
 [ext_resource type="PackedScene" uid="uid://cpc1baduxkefv" path="res://Scenes/seed_drawer.tscn" id="4_fw8ti"]
@@ -12,6 +13,26 @@
 [ext_resource type="Texture2D" uid="uid://dyj33o55lscxg" path="res://Assets/Plant/background-hiver.png" id="5_l38m1"]
 [ext_resource type="PackedScene" uid="uid://c751d7ivsjn33" path="res://Scenes/meteo.tscn" id="6_2mes2"]
 [ext_resource type="PackedScene" uid="uid://c5fwrbut46wua" path="res://Scenes/plante.tscn" id="6_5hxrd"]
+[ext_resource type="Texture2D" uid="uid://cm5b0440ki4dm" path="res://Assets/sprites/dirt-moist.png" id="8_dmgkt"]
+[ext_resource type="Texture2D" uid="uid://bfan0jrfsep6l" path="res://Assets/sprites/dirt-soaked.png" id="9_2h3e1"]
+[ext_resource type="PackedScene" uid="uid://cv2dfr0drakgr" path="res://Scenes/objectives.tscn" id="16_5d8l5"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="16_yoaqu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2ibs"]
+atlas = ExtResource("2_yhosm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb0ju"]
+atlas = ExtResource("2_yhosm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x6sw"]
+atlas = ExtResource("2_yhosm")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jcr2"]
+atlas = ExtResource("2_yhosm")
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4w73x"]
 atlas = ExtResource("2_bqiwa")
@@ -33,6 +54,23 @@ region = Rect2(64, 64, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_e2ibs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb0ju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x6sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jcr2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4w73x")
 }, {
 "duration": 1.0,
@@ -45,7 +83,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_kja0x")
 }],
 "loop": true,
-"name": &"default",
+"name": &"old",
 "speed": 5.0
 }]
 
@@ -84,9 +122,27 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="home" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_hjora"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_dmgkt")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_2h3e1")
+}],
+"loop": true,
+"name": &"soaked",
+"speed": 5.0
+}]
 
-[node name="UI" type="Node2D" parent="."]
+[node name="home" type="Node2D"]
+texture_filter = 1
 
 [node name="Game" type="Node2D" parent="."]
 script = ExtResource("1_mivhc")
@@ -97,13 +153,19 @@ script = ExtResource("1_mivhc")
 texture_filter = 1
 position = Vector2(288, 288)
 sprite_frames = SubResource("SpriteFrames_5ssav")
-frame_progress = 0.99453
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Game/background"]
 texture_filter = 1
 position = Vector2(288, 128)
 sprite_frames = SubResource("SpriteFrames_6c8pp")
 animation = &"fall"
+
+[node name="DirtBehindRiver" type="AnimatedSprite2D" parent="Game/background"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(288, 288)
+sprite_frames = SubResource("SpriteFrames_hjora")
+animation = &"normal"
 
 [node name="Meteo" parent="Game" instance=ExtResource("6_2mes2")]
 
@@ -158,6 +220,15 @@ flip_dirt = true
 
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
 position = Vector2(542.477, 34.0615)
+
+[node name="UI" type="Node2D" parent="Game"]
+script = ExtResource("16_yoaqu")
+
+[node name="Objectives" parent="Game/UI" instance=ExtResource("16_5d8l5")]
+offset_left = 44.0
+offset_top = 7.0
+offset_right = 44.0
+offset_bottom = 7.0
 
 [connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant1" to="Game" method="_on_plant_calling_contextual_menu"]
 [connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant2" to="Game" method="_on_plant_calling_contextual_menu"]

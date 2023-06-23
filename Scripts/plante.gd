@@ -68,7 +68,7 @@ var dico_caracteristique = {
 		"ail":3,
 		"radish":1,
 	},
-	"humidities_values":{ #0 = sec, 1 = normal, 2 = trempé
+	"humidities_bonus":{ #0 = sec, 1 = normal, 2 = trempé
 		"pea":[1],
 		"leek":[1],
 		"corn":[2],
@@ -82,6 +82,21 @@ var dico_caracteristique = {
 		"zucchini":[2],
 		"ail":[0],
 		"radish":[2],
+	},
+	"humidities_possible":{ #0 = sec, 1 = normal, 2 = trempé
+		"pea":[0,1,2],
+		"leek":[0,1,2],
+		"corn":[1,2],
+		"wheat":[0,1,2],
+		"carrot":[1,2,3],
+		"mint":[1,2],
+		"pumpkin":[1,2,3],
+		"tomatoes":[1,2,3],
+		"thym":[0,1],
+		"vine":[0,1,2],
+		"zucchini":[1,2],
+		"ail":[0,1],
+		"radish":[1,2],
 	},
 	"minimum_nutriment_values":{ # 0 = pas de nutriment, 1 = un peu nutriment, 2 = tres nutriments
 		"pea":0,
@@ -165,9 +180,9 @@ var dico_caracteristique = {
 var dico_bonus_malus = { #[Bonus si respectée, Bonus si pas respectée]
 	"bonus_season":[2,0],
 	"season":[0,-4],
-	"humidities_values":[1,-2],
+	"humidities_bonus":[1,0],
+	"humidities_possible":[0,-2],
 	"minimum_nutriment_values":[1,"requis-actual"], # ATTENTION NE PAS CHANGER CETTE LIGNE
-	"sunlight":[1,-2], 
 	"appreciated_adjacents_plants":[1,0],
 	"unapreciated_adjacents_plants":[-1,0],
 	"sunlight_bonus":[1,0],
@@ -183,6 +198,7 @@ var sunlight_value:int  # 0 = ombre, 1 = soleil
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	change_dirt(humidity_value, "None")
+	change_nutrient_visual()
 	$dirt.flip_h = flip_dirt
 	$sprite.animation = "vide"
 	$sign_container.hide()
@@ -197,32 +213,46 @@ func _process(delta):
 	pass
 
 func add_plant(type):
-	if plant_type == "None":
-		print("planting")
-		plant_type = type
-		$PlantingSFX.play()
-		$sprite.animation = plant_type+"_0"
-		$sign_container.show()
-		$sign_container/plant_icon.animation = plant_type
-		plant_health = 5
-		state = 0
+	
+	if type != "None":
+		if GlobalVariables.inventory[type]["seed"]>0:
+			# Envoie un message a grand_pere pour lui dire que le joueur vient de planter une certaine plante
+			get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["planted",type])
+			
+			# Remove a seed from this plant
+			GlobalVariables.update_invertory(type,"seed",-1)
+			
+			plant_type = type
+			$PlantingSFX.play()
+			$sprite.animation = plant_type+"_0"
+			$sign_container.show()
+			$sign_container/plant_icon.animation = plant_type
+			plant_health = 5
+			state = 0
 
 func harvest_plant():
-	print("harvested")
-	if plant_health >= 10:
-		GlobalVariables.inventory[plant_type]["seed"] += 2
-	else:
-		GlobalVariables.inventory[plant_type]["seed"] += 1
-	GlobalVariables.inventory[plant_type]["plant"] += plant_health
-	plant_type = "None"
-	$sprite.animation = "vide"
-	$sign_container.hide()
-	$HarvestSFX.play_random_sound()
+	
+	if plant_type != "None":
+		# Envoie un message a grand_pere pour lui dire que le joueur vient d'harvest une certaine plante
+		get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["harvested",plant_type])
+		
+		# On recolte les seeds
+		if plant_health >= 8:
+			GlobalVariables.update_invertory(plant_type,"seed",3)
+		elif plant_health >= 4:
+			GlobalVariables.update_invertory(plant_type,"seed",2)
+		else:
+			GlobalVariables.update_invertory(plant_type,"seed",1)
+		
+		plant_type = "None"
+		$sprite.animation = "vide"
+		$sign_container.hide()
+		$HarvestSFX.play_random_sound()
 
 func remove_plant():
 	print("removed")
-	if state == 0:
-		GlobalVariables.inventory[plant_type]["seed"] += 1
+	if state == 0 and plant_type != "None" and plant_health > 0:
+		GlobalVariables.update_invertory(plant_type,"seed",1)
 	plant_type = "None"	
 	$sprite.animation = "vide"
 	$sign_container.hide()
@@ -237,7 +267,15 @@ func afficher_feeling(name):
 	feeling_icon_instance.feeling_type = name
 	add_child(feeling_icon_instance)
 
-
+func show_emotions():
+	if plant_health <= 0:
+		await afficher_feeling(("head_dead"))
+	elif plant_health <= 4:
+		await afficher_feeling(("head_sad"))
+	elif plant_health <= 8:
+		await afficher_feeling(("head_meh"))
+	else:
+		await afficher_feeling(("head_happy"))
 
 func bonus_malus_seasons(actual_season):
 	if state == 0: # Si la plante est une graine
@@ -266,12 +304,19 @@ func bonus_malus_nutriment(nutriment_value):
 			else:
 				plant_health += dico_bonus_malus["minimum_nutriment_values"][1]
 func bonus_malus_humidity(humidity_value):
-	if humidity_value in dico_caracteristique["humidities_values"][plant_type]:
+	if humidity_value in dico_caracteristique["humidities_bonus"][plant_type]:
 		await afficher_feeling("humidity+")
-		plant_health += dico_bonus_malus["humidities_values"][0]
+		plant_health += dico_bonus_malus["humidities_bonus"][0]
 	else:
-		await afficher_feeling("humidity-")
-		plant_health += dico_bonus_malus["humidities_values"][1]
+		plant_health += dico_bonus_malus["humidities_bonus"][1]
+	
+	if not(humidity_value in dico_caracteristique["humidities_bonus"][plant_type]):
+		if humidity_value in dico_caracteristique["humidities_possible"][plant_type]:
+			plant_health += dico_bonus_malus["humidities_possible"][0]
+		else:
+			await afficher_feeling("humidity-")
+			plant_health += dico_bonus_malus["humidities_possible"][1]
+
 func bonus_malus_sunlight(sunlight_value):
 	if sunlight_value == dico_caracteristique["sunlight_bonus"][plant_type]:
 		await afficher_feeling("sun+")
@@ -284,8 +329,7 @@ func bonus_malus_sunlight(sunlight_value):
 			plant_health += dico_bonus_malus["sunlight_possible"][0]
 		else:
 			await afficher_feeling("sun-")
-			plant_health += dico_bonus_malus["sunlight_possible"][1]
-	
+			plant_health += dico_bonus_malus["sunlight_possible"][1]	
 func bonus_malus_voisin(voisin_droit,voisin_gauche):
 	#voisin droit
 	if voisin_droit in dico_caracteristique["appreciated_adjacents_plants"][plant_type]:
@@ -326,6 +370,13 @@ func change_dirt(temp_humidity_value, random_event):
 	if temp_humidity_value == 2:
 		$dirt.animation = "soak"
 
+func change_nutrient_visual():
+	print("nutrient:", nutriment_value)
+	$nutrient.animation = str(nutriment_value)
+	$nutrient.speed_scale = randf_range(0.5,1)
+	$nutrient.play()
+	
+
 func next_quarter_of_season(new_phase,random_event):
 	var actual_season = [new_phase/2 +1 ,new_phase%2 +1]
 	var before_season = [((new_phase+7)%8)/2 +1, ((new_phase+7)%8)%2 +1]
@@ -348,10 +399,10 @@ func next_quarter_of_season(new_phase,random_event):
 			temp_humidity_value -= 1
 	
 	change_dirt(temp_humidity_value, random_event)
-	
+	change_nutrient_visual()
 	if plant_type == "None":
 		# Si la terre est vide, on lui fait regagner des nutriments a chaque passage de quarter of season.
-		if nutriment_value <= 2:
+		if nutriment_value < 2:
 			nutriment_value += 1
 	else:
 		
@@ -388,6 +439,8 @@ func next_quarter_of_season(new_phase,random_event):
 			
 			await bonus_malus_voisin(voisin_droit_plant,voisin_gauche_plant)
 			print("plant_health_apres_bonus_malus : "+str(plant_health))
+			
+			await show_emotions()
 			
 			# On fait poussé la plante si elle est toujours vivante :
 			if plant_health > 0:
