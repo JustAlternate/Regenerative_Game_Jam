@@ -28,13 +28,7 @@ font_color = Color(0, 0, 0, 1)
 [node name="Dialogue_grand_pere" type="Node2D"]
 position = Vector2(200, 200)
 script = ExtResource("1_5a700")
-largeur_bulle_texte = null
-hauteur_bulle_texte = null
 text = "Le scale c'est la vie"
-taille_police = null
-time_betwen_carac = null
-time_betwen_dialogue = null
-time_after_dialogue = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

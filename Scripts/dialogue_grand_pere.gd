@@ -176,7 +176,7 @@ func writing_text(text):
 		await get_tree().create_timer(time_betwen_carac).timeout
 
 func grandpa_talk(text):
-	if not text is in dialogue_queue:
+	if not(text in dialogue_queue):
 		dialogue_queue.append(text)
 	
 func grandpa_start_talk():
