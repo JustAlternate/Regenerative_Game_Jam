@@ -33,9 +33,13 @@ var dico_dialogue = {
 	"Lore8":[false,["Now I let you work in peace. If you need something you can ask me !","I will come back to you later, bye !"]],
 	
 	"give_tomatoes":[false,["Well I think you should take those tomatoes seeds, Winter 2 is the best season to plant them !"]],
-	"give_pea_and_wheat":[false,["Hello grandchild, look I found multiple new seeds for our garden !"]],
+	"give_pea_and_wheat":[false,["Hello grandchild, look I found multiple new seeds for our garden !","Hopefully they will be enough to give food diversity for our family"]],
 	"give_pumpkin":[false,["Its time to plant some pumpkins so we can have them next Fall season !"]],
 	"give_zucchini":[false,["Its rainy today,  becareful and avoid  planting those zucchini seeds on rainy seasons !"]],
+	"give_mint":[false,["Here you can take those seeds of mint, it's a fantastic crop to enchance flavors !"]],
+	"give_corn":[false,["Finally I found corn's seed, this is a great plant you can grow during Spring 1"]],
+	"give_carrot":[false,["I see you are doing great with our garden, here take thoses carrots seeds to improve our food diversity."]],
+	"give_le_reste":[false,["Here take those final seeds I found, I think you have enough seeds now, Im going to take some rest now."]]
 }
 func player_just_did_something(thing):
 	if thing[0] == "planted":
@@ -104,6 +108,33 @@ func player_just_did_something(thing):
 				tutorial_progress += 1
 				grandpa_talk("give_zucchini")
 				GlobalVariables.update_invertory("zucchini","seed",2)
+	
+	if GlobalVariables.inventory["zucchini"]["plant"] > 4 or GlobalVariables.inventory["zucchini"]["seed"] == 0:
+		if tutorial_progress == 8:
+			tutorial_progress += 1
+			grandpa_talk("give_mint")
+			GlobalVariables.update_invertory("mint","seed",2)
+	
+	if GlobalVariables.inventory["mint"]["plant"] > 4 or GlobalVariables.inventory["mint"]["seed"] == 0 or GlobalVariables.inventory["pumpkin"]["plant"] > 4 or GlobalVariables.inventory["pumpkin"]["seed"] == 0  :
+		if tutorial_progress == 9:
+			tutorial_progress += 1
+			grandpa_talk("give_corn")
+			GlobalVariables.update_invertory("corn","seed",2)
+	
+	if thing[0] == "meteo":
+		if thing[1] == "soleil":
+			if tutorial_progress == 10:
+				tutorial_progress += 1
+				grandpa_talk("give_carrot")
+				GlobalVariables.update_invertory("carrot","seed",2)
+	
+	if GlobalVariables.inventory["carrot"]["plant"] > 4 or GlobalVariables.inventory["carrot"]["seed"] == 0:
+		if tutorial_progress == 11:
+			tutorial_progress += 1
+			grandpa_talk("give_le_reste")
+			GlobalVariables.update_invertory("ail","seed",2)
+			GlobalVariables.update_invertory("vine","seed",2)
+			GlobalVariables.update_invertory("thym","seed",2)
 	
 func _on_button_for_grandpa_button_activated(texte_name):
 	grandpa_talk(texte_name)
