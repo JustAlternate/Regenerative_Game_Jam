@@ -23,23 +23,23 @@ var dico_dialogue = {
 	"Clock":[true,["You can go forward in time by « clicking » on the seasonal clock."]],
 	"Proximity":[true,["Remember that plants influence each other.","Some plants like to be close to specific plants, and some don’t like each other."]],
 	
-	"Lore1":[false,["Hello my grandchild! So, this is it: our society is falling appart…","We must survive on our own! We're a long way from anywhere.","Here, take this book."]],
-	"Lore2":[false,["There’s not much in it because in the past","we didn’t have to know how to produce food by ourselves.","We were fools back then…","Anyways, I will teach you what little I know."]],
-	"Lore3":[false,["Now look what's best for radishes in the encyclopedia."]],
+	"Lore1":[false,["Hello my grandchild! So, this is it: our society is falling appart...","We must survive on our own! We are a long way from anywhere.","Here, take this book."]],
+	"Lore2":[false,["There is not much in it because in the past","we did not have to know how to produce food by ourselves.","We were fools back then...","Anyways, I will teach you what little I know."]],
+	"Lore3":[false,["Now look what is best for radishes in the encyclopedia."]],
 	"Lore4":[false,["The soil can be poor, average or rich in nutrients.","Plants require a certain amount of nutrients to grow.","Open the drawer on your left, pick a bag of radish seeds.","Now plant them on the right type of soil."]],
-	"Lore5":[false,["Well done, grandchild! Now let’s wait for a bit."]],
+	"Lore5":[false,["Well done, grandchild! Now let us wait for a bit."]],
 	"Lore6":[false,["Now harvest the results of your production by « clicking » on the plant and then on « HARVEST »"]],
-	"Lore7":[false,["Congratulations! There, take these. They're leek seeds I’ve found in the granary."]],
+	"Lore7":[false,["Congratulations! There, take these. They are leek seeds I have found in the granary."]],
 	"Lore8":[false,["Now I will let you work in peace. If you need any advice you can ask me!","I will come back to you later. See ya!"]],
 	
-	"give_tomatoes":[false,["Well I think you should take those tomatoes seeds, Winter 2 is the best season to plant them !"]],
-	"give_pea_and_wheat":[false,["Hello grandchild! Look, I found multiple new seeds for our garden!","Hopefully they will be enough diversify our family's food."]],
+	"give_tomatoes":[false,["Well I think you should take those tomato seeds, Winter 2 is the best season to plant them!"]],
+	"give_pea_and_wheat":[false,["Hello grandchild! Look, I found multiple new seeds for our garden!","Hopefully they will be enough diversify our food."]],
 	"give_pumpkin":[false,["Its time to plant some pumpkins so we can have them next Fall season !"]],
 	"give_zucchini":[false,["Its rainy today. Be careful and avoid  planting those zucchini seeds on rainy seasons!"]],
-	"give_mint":[false,["Here you can take those mint seeds, it's a fantastic crop to enhance flavor!"]],
+	"give_mint":[false,["Here you can take those mint seeds, it is a fantastic crop to enhance flavor!"]],
 	"give_corn":[false,["Finally I found corn seeds. This is a great plant you can grow during Spring 1"]],
 	"give_carrot":[false,["I see you are doing great with our garden! Here, take thoses carrots seeds so we can have something new to eat."]],
-	"give_le_reste":[false,["Here take those seeds I found. I think I don't have any more seeds.","Well done for harvesting all of this! I know you'll make good use of these seeds.","I'm going to take some rest now."]]
+	"give_le_reste":[false,["Here take those seeds I found. I think I do not have any more seeds.","Well done harvesting all of this! I know you will make good use of these seeds.","I am going to take some rest now."]]
 }
 func player_just_did_something(thing):
 	if thing[0] == "planted":
@@ -176,7 +176,8 @@ func writing_text(text):
 		await get_tree().create_timer(time_betwen_carac).timeout
 
 func grandpa_talk(text):
-	dialogue_queue.append(text)
+	if not text is in dialogue_queue:
+		dialogue_queue.append(text)
 	
 func grandpa_start_talk():
 	state = "talking"
