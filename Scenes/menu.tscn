@@ -1,24 +1,25 @@
-[gd_scene load_steps=44 format=3 uid="uid://d4idxbd54drta"]
+[gd_scene load_steps=46 format=3 uid="uid://d4idxbd54drta"]
 
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="1_ni0yg"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_vd1g2"]
-[ext_resource type="Texture2D" uid="uid://c2x425i7j8oth" path="res://Assets/sprites/dirt-dry-to-moist.png" id="2_5cl7r"]
-[ext_resource type="Texture2D" uid="uid://cqemdebiu2vyn" path="res://Assets/Plant/background-automne.png" id="2_7kua1"]
-[ext_resource type="Texture2D" uid="uid://cssbl0ckgwq74" path="res://Assets/sprites/closed_book.png" id="2_scljm"]
-[ext_resource type="Texture2D" uid="uid://chtvt0u57khvi" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_u67cp"]
-[ext_resource type="Texture2D" uid="uid://cm5b0440ki4dm" path="res://Assets/sprites/dirt-moist.png" id="3_3cs7c"]
-[ext_resource type="Texture2D" uid="uid://bjwcvxhdyymu" path="res://Assets/Plant/background-printemps.png" id="3_05tdx"]
+[ext_resource type="Texture2D" uid="uid://dl2omtggckx28" path="res://Assets/sprites/dirt-dry-to-moist.png" id="2_5cl7r"]
+[ext_resource type="Texture2D" uid="uid://c68e523dycwtf" path="res://Assets/Plant/background-automne.png" id="2_7kua1"]
+[ext_resource type="Texture2D" uid="uid://bt2j74i4u4mro" path="res://Assets/sprites/closed_book.png" id="2_scljm"]
+[ext_resource type="Texture2D" uid="uid://n0ykyaljticb" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_u67cp"]
+[ext_resource type="Texture2D" uid="uid://bdihpqtp185id" path="res://Assets/sprites/dirt-moist.png" id="3_3cs7c"]
+[ext_resource type="Texture2D" uid="uid://bp78tul1ocy20" path="res://Assets/Plant/background-printemps.png" id="3_05tdx"]
 [ext_resource type="PackedScene" uid="uid://olb5ewo4ysgy" path="res://Scenes/menu_running_sprites.tscn" id="4_fap7w"]
-[ext_resource type="Texture2D" uid="uid://c4boig5y6n2fv" path="res://Assets/sprites/dirt-moist-to-soaked.png" id="4_ihp8w"]
-[ext_resource type="Texture2D" uid="uid://baekq7aujb1pc" path="res://Assets/Plant/background-ete.png" id="4_v6s1t"]
-[ext_resource type="Texture2D" uid="uid://dyj33o55lscxg" path="res://Assets/Plant/background-hiver.png" id="5_4imjg"]
+[ext_resource type="Texture2D" uid="uid://by04g77f6hrtt" path="res://Assets/sprites/dirt-moist-to-soaked.png" id="4_ihp8w"]
+[ext_resource type="Texture2D" uid="uid://8hfiiya5jrcx" path="res://Assets/Plant/background-ete.png" id="4_v6s1t"]
+[ext_resource type="Texture2D" uid="uid://dse48s3ss5feq" path="res://Assets/Plant/background-hiver.png" id="5_4imjg"]
 [ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="5_c6ra6"]
-[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="5_eewky"]
-[ext_resource type="Texture2D" uid="uid://bfan0jrfsep6l" path="res://Assets/sprites/dirt-soaked.png" id="5_hc7wq"]
+[ext_resource type="FontFile" uid="uid://dinlurcky8yjo" path="res://fonts/FutilePro.ttf" id="5_eewky"]
+[ext_resource type="Texture2D" uid="uid://coo43vjv8jjge" path="res://Assets/sprites/dirt-soaked.png" id="5_hc7wq"]
 [ext_resource type="StyleBox" uid="uid://d3vi3glx4440d" path="res://button_type_normal.tres" id="6_nunw6"]
 [ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="8_n17uy"]
-[ext_resource type="AudioStream" uid="uid://cv17wb2bjrhr" path="res://Assets/sfx/menu_click.wav" id="9_cbrca"]
-[ext_resource type="Texture2D" uid="uid://c5agm7nt0hf6x" path="res://Assets/sprites/sprite-panneau-menu.png" id="14_t2tpg"]
+[ext_resource type="AudioStream" uid="uid://bjxqpsuq5pabg" path="res://Assets/sfx/menu_click.wav" id="9_cbrca"]
+[ext_resource type="Texture2D" uid="uid://bnq6xqeudri7f" path="res://Assets/Plant/titre-menu.png" id="12_pioy4"]
+[ext_resource type="Texture2D" uid="uid://nb33lf23cqm5" path="res://Assets/sprites/sprite-panneau-menu.png" id="14_t2tpg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4w73x"]
 atlas = ExtResource("2_u67cp")
@@ -100,6 +101,8 @@ anti_aliasing = false
 [sub_resource type="Theme" id="Theme_up03c"]
 Panel/styles/panel = SubResource("StyleBoxFlat_fk7x4")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i353x"]
+
 [sub_resource type="Theme" id="Theme_1q6uv"]
 default_font = ExtResource("5_eewky")
 default_font_size = 16
@@ -111,7 +114,7 @@ Button/styles/normal = ExtResource("6_nunw6")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avi52"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cabos"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_empyv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f05o1"]
 
@@ -199,15 +202,21 @@ offset_top = -288.0
 offset_right = 544.0
 offset_bottom = -236.0
 theme = SubResource("Theme_up03c")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_i353x")
+
+[node name="Sprite2D2" type="Sprite2D" parent="backgound/Menu_title"]
+position = Vector2(297, 34)
+texture = ExtResource("12_pioy4")
 
 [node name="Sprite2D" type="Sprite2D" parent="backgound/Menu_title"]
-position = Vector2(140, 25)
+position = Vector2(182, 33)
 texture = ExtResource("2_scljm")
 
 [node name="Title" type="Label" parent="backgound/Menu_title"]
 layout_mode = 0
-offset_top = -17.0
-offset_right = 576.0
+offset_left = 217.0
+offset_top = 5.0
+offset_right = 453.0
 offset_bottom = 68.0
 text = "The Garden of the day after"
 label_settings = ExtResource("1_ni0yg")
@@ -228,9 +237,10 @@ offset_bottom = 108.0
 scale = Vector2(2, 2)
 focus_mode = 0
 theme = SubResource("Theme_1q6uv")
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxEmpty_avi52")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_cabos")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_empyv")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_f05o1")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_4u6an")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4h5qu")
@@ -245,6 +255,7 @@ offset_bottom = 153.0
 scale = Vector2(2, 2)
 focus_mode = 0
 theme = SubResource("Theme_1q6uv")
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ekb5v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_middq")
@@ -262,6 +273,7 @@ offset_bottom = 199.0
 scale = Vector2(2, 2)
 focus_mode = 0
 theme = SubResource("Theme_1q6uv")
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cn0lp")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cyw3r")
@@ -277,3 +289,4 @@ stream = ExtResource("9_cbrca")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Play3" to="." method="_on_play_3_pressed"]
