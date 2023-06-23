@@ -66,15 +66,13 @@ func next_season():
 		ressource = ressource *0.85 - 10
 		diversity = diversity *0.90 - 10
 		taste = taste *0.90 - 5
-		ressource = max(ressource,0)
-		diversity = max(diversity,0)
-		taste = max(taste,0)
 		compteur = 0
 	$ressource.position.x = 16 + ressource/100*115
 	$diversity.position.x = 16 + diversity/100*115
 	$taste.position.x = 16 + taste/100*115
 	
-	#IMPLEMENTER GAME OVER ICI
+	if ressource <= 0 or diversity <= 0 or taste <= 0:
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
