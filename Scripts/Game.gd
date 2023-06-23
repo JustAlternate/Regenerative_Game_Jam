@@ -12,6 +12,7 @@ var arrow_game = load("res://Assets/sprites/cursor_game.png")
 func _ready():
 	GlobalVariables.game_state = "playing"
 	$background/riviere.play("default")
+	$background/AnimatedSprite2D.play()
 	Input.set_custom_mouse_cursor(arrow_game)
 	pass # Replace with function body
 
