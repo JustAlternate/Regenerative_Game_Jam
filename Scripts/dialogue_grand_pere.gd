@@ -49,7 +49,7 @@ func player_just_did_something(thing):
 	if thing[0] == "talk":
 		if thing[1] == "Lore1":
 			GlobalVariables.update_invertory("radish","seed",1)
-			get_tree().root.get_node("home/Game/Encyclopedia").open_on_name("radish")
+			get_tree().root.get_node("home/Game/Encyclopedia")._on_button_button_down()
 	
 	if thing[0] == "closed_book":
 		if tutorial_progress == 0:

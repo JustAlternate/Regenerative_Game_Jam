@@ -3,19 +3,19 @@ extends Node2D
 var actual_page_number = 0
 var summary = {
 	"introduction":0,
-	"radish":1,
-	"leek":2,
-	"tomatoes":3,
+	"radish":0,
+	"leek":1,
+	"tomatoes":1,
 	"pea":2,
-	"wheat":5,
-	"pumpkin":6,
-	"zucchini":7,
-	"mint":8,
-	"corn":9,
-	"carrot":10,
-	"garlic":11,
-	"vine":12,
-	"thyme":13,
+	"wheat":2,
+	"pumpkin":3,
+	"zucchini":3,
+	"mint":4,
+	"corn":4,
+	"carrot":5,
+	"garlic":5,
+	"vine":6,
+	"thyme":6,
 }
 @export var Pages_unlocked = 14
 @export var Pages = [
@@ -54,13 +54,9 @@ func _ready():
 	maj_book(0)
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-
 
 func _on_button_button_down():
 	print("Openage et closage of zi encyclopedia")
@@ -79,18 +75,18 @@ func _on_close_button_down():
 
 func maj_book(new_page_number):
 	if new_page_number < Pages_unlocked:
-		$Book/Page_gauche/Title.text = Pages[actual_page_number][0]
-		$Book/Page_gauche/Body.text = Pages[actual_page_number][1]
-		$Book/Page_gauche/Item.set_animation(Pages[actual_page_number][2])
+		$Book/Page_gauche/Title.text = Pages[new_page_number][0]
+		$Book/Page_gauche/Body.text = Pages[new_page_number][1]
+		$Book/Page_gauche/Item.set_animation(Pages[new_page_number][2])
 	else:
 		$Book/Page_gauche/Title.text = ""
 		$Book/Page_gauche/Body.text = ""
 		$Book/Page_gauche/Item.set_animation("vide")
 	
 	if new_page_number+1 < Pages_unlocked:
-		$Book/Page_droite/Title.text = Pages[actual_page_number+1 ][0]
-		$Book/Page_droite/Body.text = Pages[actual_page_number+1 ][1]
-		$Book/Page_droite/Item.set_animation(Pages[actual_page_number+1 ][2])
+		$Book/Page_droite/Title.text = Pages[new_page_number+1 ][0]
+		$Book/Page_droite/Body.text = Pages[new_page_number+1 ][1]
+		$Book/Page_droite/Item.set_animation(Pages[new_page_number+1 ][2])
 	else:
 		$Book/Page_droite/Title.text = ""
 		$Book/Page_droite/Body.text = ""

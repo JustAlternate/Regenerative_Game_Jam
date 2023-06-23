@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dkv3eat6lhkcn"]
 
+[ext_resource type="Texture2D" uid="uid://dnsiaubp1j37x" path="res://Assets/sprites/little_book_ency.png" id="1_0kc8g"]
 [ext_resource type="Texture2D" uid="uid://bggt2w0nj62wo" path="res://Assets/Plant/icon/sprite-ail.png" id="1_adgwt"]
-[ext_resource type="Texture2D" uid="uid://uh3tmhppdxia" path="res://Assets/sprites/little_book.png" id="1_m12mt"]
 [ext_resource type="Texture2D" uid="uid://bo5a83wpru08t" path="res://Assets/Plant/icon/sprite-carrot.png" id="2_l2m0m"]
 [ext_resource type="Texture2D" uid="uid://d1jwmhbev0snd" path="res://Assets/Plant/icon/sprite-poireau.png" id="3_3r58c"]
 [ext_resource type="Texture2D" uid="uid://ctl1ihfpovljy" path="res://Assets/Plant/icon/sprite-mais.png" id="3_ohph5"]
@@ -20,7 +20,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_m12mt")
+"texture": ExtResource("1_0kc8g")
 }],
 "loop": true,
 "name": &"Encyclopedia",
