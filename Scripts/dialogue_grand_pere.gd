@@ -16,30 +16,30 @@ var dialogue_queue = []
 
 var dico_dialogue = {
 	
-	"Meteo":[true,["Rain make the soil wetter, and strong sunlight dryer."]],
-	"Nutrients":[true,["Worms make your soil richer for certain crop to grow."]],
-	"Soil":[true,["As you can see, the soil can be dry, moist or soaked.","The closer the soil is from the river, the wetter it becomes."]],
-	"Seasons":[true,["Seeds have to be sown in specific parts of seasons","If you sow in the favorite part of the season of the plant, you will harvest more."]],
+	"Meteo":[true,["Rain make the soil wetter, and strong sunlight dries it."]],
+	"Nutrients":[true,["Worms make your soil richer for certain crops to grow.","Let you soil rest for a while for it to get nutrients for your plants!"]],
+	"Soil":[true,["As you can see, your soil can be dry, moist or soaked.","The closer the soil is from the river, the wetter it becomes."]],
+	"Seasons":[true,["Seeds have to be sown in specific parts of seasons.","If you sow in the favorite part of the season of a plant, you will harvest more."]],
 	"Clock":[true,["You can go forward in time by « clicking » on the seasonal clock."]],
-	"Proximity":[true,["Remember that plants influence each other","Some plants like to be close to specific plants, some others don’t"]],
+	"Proximity":[true,["Remember that plants influence each other.","Some plants like to be close to specific plants, and some don’t like each other."]],
 	
-	"Lore1":[false,["Hello my grandchild ! So this is it : our society is falling appart…","We must survive by our own ! We are far from everything","Here, take this book"]],
-	"Lore2":[false,["There’s not much in it because in the past","we didn’t have to know how to produce food by ourselves","What fools we’ve been…","Anyway, I will teach you the few I know"]],
-	"Lore3":[false,["Now look in the book what is the best for the radishes"]],
-	"Lore4":[false,["The soil can be poor, average or rich of nutrients.","Plants have a minimum of nutrients necessary to grow.","Open the drawer on your left, pick a bag of radish seeds.","And then plant them on the right type of soil."]],
-	"Lore5":[false,["Well done grandchild ! Now let’s wait a little."]],
+	"Lore1":[false,["Hello my grandchild! So, this is it: our society is falling appart…","We must survive on our own! We're a long way from anywhere.","Here, take this book."]],
+	"Lore2":[false,["There’s not much in it because in the past","we didn’t have to know how to produce food by ourselves.","We were fools back then…","Anyway, I will teach what little I know."]],
+	"Lore3":[false,["Now look what's best for radishes in the encyclopedia."]],
+	"Lore4":[false,["The soil can be poor, average or rich in nutrients.","Plants require a certain amount of nutrients to grow.","Open the drawer on your left, pick a bag of radish seeds.","Now plant them on the right type of soil."]],
+	"Lore5":[false,["Well done, grandchild! Now let’s wait for a bit."]],
 	"Lore6":[false,["Now harvest the results of your production by « clicking » on the plant and then on « HARVEST »"]],
-	"Lore7":[false,["Congratulations ! There, take this. This is some leaks seeds I’ve found in the granary."]],
-	"Lore8":[false,["Now I let you work in peace. If you need something you can ask me !","I will come back to you later, bye !"]],
+	"Lore7":[false,["Congratulations! There, take these. They're leek seeds I’ve found in the granary."]],
+	"Lore8":[false,["Now I will let you work in peace. If you need any advice you can ask me!","I will come back to you later. See ya!"]],
 	
 	"give_tomatoes":[false,["Well I think you should take those tomatoes seeds, Winter 2 is the best season to plant them !"]],
-	"give_pea_and_wheat":[false,["Hello grandchild, look I found multiple new seeds for our garden !","Hopefully they will be enough to give food diversity for our family"]],
+	"give_pea_and_wheat":[false,["Hello grandchild! Look, I found multiple new seeds for our garden!","Hopefully they will be enough to give food diversity for our family"]],
 	"give_pumpkin":[false,["Its time to plant some pumpkins so we can have them next Fall season !"]],
-	"give_zucchini":[false,["Its rainy today,  becareful and avoid  planting those zucchini seeds on rainy seasons !"]],
-	"give_mint":[false,["Here you can take those seeds of mint, it's a fantastic crop to enchance flavors !"]],
-	"give_corn":[false,["Finally I found corn's seed, this is a great plant you can grow during Spring 1"]],
-	"give_carrot":[false,["I see you are doing great with our garden, here take thoses carrots seeds to improve our food diversity."]],
-	"give_le_reste":[false,["Here take those final seeds I found, I think you have enough seeds now, Im going to take some rest now."]]
+	"give_zucchini":[false,["Its rainy today. Be careful and avoid  planting those zucchini seeds on rainy seasons!"]],
+	"give_mint":[false,["Here you can take those mint seeds, it's a fantastic crop to enhance flavor!"]],
+	"give_corn":[false,["Finally I found corn seeds. This is a great plant you can grow during Spring 1"]],
+	"give_carrot":[false,["I see you are doing great with our garden! Here, take thoses carrots seeds so we can have something new to eat."]],
+	"give_le_reste":[false,["Here take those seeds I found. I think I don't have any more seeds.","Well done for harvesting all of this! I know you'll make good use of these seeds.","I'm going to take some rest now."]]
 }
 func player_just_did_something(thing):
 	if thing[0] == "planted":
