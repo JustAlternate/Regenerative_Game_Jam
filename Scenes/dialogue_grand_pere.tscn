@@ -61,14 +61,13 @@ texture = ExtResource("3_cxmly")
 [node name="Label" type="Label" parent="Panel"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 7.0
-offset_right = 190.0
-offset_bottom = 97.0
+offset_left = 9.0
+offset_top = 2.0
+offset_right = 189.0
+offset_bottom = 96.0
 scale = Vector2(0.6, 0.6)
 text = "How you doin grandson ?"
 label_settings = SubResource("LabelSettings_2effw")
-horizontal_alignment = 1
-vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Button" type="Button" parent="Panel"]
