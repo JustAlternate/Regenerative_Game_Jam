@@ -1,23 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://do4656e8b6dje"]
+[gd_scene load_steps=11 format=3 uid="uid://do4656e8b6dje"]
 
 [ext_resource type="AudioStream" uid="uid://od3ncvyhu8io" path="res://Assets/sfx/menu_click.wav" id="1_dt27u"]
 [ext_resource type="PackedScene" uid="uid://bo1fpwx20imr0" path="res://Scenes/music.tscn" id="2_psrgn"]
-[ext_resource type="AudioStream" uid="uid://bvui7shtkh2um" path="res://Assets/Music/Spring/lead_melody.mp3" id="3_ali6u"]
-[ext_resource type="AudioStream" uid="uid://drlmocp4r8sv6" path="res://Assets/Music/Spring/chords.mp3" id="4_j4l17"]
-[ext_resource type="AudioStream" uid="uid://cd76oukfw10kk" path="res://Assets/Music/Spring/bass.mp3" id="5_so7s4"]
-[ext_resource type="AudioStream" uid="uid://kt4voiqly4g1" path="res://Assets/Music/Spring/drums.mp3" id="6_aped0"]
-[ext_resource type="AudioStream" uid="uid://dg0ej4u6xwis5" path="res://Assets/Music/Summer/lead_melody.mp3" id="7_og8mr"]
-[ext_resource type="AudioStream" uid="uid://c80u4fonjo442" path="res://Assets/Music/Summer/chords.mp3" id="8_v513j"]
-[ext_resource type="AudioStream" uid="uid://cjw4wojbtcsf" path="res://Assets/Music/Summer/bass.mp3" id="9_ttubk"]
-[ext_resource type="AudioStream" uid="uid://3efkf1shur5x" path="res://Assets/Music/Summer/drums.mp3" id="10_c1xls"]
-[ext_resource type="AudioStream" uid="uid://dxmnarvi02mli" path="res://Assets/Music/Fall/lead_melody.mp3" id="11_vwthq"]
-[ext_resource type="AudioStream" uid="uid://rcfsb6m2e6by" path="res://Assets/Music/Fall/chords.mp3" id="12_8ge6s"]
-[ext_resource type="AudioStream" uid="uid://daxkevvhfvkal" path="res://Assets/Music/Fall/bass.mp3" id="13_jluap"]
-[ext_resource type="AudioStream" uid="uid://d2xovd20xq4pu" path="res://Assets/Music/Fall/drums.mp3" id="14_jjwe5"]
-[ext_resource type="AudioStream" uid="uid://chfepsh53nuyo" path="res://Assets/Music/Winter/lead_melody.mp3" id="15_nbhg6"]
-[ext_resource type="AudioStream" uid="uid://xr0p6uajaxh4" path="res://Assets/Music/Winter/chords.mp3" id="16_tj0af"]
-[ext_resource type="AudioStream" uid="uid://bushrsr7k6chq" path="res://Assets/Music/Winter/bass.mp3" id="17_a4hwp"]
-[ext_resource type="AudioStream" uid="uid://d126iomk5gu41" path="res://Assets/Music/Winter/drums.mp3" id="18_px7ld"]
+[ext_resource type="AudioStream" uid="uid://pvfrlde0b0uf" path="res://Assets/Music/Spring/phase1.mp3" id="3_27vsl"]
+[ext_resource type="AudioStream" uid="uid://cox0fhh506k3r" path="res://Assets/Music/Spring/drums_bass.mp3" id="4_62jnk"]
+[ext_resource type="AudioStream" uid="uid://bj78taqcp4ccv" path="res://Assets/Music/Summer/phase1.mp3" id="5_3sj0i"]
+[ext_resource type="AudioStream" uid="uid://4bder2twqtc" path="res://Assets/Music/Summer/drums_bass.mp3" id="6_1wmfi"]
+[ext_resource type="AudioStream" uid="uid://dnkawoaynoi7c" path="res://Assets/Music/Fall/phase1.mp3" id="7_0eo62"]
+[ext_resource type="AudioStream" uid="uid://b5v1iycqkkhex" path="res://Assets/Music/Fall/drums_bass.mp3" id="8_hs2w3"]
+[ext_resource type="AudioStream" uid="uid://bo8blih7af5jl" path="res://Assets/Music/Winter/phase1.mp3" id="9_qshpc"]
+[ext_resource type="AudioStream" uid="uid://dby1u4abodn4i" path="res://Assets/Music/Winter/drums_bass.mp3" id="10_1il2p"]
 
 [node name="Persistent_sfx" type="Node"]
 
@@ -26,25 +18,17 @@ stream = ExtResource("1_dt27u")
 bus = &"SFX"
 
 [node name="SpringMusic" parent="." instance=ExtResource("2_psrgn")]
-melody = ExtResource("3_ali6u")
-chords = ExtResource("4_j4l17")
-bass = ExtResource("5_so7s4")
-drums = ExtResource("6_aped0")
+phase1 = ExtResource("3_27vsl")
+drums_bass = ExtResource("4_62jnk")
 
 [node name="SummerMusic" parent="." instance=ExtResource("2_psrgn")]
-melody = ExtResource("7_og8mr")
-chords = ExtResource("8_v513j")
-bass = ExtResource("9_ttubk")
-drums = ExtResource("10_c1xls")
+phase1 = ExtResource("5_3sj0i")
+drums_bass = ExtResource("6_1wmfi")
 
 [node name="FallMusic" parent="." instance=ExtResource("2_psrgn")]
-melody = ExtResource("11_vwthq")
-chords = ExtResource("12_8ge6s")
-bass = ExtResource("13_jluap")
-drums = ExtResource("14_jjwe5")
+phase1 = ExtResource("7_0eo62")
+drums_bass = ExtResource("8_hs2w3")
 
 [node name="WinterMusic" parent="." instance=ExtResource("2_psrgn")]
-melody = ExtResource("15_nbhg6")
-chords = ExtResource("16_tj0af")
-bass = ExtResource("17_a4hwp")
-drums = ExtResource("18_px7ld")
+phase1 = ExtResource("9_qshpc")
+drums_bass = ExtResource("10_1il2p")
