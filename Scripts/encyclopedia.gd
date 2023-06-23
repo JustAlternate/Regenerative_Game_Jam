@@ -126,3 +126,10 @@ func _on_previous_page_button_down():
 		actual_page_number -= 2
 		$PageFlipSFX.play_random_sound()
 		maj_book(actual_page_number)
+
+
+func _on_open_close_mouse_entered():
+	$box_little_book.animation = "souris"
+
+func _on_open_close_mouse_exited():
+	$box_little_book.animation = "default"
