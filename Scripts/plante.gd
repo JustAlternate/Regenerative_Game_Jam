@@ -4,7 +4,7 @@ extends Node2D
 @export var flip_dirt = false
 @export var plant_type = "None" #"carrot", "pea", "leek", "corn", "wheat", "pumpkin", "tomatoes", "thym", "vine", "courgette"
 
-@onready var Icon= load("res://Scenes/contextual_menu.tscn")
+@onready var Icon= load("res://Scenes/feeling_icon.tscn")
 
 var bonus_season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
 var season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1

@@ -1,6 +1,6 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dtbvo0w76rap1"]
 
-[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="1_gl0qe"]
+[ext_resource type="FontFile" uid="uid://cegtxcsvn28b5" path="res://fonts/FutilePro.ttf" id="1_gl0qe"]
 
 [resource]
 line_spacing = 1.0
