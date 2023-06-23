@@ -26,3 +26,7 @@ func _on_play_pressed():
 func _on_options_pressed():
 	$"/root/PersistentSfx/Click_sfx".play()
 	get_tree().change_scene_to_file("res://Scenes/options.tscn")
+
+
+func _on_play_3_pressed():
+	get_tree().quit()
