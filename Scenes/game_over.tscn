@@ -1,10 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://c28srtfvbyenl"]
+[gd_scene load_steps=7 format=3 uid="uid://bgbwv5r0qdsoi"]
 
-[ext_resource type="Texture2D" uid="uid://jtgfyjc0gksb" path="res://Assets/Plant/gamr-over.png" id="1_ue12i"]
+[ext_resource type="Texture2D" uid="uid://kncwv3pi1c8h" path="res://Assets/Plant/gamr-over.png" id="1_ue12i"]
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_w5a82"]
+[ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="3_hn7jf"]
+[ext_resource type="StyleBox" uid="uid://d3vi3glx4440d" path="res://button_type_normal.tres" id="4_lrql2"]
+[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="5_7l10l"]
+
+[sub_resource type="Theme" id="Theme_dnpf8"]
+default_font = ExtResource("5_7l10l")
+default_font_size = 16
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/styles/hover = ExtResource("3_hn7jf")
+Button/styles/normal = ExtResource("4_lrql2")
 
 [node name="Game over" type="Node2D"]
+script = ExtResource("1_w5a82")
 
 [node name="Gamr-over" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(288, 160)
 texture = ExtResource("1_ue12i")
+
+[node name="Exit" type="Button" parent="."]
+texture_filter = 1
+offset_left = 195.0
+offset_top = 237.0
+offset_right = 279.0
+offset_bottom = 260.0
+scale = Vector2(2, 2)
+focus_mode = 0
+theme = SubResource("Theme_dnpf8")
+theme_override_font_sizes/font_size = 16
+text = "Quit"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
