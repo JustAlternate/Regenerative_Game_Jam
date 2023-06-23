@@ -39,7 +39,7 @@ var diversity:float = 100
 var taste:float = 100
 
 
-var last_eat = ["tomatoes", "thym", "ail"]
+var last_eat = ["tomatoes", "thym"]
 
 
 
