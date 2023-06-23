@@ -24,7 +24,7 @@ var dico_dialogue = {
 	"Proximity":[true,["Remember that plants influence each other.","Some plants like to be close to specific plants, and some don’t like each other."]],
 	
 	"Lore1":[false,["Hello my grandchild! So, this is it: our society is falling appart…","We must survive on our own! We're a long way from anywhere.","Here, take this book."]],
-	"Lore2":[false,["There’s not much in it because in the past","we didn’t have to know how to produce food by ourselves.","We were fools back then…","Anyway, I will teach what little I know."]],
+	"Lore2":[false,["There’s not much in it because in the past","we didn’t have to know how to produce food by ourselves.","We were fools back then…","Anyways, I will teach you what little I know."]],
 	"Lore3":[false,["Now look what's best for radishes in the encyclopedia."]],
 	"Lore4":[false,["The soil can be poor, average or rich in nutrients.","Plants require a certain amount of nutrients to grow.","Open the drawer on your left, pick a bag of radish seeds.","Now plant them on the right type of soil."]],
 	"Lore5":[false,["Well done, grandchild! Now let’s wait for a bit."]],
