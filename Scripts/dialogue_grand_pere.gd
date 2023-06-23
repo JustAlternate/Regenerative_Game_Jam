@@ -28,7 +28,7 @@ var dico_dialogue = {
 	"Lore3":[false,["Now look what is best for radishes in the encyclopedia."]],
 	"Lore4":[false,["The soil can be poor, average or rich in nutrients.","Plants require a certain amount of nutrients to grow.","Open the drawer on your left, pick a bag of radish seeds.","Now plant them on the right type of soil."]],
 	"Lore5":[false,["Well done, grandchild! Now let us wait for a bit."]],
-	"Lore6":[false,["Now harvest the results of your production by « clicking » on the plant and then on « HARVEST »"]],
+	"Lore6":[false,["Now harvest the results of your production."," « Click » on the plant and then on « HARVEST »."]],
 	"Lore7":[false,["Congratulations! There, take these. They are leek seeds I have found in the granary."]],
 	"Lore8":[false,["Now I will let you work in peace. If you need any advice you can ask me!","I will come back to you later. See ya!"]],
 	
