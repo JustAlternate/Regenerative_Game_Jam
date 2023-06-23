@@ -24,7 +24,7 @@ var summary = {
 		["Radish","Radish is a vegetable that can be sown all year long, except in fall 2.\nIt takes 1 phase to grow.\n\nIt prefers the shade or the rain, but can grow in any weather except under strong sunlight.\n\nNutrient-rich soil is necessary.\n\nIt needs soaked soil to grow.\n\nRadish appreciates to be next to carrots, garlic, peas and tomatoes.","radish"],   #Page droite
 
 	#Page 3 - 4
-		["Leek","Leek is a vegetable that can be sown in summer 1 and fall 1, but prefers to be planted in summer 2.\nIt takes 3 phases to grow.\n\nIt can grow in any weather.\n\nNutrient-poor soil is sufficient.\n\nIt needs moist soil to grow.\n\nLeek appreciates to be next to carrots and tomatoes, but doesn’t like to be next to peas.","leek"], #Page gauche
+		["Leek","Leek is a vegetable that can be sown in summer 1 and fall 1, but prefers to be planted in summer 2.\nIt takes 3 phases to grow.\n\nIt can grow in any weather.\n\nNutrient-poor soil is sufficient.\n\nIt needs moist soil to grow.\n\nLeek appreciates to be next to carrots and tomatoes, but does not like to be next to peas.","leek"], #Page gauche
 		["Tomato","Tomato is a vegetable that can be sown in winter 2 and spring 2, but prefers to be planted in spring 1.\nIt takes 2 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nIt does not need a lot of nutrients in the soil.\n\nIt needs soaked soil to grow.\n\nTomatoes like to be next to radishes.","tomatoes"],   #Page droite
 
 	#Page 5 - 6
