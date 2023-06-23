@@ -78,6 +78,7 @@ func player_just_did_something(thing):
 				tutorial_progress += 1
 				grandpa_talk("Lore7")
 				GlobalVariables.update_invertory("leek","seed",2)
+				get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 				grandpa_talk("Lore8")
 				
 	if thing[0] == "skiped_to_next_season":
@@ -85,6 +86,7 @@ func player_just_did_something(thing):
 			if tutorial_progress == 4:
 				tutorial_progress += 1
 				grandpa_talk("give_tomatoes")
+				get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 				GlobalVariables.update_invertory("tomatoes","seed",2)
 			
 	
@@ -92,6 +94,7 @@ func player_just_did_something(thing):
 		if tutorial_progress == 5:
 			tutorial_progress += 1
 			grandpa_talk("give_pea_and_wheat")
+			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=2
 			GlobalVariables.update_invertory("pea","seed",2)
 			GlobalVariables.update_invertory("wheat","seed",2)
 			
@@ -100,6 +103,7 @@ func player_just_did_something(thing):
 			if tutorial_progress == 6:
 				tutorial_progress +=1
 				grandpa_talk("give_pumpkin")
+				get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 				GlobalVariables.update_invertory("pumpkin","seed",2)
 				
 	if thing[0] == "meteo":
@@ -107,18 +111,21 @@ func player_just_did_something(thing):
 			if tutorial_progress == 7:
 				tutorial_progress += 1
 				grandpa_talk("give_zucchini")
+				get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 				GlobalVariables.update_invertory("zucchini","seed",2)
 	
 	if GlobalVariables.inventory["zucchini"]["plant"] > 4 or GlobalVariables.inventory["zucchini"]["seed"] == 0:
 		if tutorial_progress == 8:
 			tutorial_progress += 1
 			grandpa_talk("give_mint")
+			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 			GlobalVariables.update_invertory("mint","seed",2)
 	
 	if GlobalVariables.inventory["mint"]["plant"] > 4 or GlobalVariables.inventory["mint"]["seed"] == 0 or GlobalVariables.inventory["pumpkin"]["plant"] > 4 or GlobalVariables.inventory["pumpkin"]["seed"] == 0  :
 		if tutorial_progress == 9:
 			tutorial_progress += 1
 			grandpa_talk("give_corn")
+			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 			GlobalVariables.update_invertory("corn","seed",2)
 	
 	if thing[0] == "meteo":
@@ -126,12 +133,14 @@ func player_just_did_something(thing):
 			if tutorial_progress == 10:
 				tutorial_progress += 1
 				grandpa_talk("give_carrot")
+				get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 				GlobalVariables.update_invertory("carrot","seed",2)
 	
 	if GlobalVariables.inventory["carrot"]["plant"] > 4 or GlobalVariables.inventory["carrot"]["seed"] == 0:
 		if tutorial_progress == 11:
 			tutorial_progress += 1
 			grandpa_talk("give_le_reste")
+			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=3
 			GlobalVariables.update_invertory("ail","seed",2)
 			GlobalVariables.update_invertory("vine","seed",2)
 			GlobalVariables.update_invertory("thym","seed",2)
