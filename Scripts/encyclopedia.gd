@@ -109,10 +109,11 @@ func maj_book(actual_page_number):
 	
 	
 func open_on_name(plant:String):
-	actual_page_number = summary[plant]
-	$Book.show()
-	$PageFlipSFX.play_random_sound()
-	maj_book(actual_page_number)
+	if plant != "None":
+		actual_page_number = summary[plant]
+		$Book.show()
+		$PageFlipSFX.play_random_sound()
+		maj_book(actual_page_number)
 
 func _on_next_page_button_down():
 	if not(actual_page_number == Pages_unlocked-2):
