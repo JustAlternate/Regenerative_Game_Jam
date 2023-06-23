@@ -36,10 +36,24 @@ func _on_texture_button_pressed():
 	increase_phase()
 
 
-
-
 func _on_arrow_sprite_animation_looped():
 	print("reçu")
 	$ArrowSprite.stop()
 	$ArrowSprite.frame = 3
 
+func phase_after(i : int):
+	return (i+1)%8
+
+func _on_texture_button_mouse_entered():
+	if GlobalVariables.game_state == "clock":
+		return
+	else:
+		$ArrowSprite.animation = str(phase_after(current_phase))
+		$ArrowSprite.frame = 0
+
+func _on_texture_button_mouse_exited():
+	if GlobalVariables.game_state == "clock":
+		return
+	else:
+		$ArrowSprite.animation = str(current_phase)
+		$ArrowSprite.frame = 3
