@@ -17,7 +17,7 @@ var summary = {
 	"vine":6,
 	"thyme":6,
 }
-@export var Pages_unlocked = 14
+@export var Pages_unlocked = 2
 @export var Pages = [
 	#Page 1 - 2
 		["Encyclopedia","The Encyclopedia is your best friend in this game, nearly everything you must know about your crops and how the game works is in this book. Make sure to read it as you progress and as you discover new crops! ","Encyclopedia"], #Page gauche
