@@ -3,6 +3,9 @@ extends Node2D
 @export var transition:bool
 @export var flip_dirt = false
 @export var plant_type = "None" #"carrot", "pea", "leek", "corn", "wheat", "pumpkin", "tomatoes", "thym", "vine", "courgette"
+
+@onready var Icon= load("res://Scenes/contextual_menu.tscn")
+
 var bonus_season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
 var season = [] # (0,1) = Summer1, (1,2) = spring2, (2,1) = winter1, (3,1) = autumn1
 
@@ -263,7 +266,7 @@ func remove_plant():
 func afficher_feeling(name):
 	await get_tree().create_timer(0.5).timeout #pour pas que les feeling soient les uns sur les autres
 	
-	var feeling_icon_scene = load("res://Scenes/feeling_icon.tscn")
+	var feeling_icon_scene = Icon
 	var feeling_icon_instance = feeling_icon_scene.instantiate()
 	feeling_icon_instance.position = Vector2(5,5)
 	print("ajout feeling")
