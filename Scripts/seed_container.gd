@@ -14,7 +14,13 @@ func _ready():
 	$Sprite2D.visible = true
 
 func update_number_seed():
-	self.visible = (GlobalVariables.inventory[seed_name]["seed"] > 0)
+	if GlobalVariables.inventory[seed_name]["seed"] > 0:
+		self.visible = true
+	else:
+		self.visible = false
+		if GlobalVariables.action_picked == "seed" and GlobalVariables.seed_picked == seed_name:
+			Input.set_custom_mouse_cursor(arrow_game)
+			GlobalVariables.action_picked = "none"
 	$SeedNumberLabel.text = str(GlobalVariables.inventory[seed_name]["seed"])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

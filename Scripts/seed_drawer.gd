@@ -1,6 +1,7 @@
 extends Node2D
 
 var seedList = []
+var arrow_game = load("res://Assets/sprites/cursor_game.png")
 
 func refresh_drawer():
 	$HBoxContainer/GridContainer.columns = ceil(count_nombre_container_visible()/2 +1)
@@ -30,6 +31,7 @@ func remove_seed_from_drawer(seed):
 
 func _on_open_drawer_button_toggled(button_pressed):
 	GlobalVariables.action_picked = "none"
+	Input.set_custom_mouse_cursor(arrow_game)
 	if $HBoxContainer/GridContainer.visible:
 		$CloseSFX.play()
 	else:
