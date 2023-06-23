@@ -3,6 +3,9 @@ extends TextureButton
 @export var Seed_Texture: Texture2D
 @export var seed_name: String
 
+var arrow_game = load("res://Assets/sprites/cursor_game.png")
+var arrow_farm = load("res://Assets/sprites/cursor_farm.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Label.visible = false
@@ -21,8 +24,10 @@ func _process(delta):
 
 func _on_pressed():
 	if (GlobalVariables.action_picked == "seed" and GlobalVariables.seed_picked == seed_name): #this seed is selected
+		Input.set_custom_mouse_cursor(arrow_game)
 		GlobalVariables.action_picked = "none"
 	else:
+		Input.set_custom_mouse_cursor(arrow_farm)
 		GlobalVariables.action_picked = "seed"
 		GlobalVariables.seed_picked = seed_name
 		$SoundPool.play_random_sound()

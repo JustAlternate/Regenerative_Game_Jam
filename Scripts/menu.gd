@@ -1,8 +1,10 @@
 extends Node2D
 
+var arrow_game = load("res://Assets/sprites/cursor_game.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_custom_mouse_cursor(arrow_game)
 	$backgound/riviere.play("default")
 	$"/root/PersistentSfx/SpringMusic".play_song_phase1()
 
