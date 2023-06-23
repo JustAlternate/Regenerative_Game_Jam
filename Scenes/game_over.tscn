@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c28srtfvbyenl"]
+
+[ext_resource type="Texture2D" uid="uid://jtgfyjc0gksb" path="res://Assets/Plant/gamr-over.png" id="1_ue12i"]
+
+[node name="Game over" type="Node2D"]
+
+[node name="Gamr-over" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(288, 160)
+texture = ExtResource("1_ue12i")
