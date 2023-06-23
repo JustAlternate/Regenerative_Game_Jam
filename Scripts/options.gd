@@ -14,10 +14,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	for i in range ($Sprite_deroulant.get_child_count()):
-		if $Sprite_deroulant.get_child(i).position.x > 1000:
-			$Sprite_deroulant.get_child(i).position.x = -100
-		$Sprite_deroulant.get_child(i).position.x +=1
+	for i in range ($backgound/Sprite_deroulant.get_child_count()):
+		if $backgound/Sprite_deroulant.get_child(i).position.x > 1000:
+			$backgound/Sprite_deroulant.get_child(i).position.x = -100
+		$backgound/Sprite_deroulant.get_child(i).position.x +=1
 
 func _on_exit_pressed():
 	$"/root/PersistentSfx/Click_sfx".play()

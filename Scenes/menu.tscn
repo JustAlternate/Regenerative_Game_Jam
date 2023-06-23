@@ -2,23 +2,23 @@
 
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="1_ni0yg"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_vd1g2"]
-[ext_resource type="Texture2D" uid="uid://dl2omtggckx28" path="res://Assets/sprites/dirt-dry-to-moist.png" id="2_5cl7r"]
-[ext_resource type="Texture2D" uid="uid://c68e523dycwtf" path="res://Assets/Plant/background-automne.png" id="2_7kua1"]
-[ext_resource type="Texture2D" uid="uid://bt2j74i4u4mro" path="res://Assets/sprites/closed_book.png" id="2_scljm"]
-[ext_resource type="Texture2D" uid="uid://n0ykyaljticb" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_u67cp"]
-[ext_resource type="Texture2D" uid="uid://bdihpqtp185id" path="res://Assets/sprites/dirt-moist.png" id="3_3cs7c"]
-[ext_resource type="Texture2D" uid="uid://bp78tul1ocy20" path="res://Assets/Plant/background-printemps.png" id="3_05tdx"]
+[ext_resource type="Texture2D" uid="uid://c2x425i7j8oth" path="res://Assets/sprites/dirt-dry-to-moist.png" id="2_5cl7r"]
+[ext_resource type="Texture2D" uid="uid://cqemdebiu2vyn" path="res://Assets/Plant/background-automne.png" id="2_7kua1"]
+[ext_resource type="Texture2D" uid="uid://cssbl0ckgwq74" path="res://Assets/sprites/closed_book.png" id="2_scljm"]
+[ext_resource type="Texture2D" uid="uid://chtvt0u57khvi" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_u67cp"]
+[ext_resource type="Texture2D" uid="uid://cm5b0440ki4dm" path="res://Assets/sprites/dirt-moist.png" id="3_3cs7c"]
+[ext_resource type="Texture2D" uid="uid://bjwcvxhdyymu" path="res://Assets/Plant/background-printemps.png" id="3_05tdx"]
 [ext_resource type="PackedScene" uid="uid://olb5ewo4ysgy" path="res://Scenes/menu_running_sprites.tscn" id="4_fap7w"]
-[ext_resource type="Texture2D" uid="uid://by04g77f6hrtt" path="res://Assets/sprites/dirt-moist-to-soaked.png" id="4_ihp8w"]
-[ext_resource type="Texture2D" uid="uid://8hfiiya5jrcx" path="res://Assets/Plant/background-ete.png" id="4_v6s1t"]
-[ext_resource type="Texture2D" uid="uid://dse48s3ss5feq" path="res://Assets/Plant/background-hiver.png" id="5_4imjg"]
+[ext_resource type="Texture2D" uid="uid://c4boig5y6n2fv" path="res://Assets/sprites/dirt-moist-to-soaked.png" id="4_ihp8w"]
+[ext_resource type="Texture2D" uid="uid://baekq7aujb1pc" path="res://Assets/Plant/background-ete.png" id="4_v6s1t"]
+[ext_resource type="Texture2D" uid="uid://dyj33o55lscxg" path="res://Assets/Plant/background-hiver.png" id="5_4imjg"]
 [ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="5_c6ra6"]
-[ext_resource type="FontFile" uid="uid://dinlurcky8yjo" path="res://fonts/FutilePro.ttf" id="5_eewky"]
-[ext_resource type="Texture2D" uid="uid://coo43vjv8jjge" path="res://Assets/sprites/dirt-soaked.png" id="5_hc7wq"]
+[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="5_eewky"]
+[ext_resource type="Texture2D" uid="uid://bfan0jrfsep6l" path="res://Assets/sprites/dirt-soaked.png" id="5_hc7wq"]
 [ext_resource type="StyleBox" uid="uid://d3vi3glx4440d" path="res://button_type_normal.tres" id="6_nunw6"]
 [ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="8_n17uy"]
-[ext_resource type="AudioStream" uid="uid://bjxqpsuq5pabg" path="res://Assets/sfx/menu_click.wav" id="9_cbrca"]
-[ext_resource type="Texture2D" uid="uid://nb33lf23cqm5" path="res://Assets/sprites/sprite-panneau-menu.png" id="14_t2tpg"]
+[ext_resource type="AudioStream" uid="uid://cv17wb2bjrhr" path="res://Assets/sfx/menu_click.wav" id="9_cbrca"]
+[ext_resource type="Texture2D" uid="uid://c5agm7nt0hf6x" path="res://Assets/sprites/sprite-panneau-menu.png" id="14_t2tpg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4w73x"]
 atlas = ExtResource("2_u67cp")
@@ -91,14 +91,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_expnd"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fk7x4"]
 bg_color = Color(0.752941, 0.780392, 0.254902, 1)
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 anti_aliasing = false
 
 [sub_resource type="Theme" id="Theme_up03c"]
-Panel/styles/panel = SubResource("StyleBoxFlat_expnd")
+Panel/styles/panel = SubResource("StyleBoxFlat_fk7x4")
 
 [sub_resource type="Theme" id="Theme_1q6uv"]
 default_font = ExtResource("5_eewky")
@@ -191,7 +191,7 @@ sprite_frames = SubResource("SpriteFrames_ucd87")
 animation = &"spring"
 
 [node name="Sprite_deroulant" parent="backgound" instance=ExtResource("4_fap7w")]
-position = Vector2(-32, -288)
+position = Vector2(-32, -352)
 
 [node name="Menu_title" type="Panel" parent="backgound"]
 offset_left = -32.0
@@ -216,7 +216,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(287, 161)
+position = Vector2(286, 161)
 texture = ExtResource("14_t2tpg")
 
 [node name="Play" type="Button" parent="."]

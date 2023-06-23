@@ -1,29 +1,103 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2sblst4m6bns"]
+[gd_scene load_steps=29 format=3 uid="uid://b2sblst4m6bns"]
 
 [ext_resource type="Script" path="res://Scripts/options.gd" id="1_ym2a3"]
-[ext_resource type="Texture2D" uid="uid://c56kxoux30gtd" path="res://Assets/sprites/closed_book.png" id="2_0qkgk"]
+[ext_resource type="Texture2D" uid="uid://cssbl0ckgwq74" path="res://Assets/sprites/closed_book.png" id="2_0qkgk"]
+[ext_resource type="Texture2D" uid="uid://c2x425i7j8oth" path="res://Assets/sprites/dirt-dry-to-moist.png" id="2_ps7a7"]
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="3_7eb2p"]
+[ext_resource type="Texture2D" uid="uid://cm5b0440ki4dm" path="res://Assets/sprites/dirt-moist.png" id="3_xbisr"]
+[ext_resource type="Texture2D" uid="uid://c4boig5y6n2fv" path="res://Assets/sprites/dirt-moist-to-soaked.png" id="4_nent8"]
 [ext_resource type="PackedScene" uid="uid://olb5ewo4ysgy" path="res://Scenes/menu_running_sprites.tscn" id="4_t5g25"]
-[ext_resource type="FontFile" uid="uid://btnbktdas72q5" path="res://fonts/FutilePro.ttf" id="5_5jcpg"]
+[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="5_5jcpg"]
 [ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="5_r67c7"]
+[ext_resource type="Texture2D" uid="uid://bfan0jrfsep6l" path="res://Assets/sprites/dirt-soaked.png" id="5_x8tpy"]
+[ext_resource type="Texture2D" uid="uid://chtvt0u57khvi" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="6_67tv4"]
 [ext_resource type="StyleBox" uid="uid://d3vi3glx4440d" path="res://button_type_normal.tres" id="6_emf77"]
-[ext_resource type="PackedScene" uid="uid://b05j16p7wwoul" path="res://Scenes/sound_pool.tscn" id="8_44u63"]
-[ext_resource type="AudioStream" uid="uid://od3ncvyhu8io" path="res://Assets/sfx/menu_click.wav" id="9_0lft4"]
+[ext_resource type="Texture2D" uid="uid://cqemdebiu2vyn" path="res://Assets/Plant/background-automne.png" id="7_6edga"]
+[ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="8_44u63"]
+[ext_resource type="Texture2D" uid="uid://bjwcvxhdyymu" path="res://Assets/Plant/background-printemps.png" id="8_we20i"]
+[ext_resource type="AudioStream" uid="uid://cv17wb2bjrhr" path="res://Assets/sfx/menu_click.wav" id="9_0lft4"]
+[ext_resource type="Texture2D" uid="uid://baekq7aujb1pc" path="res://Assets/Plant/background-ete.png" id="9_15neg"]
+[ext_resource type="Texture2D" uid="uid://dyj33o55lscxg" path="res://Assets/Plant/background-hiver.png" id="10_emsv5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8n4h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w73x"]
+atlas = ExtResource("6_67tv4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57w2v"]
+atlas = ExtResource("6_67tv4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rscqe"]
+atlas = ExtResource("6_67tv4")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kja0x"]
+atlas = ExtResource("6_67tv4")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7u7a1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w73x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57w2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rscqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kja0x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ekhp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_6edga")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_we20i")
+}],
+"loop": true,
+"name": &"spring",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_15neg")
+}],
+"loop": true,
+"name": &"summer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_emsv5")
+}],
+"loop": true,
+"name": &"winter",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_expnd"]
 bg_color = Color(0.752941, 0.780392, 0.254902, 1)
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 anti_aliasing = false
 
-[sub_resource type="Theme" id="Theme_g0ibw"]
-Panel/styles/panel = SubResource("StyleBoxFlat_v8n4h")
-
-[sub_resource type="LabelSettings" id="LabelSettings_plh7p"]
-line_spacing = 1.0
-font = ExtResource("5_5jcpg")
-font_size = 38
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="Theme" id="Theme_qkdh8"]
+Panel/styles/panel = SubResource("StyleBoxFlat_expnd")
 
 [sub_resource type="Theme" id="Theme_aceay"]
 default_font = ExtResource("5_5jcpg")
@@ -39,53 +113,94 @@ Button/styles/normal = ExtResource("6_emf77")
 [node name="options" type="Node2D"]
 script = ExtResource("1_ym2a3")
 
-[node name="Menu_title" type="Panel" parent="."]
-offset_right = 576.0
-offset_bottom = 91.0
-theme = SubResource("Theme_g0ibw")
+[node name="backgound" type="Node2D" parent="."]
+position = Vector2(32, 288)
 
-[node name="ColorRect" type="ColorRect" parent="Menu_title"]
-z_index = -1
+[node name="Sprite2D" type="Sprite2D" parent="backgound"]
+texture = ExtResource("2_ps7a7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="backgound"]
+position = Vector2(64, 0)
+texture = ExtResource("3_xbisr")
+
+[node name="Sprite2D3" type="Sprite2D" parent="backgound"]
+position = Vector2(128, 0)
+texture = ExtResource("4_nent8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="backgound"]
+position = Vector2(192, 0)
+texture = ExtResource("5_x8tpy")
+
+[node name="Sprite2D5" type="Sprite2D" parent="backgound"]
+position = Vector2(320, 0)
+texture = ExtResource("5_x8tpy")
+
+[node name="Sprite2D6" type="Sprite2D" parent="backgound"]
+position = Vector2(384, 0)
+texture = ExtResource("4_nent8")
+flip_h = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="backgound"]
+position = Vector2(448, 0)
+texture = ExtResource("3_xbisr")
+
+[node name="Sprite2D8" type="Sprite2D" parent="backgound"]
+position = Vector2(512, 0)
+texture = ExtResource("2_ps7a7")
+flip_h = true
+
+[node name="riviere" type="AnimatedSprite2D" parent="backgound"]
 texture_filter = 1
-layout_mode = 0
-offset_top = 1.0
-offset_right = 576.0
-offset_bottom = 320.0
-color = Color(0.741176, 1, 1, 1)
+position = Vector2(256, 0)
+sprite_frames = SubResource("SpriteFrames_7u7a1")
 
-[node name="Sprite2D" type="Sprite2D" parent="Menu_title"]
-position = Vector2(164, 44)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="backgound"]
+texture_filter = 1
+position = Vector2(256, -160)
+sprite_frames = SubResource("SpriteFrames_6ekhp")
+animation = &"spring"
+
+[node name="Sprite_deroulant" parent="backgound" instance=ExtResource("4_t5g25")]
+position = Vector2(-32, -352)
+
+[node name="Menu_title" type="Panel" parent="backgound"]
+offset_left = -32.0
+offset_top = -288.0
+offset_right = 544.0
+offset_bottom = -236.0
+theme = SubResource("Theme_qkdh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="backgound/Menu_title"]
+position = Vector2(212, 25)
 texture = ExtResource("2_0qkgk")
 
-[node name="Title" type="Label" parent="Menu_title"]
+[node name="Title" type="Label" parent="backgound/Menu_title"]
 layout_mode = 0
-offset_top = 2.0
+offset_top = -17.0
 offset_right = 576.0
-offset_bottom = 87.0
-text = "Options
-"
-label_settings = SubResource("LabelSettings_plh7p")
+offset_bottom = 68.0
+text = "Settings"
+label_settings = ExtResource("3_7eb2p")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Sprite_deroulant" parent="." instance=ExtResource("4_t5g25")]
-
 [node name="Exit" type="Button" parent="."]
 offset_left = 195.0
-offset_top = 245.0
+offset_top = 221.0
 offset_right = 279.0
-offset_bottom = 268.0
+offset_bottom = 244.0
 scale = Vector2(2, 2)
 theme = SubResource("Theme_aceay")
 theme_override_font_sizes/font_size = 16
 text = "Exit"
 
 [node name="Master" type="Label" parent="."]
-offset_left = 136.0
-offset_top = 90.0
-offset_right = 424.0
-offset_bottom = 133.0
+offset_left = 120.0
+offset_top = 66.0
+offset_right = 408.0
+offset_bottom = 109.0
+scale = Vector2(1.1, 1.1)
 text = "Master"
 label_settings = ExtResource("3_7eb2p")
 horizontal_alignment = 1
@@ -98,16 +213,18 @@ offset_left = 21.0
 offset_top = 30.0
 offset_right = 269.0
 offset_bottom = 46.0
+scale = Vector2(1.1, 1.1)
 theme = SubResource("Theme_ylm01")
 min_value = -14.0
 max_value = 0.0
 value = -2.0
 
 [node name="Music" type="Label" parent="."]
-offset_left = 136.0
-offset_top = 130.0
-offset_right = 424.0
-offset_bottom = 173.0
+offset_left = 120.0
+offset_top = 106.0
+offset_right = 408.0
+offset_bottom = 149.0
+scale = Vector2(1.1, 1.1)
 text = "Music
 "
 label_settings = ExtResource("3_7eb2p")
@@ -121,16 +238,18 @@ offset_left = 21.0
 offset_top = 30.0
 offset_right = 269.0
 offset_bottom = 46.0
+scale = Vector2(1.1, 1.1)
 theme = SubResource("Theme_ylm01")
 min_value = -14.0
 max_value = 0.0
 value = -2.0
 
 [node name="SFX" type="Label" parent="."]
-offset_left = 136.0
-offset_top = 170.0
-offset_right = 424.0
-offset_bottom = 213.0
+offset_left = 120.0
+offset_top = 146.0
+offset_right = 408.0
+offset_bottom = 189.0
+scale = Vector2(1.1, 1.1)
 text = "SFX
 "
 label_settings = ExtResource("3_7eb2p")
@@ -144,6 +263,7 @@ offset_left = 21.0
 offset_top = 30.0
 offset_right = 269.0
 offset_bottom = 46.0
+scale = Vector2(1.1, 1.1)
 theme = SubResource("Theme_ylm01")
 min_value = -14.0
 max_value = 0.0

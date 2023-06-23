@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://du2q4bvo17ea"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_grand_pere.gd" id="1_5a700"]
-[ext_resource type="Texture2D" uid="uid://ewqqn58d2kfq" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
-[ext_resource type="FontFile" uid="uid://btnbktdas72q5" path="res://fonts/FutilePro.ttf" id="3_j6ie8"]
-[ext_resource type="PackedScene" uid="uid://b05j16p7wwoul" path="res://Scenes/sound_pool.tscn" id="4_tce1e"]
-[ext_resource type="AudioStream" uid="uid://2ust1lwjbuqv" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
-[ext_resource type="AudioStream" uid="uid://c0ocifeybi7lq" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
+[ext_resource type="Texture2D" uid="uid://cvwqs7osof5vw" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
+[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="3_j6ie8"]
+[ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="4_tce1e"]
+[ext_resource type="AudioStream" uid="uid://blfejlquw22a4" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
+[ext_resource type="AudioStream" uid="uid://6eowc6smsx3x" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_imwlg"]
 line_spacing = 1.0
@@ -16,10 +16,14 @@ position = Vector2(200, 200)
 script = ExtResource("1_5a700")
 text = "Le scale c'est la vie"
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_uole0")
+
 [node name="RichTextLabel" type="ScrollContainer" parent="."]
-offset_left = -128.0
+offset_left = -72.0
 offset_top = -32.0
-offset_right = -28.0
+offset_right = 28.0
 offset_bottom = 10.0
 horizontal_scroll_mode = 0
 
@@ -27,10 +31,6 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("2_uole0")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = -133.0
