@@ -20,19 +20,19 @@ var summary = {
 @export var Pages_unlocked = 14
 @export var Pages = [
 	#Page 1 - 2
-		["Encyclopedia","The Encyclopedia is your best friend in this game, nearly everything you must know about your crops and how the game works is in this book, make sure to read it as you progress and as you discover new crops ! ","Encyclopedia"], #Page gauche
-		["Radish","Radish is a vegetable that can be sown all the year, except in fall 2.\nIt takes 1 phase to grow.\n\nIt prefers the shade or the rain, but can grow in any weather except under strong sunlight.\n\nNutrient-rich soil is necessary.\n\nIt needs soaked soil to grow.\n\nRadish appreciates to be next to carrots, garlic, peas and tomatoes.","radish"],   #Page droite
+		["Encyclopedia","The Encyclopedia is your best friend in this game, nearly everything you must know about your crops and how the game works is in this book. Make sure to read it as you progress and as you discover new crops! ","Encyclopedia"], #Page gauche
+		["Radish","Radish is a vegetable that can be sown all year long, except in fall 2.\nIt takes 1 phase to grow.\n\nIt prefers the shade or the rain, but can grow in any weather except under strong sunlight.\n\nNutrient-rich soil is necessary.\n\nIt needs soaked soil to grow.\n\nRadish appreciates to be next to carrots, garlic, peas and tomatoes.","radish"],   #Page droite
 
 	#Page 3 - 4
-		["Leak","Leak is a vegetable that can be sown in summer 1 and fall 1, but prefers to be planted in summer 2.\nIt takes 3 phases to grow.\n\nIt can grow in any weather.\n\nNutrient-poor soil is sufficient.\n\nIt needs moist soil to grow.\n\nLeak appreciates to be next to carrots and tomatoes, but doesn’t like to be next to peas.","leek"], #Page gauche
-		["Tomato","Tomato is a vegetable that can be sown in winter 2 and spring 2, but prefers to be planted in spring 1.\nIt takes 2 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nIt must have a minimum of nutrients in the soil.\n\nIt needs soaked soil to grow.\n\nTomatoes like to be next to radishes.","tomatoes"],   #Page droite
+		["Leek","Leek is a vegetable that can be sown in summer 1 and fall 1, but prefers to be planted in summer 2.\nIt takes 3 phases to grow.\n\nIt can grow in any weather.\n\nNutrient-poor soil is sufficient.\n\nIt needs moist soil to grow.\n\nLeek appreciates to be next to carrots and tomatoes, but doesn’t like to be next to peas.","leek"], #Page gauche
+		["Tomato","Tomato is a vegetable that can be sown in winter 2 and spring 2, but prefers to be planted in spring 1.\nIt takes 2 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nIt doesn't need a lot of nutrients in the soil.\n\nIt needs soaked soil to grow.\n\nTomatoes like to be next to radishes.","tomatoes"],   #Page droite
 
 	#Page 5 - 6
 		["Pea","Pea is a vegetable that can be sown in spring 1 and fall 2, but prefers to be planted in winter 1 & 2.\nIt takes 2 phases to grow.\n\nIt prefers the shade or the rain, but can grow in any weather except under strong sunlight.\n\nNutrient-poor soil is sufficient.\n\nIt needs moist soil to grow.","pea"], #Page gauche
 		["Wheat","Wheat is a cereal that can be sown in fall 1, but prefers to be planted in winter 2.\nIt takes 4 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is sufficient.\n\nIt needs moist soil to grow.","wheat"],   #Page droite
 
 	#Page 7 - 8
-		["Pumpkin","Pumpkin is a vegetable that can be sown in spring 1 and summer 1, but prefers to be planted in spring 2.\nIt takes 3 phases to grow.\n\nIt prefers the shade and the rain, but can grow in any weather except under strong sunlight.\n\nIt must have a minimum of nutrients in the soil.\n\nIt needs moist or soaked soil to grow.","pumpkin"], #Page gauche
+		["Pumpkin","Pumpkin is a vegetable that can be sown in spring 1 and summer 1, but prefers to be planted in spring 2.\nIt takes 3 phases to grow.\n\nIt prefers the shade and the rain, but can grow in any weather except under strong sunlight.\n\nIt doesn't need a lot of nutrients in the soil.\n\nIt needs moist or soaked soil to grow.","pumpkin"], #Page gauche
 		["Zucchini","Zucchini is a vegetable that can be sown in winter 2 and spring 2, but prefers spring 1.\nIt takes 2 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-rich soil is necessary.\n\nIt needs soaked soil to grow.\n\nIt likes to be next to peas, but doesn’t like radishes.","zucchini"],   #Page droite
 
 	#Page 9 - 10
