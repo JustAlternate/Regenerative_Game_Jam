@@ -133,3 +133,26 @@ func _on_open_close_mouse_entered():
 
 func _on_open_close_mouse_exited():
 	$box_little_book.animation = "default"
+
+
+func _on_close_mouse_entered():
+	$Book/button_close.animation = "souris"
+
+
+func _on_close_mouse_exited():
+	$Book/button_close.animation = "default"
+
+
+func _on_previous_page_mouse_entered():
+	$Book/turn_page_left.animation = "souris"
+
+func _on_previous_page_mouse_exited():
+	$Book/turn_page_left.animation = "default"
+
+
+func _on_next_page_mouse_entered():
+	$Book/turn_page_right.animation = "souris"
+
+
+func _on_next_page_mouse_exited():
+	$Book/turn_page_right.animation = "default"
