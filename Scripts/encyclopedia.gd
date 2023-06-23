@@ -20,7 +20,7 @@ var summary = {
 @export var Pages_unlocked = 2
 @export var Pages = [
 	#Page 1 - 2
-		["Encyclopedia","The Encyclopedia is your best friend in this game, nearly everything you must know about your crops and how the game works is in this book. Make sure to read it as you progress and as you discover new crops! ","Encyclopedia"], #Page gauche
+		["Encyclopedia","The Encyclopedia is your best friend in this game, nearly everything you must know about your crops and how the game works is in this book. Make sure to read it as you progress and as you discover new crops!\nA phase is a half of a season.","Encyclopedia"], #Page gauche
 		["Radish","Radish is a vegetable that can be sown all year long, except in fall 2.\nIt takes 1 phase to grow.\n\nIt prefers the shade or the rain, but can grow in any weather except under strong sunlight.\n\nNutrient-rich soil is necessary.\n\nIt needs soaked soil to grow.\n\nRadish appreciates to be next to carrots, garlic, peas and tomatoes.","radish"],   #Page droite
 
 	#Page 3 - 4
