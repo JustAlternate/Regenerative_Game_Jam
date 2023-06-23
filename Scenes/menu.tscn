@@ -92,14 +92,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fk7x4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ui2ge"]
 bg_color = Color(0.752941, 0.780392, 0.254902, 1)
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 anti_aliasing = false
 
 [sub_resource type="Theme" id="Theme_up03c"]
-Panel/styles/panel = SubResource("StyleBoxFlat_fk7x4")
+Panel/styles/panel = SubResource("StyleBoxFlat_ui2ge")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i353x"]
 
@@ -197,10 +197,10 @@ animation = &"spring"
 position = Vector2(-32, -352)
 
 [node name="Menu_title" type="Panel" parent="backgound"]
-offset_left = -32.0
-offset_top = -288.0
-offset_right = 544.0
-offset_bottom = -236.0
+offset_left = -35.0
+offset_top = -285.0
+offset_right = 541.0
+offset_bottom = -233.0
 theme = SubResource("Theme_up03c")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_i353x")
 
