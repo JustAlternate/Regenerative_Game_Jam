@@ -1,15 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://du2q4bvo17ea"]
+[gd_scene load_steps=15 format=3 uid="uid://du2q4bvo17ea"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_grand_pere.gd" id="1_5a700"]
-[ext_resource type="Texture2D" uid="uid://cvwqs7osof5vw" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
-[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="3_j6ie8"]
+[ext_resource type="Texture2D" uid="uid://bhy2ngrrm2v0b" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
+[ext_resource type="Texture2D" uid="uid://ccomxjtjn2283" path="res://Assets/Plant/bulle-dialogue.png" id="3_cxmly"]
+[ext_resource type="FontFile" uid="uid://dinlurcky8yjo" path="res://fonts/FutilePro.ttf" id="3_j6ie8"]
 [ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="4_tce1e"]
-[ext_resource type="AudioStream" uid="uid://blfejlquw22a4" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
-[ext_resource type="AudioStream" uid="uid://6eowc6smsx3x" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
+[ext_resource type="AudioStream" uid="uid://0i1c11ht5jc4" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
+[ext_resource type="AudioStream" uid="uid://bl3ims3fja3ed" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_imwlg"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tnvqk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2effw"]
 line_spacing = 1.0
 font = ExtResource("3_j6ie8")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mme7j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glax3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23366"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yl0ly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_168hx"]
 
 [node name="Dialogue_grand_pere" type="Node2D"]
 position = Vector2(200, 200)
@@ -37,15 +51,22 @@ offset_left = -133.0
 offset_top = -100.0
 offset_right = -13.0
 offset_bottom = -34.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tnvqk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(62, 30)
+texture = ExtResource("3_cxmly")
 
 [node name="Label" type="Label" parent="Panel"]
 texture_filter = 1
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 110.0
+offset_left = 7.0
+offset_right = 190.0
+offset_bottom = 97.0
 scale = Vector2(0.6, 0.6)
 text = "How you doin grandson ?"
-label_settings = SubResource("LabelSettings_imwlg")
+label_settings = SubResource("LabelSettings_2effw")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -57,6 +78,11 @@ layout_mode = 0
 offset_right = 120.0
 offset_bottom = 65.0
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mme7j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_glax3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_23366")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yl0ly")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_168hx")
 
 [node name="GrandpaSFX" parent="." instance=ExtResource("4_tce1e")]
 
