@@ -77,8 +77,8 @@ func _on_close_button_down():
 	$Book.visible = false
 	$BookCloseSFX.play_random_sound()
 
-func maj_book(actual_page_number):
-	if actual_page_number < Pages_unlocked:
+func maj_book(new_page_number):
+	if new_page_number < Pages_unlocked:
 		$Book/Page_gauche/Title.text = Pages[actual_page_number][0]
 		$Book/Page_gauche/Body.text = Pages[actual_page_number][1]
 		$Book/Page_gauche/Item.set_animation(Pages[actual_page_number][2])
@@ -87,7 +87,7 @@ func maj_book(actual_page_number):
 		$Book/Page_gauche/Body.text = ""
 		$Book/Page_gauche/Item.set_animation("vide")
 	
-	if actual_page_number+1 < Pages_unlocked:
+	if new_page_number+1 < Pages_unlocked:
 		$Book/Page_droite/Title.text = Pages[actual_page_number+1 ][0]
 		$Book/Page_droite/Body.text = Pages[actual_page_number+1 ][1]
 		$Book/Page_droite/Item.set_animation(Pages[actual_page_number+1 ][2])
@@ -96,12 +96,12 @@ func maj_book(actual_page_number):
 		$Book/Page_droite/Body.text = ""
 		$Book/Page_droite/Item.set_animation("vide")
 		
-	if actual_page_number == Pages_unlocked-1:
+	if new_page_number == Pages_unlocked-1:
 		$Book/Next_Page.visible = false
 	else:
 		$Book/Next_Page.visible = true
 	
-	if actual_page_number == 0:
+	if new_page_number == 0:
 		$Book/Previous_Page.visible = false
 	else:
 		$Book/Previous_Page.visible = true
@@ -110,10 +110,10 @@ func maj_book(actual_page_number):
 	
 func open_on_name(plant:String):
 	if plant != "None":
-		actual_page_number = summary[plant]
+		var new_page_number = summary[plant]
 		$Book.show()
 		$PageFlipSFX.play_random_sound()
-		maj_book(actual_page_number)
+		maj_book(new_page_number)
 
 func _on_next_page_button_down():
 	if not(actual_page_number == Pages_unlocked-2):
@@ -126,3 +126,10 @@ func _on_previous_page_button_down():
 		actual_page_number -= 2
 		$PageFlipSFX.play_random_sound()
 		maj_book(actual_page_number)
+
+
+func _on_open_close_mouse_entered():
+	$box_little_book.animation = "souris"
+
+func _on_open_close_mouse_exited():
+	$box_little_book.animation = "default"

@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd4110b2l4fjg"]
+
+[ext_resource type="Script" path="res://Scripts/objectivesV2.gd" id="1_cvc7s"]
+[ext_resource type="Texture2D" uid="uid://c4on1bwj00kv0" path="res://Assets/sprites/food_objectives.png" id="2_dluyc"]
+[ext_resource type="Texture2D" uid="uid://bem10j24m316a" path="res://Assets/sprites/objectives_cursor.png" id="3_tgs0n"]
+[ext_resource type="FontFile" uid="uid://dinlurcky8yjo" path="res://fonts/FutilePro.ttf" id="4_cgxvc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f8btn"]
+line_spacing = 1.0
+font = ExtResource("4_cgxvc")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vs4b4"]
+line_spacing = 1.0
+font = ExtResource("4_cgxvc")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xb63l"]
+line_spacing = 1.0
+font = ExtResource("4_cgxvc")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="objectivesV2" type="Node2D"]
+script = ExtResource("1_cvc7s")
+
+[node name="FoodObjectives" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(70, 32)
+texture = ExtResource("2_dluyc")
+
+[node name="ressource" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(76, 11)
+texture = ExtResource("3_tgs0n")
+
+[node name="diversity" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(71, 31)
+texture = ExtResource("3_tgs0n")
+
+[node name="taste" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(73, 49)
+texture = ExtResource("3_tgs0n")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 144.0
+offset_top = 4.0
+offset_right = 234.0
+offset_bottom = 27.0
+scale = Vector2(0.8, 0.8)
+text = "Quantity"
+label_settings = SubResource("LabelSettings_f8btn")
+
+[node name="Label2" type="Label" parent="."]
+texture_filter = 1
+offset_left = 139.0
+offset_top = 24.0
+offset_right = 229.0
+offset_bottom = 47.0
+scale = Vector2(0.8, 0.8)
+text = "Diversity"
+label_settings = SubResource("LabelSettings_vs4b4")
+
+[node name="Label3" type="Label" parent="."]
+texture_filter = 1
+offset_left = 141.0
+offset_top = 42.0
+offset_right = 231.0
+offset_bottom = 65.0
+scale = Vector2(0.8, 0.8)
+text = "Taste"
+label_settings = SubResource("LabelSettings_xb63l")

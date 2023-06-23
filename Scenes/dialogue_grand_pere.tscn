@@ -53,10 +53,9 @@ autowrap_mode = 3
 [node name="Button" type="Button" parent="Panel"]
 show_behind_parent = true
 light_mask = 0
-texture_filter = 1
 layout_mode = 0
 offset_right = 120.0
-offset_bottom = 66.0
+offset_bottom = 65.0
 focus_mode = 0
 
 [node name="GrandpaSFX" parent="." instance=ExtResource("4_tce1e")]

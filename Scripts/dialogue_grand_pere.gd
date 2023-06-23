@@ -33,7 +33,7 @@ var dico_dialogue = {
 	"Lore8":[false,["Now I will let you work in peace. If you need any advice you can ask me!","I will come back to you later. See ya!"]],
 	
 	"give_tomatoes":[false,["Well I think you should take those tomatoes seeds, Winter 2 is the best season to plant them !"]],
-	"give_pea_and_wheat":[false,["Hello grandchild! Look, I found multiple new seeds for our garden!","Hopefully they will be enough to give food diversity for our family"]],
+	"give_pea_and_wheat":[false,["Hello grandchild! Look, I found multiple new seeds for our garden!","Hopefully they will be enough diversify our family's food."]],
 	"give_pumpkin":[false,["Its time to plant some pumpkins so we can have them next Fall season !"]],
 	"give_zucchini":[false,["Its rainy today. Be careful and avoid  planting those zucchini seeds on rainy seasons!"]],
 	"give_mint":[false,["Here you can take those mint seeds, it's a fantastic crop to enhance flavor!"]],

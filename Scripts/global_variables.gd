@@ -8,6 +8,14 @@ var master_volume = -2
 var music_volume = -2
 var sfx_volume = -2
 
+var ressource:float
+var divesity:float
+var taste:float
+
+
+
+
+
 func update_invertory(plant,type,number): #pea, seed, 4  ou  carott, plant, -4
 	# ajout dans inventory :
 	if type == "seed":
@@ -16,14 +24,15 @@ func update_invertory(plant,type,number): #pea, seed, 4  ou  carott, plant, -4
 
 	if type == "plant":
 		if plant == "all":
-			get_tree().root.get_node("home/Game/UI/Objectives/Food_ressources_bar").value -= number
+			get_tree().root.get_node("home/Game/Objectives").next_season()
 		else:
 			GlobalVariables.inventory[plant]["plant"] += number
-			get_tree().root.get_node("home/Game/UI/Objectives/Food_ressources_bar").value += number
+			get_tree().root.get_node("home/Game/Objectives").recolte(plant, number)
 		
-	
 	pass
 	
+
+
 
 var inventory = {
 	"pea": {"seed": 0, "plant": 0},
@@ -40,3 +49,4 @@ var inventory = {
 	"ail":{"seed": 0, "plant": 0},
 	"radish":{"seed": 0, "plant": 0}
 }
+
