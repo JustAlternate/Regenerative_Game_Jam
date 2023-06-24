@@ -55,3 +55,7 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	$Label.visible = false
 	$SeedNumberLabel.visible = false
+
+
+func _on_button_pressed():
+	get_tree().root.get_node("home/Game/Encyclopedia").open_on_name(seed_name)
