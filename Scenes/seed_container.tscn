@@ -36,6 +36,7 @@ position = Vector2(28, 27)
 texture = ExtResource("4_e1de4")
 
 [node name="SeedNumberLabel" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
