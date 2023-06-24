@@ -129,8 +129,13 @@ func _on_plant_calling_contextual_menu(plant_node):
 	if plant_node.plant_type == "None":
 		return
 	if not(tab_context_menu==[]):
-		tab_context_menu[-1].free()
-		tab_context_menu.pop_front()
+		if is_instance_valid(tab_context_menu[-1]):
+			if tab_context_menu[-1].targeted_plant == plant_node:
+				tab_context_menu[-1].queue_free()
+				tab_context_menu.pop_front()
+			else:
+				tab_context_menu[-1].destruction()
+				tab_context_menu.pop_front()
 	print(tab_context_menu)
 	#print(plant_node)
 	var context_menu_instance = context_menu_scene.instantiate()
