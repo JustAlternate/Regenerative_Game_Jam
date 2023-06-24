@@ -8,7 +8,7 @@ extends Node2D
 @export var time_betwen_dialogue:float = 2
 @export var time_after_dialogue:float = 3
 var number_of_time_grandpa_talked = 0
-var number_of_time_until_mongolian = 3
+var number_of_time_until_mongolian = 1000000
 
 
 var state = "none"
