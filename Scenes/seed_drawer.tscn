@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cpc1baduxkefv"]
+[gd_scene load_steps=20 format=3 uid="uid://cpc1baduxkefv"]
 
 [ext_resource type="Script" path="res://Scripts/seed_drawer.gd" id="1_g10ax"]
 [ext_resource type="PackedScene" uid="uid://y7p56ox4gd3m" path="res://Scenes/seed_container.tscn" id="2_ck28v"]
@@ -17,7 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://dpsiox28twlo2" path="res://Assets/Plant/icon/sprite-petit-pois.png" id="13_d4g0b"]
 [ext_resource type="Texture2D" uid="uid://c8lr0jrn4mku0" path="res://Assets/Plant/icon/sprite-vigne.png" id="14_hmlxu"]
 [ext_resource type="Texture2D" uid="uid://leuusfjmnmbj" path="res://Assets/Plant/icon/sprite-poireau.png" id="15_i7x0d"]
-[ext_resource type="Texture2D" uid="uid://bhl8dj1nt7ebi" path="res://Assets/Plant/sac_avec_graine.png" id="16_5gp6l"]
+[ext_resource type="Texture2D" uid="uid://cn5kvbqq2avv8" path="res://Assets/sprites/seed_drawer/button_opened.png" id="16_ef7mb"]
+[ext_resource type="Texture2D" uid="uid://cr3knvey4hfij" path="res://Assets/sprites/seed_drawer/button_closed.png" id="17_g307x"]
 
 [node name="seed_drawer" type="Node2D"]
 position = Vector2(1, 0)
@@ -119,7 +120,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 toggle_mode = true
-texture_normal = ExtResource("16_5gp6l")
+texture_normal = ExtResource("17_g307x")
+texture_pressed = ExtResource("16_ef7mb")
 stretch_mode = 3
 
 [node name="OpenSFX" type="AudioStreamPlayer" parent="."]
