@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://yv3oio864w42"]
 
-[ext_resource type="Script" path="res://Scenes/feeling_icon.gd" id="1_fhxjr"]
-[ext_resource type="Texture2D" uid="uid://dg1pefr7teihy" path="res://Assets/sprites/feeling_icon.png" id="2_y4baq"]
+[ext_resource type="Script" path="res://Scripts/feeling_icon.gd" id="1_fhxjr"]
+[ext_resource type="Texture2D" uid="uid://dqns4k26qao2o" path="res://Assets/sprites/feeling_icon.png" id="2_y4baq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dra5s"]
 atlas = ExtResource("2_y4baq")
