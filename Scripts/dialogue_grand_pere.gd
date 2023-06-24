@@ -16,17 +16,18 @@ var dialogue_queue = []
 
 var dico_dialogue = {
 	
+	"Drawer":[true,["On your left is a drawer where you will store your plant's seeds."]],
 	"Meteo":[true,["Rain make the soil wetter, and strong sunlight dries it."]],
 	"Nutrients":[true,["Worms make your soil richer for certain crops to grow.","Let you soil rest for a while for it to get nutrients for your plants!"]],
-	"Soil":[true,["As you can see, your soil can be dry, moist or soaked.","The closer the soil is from the river, the wetter it becomes."]],
+	"Soil":[true,["As you can see, your soil can be dry, moist or soaked.","The closer the soil is from the river, the wetter it becomes.","The soil can be poor, average or rich in nutrients.","Plants require a certain amount of nutrients to grow.",]],
 	"Seasons":[true,["Seeds have to be sown in specific parts of seasons.","If you sow in the favorite part of the season of a plant, you will harvest more."]],
-	"Clock":[true,["You can go forward in time by clicking on the seasonal clock."]],
+	"Clock":[true,["You can go forward in time by clicking on the seasonal clock.","But be careful, each time you click on the seasonal clock, some of your family food ressources are consumed","So make sure to harvest some plants each seasons !"]],
 	"Proximity":[true,["Remember that plants influence each other.","Some plants like to be close to specific plants, and some do not like each other."]],
 	
 	"Lore1":[false,["Hello my grandchild! So, this is it: our society is falling appart...","We must survive on our own! We are a long way from anywhere.","Here, take this book."]],
 	"Lore2":[false,["There is not much in it because in the past","we did not have to know how to produce food by ourselves.","We were fools back then...","Anyways, I will teach you what little I know."]],
 	"Lore3":[false,["Now look what is best for radishes in the encyclopedia."]],
-	"Lore4":[false,["The soil can be poor, average or rich in nutrients.","Plants require a certain amount of nutrients to grow.","Open the drawer on your left, pick a bag of radish seeds.","Now plant them on the right type of soil."]],
+	"Lore4":[false,["Look on your left is a drawer where you will store your seeds.","Pick some radish seeds and plant them on the right type of soil."]],
 	"Lore5":[false,["Well done, grandchild! Now let us wait for a bit."]],
 	"Lore6":[false,["Now harvest the results of your production."," Click on the plant and then on HARVEST."]],
 	"Lore7":[false,["Congratulations! There, take these. They are leek seeds I have found in the granary."]],
@@ -48,8 +49,11 @@ func player_just_did_something(thing):
 	
 	if thing[0] == "talk":
 		if thing[1] == "Lore1":
-			GlobalVariables.update_invertory("radish","seed",1)
 			get_tree().root.get_node("home/Game/Encyclopedia")._on_button_button_down()
+	
+	if thing[0] == "talk":
+		if thing[1] == "Lore3":
+			get_tree().root.get_node("home/Game/seed_drawer")._on_open_drawer_button_toggled()
 	
 	if thing[0] == "closed_book":
 		if tutorial_progress == 0:
@@ -75,6 +79,7 @@ func player_just_did_something(thing):
 	if thing[0] == "harvested":
 		if thing[1] == "radish":
 			if tutorial_progress == 3:
+				$button_skip_tuto.visible = false
 				tutorial_progress += 1
 				grandpa_talk("Lore7")
 				GlobalVariables.update_invertory("leek","seed",2)
@@ -221,4 +226,8 @@ func _process(delta):
 func _on_button_pressed():
 	if state == "talking":
 		state = "speed_talk"
+	
+func _on_button_skip_tuto_pressed():
+	tutorial_progress = 3
+	$button_skip_tuto.visible = false
 	

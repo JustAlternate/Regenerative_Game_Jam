@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://do6kg650xnlrx"]
+[gd_scene load_steps=6 format=3 uid="uid://ctaxigaw1ef6x"]
 
-[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="2_8p0q4"]
+[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="2_8p0q4"]
 [ext_resource type="Script" path="res://Scripts/button_for_grandpa.gd" id="3_0h5ig"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57o6u"]

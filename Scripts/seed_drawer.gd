@@ -31,7 +31,7 @@ func remove_seed_from_drawer(seed):
 	$HBoxContainer/GridContainer.get_node("Container_"+seed).visible = false
 	refresh_drawer()
 
-func _on_open_drawer_button_toggled(button_pressed):
+func _on_open_drawer_button_toggled(button_pressed=null):
 	GlobalVariables.action_picked = "none"
 	Input.set_custom_mouse_cursor(arrow_game)
 	if $HBoxContainer/GridContainer.visible:
