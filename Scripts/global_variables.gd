@@ -214,6 +214,6 @@ var inventory = {
 	"vine":{"seed": 0, "plant": 0},
 	"zucchini":{"seed": 0, "plant": 0},
 	"ail":{"seed": 0, "plant": 0},
-	"radish":{"seed": 1, "plant": 0}
+	"radish":{"seed": 0, "plant": 0}
 }
 
