@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://du2q4bvo17ea"]
+[gd_scene load_steps=17 format=3 uid="uid://du2q4bvo17ea"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_grand_pere.gd" id="1_5a700"]
 [ext_resource type="Texture2D" uid="uid://jh1pda531gv5" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bry0bfjp10mlg" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
 [ext_resource type="AudioStream" uid="uid://cb11fdf7ie1mb" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
 [ext_resource type="PackedScene" uid="uid://ctaxigaw1ef6x" path="res://Scenes/button_for_grandpa.tscn" id="8_kgdim"]
+[ext_resource type="AudioStream" uid="uid://bihflxsrul0av" path="res://Assets/sfx/mongolian.mp3" id="8_ns56r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tnvqk"]
 
@@ -92,6 +93,9 @@ stream = ExtResource("5_2k5xx")
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="GrandpaSFX"]
 stream = ExtResource("6_86aom")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="GrandpaSFX"]
+stream = ExtResource("8_ns56r")
 
 [node name="button_skip_tuto" parent="." instance=ExtResource("8_kgdim")]
 offset_left = -62.0

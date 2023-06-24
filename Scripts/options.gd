@@ -16,7 +16,7 @@ func _ready():
 func _process(delta):
 	for i in range ($backgound/Sprite_deroulant.get_child_count()):
 		if $backgound/Sprite_deroulant.get_child(i).position.x > 1000:
-			$backgound/Sprite_deroulant.get_child(i).position.x = -100
+			$backgound/Sprite_deroulant.get_child(i).position.x = -2600
 		$backgound/Sprite_deroulant.get_child(i).position.x +=1
 
 func _on_exit_pressed():

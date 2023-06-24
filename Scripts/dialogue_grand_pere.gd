@@ -7,6 +7,8 @@ extends Node2D
 @export var time_betwen_carac:float = 0.03
 @export var time_betwen_dialogue:float = 2
 @export var time_after_dialogue:float = 3
+var number_of_time_grandpa_talked = 0
+var number_of_time_until_mongolian = 3
 
 
 var state = "none"
@@ -193,6 +195,7 @@ func writing_text(text):
 func grandpa_talk(text):
 	if not(text in dialogue_queue):
 		dialogue_queue.append(text)
+		number_of_time_grandpa_talked+=1
 	
 func grandpa_start_talk():
 	state = "talking"
@@ -200,7 +203,10 @@ func grandpa_start_talk():
 	
 	text = dialogue_queue.pop_front()
 	
-	$GrandpaSFX/AudioStreamPlayer2.play()
+	if number_of_time_grandpa_talked < number_of_time_until_mongolian:
+		$GrandpaSFX/AudioStreamPlayer2.play()
+	else:
+		$GrandpaSFX/AudioStreamPlayer3.play()
 	for i in range(len(dico_dialogue[text][1])):
 		await writing_text(dico_dialogue[text][1][i])
 		state = "pending"
