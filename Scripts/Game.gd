@@ -27,8 +27,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#print(GlobalVariables.inventory)
-	pass
+	if Input.is_action_just_pressed("right_click"):
+		Input.set_custom_mouse_cursor(arrow_game)
+		GlobalVariables.action_picked = "none"
 
 var background_season_animation_dico = [
 	"spring", # Spring1
