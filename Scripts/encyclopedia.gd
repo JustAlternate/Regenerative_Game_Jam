@@ -88,7 +88,8 @@ func _on_button_button_down():
 	
 func _on_close_button_down():
 	get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["closed_book",actual_page_number])
-	$Book.visible = false
+	$Book.hide()
+	$OpenClose.button_pressed = false
 	$BookCloseSFX.play_random_sound()
 
 func maj_book(new_page_number):
@@ -119,6 +120,7 @@ func open_on_name(plant:String):
 		var actual_page_number = summary[plant]
 		$Book.show()
 		$PageFlipSFX.play_random_sound()
+		$OpenClose.button_pressed = true
 		maj_book(actual_page_number)
 		
 
@@ -134,12 +136,6 @@ func _on_previous_page_button_down():
 		maj_book(actual_page_number)
 
 
-func _on_open_close_mouse_entered():
-	$box_little_book.animation = "souris"
-
-func _on_open_close_mouse_exited():
-	$box_little_book.animation = "default"
- 
 func _on_close_mouse_entered():
 	$Book/button_close.animation = "souris"
 

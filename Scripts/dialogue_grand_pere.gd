@@ -52,7 +52,7 @@ func player_just_did_something(thing):
 	
 	if thing[0] == "talk":
 		if thing[1] == "Lore1":
-			get_tree().root.get_node("home/Game/Encyclopedia")._on_button_button_down()
+			get_tree().root.get_node("home/Game/Encyclopedia").open_on_name("radish")
 	
 	if thing[0] == "talk":
 		if thing[1] == "Lore3":
