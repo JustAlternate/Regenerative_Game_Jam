@@ -5,7 +5,7 @@ var closing:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	global_position = targeted_plant.global_position + Vector2(0,-32)
+	global_position = targeted_plant.global_position + Vector2(-5,10)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
