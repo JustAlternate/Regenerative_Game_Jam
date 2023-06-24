@@ -24,8 +24,9 @@ func open_menu(plant:Node):
 
 func destruction():
 	closing = true
-	if $button_harvest/Label_Harvest.visible:
+	if $button_harvest.visible:
 		$button_harvest.hide()
+		$Animated_Harvest.show()
 		$Animated_Harvest.play("default", -2, true)
 	$button_info.hide()
 	$Animated_Info.show()
