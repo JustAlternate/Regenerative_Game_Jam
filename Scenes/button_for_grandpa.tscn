@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ctaxigaw1ef6x"]
 
-[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="2_8p0q4"]
+[ext_resource type="FontFile" uid="uid://bc1k56qxxei71" path="res://fonts/PixelOperatorMono8-Bold.ttf" id="1_pm4jn"]
 [ext_resource type="Script" path="res://Scripts/button_for_grandpa.gd" id="3_0h5ig"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57o6u"]
@@ -32,7 +32,8 @@ corner_detail = 4
 anti_aliasing = false
 
 [sub_resource type="Theme" id="Theme_obpcp"]
-default_font = ExtResource("2_8p0q4")
+default_font = ExtResource("1_pm4jn")
+default_font_size = 8
 Button/styles/hover = SubResource("StyleBoxFlat_57o6u")
 Button/styles/normal = SubResource("StyleBoxFlat_x3dwv")
 

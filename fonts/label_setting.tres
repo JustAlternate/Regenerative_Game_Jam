@@ -1,8 +1,10 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dtbvo0w76rap1"]
 
-[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="1_gl0qe"]
+[ext_resource type="FontFile" uid="uid://bc1k56qxxei71" path="res://fonts/PixelOperatorMono8-Bold.ttf" id="1_ledan"]
 
 [resource]
 line_spacing = 1.0
-font = ExtResource("1_gl0qe")
-font_color = Color(0, 0, 0, 1)
+font = ExtResource("1_ledan")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b2sblst4m6bns"]
+[gd_scene load_steps=33 format=3 uid="uid://b2sblst4m6bns"]
 
 [ext_resource type="Script" path="res://Scripts/options.gd" id="1_ym2a3"]
 [ext_resource type="Texture2D" uid="uid://c316bp5qubrnl" path="res://Assets/sprites/closed_book.png" id="2_0qkgk"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://b61vvtpmx54qh" path="res://Assets/sprites/dirt-moist.png" id="3_xbisr"]
 [ext_resource type="Texture2D" uid="uid://d2b0lh4uk7rri" path="res://Assets/sprites/dirt-moist-to-soaked.png" id="4_nent8"]
 [ext_resource type="PackedScene" uid="uid://olb5ewo4ysgy" path="res://Scenes/menu_running_sprites.tscn" id="4_t5g25"]
-[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="5_5jcpg"]
 [ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="5_r67c7"]
 [ext_resource type="Texture2D" uid="uid://cfphv0b6rly3m" path="res://Assets/sprites/dirt-soaked.png" id="5_x8tpy"]
 [ext_resource type="Texture2D" uid="uid://7iu6ttth2wqn" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="6_67tv4"]
@@ -19,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://dla63gt3en6l2" path="res://Assets/Plant/background-ete.png" id="9_15neg"]
 [ext_resource type="Texture2D" uid="uid://bf81ak5wtl4g7" path="res://Assets/Plant/background-hiver.png" id="10_emsv5"]
 [ext_resource type="Texture2D" uid="uid://bvqit0s4mjmxl" path="res://Assets/Plant/titre-menu.png" id="12_o6wo1"]
+[ext_resource type="FontFile" uid="uid://bc1k56qxxei71" path="res://fonts/PixelOperatorMono8-Bold.ttf" id="17_g7ad2"]
+[ext_resource type="FontFile" uid="uid://dagdtawwoj7oe" path="res://fonts/PixelOperatorMono8.ttf" id="18_sdxp8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4w73x"]
 atlas = ExtResource("6_67tv4")
@@ -103,17 +104,23 @@ Panel/styles/panel = SubResource("StyleBoxFlat_fk7x4")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dwwl6"]
 
 [sub_resource type="Theme" id="Theme_aceay"]
-default_font = ExtResource("5_5jcpg")
-default_font_size = 16
+default_font_size = 5
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 Button/styles/hover = ExtResource("5_r67c7")
 Button/styles/normal = ExtResource("6_emf77")
 
+[sub_resource type="LabelSettings" id="LabelSettings_5p1t0"]
+line_spacing = 1.0
+font = ExtResource("18_sdxp8")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Theme" id="Theme_ylm01"]
 
 [node name="options" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_ym2a3")
 
 [node name="backgound" type="Node2D" parent="."]
@@ -186,10 +193,11 @@ texture = ExtResource("2_0qkgk")
 
 [node name="Title" type="Label" parent="backgound/Menu_title2"]
 layout_mode = 0
-offset_left = 217.0
+offset_left = 193.0
 offset_top = 5.0
-offset_right = 453.0
+offset_right = 429.0
 offset_bottom = 68.0
+scale = Vector2(1.1, 1.1)
 text = "The Garden of the day after"
 label_settings = ExtResource("3_7eb2p")
 horizontal_alignment = 1
@@ -197,23 +205,25 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Exit" type="Button" parent="."]
+texture_filter = 1
 offset_left = 195.0
 offset_top = 221.0
 offset_right = 279.0
 offset_bottom = 244.0
 scale = Vector2(2, 2)
 theme = SubResource("Theme_aceay")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("17_g7ad2")
+theme_override_font_sizes/font_size = 8
 text = "Exit"
 
 [node name="Master" type="Label" parent="."]
 offset_left = 120.0
-offset_top = 66.0
+offset_top = 77.0
 offset_right = 408.0
-offset_bottom = 109.0
+offset_bottom = 120.0
 scale = Vector2(1.1, 1.1)
 text = "Master"
-label_settings = ExtResource("3_7eb2p")
+label_settings = SubResource("LabelSettings_5p1t0")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -232,13 +242,13 @@ value = -2.0
 
 [node name="Music" type="Label" parent="."]
 offset_left = 120.0
-offset_top = 106.0
+offset_top = 117.0
 offset_right = 408.0
-offset_bottom = 149.0
+offset_bottom = 160.0
 scale = Vector2(1.1, 1.1)
 text = "Music
 "
-label_settings = ExtResource("3_7eb2p")
+label_settings = SubResource("LabelSettings_5p1t0")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -257,13 +267,13 @@ value = -2.0
 
 [node name="SFX" type="Label" parent="."]
 offset_left = 120.0
-offset_top = 146.0
+offset_top = 157.0
 offset_right = 408.0
-offset_bottom = 189.0
+offset_bottom = 200.0
 scale = Vector2(1.1, 1.1)
 text = "SFX
 "
-label_settings = ExtResource("3_7eb2p")
+label_settings = SubResource("LabelSettings_5p1t0")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
