@@ -116,6 +116,7 @@ seed_name = "leek"
 
 [node name="OpenDrawerButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 0
 toggle_mode = true
 texture_normal = ExtResource("16_5gp6l")
