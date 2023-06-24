@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://cd4110b2l4fjg"]
 
 [ext_resource type="Script" path="res://Scripts/objectivesV2.gd" id="1_cvc7s"]
-[ext_resource type="Texture2D" uid="uid://c4on1bwj00kv0" path="res://Assets/sprites/food_objectives.png" id="2_dluyc"]
-[ext_resource type="Texture2D" uid="uid://bem10j24m316a" path="res://Assets/sprites/objectives_cursor.png" id="3_tgs0n"]
-[ext_resource type="FontFile" uid="uid://dinlurcky8yjo" path="res://fonts/FutilePro.ttf" id="4_cgxvc"]
+[ext_resource type="Texture2D" uid="uid://bvbtpretvnan2" path="res://Assets/sprites/food_objectives.png" id="2_dluyc"]
+[ext_resource type="Texture2D" uid="uid://ddhvrwnim2f12" path="res://Assets/sprites/objectives_cursor.png" id="3_tgs0n"]
+[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="4_cgxvc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f8btn"]
 line_spacing = 1.0

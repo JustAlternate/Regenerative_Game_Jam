@@ -23,174 +23,6 @@ signal calling_contextual_menu
 @export var voisin_droit:Node2D = null
 @export var voisin_gauche:Node2D = null
 
-# Spring1 = [1,1] , Summer2 = [2,2], Automn1 = [3,1] , Winter2 = [4,2]
-var dico_caracteristique = {
-	"bonus_season":{
-		"pea":[[4,1],[4,2]],
-		"leek":[[2,2]],
-		"corn":[[1,1]],
-		"wheat":[[4,2]],
-		"carrot":[[1,1]],
-		"mint":[[1,1]],
-		"pumpkin":[[1,2]],
-		"tomatoes":[[1,1]],
-		"thym":[[3,1]],
-		"vine":[[4,1],[4,2]],
-		"zucchini":[[1,1]],
-		"ail":[],
-		"radish":[],
-	},
-	"season":
-	{
-		"pea":[[1,1],[3,2]],
-		"leek":[[2,1],[2,2],[3,1]],
-		"corn":[[1,2]],
-		"wheat":[[3,1]],
-		"carrot":[[4,2],[1,2]],
-		"mint":[[4,2],[1,2]],
-		"pumpkin":[[1,1],[2,1]],
-		"tomatoes":[[4,2],[1,2]],
-		"thym":[[1,1],[1,2]],
-		"vine":[[3,2],[1,1]],
-		"zucchini":[[4,2],[1,2]],
-		"ail":[[3,2],[4,2]],
-		"radish":[[4,1],[4,2],[1,1],[1,2],[2,1],[2,2],[3,1]],
-	},
-	"number_of_phases":{
-		"pea":2,
-		"leek":3,
-		"corn":2,
-		"wheat":4,
-		"carrot":3,
-		"mint":3,
-		"pumpkin":3,
-		"tomatoes":2,
-		"thym":4,
-		"vine":4,
-		"zucchini":2,
-		"ail":3,
-		"radish":1,
-	},
-	"humidities_bonus":{ #0 = sec, 1 = normal, 2 = trempé
-		"pea":[1],
-		"leek":[1],
-		"corn":[2],
-		"wheat":[1],
-		"carrot":[1,2],
-		"mint":[2],
-		"pumpkin":[1,2],
-		"tomatoes":[2],
-		"thym":[0],
-		"vine":[1],
-		"zucchini":[2],
-		"ail":[0],
-		"radish":[2],
-	},
-	"humidities_possible":{ #0 = sec, 1 = normal, 2 = trempé
-		"pea":[0,1,2],
-		"leek":[0,1,2],
-		"corn":[1,2],
-		"wheat":[0,1,2],
-		"carrot":[1,2,3],
-		"mint":[1,2],
-		"pumpkin":[1,2,3],
-		"tomatoes":[1,2,3],
-		"thym":[0,1],
-		"vine":[0,1,2],
-		"zucchini":[1,2],
-		"ail":[0,1],
-		"radish":[1,2],
-	},
-	"minimum_nutriment_values":{ # 0 = pas de nutriment, 1 = un peu nutriment, 2 = tres nutriments
-		"pea":0,
-		"leek":0,
-		"corn":1,
-		"wheat":0,
-		"carrot":2,
-		"mint":2,
-		"pumpkin":1,
-		"tomatoes":1,
-		"thym":0,
-		"vine":0,
-		"zucchini":2,
-		"ail":0,
-		"radish":2,
-	},
-	"sunlight_possible":{
-		"pea":[0,1],
-		"leek":[0,1,2],
-		"corn":[1,2],
-		"wheat":[1,2],
-		"carrot":[0,1,2],
-		"mint":[0,1,2],
-		"pumpkin":[0,1],
-		"tomatoes":[1,2],
-		"thym":[1,2],
-		"vine":[1,2],
-		"zucchini":[1,2],
-		"ail":[1,2],
-		"radish":[0,1],
-	},
-	"sunlight_bonus":{
-		"pea":0,
-		"leek":1,
-		"corn":2,
-		"wheat":2,
-		"carrot":1,
-		"mint":1,
-		"pumpkin":0,
-		"tomatoes":2,
-		"thym":2,
-		"vine":2,
-		"zucchini":2,
-		"ail":2,
-		"radish":0,
-	},
-	"appreciated_adjacents_plants":{
-		"pea":[],
-		"leek":["carrot","tomatoes"],
-		"corn":["pumpkin"],
-		"wheat":[],
-		"carrot":["tomatoes","leek","pea","radish","ail"],
-		"mint":["thym","tomatoes","pea","fadish"],
-		"pumpkin":[],
-		"tomatoes":["radish"],
-		"thym":["mint"],
-		"vine":[],
-		"zucchini":["pea"],
-		"ail":["tomatoes"],
-		"radish":["carrot","ail","pea","tomatoes"],
-		"None":[]
-	},
-	"unapreciated_adjacents_plants":{
-		"pea":[],
-		"leek":["pea"],
-		"corn":[],
-		"wheat":[],
-		"carrot":[],
-		"mint":["carrot","corn"],
-		"pumpkin":[],
-		"tomatoes":[],
-		"thym":[],
-		"vine":[],
-		"zucchini":[],
-		"ail":["pea"],
-		"radish":[],
-		"None":[]
-	},
-}
-
-var dico_bonus_malus = { #[Bonus si respectée, Bonus si pas respectée]
-	"bonus_season":[2,0],
-	"season":[0,-4],
-	"humidities_bonus":[1,0],
-	"humidities_possible":[0,-2],
-	"minimum_nutriment_values":[1,"requis-actual"], # ATTENTION NE PAS CHANGER CETTE LIGNE
-	"appreciated_adjacents_plants":[1,0],
-	"unapreciated_adjacents_plants":[-1,0],
-	"sunlight_bonus":[1,0],
-	"sunlight_possible":[0,-1],
-}
 
 var state:int
 var plant_health:int
@@ -285,82 +117,82 @@ func show_emotions():
 
 func bonus_malus_seasons(actual_season):
 	if state == 0: # Si la plante est une graine
-		if actual_season in dico_caracteristique["bonus_season"][plant_type]:
+		if actual_season in GlobalVariables.dico_caracteristique["bonus_season"][plant_type]:
 			await afficher_feeling("season+")
 			# Si la plante est une graine est quelle est a la bonne bonus saison alors boom, elle prend le bonus.
-			plant_health += dico_bonus_malus["bonus_season"][0]
-		elif actual_season in dico_caracteristique["season"][plant_type]:
+			plant_health += GlobalVariables.dico_bonus_malus["bonus_season"][0]
+		elif actual_season in GlobalVariables.dico_caracteristique["season"][plant_type]:
 			# Si la plant est dans une season valide
-			plant_health += dico_bonus_malus["season"][0]
+			plant_health += GlobalVariables.dico_bonus_malus["season"][0]
 		else:
 			await afficher_feeling("season-")
 			# Si la plante est une graine mais quelle n'est pas dans une season valide alors on met le malus.
-			plant_health += dico_bonus_malus["season"][1]
+			plant_health += GlobalVariables.dico_bonus_malus["season"][1]
 func bonus_malus_nutriment(nutriment_value):
 	if state == 0: # Si la plante est une graine
-		if nutriment_value >= dico_caracteristique["minimum_nutriment_values"][plant_type]:
+		if nutriment_value >= GlobalVariables.dico_caracteristique["minimum_nutriment_values"][plant_type]:
 			await afficher_feeling("nutrient+")
 			# On met le bonus.
-			plant_health += dico_bonus_malus["minimum_nutriment_values"][0]
+			plant_health += GlobalVariables.dico_bonus_malus["minimum_nutriment_values"][0]
 		else:
 			await afficher_feeling("nutrient-")
 			# On met le malus.
-			if dico_bonus_malus["minimum_nutriment_values"][1] == "requis-actual":
-				plant_health += abs(dico_caracteristique["minimum_nutriment_values"][plant_type] - nutriment_value)
+			if GlobalVariables.dico_bonus_malus["minimum_nutriment_values"][1] == "requis-actual":
+				plant_health += abs(GlobalVariables.dico_caracteristique["minimum_nutriment_values"][plant_type] - nutriment_value)
 			else:
-				plant_health += dico_bonus_malus["minimum_nutriment_values"][1]
+				plant_health += GlobalVariables.dico_bonus_malus["minimum_nutriment_values"][1]
 func bonus_malus_humidity(humidity_value):
-	if humidity_value in dico_caracteristique["humidities_bonus"][plant_type]:
+	if humidity_value in GlobalVariables.dico_caracteristique["humidities_bonus"][plant_type]:
 		await afficher_feeling("humidity+")
-		plant_health += dico_bonus_malus["humidities_bonus"][0]
+		plant_health += GlobalVariables.dico_bonus_malus["humidities_bonus"][0]
 	else:
-		plant_health += dico_bonus_malus["humidities_bonus"][1]
+		plant_health += GlobalVariables.dico_bonus_malus["humidities_bonus"][1]
 	
-	if not(humidity_value in dico_caracteristique["humidities_bonus"][plant_type]):
-		if humidity_value in dico_caracteristique["humidities_possible"][plant_type]:
-			plant_health += dico_bonus_malus["humidities_possible"][0]
+	if not(humidity_value in GlobalVariables.dico_caracteristique["humidities_bonus"][plant_type]):
+		if humidity_value in GlobalVariables.dico_caracteristique["humidities_possible"][plant_type]:
+			plant_health += GlobalVariables.dico_bonus_malus["humidities_possible"][0]
 		else:
 			await afficher_feeling("humidity-")
-			plant_health += dico_bonus_malus["humidities_possible"][1]
+			plant_health += GlobalVariables.dico_bonus_malus["humidities_possible"][1]
 
 func bonus_malus_sunlight(sunlight_value):
-	if sunlight_value == dico_caracteristique["sunlight_bonus"][plant_type]:
+	if sunlight_value == GlobalVariables.dico_caracteristique["sunlight_bonus"][plant_type]:
 		await afficher_feeling("sun+")
-		plant_health += dico_bonus_malus["sunlight_bonus"][0]
+		plant_health += GlobalVariables.dico_bonus_malus["sunlight_bonus"][0]
 	else:
-		plant_health += dico_bonus_malus["sunlight_bonus"][1]
+		plant_health += GlobalVariables.dico_bonus_malus["sunlight_bonus"][1]
 	
-	if not(sunlight_value == dico_caracteristique["sunlight_bonus"][plant_type]):
-		if sunlight_value in dico_caracteristique["sunlight_possible"][plant_type]:
-			plant_health += dico_bonus_malus["sunlight_possible"][0]
+	if not(sunlight_value == GlobalVariables.dico_caracteristique["sunlight_bonus"][plant_type]):
+		if sunlight_value in GlobalVariables.dico_caracteristique["sunlight_possible"][plant_type]:
+			plant_health += GlobalVariables.dico_bonus_malus["sunlight_possible"][0]
 		else:
 			await afficher_feeling("sun-")
-			plant_health += dico_bonus_malus["sunlight_possible"][1]	
+			plant_health += GlobalVariables.dico_bonus_malus["sunlight_possible"][1]	
 func bonus_malus_voisin(voisin_droit,voisin_gauche):
 	#voisin droit
-	if voisin_droit in dico_caracteristique["appreciated_adjacents_plants"][plant_type]:
+	if voisin_droit in GlobalVariables.dico_caracteristique["appreciated_adjacents_plants"][plant_type]:
 		await afficher_feeling("friend+")
-		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][0]
+		plant_health += GlobalVariables.dico_bonus_malus["appreciated_adjacents_plants"][0]
 	else:
-		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][1]
+		plant_health += GlobalVariables.dico_bonus_malus["appreciated_adjacents_plants"][1]
 	
-	if voisin_droit in dico_caracteristique["unapreciated_adjacents_plants"][plant_type]:
+	if voisin_droit in GlobalVariables.dico_caracteristique["unapreciated_adjacents_plants"][plant_type]:
 		await afficher_feeling("friend-")
-		plant_health += dico_bonus_malus["unapreciated_adjacents_plants"][0]
+		plant_health += GlobalVariables.dico_bonus_malus["unapreciated_adjacents_plants"][0]
 	else:
-		plant_health += dico_bonus_malus["unapreciated_adjacents_plants"][1]
+		plant_health += GlobalVariables.dico_bonus_malus["unapreciated_adjacents_plants"][1]
 	#voisin gauche
-	if voisin_gauche in dico_caracteristique["appreciated_adjacents_plants"][plant_type]:
+	if voisin_gauche in GlobalVariables.dico_caracteristique["appreciated_adjacents_plants"][plant_type]:
 		await afficher_feeling("friend+")
-		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][0]
+		plant_health += GlobalVariables.dico_bonus_malus["appreciated_adjacents_plants"][0]
 	else:
-		plant_health += dico_bonus_malus["appreciated_adjacents_plants"][1]
+		plant_health += GlobalVariables.dico_bonus_malus["appreciated_adjacents_plants"][1]
 
-	if voisin_gauche in dico_caracteristique["unapreciated_adjacents_plants"][plant_type]:
+	if voisin_gauche in GlobalVariables.dico_caracteristique["unapreciated_adjacents_plants"][plant_type]:
 		await afficher_feeling("friend-")
-		plant_health += dico_bonus_malus["unapreciated_adjacents_plants"][0]
+		plant_health += GlobalVariables.dico_bonus_malus["unapreciated_adjacents_plants"][0]
 	else:
-		plant_health += dico_bonus_malus["unapreciated_adjacents_plants"][1]
+		plant_health += GlobalVariables.dico_bonus_malus["unapreciated_adjacents_plants"][1]
 
 func change_dirt(temp_humidity_value, random_event):
 	if temp_humidity_value == 0:
@@ -426,7 +258,7 @@ func next_quarter_of_season(new_phase,random_event):
 			if temp_humidity_value > 0:
 				temp_humidity_value -= 1
 		
-		if state < dico_caracteristique["number_of_phases"][plant_type]:
+		if state < GlobalVariables.dico_caracteristique["number_of_phases"][plant_type]:
 			# Alors la plante peut encore poussé :
 			
 			# On applique les bonus / malus sur la vie de le a plante.

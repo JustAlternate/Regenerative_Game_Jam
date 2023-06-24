@@ -44,8 +44,8 @@ var last_eat = ["tomatoes", "thym"]
 
 
 func recolte(plant, number):
-	ressource += number * relation_ressource[plant]
-	taste += number * relation_taste[plant]
+	ressource += number * relation_ressource[plant] * GlobalVariables.dico_caracteristique["number_of_phases"][plant]
+	taste += number * relation_taste[plant] * GlobalVariables.dico_caracteristique["number_of_phases"][plant]
 	
 	if not plant in last_eat:
 		diversity += 5

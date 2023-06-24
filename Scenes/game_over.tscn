@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgbwv5r0qdsoi"]
+[gd_scene load_steps=12 format=3 uid="uid://bgbwv5r0qdsoi"]
 
-[ext_resource type="Texture2D" uid="uid://kncwv3pi1c8h" path="res://Assets/Plant/gamr-over.png" id="1_ue12i"]
+[ext_resource type="Texture2D" uid="uid://cd76batoagmd5" path="res://Assets/Plant/gamr-over.png" id="1_ue12i"]
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_w5a82"]
 [ext_resource type="StyleBox" uid="uid://ce0ja15527606" path="res://button_type_hover.tres" id="3_hn7jf"]
 [ext_resource type="StyleBox" uid="uid://d3vi3glx4440d" path="res://button_type_normal.tres" id="4_lrql2"]
-[ext_resource type="FontFile" uid="uid://0bfdvx78rhbh" path="res://fonts/FutilePro.ttf" id="5_7l10l"]
+[ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="5_7l10l"]
+[ext_resource type="Texture2D" uid="uid://jh1pda531gv5" path="res://Assets/sprites/vieux_fou.png" id="6_lr4fc"]
+[ext_resource type="Texture2D" uid="uid://bwss4mky45xuf" path="res://Assets/Plant/sprite-panneau.png" id="7_xdbxx"]
+[ext_resource type="Texture2D" uid="uid://brtqsnrhgifpe" path="res://Assets/sprites/tombe.png" id="8_t1odj"]
+[ext_resource type="Texture2D" uid="uid://b5bq4gmb4ti3h" path="res://Assets/sprites/little_book.png" id="9_1c6eh"]
 
 [sub_resource type="Theme" id="Theme_dnpf8"]
 default_font = ExtResource("5_7l10l")
@@ -14,6 +18,13 @@ Button/colors/font_hover_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 Button/styles/hover = ExtResource("3_hn7jf")
 Button/styles/normal = ExtResource("4_lrql2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_kvrgt"]
+line_spacing = 1.0
+font = ExtResource("5_7l10l")
+font_size = 18
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Game over" type="Node2D"]
 script = ExtResource("1_w5a82")
@@ -26,13 +37,50 @@ texture = ExtResource("1_ue12i")
 [node name="Exit" type="Button" parent="."]
 texture_filter = 1
 offset_left = 195.0
-offset_top = 237.0
+offset_top = 173.0
 offset_right = 279.0
-offset_bottom = 260.0
+offset_bottom = 196.0
 scale = Vector2(2, 2)
 focus_mode = 0
 theme = SubResource("Theme_dnpf8")
 theme_override_font_sizes/font_size = 16
 text = "Quit"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(480, 288)
+rotation = -1.5708
+texture = ExtResource("6_lr4fc")
+
+[node name="Sprite-panneau" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(462, 225)
+texture = ExtResource("7_xdbxx")
+
+[node name="Label" type="Label" parent="Sprite-panneau"]
+texture_filter = 1
+offset_left = -24.0
+offset_top = -19.0
+offset_right = 209.0
+offset_bottom = 58.0
+scale = Vector2(0.3, 0.3)
+text = "Here lies grandpa."
+label_settings = SubResource("LabelSettings_kvrgt")
+metadata/_edit_use_anchors_ = true
+
+[node name="Tombe" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(423, 236)
+texture = ExtResource("8_t1odj")
+
+[node name="Tombe2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(71, 236)
+texture = ExtResource("8_t1odj")
+
+[node name="LittleBook" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(469, 285)
+texture = ExtResource("9_1c6eh")
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
