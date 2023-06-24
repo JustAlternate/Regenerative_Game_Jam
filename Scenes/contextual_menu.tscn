@@ -132,6 +132,7 @@ icon = ExtResource("2_wfqac")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label_Harvest" type="Label" parent="button_harvest"]
+visible = false
 layout_mode = 0
 offset_left = 23.0
 offset_top = 2.0
@@ -162,6 +163,7 @@ icon = ExtResource("3_muy21")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label_remove" type="Label" parent="button_remove"]
+visible = false
 layout_mode = 0
 offset_left = 21.0
 offset_top = 3.0
@@ -191,6 +193,7 @@ icon = ExtResource("4_ywbs1")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label_Info" type="Label" parent="button_info"]
+visible = false
 layout_mode = 0
 offset_left = 19.0
 offset_top = 2.0
