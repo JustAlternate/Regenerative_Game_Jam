@@ -1,33 +1,32 @@
 [gd_scene load_steps=14 format=3 uid="uid://y7p56ox4gd3m"]
 
-[ext_resource type="Texture2D" uid="uid://q826660poqfo" path="res://Assets/sprites/seed_drawer/container_background.png" id="1_qdf2a"]
-[ext_resource type="Texture2D" uid="uid://iypy24yjk1fb" path="res://Assets/sprites/plant/carrot_1.png" id="2_1kcd3"]
+[ext_resource type="Texture2D" uid="uid://bctmb6og8b201" path="res://Assets/sprites/seed_drawer/container_background.png" id="1_qdf2a"]
+[ext_resource type="Texture2D" uid="uid://fhgk07p4pmrr" path="res://Assets/sprites/plant/carrot_1.png" id="2_1kcd3"]
 [ext_resource type="Script" path="res://Scripts/seed_container.gd" id="2_kilvm"]
-[ext_resource type="Texture2D" uid="uid://e5mytk4gvkgx" path="res://Assets/sprites/seed_drawer/container_selected.png" id="2_ndrbk"]
-[ext_resource type="Texture2D" uid="uid://b5m7bonb8boaq" path="res://Assets/Plant/sprite-sac.png" id="4_e1de4"]
-[ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="5_ljx6v"]
-[ext_resource type="FontFile" uid="uid://bc1k56qxxei71" path="res://fonts/PixelOperatorMono8-Bold.ttf" id="6_4tqxf"]
-[ext_resource type="Texture2D" uid="uid://dyi3lrs0sa2uf" path="res://Assets/Plant/icon/sprite-mais.png" id="6_kpi08"]
-[ext_resource type="AudioStream" uid="uid://dae8s17h0fjy0" path="res://Assets/sfx/seed_bag/seed_bag1.wav" id="6_vhbff"]
-[ext_resource type="AudioStream" uid="uid://15m3udg28gcb" path="res://Assets/sfx/seed_bag/seed_bag2.wav" id="7_mr3pn"]
+[ext_resource type="Texture2D" uid="uid://dcqu7270p1a1g" path="res://Assets/sprites/seed_drawer/container_selected.png" id="2_ndrbk"]
+[ext_resource type="Texture2D" uid="uid://d36s3adq34t8k" path="res://Assets/Plant/sprite-sac.png" id="4_e1de4"]
+[ext_resource type="FontFile" uid="uid://bnbwhpnyrg84f" path="res://fonts/FutilePro.ttf" id="4_qmunb"]
+[ext_resource type="PackedScene" uid="uid://b05j16p7wwoul" path="res://Scenes/sound_pool.tscn" id="5_ljx6v"]
+[ext_resource type="Texture2D" uid="uid://da8cefrkfo8pc" path="res://Assets/Plant/icon/sprite-mais.png" id="6_kpi08"]
+[ext_resource type="AudioStream" uid="uid://c26sgq6cm5a0i" path="res://Assets/sfx/seed_bag/seed_bag1.wav" id="6_vhbff"]
+[ext_resource type="AudioStream" uid="uid://chwgw6ax8w71d" path="res://Assets/sfx/seed_bag/seed_bag2.wav" id="7_mr3pn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_asshp"]
 line_spacing = 1.0
-font = ExtResource("6_4tqxf")
+font = ExtResource("4_qmunb")
 
 [sub_resource type="Theme" id="Theme_8mflw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fklot"]
 line_spacing = 1.0
-font = ExtResource("6_4tqxf")
-font_size = 8
+font = ExtResource("4_qmunb")
 
 [node name="SeedContainer" type="TextureButton"]
 texture_filter = 1
 offset_right = 58.0
 offset_bottom = 58.0
 texture_normal = ExtResource("1_qdf2a")
-texture_focused = ExtResource("2_ndrbk")
+texture_pressed = ExtResource("2_ndrbk")
 script = ExtResource("2_kilvm")
 Seed_Texture = ExtResource("2_1kcd3")
 seed_name = "carrot"
@@ -44,17 +43,16 @@ offset_right = 110.0
 offset_bottom = 18.0
 scale = Vector2(0.5, 0.5)
 label_settings = SubResource("LabelSettings_asshp")
-horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 47.0
-offset_right = 69.0
-offset_bottom = 62.0
-scale = Vector2(0.8, 0.8)
+offset_left = -3.0
+offset_top = 50.0
+offset_right = 147.0
+offset_bottom = 65.0
+scale = Vector2(0.4, 0.4)
 theme = SubResource("Theme_8mflw")
 text = "tomatoes"
 label_settings = SubResource("LabelSettings_fklot")
