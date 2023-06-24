@@ -1,6 +1,5 @@
 [gd_scene load_steps=19 format=3 uid="uid://cpc1baduxkefv"]
 
-[ext_resource type="Texture2D" uid="uid://cr62jv3kvycj0" path="res://Assets/sprites/seed_drawer/button_closed.png" id="1_fiswa"]
 [ext_resource type="Script" path="res://Scripts/seed_drawer.gd" id="1_g10ax"]
 [ext_resource type="PackedScene" uid="uid://y7p56ox4gd3m" path="res://Scenes/seed_container.tscn" id="2_ck28v"]
 [ext_resource type="Texture2D" uid="uid://jh0ntdt5rrq1" path="res://Assets/Plant/icon/sprite-tomate.png" id="3_lfjpa"]
@@ -18,8 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://bcv0prpswiphk" path="res://Assets/Plant/icon/sprite-petit-pois.png" id="13_d4g0b"]
 [ext_resource type="Texture2D" uid="uid://di85mgsolq7mv" path="res://Assets/Plant/icon/sprite-vigne.png" id="14_hmlxu"]
 [ext_resource type="Texture2D" uid="uid://5j5ol1e3fobb" path="res://Assets/Plant/icon/sprite-poireau.png" id="15_i7x0d"]
+[ext_resource type="Texture2D" uid="uid://c7tqjew64yrnt" path="res://Assets/Plant/sac_avec_graine.png" id="16_5gp6l"]
 
 [node name="seed_drawer" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_g10ax")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -117,7 +118,7 @@ seed_name = "leek"
 layout_mode = 2
 size_flags_vertical = 0
 toggle_mode = true
-texture_normal = ExtResource("1_fiswa")
+texture_normal = ExtResource("16_5gp6l")
 stretch_mode = 3
 
 [node name="OpenSFX" type="AudioStreamPlayer" parent="."]
