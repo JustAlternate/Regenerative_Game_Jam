@@ -7,6 +7,8 @@ signal draweeeer
 
 var arrow_game = load("res://Assets/sprites/cursor_game.png")
 var arrow_farm = load("res://Assets/sprites/cursor_farm.png")
+var texture_activated:Texture2D = load("res://Assets/sprites/seed_drawer/container_selected.png")
+var texture_pas_activated:Texture2D = load("res://Assets/sprites/seed_drawer/container_background.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,7 +31,10 @@ func update_number_seed():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if (GlobalVariables.action_picked == "seed" and GlobalVariables.seed_picked == seed_name):
+		set_texture_normal(texture_activated)
+	else:
+		set_texture_normal(texture_pas_activated)
 
 
 func _on_pressed():
@@ -41,8 +46,6 @@ func _on_pressed():
 		GlobalVariables.action_picked = "seed"
 		GlobalVariables.seed_picked = seed_name
 		$SoundPool.play_random_sound()
-	
-
 
 func _on_mouse_entered():
 	$Label.visible = true

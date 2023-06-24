@@ -242,6 +242,7 @@ texture_filter = 1
 
 [node name="Game" type="Node2D" parent="."]
 script = ExtResource("1_mivhc")
+cheat_mode = true
 
 [node name="background" type="Node2D" parent="Game"]
 

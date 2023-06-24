@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://cpc1baduxkefv"]
+[gd_scene load_steps=19 format=3 uid="uid://cpc1baduxkefv"]
 
 [ext_resource type="Texture2D" uid="uid://cr62jv3kvycj0" path="res://Assets/sprites/seed_drawer/button_closed.png" id="1_fiswa"]
 [ext_resource type="Script" path="res://Scripts/seed_drawer.gd" id="1_g10ax"]
 [ext_resource type="PackedScene" uid="uid://y7p56ox4gd3m" path="res://Scenes/seed_container.tscn" id="2_ck28v"]
-[ext_resource type="Texture2D" uid="uid://brs4lket2o4gf" path="res://Assets/sprites/seed_drawer/button_opened.png" id="2_r2j8y"]
 [ext_resource type="Texture2D" uid="uid://jh0ntdt5rrq1" path="res://Assets/Plant/icon/sprite-tomate.png" id="3_lfjpa"]
 [ext_resource type="Texture2D" uid="uid://bpy5qjbck531n" path="res://Assets/Plant/icon/sprite-radis.png" id="4_ckpgx"]
 [ext_resource type="Texture2D" uid="uid://c4p2j165mlnkd" path="res://Assets/Plant/icon/sprite-carrot.png" id="5_lsr2i"]
@@ -119,7 +118,6 @@ layout_mode = 2
 size_flags_vertical = 0
 toggle_mode = true
 texture_normal = ExtResource("1_fiswa")
-texture_pressed = ExtResource("2_r2j8y")
 stretch_mode = 3
 
 [node name="OpenSFX" type="AudioStreamPlayer" parent="."]

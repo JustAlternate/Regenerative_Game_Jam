@@ -8,6 +8,7 @@ extends Node2D
 @export var time_betwen_dialogue:float = 2
 @export var time_after_dialogue:float = 3
 
+
 var state = "none"
 
 var tutorial_progress = 0

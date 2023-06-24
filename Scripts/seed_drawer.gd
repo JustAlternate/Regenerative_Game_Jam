@@ -2,12 +2,15 @@ extends Node2D
 
 var seedList = []
 var arrow_game = load("res://Assets/sprites/cursor_game.png")
+var texture_activated:Texture2D
+var texture_pas_activated:Texture2D
 
 func refresh_drawer():
 	$HBoxContainer/GridContainer.columns = ceil(count_nombre_container_visible()/2 +1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	$HBoxContainer/GridContainer.visible = false
 	refresh_drawer()
 	

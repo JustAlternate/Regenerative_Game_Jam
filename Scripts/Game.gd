@@ -5,11 +5,18 @@ var tab_context_menu = []
 var random_event = "rien"
 @export var nombre_de_plante_consomed_par_quart_de_saison:int = 10
 
+@export var cheat_mode:bool
+
 # Load the custom images for the mouse cursor.
 var arrow_game = load("res://Assets/sprites/cursor_game.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	if cheat_mode == true:
+		for seed in GlobalVariables.inventory:
+			GlobalVariables.update_invertory(seed,"seed",10)
+	
 	GlobalVariables.game_state = "playing"
 	$background/riviere.play("default")
 	$background/AnimatedSprite2D.play()

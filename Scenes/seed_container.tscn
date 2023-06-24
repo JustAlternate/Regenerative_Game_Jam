@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://y7p56ox4gd3m"]
+[gd_scene load_steps=14 format=3 uid="uid://y7p56ox4gd3m"]
 
 [ext_resource type="Texture2D" uid="uid://q826660poqfo" path="res://Assets/sprites/seed_drawer/container_background.png" id="1_qdf2a"]
 [ext_resource type="Texture2D" uid="uid://iypy24yjk1fb" path="res://Assets/sprites/plant/carrot_1.png" id="2_1kcd3"]
 [ext_resource type="Script" path="res://Scripts/seed_container.gd" id="2_kilvm"]
+[ext_resource type="Texture2D" uid="uid://e5mytk4gvkgx" path="res://Assets/sprites/seed_drawer/container_selected.png" id="2_ndrbk"]
+[ext_resource type="Texture2D" uid="uid://b5m7bonb8boaq" path="res://Assets/Plant/sprite-sac.png" id="4_e1de4"]
 [ext_resource type="FontFile" uid="uid://cpaqhni2film1" path="res://fonts/FutilePro.ttf" id="4_qmunb"]
 [ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="5_ljx6v"]
+[ext_resource type="Texture2D" uid="uid://dyi3lrs0sa2uf" path="res://Assets/Plant/icon/sprite-mais.png" id="6_kpi08"]
 [ext_resource type="AudioStream" uid="uid://dae8s17h0fjy0" path="res://Assets/sfx/seed_bag/seed_bag1.wav" id="6_vhbff"]
 [ext_resource type="AudioStream" uid="uid://15m3udg28gcb" path="res://Assets/sfx/seed_bag/seed_bag2.wav" id="7_mr3pn"]
 
@@ -20,10 +23,17 @@ font = ExtResource("4_qmunb")
 
 [node name="SeedContainer" type="TextureButton"]
 texture_filter = 1
+offset_right = 64.0
+offset_bottom = 64.0
 texture_normal = ExtResource("1_qdf2a")
+texture_focused = ExtResource("2_ndrbk")
 script = ExtResource("2_kilvm")
 Seed_Texture = ExtResource("2_1kcd3")
 seed_name = "carrot"
+
+[node name="sac" type="Sprite2D" parent="."]
+position = Vector2(34, 32)
+texture = ExtResource("4_e1de4")
 
 [node name="SeedNumberLabel" type="Label" parent="."]
 layout_mode = 0
@@ -52,7 +62,8 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-32, 0)
+position = Vector2(-29, 0)
+texture = ExtResource("6_kpi08")
 centered = false
 offset = Vector2(32, 0)
 
