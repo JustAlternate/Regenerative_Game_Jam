@@ -117,7 +117,7 @@ func maj_book(new_page_number):
 	
 func open_on_name(plant:String):
 	if plant != "None":
-		var actual_page_number = summary[plant]
+		actual_page_number = summary[plant]
 		$Book.show()
 		$PageFlipSFX.play_random_sound()
 		$OpenClose.button_pressed = true
