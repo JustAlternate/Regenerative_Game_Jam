@@ -12,7 +12,7 @@ func _process(delta):
 
 func open_menu(plant:Node):
 	targeted_plant = plant
-	if targeted_plant.state == targeted_plant.dico_caracteristique["number_of_phases"][targeted_plant.plant_type]:
+	if targeted_plant.state == GlobalVariables.dico_caracteristique["number_of_phases"][targeted_plant.plant_type]:
 		$button_harvest.show()
 	else:
 		$button_harvest.hide()
