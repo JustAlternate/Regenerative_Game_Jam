@@ -4,19 +4,37 @@ var actual_page_number = 0
 var summary = {
 	"introduction":0,
 	"radish":0,
-	"leek":1,
-	"tomatoes":1,
-	"pea":2,
-	"wheat":2,
-	"pumpkin":3,
-	"zucchini":3,
-	"mint":4,
-	"corn":4,
-	"carrot":5,
-	"garlic":5,
-	"vine":6,
-	"thyme":6,
+	"leek":2,
+	"tomatoes":2,
+	"pea":4,
+	"wheat":4,
+	"pumpkin":6,
+	"zucchini":6,
+	"mint":8,
+	"corn":8,
+	"carrot":10,
+	"garlic":10,
+	"vine":12,
+	"thyme":12,
 }
+
+var real_page_number = {
+	"introduction":0,
+	"radish":1,
+	"leek":2,
+	"tomatoes":3,
+	"pea":4,
+	"wheat":5,
+	"pumpkin":6,
+	"zucchini":7,
+	"mint":8,
+	"corn":9,
+	"carrot":10,
+	"garlic":11,
+	"vine":12,
+	"thyme":13,
+}
+
 @export var Pages_unlocked = 2
 @export var Pages = [
 	#Page 1 - 2
@@ -48,7 +66,7 @@ var summary = {
 		["Thyme","Thyme is an herb that can be sown in spring 1 & 2, but prefers to be planted in fall 1.\nIt takes 4 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nThyme needs dry soil to grow.","thym"],  #Page droite
 ]
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters actual_page_numberthe scene tree for the first time.
 func _ready():
 	$Book.visible = false
 	maj_book(0)
@@ -91,31 +109,23 @@ func maj_book(new_page_number):
 		$Book/Page_droite/Title.text = ""
 		$Book/Page_droite/Body.text = ""
 		$Book/Page_droite/Item.set_animation("vide")
-		
-	if new_page_number == Pages_unlocked-1:
-		$Book/Next_Page.visible = false
-	else:
-		$Book/Next_Page.visible = true
 	
-	if new_page_number == 0:
-		$Book/Previous_Page.visible = false
-	else:
-		$Book/Previous_Page.visible = true
-
-	
+	if actual_page_number > 0:
+		$Book/turn_page_left.visible = true
+	else:$Book/turn_page_left.visible = false
 	
 func open_on_name(plant:String):
 	if plant != "None":
-		var new_page_number = summary[plant]
+		var actual_page_number = summary[plant]
 		$Book.show()
 		$PageFlipSFX.play_random_sound()
-		maj_book(new_page_number)
+		maj_book(actual_page_number)
+		
 
 func _on_next_page_button_down():
-	if not(actual_page_number == Pages_unlocked-2):
-		actual_page_number += 2
-		$PageFlipSFX.play_random_sound()
-		maj_book(actual_page_number)
+	actual_page_number += 2
+	$PageFlipSFX.play_random_sound()
+	maj_book(actual_page_number)
 
 func _on_previous_page_button_down():
 	if actual_page_number > 1:
@@ -129,8 +139,7 @@ func _on_open_close_mouse_entered():
 
 func _on_open_close_mouse_exited():
 	$box_little_book.animation = "default"
-
-
+ 
 func _on_close_mouse_entered():
 	$Book/button_close.animation = "souris"
 
