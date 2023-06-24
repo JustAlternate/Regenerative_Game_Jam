@@ -4,8 +4,9 @@ var id_new_context_menu = 0
 var tab_context_menu = []
 var random_event = "rien"
 @export var nombre_de_plante_consomed_par_quart_de_saison:int = 10
-
 @export var cheat_mode:bool
+
+@onready var context_menu_scene = load("res://Scenes/contextual_menu.tscn")
 
 # Load the custom images for the mouse cursor.
 var arrow_game = load("res://Assets/sprites/cursor_game.png")
@@ -132,15 +133,14 @@ func _on_plant_calling_contextual_menu(plant_node):
 		tab_context_menu.pop_front()
 	print(tab_context_menu)
 	#print(plant_node)
-	var context_menu_scene = load("res://Scenes/contextual_menu.tscn")
 	var context_menu_instance = context_menu_scene.instantiate()
 	var name = "context_menu_" + str(id_new_context_menu)
-	context_menu_instance.name = name
+	context_menu_instance.open_menu(plant_node)
 	add_child(context_menu_instance)
-	get_node(name).open_menu(plant_node)
 	tab_context_menu.append(context_menu_instance)
 	await get_tree().create_timer(3.0).timeout
 	if context_menu_instance in tab_context_menu:
 		tab_context_menu.pop_front()
-		context_menu_instance.free()
+		if is_instance_valid(context_menu_instance):
+			context_menu_instance.destruction()
 

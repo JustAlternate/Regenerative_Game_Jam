@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://dg0h8dcgh7872"]
+[gd_scene load_steps=25 format=3 uid="uid://dg0h8dcgh7872"]
 
 [ext_resource type="Script" path="res://Scripts/contextual_menu.gd" id="1_on6no"]
 [ext_resource type="Texture2D" uid="uid://cwc22c6bc3x8x" path="res://Assets/sprites/UI/icon_harvest.png" id="2_wfqac"]
 [ext_resource type="FontFile" uid="uid://bnbwhpnyrg84f" path="res://fonts/FutilePro.ttf" id="3_12xxr"]
 [ext_resource type="Texture2D" uid="uid://c56t61mmqdtgy" path="res://Assets/sprites/UI/icon_remove.png" id="3_muy21"]
 [ext_resource type="Texture2D" uid="uid://d1fgnq33hvfww" path="res://Assets/sprites/UI/icon_advice.png" id="4_ywbs1"]
+[ext_resource type="Texture2D" uid="uid://cqxd6vr666hs8" path="res://Assets/sprites/UI/animation_advice.png" id="6_8fk4i"]
+[ext_resource type="Texture2D" uid="uid://6vykwrc43t3" path="res://Assets/sprites/UI/animation_harvest.png" id="7_cg8ly"]
+[ext_resource type="Texture2D" uid="uid://dbgkwq6bs57jp" path="res://Assets/sprites/UI/animation_remove.png" id="8_1w7on"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqmkj"]
 bg_color = Color(1, 0.321569, 0.415686, 0)
@@ -21,14 +24,102 @@ font = ExtResource("3_12xxr")
 
 [sub_resource type="Theme" id="Theme_2ncuf"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbwnm"]
+atlas = ExtResource("6_8fk4i")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thfrw"]
+atlas = ExtResource("6_8fk4i")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngnf5"]
+atlas = ExtResource("6_8fk4i")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u6120"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbwnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thfrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngnf5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4unls"]
+atlas = ExtResource("7_cg8ly")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14xup"]
+atlas = ExtResource("7_cg8ly")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qf4p"]
+atlas = ExtResource("7_cg8ly")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_63j8f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4unls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14xup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qf4p")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt812"]
+atlas = ExtResource("8_1w7on")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nultt"]
+atlas = ExtResource("8_1w7on")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so13s"]
+atlas = ExtResource("8_1w7on")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hl4tn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt812")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nultt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so13s")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="conextual_menu" type="Node2D"]
 script = ExtResource("1_on6no")
 
 [node name="button_harvest" type="Button" parent="."]
+visible = false
 texture_filter = 1
-offset_top = -48.0
+offset_top = -40.0
 offset_right = 24.0
-offset_bottom = -24.0
+offset_bottom = -16.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_kqmkj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kqmkj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kqmkj")
@@ -55,6 +146,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="button_remove" type="Button" parent="."]
+visible = false
 texture_filter = 1
 offset_top = 16.0
 offset_right = 24.0
@@ -83,11 +175,12 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="button_info" type="Button" parent="."]
+visible = false
 texture_filter = 1
 offset_left = 20.0
-offset_top = -16.0
+offset_top = -12.0
 offset_right = 44.0
-offset_bottom = 8.0
+offset_bottom = 12.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_kqmkj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kqmkj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kqmkj")
@@ -111,6 +204,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="Animated_Info" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_u6120")
+speed_scale = 2.0
+centered = false
+offset = Vector2(0, -32)
+
+[node name="Animated_Harvest" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_63j8f")
+speed_scale = 2.0
+centered = false
+offset = Vector2(0, -64)
+
+[node name="Animated_Remove" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_hl4tn")
+speed_scale = 2.0
+centered = false
+
 [connection signal="mouse_entered" from="button_harvest" to="." method="_on_button_harvest_mouse_entered"]
 [connection signal="mouse_exited" from="button_harvest" to="." method="_on_button_harvest_mouse_exited"]
 [connection signal="pressed" from="button_harvest" to="." method="_on_button_harvest_pressed"]
@@ -120,3 +236,6 @@ autowrap_mode = 3
 [connection signal="mouse_entered" from="button_info" to="." method="_on_button_info_mouse_entered"]
 [connection signal="mouse_exited" from="button_info" to="." method="_on_button_info_mouse_exited"]
 [connection signal="pressed" from="button_info" to="." method="_on_button_info_pressed"]
+[connection signal="animation_finished" from="Animated_Info" to="." method="_on_animated_info_animation_finished"]
+[connection signal="animation_finished" from="Animated_Harvest" to="." method="_on_animated_harvest_animation_finished"]
+[connection signal="animation_finished" from="Animated_Remove" to="." method="_on_animated_remove_animation_finished"]
