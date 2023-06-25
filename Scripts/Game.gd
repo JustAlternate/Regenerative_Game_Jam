@@ -19,7 +19,9 @@ func _ready():
 	if cheat_mode == true:
 		for seed in GlobalVariables.inventory:
 			GlobalVariables.update_invertory(seed,"seed",10)
-	
+		get_node("Dialogue_grand_pere").tutorial_progress = 10
+		get_node("Encyclopedia").Pages_unlocked = 14
+		
 	GlobalVariables.game_state = "playing"
 	$background/riviere.play("default")
 	$background/AnimatedSprite2D.play()

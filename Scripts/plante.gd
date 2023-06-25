@@ -66,7 +66,6 @@ func add_plant(type):
 			state = 0
 
 func harvest_plant():
-	
 	if plant_type != "None":
 		# Envoie un message a grand_pere pour lui dire que le joueur vient d'harvest une certaine plante
 		get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["harvested",plant_type])
@@ -82,18 +81,21 @@ func harvest_plant():
 			GlobalVariables.update_invertory(plant_type,"seed",1)
 			GlobalVariables.update_invertory(plant_type,"plant",4)
 		
-		plant_type = "None"
-		$sprite.animation = "vide"
-		$sign_container.hide()
 		$HarvestSFX.play_random_sound()
+		remove_plant()
 
 func remove_plant():
-	print("removed")
-	if state == 0 and plant_type != "None" and plant_health > 0:
-		GlobalVariables.update_invertory(plant_type,"seed",1)
-	plant_type = "None"	
-	$sprite.animation = "vide"
-	$sign_container.hide()
+	if plant_type != "None":
+		if state == 0 and plant_health > 0:
+			GlobalVariables.update_invertory(plant_type,"seed",1)
+		if plant_type=="vine":
+			$sprite/pour_vine_1.visible = false
+			$sprite/pour_vine_2.visible = false
+			$sprite/vine_final.visible = false
+		
+		plant_type = "None"	
+		$sprite.animation = "vide"
+		$sign_container.hide()
 
 func afficher_feeling(name):
 	await get_tree().create_timer(0.5).timeout #pour pas que les feeling soient les uns sur les autres
@@ -156,17 +158,17 @@ func bonus_malus_humidity(humidity_value):
 			await afficher_feeling("humidity-")
 			plant_health += GlobalVariables.dico_bonus_malus["humidities_possible"][1]
 
-func bonus_malus_sunlight(sunlight_value):
+func bonus_malus_sunlight(sunlight_value,voisin_vine):
 	if sunlight_value == GlobalVariables.dico_caracteristique["sunlight_bonus"][plant_type]:
 		await afficher_feeling("sun+")
 		plant_health += GlobalVariables.dico_bonus_malus["sunlight_bonus"][0]
-	else:
+	elif not(voisin_vine):
 		plant_health += GlobalVariables.dico_bonus_malus["sunlight_bonus"][1]
 	
 	if not(sunlight_value == GlobalVariables.dico_caracteristique["sunlight_bonus"][plant_type]):
 		if sunlight_value in GlobalVariables.dico_caracteristique["sunlight_possible"][plant_type]:
 			plant_health += GlobalVariables.dico_bonus_malus["sunlight_possible"][0]
-		else:
+		elif not(voisin_vine):
 			await afficher_feeling("sun-")
 			plant_health += GlobalVariables.dico_bonus_malus["sunlight_possible"][1]	
 func bonus_malus_voisin(voisin_droit,voisin_gauche):
@@ -225,6 +227,7 @@ func next_quarter_of_season(new_phase,random_event):
 	
 	var voisin_droit_plant = "None"
 	var voisin_gauche_plant = "None"
+	var voisin_gauche_state = 0
 	
 	
 	if random_event == "pluie":
@@ -260,9 +263,15 @@ func next_quarter_of_season(new_phase,random_event):
 			
 			# On applique les bonus / malus sur la vie de le a plante.
 			
+			if voisin_droit != null:
+				voisin_droit_plant = voisin_droit.plant_type
+			if voisin_gauche != null:
+				voisin_gauche_plant = voisin_gauche.plant_type
+				voisin_gauche_state = voisin_gauche.state
+				
 			print("plant_health_avant_bonus_malus : "+str(plant_health))
 			await bonus_malus_humidity(temp_humidity_value)
-			await bonus_malus_sunlight(temp_sunlight_value)
+			await bonus_malus_sunlight(temp_sunlight_value,(voisin_gauche_plant=="vine" and voisin_gauche_state > 3))
 			if state == 0:
 				await bonus_malus_seasons(before_season)
 				await bonus_malus_nutriment(nutriment_value)
@@ -270,11 +279,6 @@ func next_quarter_of_season(new_phase,random_event):
 				# Si on a posé une graine au quarter de season précédent, alors on baisse le nutriment de la terre de 1.
 				nutriment_value -= 1
 				change_nutrient_visual()
-			
-			if voisin_droit != null:
-				voisin_droit_plant = voisin_droit.plant_type
-			if voisin_gauche != null:
-				voisin_gauche_plant = voisin_gauche.plant_type
 			
 			await bonus_malus_voisin(voisin_droit_plant,voisin_gauche_plant)
 			print("plant_health_apres_bonus_malus : "+str(plant_health))
@@ -284,6 +288,23 @@ func next_quarter_of_season(new_phase,random_event):
 			# On fait poussé la plante si elle est toujours vivante :
 			if plant_health > 0:
 				state += 1
+				if plant_type == "vine":
+					if state == 2:
+						$sprite/pour_vine_1.visible = true
+						$sprite/pour_vine_1.animation="vine_top1_1"
+					elif state == 3:
+						$sprite/pour_vine_1.animation="vine_top1_2"
+					elif state == 4:
+						$sprite/pour_vine_2.visible = true
+						$sprite/pour_vine_2.animation="vine_top2_1"
+					elif state == 5:
+						$sprite/pour_vine_2.animation="vine_top2_2"
+					elif state == 6:
+						$sprite/vine_final.visible = true
+						$sprite/vine_final.animation="vine_top3_1"
+					elif state == 7:
+						$sprite/vine_final.animation="vine_top3_2"
+								
 				$sprite.animation = plant_type+"_"+str(state)
 				$sign_container.hide()
 			else:
@@ -291,21 +312,6 @@ func next_quarter_of_season(new_phase,random_event):
 				remove_plant()
 				print("la plante est morte")
 				
-
-				
-	if plant_type != "None":
-		print("==================================")
-		print("voisin_droit : "+str(voisin_droit_plant))
-		print("voisin_gauche : "+str(voisin_gauche_plant))
-		print("actual_season : "+str(actual_season))
-		print("state : "+str(state))
-		print("plant_type : "+str(plant_type))
-		print("plant_health : "+str(plant_health))
-		print("nutriment_value : "+str(nutriment_value))
-		print("temp_humidity_value : "+str(temp_humidity_value))
-		print("temp_sunlight_value : "+str(temp_sunlight_value))
-		print("==================================")
-
 func _on_button_pressed():
 	#print("pressed")
 	if GlobalVariables.game_state == "clock":

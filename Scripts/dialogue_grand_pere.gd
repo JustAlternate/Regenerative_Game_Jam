@@ -244,7 +244,7 @@ func _on_button_pressed():
 		state = "speed_talk"
 	
 func _on_button_skip_tuto_pressed():
-	tutorial_progress = 4
+	if tutorial_progress < 4:tutorial_progress = 4
 	$button_skip_tuto.visible = false
 	dialogue_queue = []
 	skip = true
