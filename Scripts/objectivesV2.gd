@@ -71,13 +71,13 @@ func next_season():
 	compteur +=1
 	if compteur == 2:
 		ressource = ressource *0.85 - 10
-		$ressource.position.x = ressource/100*115
+		$sign_ressource/cursor_ressource.position.x = ressource/100*115
 		if activation_state >= 1:
 			diversity = diversity *0.90 - 5
-			$diversity.position.x = diversity/100*115
+			$sign_diversity/cursor_diversity.position.x = diversity/100*115
 			if activation_state >= 2:
 				taste = taste *0.95 - 5
-				$taste.position.x = taste/100*115
+				$sign_taste/cursor_taste.position.x = taste/100*115
 		
 		compteur = 0
 		if ressource <= 0 or diversity <= 0 or taste <= 0:
