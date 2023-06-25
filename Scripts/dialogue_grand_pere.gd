@@ -58,6 +58,7 @@ func player_just_did_something(thing):
 		if thing[1] == "Lore3":
 			GlobalVariables.update_invertory("radish","seed",1)
 			get_tree().root.get_node("home/Game/seed_drawer")._on_open_drawer_button_toggled()
+			get_tree().root.get_node("home/Game/Objectives").start_objective_diversity()
 
 	
 	if thing[0] == "closed_book":

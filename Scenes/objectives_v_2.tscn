@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cd4110b2l4fjg"]
+[gd_scene load_steps=12 format=3 uid="uid://cd4110b2l4fjg"]
 
 [ext_resource type="Script" path="res://Scripts/objectivesV2.gd" id="1_cvc7s"]
-[ext_resource type="Texture2D" uid="uid://bvbtpretvnan2" path="res://Assets/sprites/food_objectives.png" id="2_dluyc"]
-[ext_resource type="Texture2D" uid="uid://ddhvrwnim2f12" path="res://Assets/sprites/objectives_cursor.png" id="3_tgs0n"]
-[ext_resource type="FontFile" uid="uid://dagdtawwoj7oe" path="res://fonts/PixelOperatorMono8.ttf" id="4_k560m"]
-[ext_resource type="FontFile" uid="uid://bc1k56qxxei71" path="res://fonts/PixelOperatorMono8-Bold.ttf" id="4_s150a"]
+[ext_resource type="Texture2D" uid="uid://c8nc63epfm6kj" path="res://Assets/sprites/objectives_cursor.png" id="3_tgs0n"]
+[ext_resource type="Texture2D" uid="uid://bhhjoj4cv377g" path="res://Assets/sprites/food_objectives-1.png" id="4_1at56"]
+[ext_resource type="FontFile" uid="uid://w7elt7hece40" path="res://fonts/PixelOperatorMono8.ttf" id="4_k560m"]
+[ext_resource type="FontFile" uid="uid://cwft1rfqp1onj" path="res://fonts/PixelOperatorMono8-Bold.ttf" id="4_s150a"]
+[ext_resource type="Texture2D" uid="uid://b17743cvs2uqg" path="res://Assets/sprites/food_objectives-2.png" id="6_0o5tu"]
+[ext_resource type="Texture2D" uid="uid://yoxp77nqtj1y" path="res://Assets/sprites/food_objectives-3.png" id="7_mkcr0"]
 
 [sub_resource type="Theme" id="Theme_xk5ok"]
 default_font = ExtResource("4_k560m")
@@ -34,32 +36,23 @@ outline_color = Color(0, 0, 0, 1)
 [node name="objectivesV2" type="Node2D"]
 script = ExtResource("1_cvc7s")
 
-[node name="FoodObjectives" type="Sprite2D" parent="."]
+[node name="sign_ressource" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(70, 32)
-texture = ExtResource("2_dluyc")
+position = Vector2(66, 12)
+texture = ExtResource("4_1at56")
 
-[node name="ressource" type="Sprite2D" parent="."]
+[node name="cursor_ressource" type="Sprite2D" parent="sign_ressource"]
 texture_filter = 1
-position = Vector2(76, 11)
 texture = ExtResource("3_tgs0n")
+centered = false
+offset = Vector2(-57, -11)
 
-[node name="diversity" type="Sprite2D" parent="."]
+[node name="Label" type="Label" parent="sign_ressource"]
 texture_filter = 1
-position = Vector2(71, 31)
-texture = ExtResource("3_tgs0n")
-
-[node name="taste" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(73, 49)
-texture = ExtResource("3_tgs0n")
-
-[node name="Label" type="Label" parent="."]
-texture_filter = 1
-offset_left = 140.0
-offset_top = 8.0
-offset_right = 256.0
-offset_bottom = 18.0
+offset_left = 73.0
+offset_top = -4.0
+offset_right = 189.0
+offset_bottom = 6.0
 tooltip_text = "Quantity represent how much food your familly have,
 if you dont harvest plants for a 
 long time, the quantity may run out
@@ -69,12 +62,24 @@ theme = SubResource("Theme_xk5ok")
 text = "Quantity"
 label_settings = SubResource("LabelSettings_f8btn")
 
-[node name="Label2" type="Label" parent="."]
+[node name="sign_diversity" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
-offset_left = 141.0
-offset_top = 28.0
-offset_right = 241.0
-offset_bottom = 37.0
+position = Vector2(66, 32)
+texture = ExtResource("6_0o5tu")
+
+[node name="cursor_diversity" type="Sprite2D" parent="sign_diversity"]
+texture_filter = 1
+texture = ExtResource("3_tgs0n")
+centered = false
+offset = Vector2(-57, -11)
+
+[node name="Label2" type="Label" parent="sign_diversity"]
+texture_filter = 1
+offset_left = 73.0
+offset_top = -3.0
+offset_right = 173.0
+offset_bottom = 6.0
 tooltip_text = "Diversity represent how diverse plant you harvest.
 Your familly need diverse sort of food, so try to plants differents plants."
 mouse_filter = 0
@@ -82,12 +87,24 @@ theme = SubResource("Theme_xk5ok")
 text = "Diversity"
 label_settings = SubResource("LabelSettings_vs4b4")
 
-[node name="Label3" type="Label" parent="."]
+[node name="sign_taste" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
-offset_left = 141.0
-offset_top = 47.0
-offset_right = 225.0
-offset_bottom = 56.0
+position = Vector2(66, 52)
+texture = ExtResource("7_mkcr0")
+
+[node name="cursor_taste" type="Sprite2D" parent="sign_taste"]
+texture_filter = 1
+texture = ExtResource("3_tgs0n")
+centered = false
+offset = Vector2(-57, -11)
+
+[node name="Label3" type="Label" parent="sign_taste"]
+texture_filter = 1
+offset_left = 73.0
+offset_top = -3.0
+offset_right = 157.0
+offset_bottom = 6.0
 tooltip_text = "Taste is also a important part of your ressources, 
 you need to harvest thing such as mint, garlic or
  thyme to enchance the taste of your food."
