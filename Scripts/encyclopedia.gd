@@ -63,7 +63,7 @@ var real_page_number = {
 
 	#Page 13 - 14
 		["Vine","Vine is a fruit plant that can be sown in fall 2 and spring 2, but prefers to be planted in [b]winter 1 & 2[/b].\nIt takes 4 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nIt needs moist soil to grow.","vine"], #Page gauche
-		["Thyme","Thyme is an herb that can be sown in spring 1 & 2, but prefers to be planted in [b]fall 1[/b].\nIt takes 4 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nThyme needs dry soil to grow.","thym"],  #Page droite
+		["Thyme","Thyme is an herb that can be sown in spring 1 & 2, but prefers to be planted in [b]fall 1[/b].\nIt takes 4 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nThyme needs dry soil to grow.","thyme"],  #Page droite
 ]
 
 # Called when the node enters actual_page_numberthe scene tree for the first time.
@@ -135,19 +135,3 @@ func _on_previous_page_button_down():
 		$PageFlipSFX.play_random_sound()
 		maj_book(actual_page_number)
 
-
-
-
-func _on_previous_page_mouse_entered():
-	$Book/turn_page_left.animation = "souris"
-
-func _on_previous_page_mouse_exited():
-	$Book/turn_page_left.animation = "default"
-
-
-func _on_next_page_mouse_entered():
-	$Book/turn_page_right.animation = "souris"
-
-
-func _on_next_page_mouse_exited():
-	$Book/turn_page_right.animation = "default"

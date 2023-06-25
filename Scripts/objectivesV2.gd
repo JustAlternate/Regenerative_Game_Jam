@@ -11,7 +11,7 @@ var relation_ressource = {
 		"mint":0.1,
 		"pumpkin":1,
 		"tomatoes":1,
-		"thym":0.1,
+		"thyme":0.1,
 		"vine":1,
 		"zucchini":1,
 		"ail":0.5,
@@ -27,7 +27,7 @@ var relation_taste = {
 		"mint":1,
 		"pumpkin":0.1,
 		"tomatoes":0.1,
-		"thym":1,
+		"thyme":1,
 		"vine":0.5,
 		"zucchini":0.1,
 		"ail":1,
@@ -39,7 +39,7 @@ var diversity:float = 50
 var taste:float = 50
 var activation_state = 0 # 0 = seulement ressource, 1 = ressource + diversity, 2 = tout
 
-var last_eat = ["tomatoes", "thym"]
+var last_eat = ["tomatoes", "thyme"]
 
 func start_objective_diversity(start_amount = 50):
 	$sign_diversity.show()

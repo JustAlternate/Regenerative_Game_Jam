@@ -2,23 +2,23 @@
 
 [ext_resource type="Script" path="res://Scripts/seed_drawer.gd" id="1_g10ax"]
 [ext_resource type="PackedScene" uid="uid://y7p56ox4gd3m" path="res://Scenes/seed_container.tscn" id="2_ck28v"]
-[ext_resource type="Texture2D" uid="uid://oatsfdee65u" path="res://Assets/Plant/icon/sprite-tomate.png" id="3_lfjpa"]
-[ext_resource type="Texture2D" uid="uid://50q46p358h6b" path="res://Assets/Plant/icon/sprite-radis.png" id="4_ckpgx"]
-[ext_resource type="Texture2D" uid="uid://cdjm6aug8e6wn" path="res://Assets/Plant/icon/sprite-carrot.png" id="5_lsr2i"]
-[ext_resource type="AudioStream" uid="uid://fdreushqmt6v" path="res://Assets/sfx/drawer/drawer_open.wav" id="5_yhb4k"]
-[ext_resource type="Texture2D" uid="uid://dkudvtg1b4oa5" path="res://Assets/Plant/icon/sprite-blé.png" id="6_5c1sn"]
-[ext_resource type="AudioStream" uid="uid://dwwpl71nl6rr2" path="res://Assets/sfx/drawer/drawer_close.wav" id="6_lojwq"]
-[ext_resource type="Texture2D" uid="uid://0fmcmonsn86b" path="res://Assets/Plant/icon/sprite-courgette.png" id="7_mv0fx"]
-[ext_resource type="Texture2D" uid="uid://fonnw0w7hcag" path="res://Assets/Plant/icon/sprite-ail.png" id="8_vguxo"]
-[ext_resource type="Texture2D" uid="uid://byruvkrmgdgmy" path="res://Assets/Plant/icon/sprite-citrouille.png" id="9_6qvmy"]
-[ext_resource type="Texture2D" uid="uid://da8cefrkfo8pc" path="res://Assets/Plant/icon/sprite-mais.png" id="10_ginfl"]
-[ext_resource type="Texture2D" uid="uid://roqskp0h83pp" path="res://Assets/Plant/icon/sprite-menthe.png" id="11_5is7y"]
-[ext_resource type="Texture2D" uid="uid://da4mmiwsm2pry" path="res://Assets/Plant/icon/sprite-thym.png" id="12_svm74"]
-[ext_resource type="Texture2D" uid="uid://dpsiox28twlo2" path="res://Assets/Plant/icon/sprite-petit-pois.png" id="13_d4g0b"]
-[ext_resource type="Texture2D" uid="uid://c8lr0jrn4mku0" path="res://Assets/Plant/icon/sprite-vigne.png" id="14_hmlxu"]
-[ext_resource type="Texture2D" uid="uid://leuusfjmnmbj" path="res://Assets/Plant/icon/sprite-poireau.png" id="15_i7x0d"]
-[ext_resource type="Texture2D" uid="uid://cn5kvbqq2avv8" path="res://Assets/sprites/seed_drawer/button_opened.png" id="16_ef7mb"]
-[ext_resource type="Texture2D" uid="uid://cr3knvey4hfij" path="res://Assets/sprites/seed_drawer/button_closed.png" id="17_g307x"]
+[ext_resource type="Texture2D" uid="uid://c5hcbfdrgkeur" path="res://Assets/Plant/icon/sprite-tomate.png" id="3_lfjpa"]
+[ext_resource type="Texture2D" uid="uid://iuc63j7f0hdm" path="res://Assets/Plant/icon/sprite-radis.png" id="4_ckpgx"]
+[ext_resource type="Texture2D" uid="uid://co61l53qmdu5l" path="res://Assets/Plant/icon/sprite-carrot.png" id="5_lsr2i"]
+[ext_resource type="AudioStream" uid="uid://de2utsaj5mdpd" path="res://Assets/sfx/drawer/drawer_open.wav" id="5_yhb4k"]
+[ext_resource type="Texture2D" uid="uid://cjxs64g1l6nft" path="res://Assets/Plant/icon/sprite-blé.png" id="6_5c1sn"]
+[ext_resource type="AudioStream" uid="uid://dc6isf026et2i" path="res://Assets/sfx/drawer/drawer_close.wav" id="6_lojwq"]
+[ext_resource type="Texture2D" uid="uid://b03nv20uyucgr" path="res://Assets/Plant/icon/sprite-courgette.png" id="7_mv0fx"]
+[ext_resource type="Texture2D" uid="uid://cb5suqmc821wb" path="res://Assets/Plant/icon/sprite-ail.png" id="8_vguxo"]
+[ext_resource type="Texture2D" uid="uid://chm8pio57wwov" path="res://Assets/Plant/icon/sprite-citrouille.png" id="9_6qvmy"]
+[ext_resource type="Texture2D" uid="uid://lk02w3jdqhuf" path="res://Assets/Plant/icon/sprite-mais.png" id="10_ginfl"]
+[ext_resource type="Texture2D" uid="uid://bgcs6g70auhhn" path="res://Assets/Plant/icon/sprite-menthe.png" id="11_5is7y"]
+[ext_resource type="Texture2D" uid="uid://d1ww6noaer176" path="res://Assets/Plant/icon/sprite-thym.png" id="12_svm74"]
+[ext_resource type="Texture2D" uid="uid://u4nqw2x0q3tk" path="res://Assets/Plant/icon/sprite-petit-pois.png" id="13_d4g0b"]
+[ext_resource type="Texture2D" uid="uid://doehxphpffqip" path="res://Assets/Plant/icon/sprite-vigne.png" id="14_hmlxu"]
+[ext_resource type="Texture2D" uid="uid://cqhp00xmey51n" path="res://Assets/Plant/icon/sprite-poireau.png" id="15_i7x0d"]
+[ext_resource type="Texture2D" uid="uid://dfrf6ku2tmshi" path="res://Assets/sprites/seed_drawer/button_opened.png" id="16_ef7mb"]
+[ext_resource type="Texture2D" uid="uid://2meokyaiart7" path="res://Assets/sprites/seed_drawer/button_closed.png" id="17_g307x"]
 
 [node name="seed_drawer" type="Node2D"]
 position = Vector2(1, 0)
@@ -92,11 +92,11 @@ layout_mode = 2
 Seed_Texture = ExtResource("11_5is7y")
 seed_name = "mint"
 
-[node name="Container_thym" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
+[node name="Container_thyme" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
 layout_mode = 2
 Seed_Texture = ExtResource("12_svm74")
-seed_name = "thym"
+seed_name = "thyme"
 
 [node name="Container_pea" parent="HBoxContainer/GridContainer" instance=ExtResource("2_ck28v")]
 visible = false
@@ -142,7 +142,7 @@ volume_db = -6.559
 [connection signal="draweeeer" from="HBoxContainer/GridContainer/Container_pumpkin" to="." method="refresh_drawer"]
 [connection signal="draweeeer" from="HBoxContainer/GridContainer/Container_corn" to="." method="refresh_drawer"]
 [connection signal="draweeeer" from="HBoxContainer/GridContainer/Container_mint" to="." method="refresh_drawer"]
-[connection signal="draweeeer" from="HBoxContainer/GridContainer/Container_thym" to="." method="refresh_drawer"]
+[connection signal="draweeeer" from="HBoxContainer/GridContainer/Container_thyme" to="." method="refresh_drawer"]
 [connection signal="draweeeer" from="HBoxContainer/GridContainer/Container_pea" to="." method="refresh_drawer"]
 [connection signal="draweeeer" from="HBoxContainer/GridContainer/Container_vine" to="." method="refresh_drawer"]
 [connection signal="draweeeer" from="HBoxContainer/GridContainer/Container_leek" to="." method="refresh_drawer"]

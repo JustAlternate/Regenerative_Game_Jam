@@ -2,7 +2,7 @@ extends Node2D
 
 @export var transition:bool
 @export var flip_dirt = false
-@export var plant_type = "None" #"carrot", "pea", "leek", "corn", "wheat", "pumpkin", "tomatoes", "thym", "vine", "courgette"
+@export var plant_type = "None" #"carrot", "pea", "leek", "corn", "wheat", "pumpkin", "tomatoes", "thyme", "vine", "courgette"
 
 @onready var Icon= load("res://Scenes/feeling_icon.tscn")
 
@@ -14,7 +14,7 @@ var humidities_values = [] # 0 = sec, 1 = humide, 2 = très humide
 var minimum_nutriment_values = [] # 0 = pas de nutriment, 1 = un peu nutriment, 2 = tres nutriments
 var sunlight = [] # 0 = dont want sunlight, 1 = absolutly need sunlight
 var sickness = [] # "mildiou", "Oïdium", "Furariose"
-var appreciated_adjacents_plants = [] # "carrot", "pea", "leek", "corn", "wheat", "mint", "pumpkin", "tomatoes", "thym", "vine", "courgette"
+var appreciated_adjacents_plants = [] # "carrot", "pea", "leek", "corn", "wheat", "mint", "pumpkin", "tomatoes", "thyme", "vine", "courgette"
 var unapreciated_adjacents_plants = [] # pareil que au dessus.
 
 signal calling_contextual_menu

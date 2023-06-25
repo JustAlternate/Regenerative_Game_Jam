@@ -158,7 +158,7 @@ func player_just_did_something(thing):
 			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=3
 			GlobalVariables.update_invertory("ail","seed",2)
 			GlobalVariables.update_invertory("vine","seed",2)
-			GlobalVariables.update_invertory("thym","seed",2)
+			GlobalVariables.update_invertory("thyme","seed",2)
 	
 func _on_button_for_grandpa_button_activated(texte_name):
 	grandpa_talk(texte_name)
