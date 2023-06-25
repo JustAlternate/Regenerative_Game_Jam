@@ -90,7 +90,7 @@ func harvest_plant():
 		$HarvestSFX.play_random_sound()
 		remove_plant()
 
-func remove_plant():
+func remove_plant(): #appelée quand remove avec la pelle OU morte
 	if plant_type != "None":
 		if state == 0 and plant_health > 0:
 			GlobalVariables.update_invertory(plant_type,"seed",1)
@@ -98,10 +98,13 @@ func remove_plant():
 			$sprite/pour_vine_1.visible = false
 			$sprite/pour_vine_2.visible = false
 			$sprite/vine_final.visible = false
-		
+		var temp = plant_type
 		plant_type = "None"	
 		$sprite.animation = "vide"
 		$sign_container.hide()
+		#on dit que une plante a été remove (si plus de seeds -> joker)
+		get_tree().root.get_node("home/Game/Dialogue_grand_pere").player_just_did_something(["plant_removed",temp])
+
 
 func afficher_feeling(name):
 	await get_tree().create_timer(0.5).timeout #pour pas que les feeling soient les uns sur les autres
@@ -311,7 +314,7 @@ func next_quarter_of_season(new_phase,random_event):
 			# Sinon on la remove pour l'instant.
 			remove_plant()
 			print("la plante est morte")
-				
+
 func _on_button_pressed():
 	if GlobalVariables.game_state == "clock":
 		return #pas le droit

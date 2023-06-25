@@ -202,18 +202,18 @@ func update_invertory(plant,type,number): #pea, seed, 4  ou  carott, plant, -4
 
 
 var inventory = {
-	"pea": {"seed": 0, "plant": 0},
-	"leek":{"seed": 0, "plant": 0},
-	"corn":{"seed": 0, "plant": 0},
-	"wheat":{"seed": 0, "plant": 0},
-	"carrot":{"seed": 0, "plant": 0},
-	"mint":{"seed": 0, "plant": 0},
-	"pumpkin":{"seed": 0, "plant": 0},
-	"tomatoes":{"seed": 0, "plant": 0},
-	"thyme":{"seed": 0, "plant": 0},
-	"vine":{"seed": 0, "plant": 0},
-	"zucchini":{"seed": 0, "plant": 0},
-	"ail":{"seed": 0, "plant": 0},
-	"radish":{"seed": 0, "plant": 0}
+	"pea": {"seed": 0, "plant": 0, "joker": 1},
+	"leek":{"seed": 0, "plant": 0, "joker": 1},
+	"corn":{"seed": 0, "plant": 0, "joker": 1},
+	"wheat":{"seed": 0, "plant": 0, "joker": 1},
+	"carrot":{"seed": 0, "plant": 0, "joker": 1},
+	"mint":{"seed": 0, "plant": 0, "joker": 1},
+	"pumpkin":{"seed": 0, "plant": 0, "joker": 1},
+	"tomatoes":{"seed": 0, "plant": 0, "joker": 1},
+	"thyme":{"seed": 0, "plant": 0, "joker": 1},
+	"vine":{"seed": 0, "plant": 0, "joker": 1},
+	"zucchini":{"seed": 0, "plant": 0, "joker": 1},
+	"ail":{"seed": 0, "plant": 0, "joker": 1},
+	"radish":{"seed": 0, "plant": 0, "joker": 1}
 }
 

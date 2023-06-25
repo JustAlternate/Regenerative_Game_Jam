@@ -10,6 +10,7 @@ extends Node2D
 var number_of_time_grandpa_talked = 0
 var number_of_time_until_mongolian = 30
 var skip
+var list_plant_to_recover:Array
 
 var state = "none"
 
@@ -43,7 +44,50 @@ var dico_dialogue = {
 	"give_mint":[false,["Here you can take those mint seeds, it is a fantastic crop to enhance flavor!"]],
 	"give_corn":[false,["Finally I found corn seeds. This is a great plant you can grow during Spring 1"]],
 	"give_carrot":[false,["I see you are doing great with our garden! Here, take thoses carrots seeds so we can have something new to eat."]],
-	"give_le_reste":[false,["Here take those seeds I found. I think I do not have any more seeds.","Well done harvesting all of this! I know you will make good use of these seeds.","I am going to take some rest now."]]
+	"give_le_reste":[false,["Here take those seeds I found. I think I do not have any more seeds.","Well done harvesting all of this! I know you will make good use of these seeds.","I am going to take some rest now."]],
+
+	"lost_seed_radish":[false,["Looks like all of your radishes died.","I will try to see if i can find some more seeds."]],
+	"lost_seed_tomatoes":[false,["Looks like all of your tomatoes died.","I will try to see if i can find some more seeds."]],
+	"lost_seed_pea":[false,["work in progress"]],
+	"lost_seed_leek":[false,["work in progress"]],
+	"lost_seed_corn":[false,["work in progress"]],
+	"lost_seed_wheat":[false,["work in progress"]],
+	"lost_seed_carrot":[false,["work in progress"]],
+	"lost_seed_mint":[false,["work in progress"]],
+	"lost_seed_pumkin":[false,["work in progress"]],
+	"lost_seed_thyme":[false,["work in progress"]],
+	"lost_seed_vine":[false,["work in progress"]],
+	"lost_seed_zucchini":[false,["work in progress"]],
+	"lost_seed_ail":[false,["work in progress"]],
+
+
+	"lost_seed_forever_radish":[false,["You lost your radishes again...\nI wont be able to find more seeds.","Byby lovely radishies."]],
+	"lost_seed_forever_tomatoes":[false,["You lost your tomatoes again...\nI wont be able to find more seeds.","Byby delicious tomatoes."]],
+	"lost_seed_forever_pea":[false,["work in progress"]],
+	"lost_seed_forever_leek":[false,["work in progress"]],
+	"lost_seed_forever_corn":[false,["work in progress"]],
+	"lost_seed_forever_wheat":[false,["work in progress"]],
+	"lost_seed_forever_carrot":[false,["work in progress"]],
+	"lost_seed_forever_mint":[false,["work in progress"]],
+	"lost_seed_forever_pumkin":[false,["work in progress"]],
+	"lost_seed_forever_thyme":[false,["work in progress"]],
+	"lost_seed_forever_vine":[false,["work in progress"]],
+	"lost_seed_forever_zucchini":[false,["work in progress"]],
+	"lost_seed_forever_ail":[false,["work in progress"]],
+
+	"recover_radish":[false,["I find those seeds in my pocket\nWith those we can continue to cultivate radish","But be carful, I think I wont be able to find more of them","Remeber, they like nitrient rich and soaked dirt"]],
+	"recover_tomatoes":[false,["I find those seeds in my pocket\nWith those we can continue to cultivate tomatoes","But be carful, I think I wont be able to find more of them","Remeber, they have to be sown around spring 1"]],
+	"recover_pea":[false,["work in progress"]],
+	"recover_leek":[false,["work in progress"]],
+	"recover_corn":[false,["work in progress"]],
+	"recover_wheat":[false,["work in progress"]],
+	"recover_carrot":[false,["work in progress"]],
+	"recover_mint":[false,["work in progress"]],
+	"recover_pumkin":[false,["work in progress"]],
+	"recover_thyme":[false,["work in progress"]],
+	"recover_vine":[false,["work in progress"]],
+	"recover_zucchini":[false,["work in progress"]],
+	"recover_ail":[false,["work in progress"]],
 }
 func player_just_did_something(thing):
 	if thing[0] == "planted":
@@ -160,6 +204,37 @@ func player_just_did_something(thing):
 			GlobalVariables.update_invertory("vine","seed",2)
 			GlobalVariables.update_invertory("thyme","seed",2)
 	
+	# Jokers:
+	if thing[0] == "plant_removed":
+		print("removed_plant 1")
+		if GlobalVariables.inventory[thing[1]]["seed"] == 0:
+			print("removed_plant 2")
+			#le joueur n'a plus de seed d'une certaine plante, on vérifie que cette plante n'est plus plantée
+			if not is_seed_planted(thing[1]):
+				print("removed_plant 3")
+				# le joueur a merdé, il n'a plus de seeds d'une plante
+				if GlobalVariables.inventory[thing[1]]["joker"] >= 1:
+					#il reste des joker on va recover
+					GlobalVariables.inventory[thing[1]]["joker"] -= 1
+					grandpa_talk("lost_seed_"+thing[1])
+					list_plant_to_recover.append(thing[1])
+				else:
+					grandpa_talk("lost_seed_forever_"+thing[1])
+					
+	if thing[0] == "skiped_to_next_season":
+		if not list_plant_to_recover.is_empty():
+			for plant_to_recover in list_plant_to_recover:
+				GlobalVariables.update_invertory(plant_to_recover, "seed", 1)
+				grandpa_talk("recover_"+plant_to_recover)
+			list_plant_to_recover.clear()
+
+func is_seed_planted(plant_name):
+	for plant_a_verif in get_tree().root.get_node("home/Game/plant_spot_container").get_children():
+		if plant_a_verif.plant_type == plant_name:
+			return true
+	#si non trouvé:
+	return false
+
 func _on_button_for_grandpa_button_activated(texte_name):
 	grandpa_talk(texte_name)
 
