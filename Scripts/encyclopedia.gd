@@ -136,12 +136,6 @@ func _on_previous_page_button_down():
 		maj_book(actual_page_number)
 
 
-func _on_close_mouse_entered():
-	$Book/button_close.animation = "souris"
-
-
-func _on_close_mouse_exited():
-	$Book/button_close.animation = "default"
 
 
 func _on_previous_page_mouse_entered():
