@@ -28,7 +28,13 @@ var state:int
 var plant_health:int
 var nutriment_value:int
 var humidity_value:int # 0 = sec, 1 = mouillé, 2 = trempé
-var sunlight_value:int  # 0 = ombre, 1 = soleil
+var sunlight_value:int = 1  # 0 = ombre, 1 = soleil
+
+var voisin_droit_plant:String
+var voisin_gauche_plant:String
+var voisin_droit_state:int
+var voisin_gauche_state:int
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -103,7 +109,6 @@ func afficher_feeling(name):
 	var feeling_icon_scene = Icon
 	var feeling_icon_instance = feeling_icon_scene.instantiate()
 	feeling_icon_instance.position = Vector2(5,5)
-	print("ajout feeling")
 	feeling_icon_instance.feeling_type = name
 	add_child(feeling_icon_instance)
 
@@ -131,7 +136,6 @@ func bonus_malus_seasons(actual_season):
 			# Si la plante est une graine mais quelle n'est pas dans une season valide alors on met le malus.
 			plant_health += GlobalVariables.dico_bonus_malus["season"][1]
 func bonus_malus_nutriment(nutriment_value):
-	print("aaa ça c'est ma nutrient value:",nutriment_value)
 	if state == 0: # Si la plante est une graine
 		if nutriment_value >= GlobalVariables.dico_caracteristique["minimum_nutriment_values"][plant_type]:
 			await afficher_feeling("nutrient+")
@@ -158,17 +162,17 @@ func bonus_malus_humidity(humidity_value):
 			await afficher_feeling("humidity-")
 			plant_health += GlobalVariables.dico_bonus_malus["humidities_possible"][1]
 
-func bonus_malus_sunlight(sunlight_value,voisin_vine):
-	if sunlight_value == GlobalVariables.dico_caracteristique["sunlight_bonus"][plant_type]:
+func bonus_malus_sunlight(sunlight):
+	var temp_sunlight_value = sunlight
+	if ((voisin_droit_plant=="vine" and voisin_droit_state > 2) or (voisin_gauche_plant=="vine" and voisin_gauche_state > 3)) and temp_sunlight_value>0:
+		temp_sunlight_value -= 1
+	if temp_sunlight_value == GlobalVariables.dico_caracteristique["sunlight_bonus"][plant_type]:
 		await afficher_feeling("sun+")
 		plant_health += GlobalVariables.dico_bonus_malus["sunlight_bonus"][0]
-	elif not(voisin_vine):
-		plant_health += GlobalVariables.dico_bonus_malus["sunlight_bonus"][1]
-	
-	if not(sunlight_value == GlobalVariables.dico_caracteristique["sunlight_bonus"][plant_type]):
-		if sunlight_value in GlobalVariables.dico_caracteristique["sunlight_possible"][plant_type]:
+	else:
+		if temp_sunlight_value in GlobalVariables.dico_caracteristique["sunlight_possible"][plant_type]:
 			plant_health += GlobalVariables.dico_bonus_malus["sunlight_possible"][0]
-		elif not(voisin_vine):
+		else:
 			await afficher_feeling("sun-")
 			plant_health += GlobalVariables.dico_bonus_malus["sunlight_possible"][1]	
 func bonus_malus_voisin(voisin_droit,voisin_gauche):
@@ -212,11 +216,24 @@ func change_dirt(temp_humidity_value, random_event):
 		$dirt.animation = "soak"
 
 func change_nutrient_visual():
-	print("nutrient:", nutriment_value)
 	$nutrient.animation = str(nutriment_value)
 	$nutrient.speed_scale = randf_range(0.5,1)
 	$nutrient.play()
-	
+
+func mettre_a_jour_voisins():
+		if voisin_droit != null:
+			voisin_droit_plant = voisin_droit.plant_type
+			voisin_droit_state = voisin_droit.state
+		else: 
+			voisin_droit_plant = "None"
+			voisin_droit_state = 0
+		if voisin_gauche != null:
+			voisin_gauche_plant = voisin_gauche.plant_type
+			voisin_gauche_state = voisin_gauche.state
+		else: 
+			voisin_gauche_plant = "None"
+			voisin_gauche_state = 0
+
 
 func next_quarter_of_season(new_phase,random_event):
 	var actual_season = [new_phase/2 +1 ,new_phase%2 +1]
@@ -224,10 +241,6 @@ func next_quarter_of_season(new_phase,random_event):
 	
 	var temp_humidity_value = humidity_value
 	var temp_sunlight_value = sunlight_value
-	
-	var voisin_droit_plant = "None"
-	var voisin_gauche_plant = "None"
-	var voisin_gauche_state = 0
 	
 	
 	if random_event == "pluie":
@@ -246,74 +259,60 @@ func next_quarter_of_season(new_phase,random_event):
 		if nutriment_value < 2:
 			nutriment_value += 1
 			change_nutrient_visual()
-	else:
+		return
+
+	
+	if state < GlobalVariables.dico_caracteristique["number_of_phases"][plant_type]:
+		# Alors la plante peut encore poussé :
 		
-		if random_event == "pluie":
-			if temp_humidity_value < 2:
-				temp_humidity_value += 1
-			temp_sunlight_value -= 1
+		# On applique les bonus / malus sur la vie de le a plante.
+		mettre_a_jour_voisins()
+
 			
-		if random_event == "soleil":
-			temp_sunlight_value += 1
-			if temp_humidity_value > 0:
-				temp_humidity_value -= 1
+		print("plant_health_avant_bonus_malus : "+str(plant_health))
+		await bonus_malus_humidity(temp_humidity_value)
+		await bonus_malus_sunlight(temp_sunlight_value)
+		if state == 0:
+			await bonus_malus_seasons(before_season)
+			await bonus_malus_nutriment(nutriment_value)
+		if state == 0 and nutriment_value > 0:
+			# Si on a posé une graine au quarter de season précédent, alors on baisse le nutriment de la terre de 1.
+			nutriment_value -= 1
+			change_nutrient_visual()
 		
-		if state < GlobalVariables.dico_caracteristique["number_of_phases"][plant_type]:
-			# Alors la plante peut encore poussé :
-			
-			# On applique les bonus / malus sur la vie de le a plante.
-			
-			if voisin_droit != null:
-				voisin_droit_plant = voisin_droit.plant_type
-			if voisin_gauche != null:
-				voisin_gauche_plant = voisin_gauche.plant_type
-				voisin_gauche_state = voisin_gauche.state
-				
-			print("plant_health_avant_bonus_malus : "+str(plant_health))
-			await bonus_malus_humidity(temp_humidity_value)
-			await bonus_malus_sunlight(temp_sunlight_value,(voisin_gauche_plant=="vine" and voisin_gauche_state > 3))
-			if state == 0:
-				await bonus_malus_seasons(before_season)
-				await bonus_malus_nutriment(nutriment_value)
-			if state == 0 and nutriment_value > 0:
-				# Si on a posé une graine au quarter de season précédent, alors on baisse le nutriment de la terre de 1.
-				nutriment_value -= 1
-				change_nutrient_visual()
-			
-			await bonus_malus_voisin(voisin_droit_plant,voisin_gauche_plant)
-			print("plant_health_apres_bonus_malus : "+str(plant_health))
-			
-			await show_emotions()
-			
-			# On fait poussé la plante si elle est toujours vivante :
-			if plant_health > 0:
-				state += 1
-				if plant_type == "vine":
-					if state == 2:
-						$sprite/pour_vine_1.visible = true
-						$sprite/pour_vine_1.animation="vine_top1_1"
-					elif state == 3:
-						$sprite/pour_vine_1.animation="vine_top1_2"
-					elif state == 4:
-						$sprite/pour_vine_2.visible = true
-						$sprite/pour_vine_2.animation="vine_top2_1"
-					elif state == 5:
-						$sprite/pour_vine_2.animation="vine_top2_2"
-					elif state == 6:
-						$sprite/vine_final.visible = true
-						$sprite/vine_final.animation="vine_top3_1"
-					elif state == 7:
-						$sprite/vine_final.animation="vine_top3_2"
-								
-				$sprite.animation = plant_type+"_"+str(state)
-				$sign_container.hide()
+		await bonus_malus_voisin(voisin_droit_plant,voisin_gauche_plant)
+		print("plant_health_apres_bonus_malus : "+str(plant_health))
+		
+		await show_emotions()
+		
+		# On fait poussé la plante si elle est toujours vivante :
+		if plant_health > 0:
+			state += 1
+			if plant_type == "vine":
+				$sprite.animation = plant_type+"_"+str(min(2,state))
+				if state == 2:
+					$sprite/pour_vine_1.visible = true
+					$sprite/pour_vine_1.animation="vine_top1_1"
+				elif state == 3:
+					$sprite/pour_vine_1.animation="vine_top1_2"
+				elif state == 4:
+					$sprite/pour_vine_2.visible = true
+					$sprite/pour_vine_2.animation="vine_top2_1"
+				elif state == 5:
+					$sprite/pour_vine_2.animation="vine_top2_2"
+					$sprite/vine_final.visible = true
+					$sprite/vine_final.animation="vine_top3_1"
+				elif state == 6:
+					$sprite/vine_final.animation="vine_top3_2"
 			else:
-				# Sinon on la remove pour l'instant.
-				remove_plant()
-				print("la plante est morte")
+				$sprite.animation = plant_type+"_"+str(state)
+			$sign_container.hide()
+		else:
+			# Sinon on la remove pour l'instant.
+			remove_plant()
+			print("la plante est morte")
 				
 func _on_button_pressed():
-	#print("pressed")
 	if GlobalVariables.game_state == "clock":
 		return #pas le droit
 	if GlobalVariables.action_picked == "seed" and plant_type == "None":

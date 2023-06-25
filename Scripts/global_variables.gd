@@ -55,7 +55,7 @@ var dico_caracteristique = {
 		"pumpkin":3,
 		"tomatoes":2,
 		"thyme":4,
-		"vine":7,
+		"vine":6,
 		"zucchini":2,
 		"ail":3,
 		"radish":1,

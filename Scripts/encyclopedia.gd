@@ -62,7 +62,7 @@ var real_page_number = {
 		["Garlic","Garlic is an herb that can be sown in [b]fall 2 and winter 2[/b].\nIt takes 3 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nIt needs dry soil to grow.\n\nGarlic appreciates to be next to tomatoes and doesn’t like peas.","ail"],   #Page droite
 
 	#Page 13 - 14
-		["Vine","Vine is a fruit plant that can be sown in fall 2 and spring 2, but prefers to be planted in [b]winter 1 & 2[/b].\nIt takes 4 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nIt needs moist soil to grow.\n\nThe fully grown vine protect its direct right neighbor from the sun malus !","vine"], #Page gauche
+		["Vine","Vine is a fruit plant that can be sown in fall 2 and spring 2, but prefers to be planted in [b]winter 1 & 2[/b].\nIt takes 6 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nIt needs moist soil to grow.\n\nThe fully grown vine protect its direct right neighbor from the sun malus !","vine"], #Page gauche
 		["Thyme","Thyme is an herb that can be sown in spring 1 & 2, but prefers to be planted in [b]fall 1[/b].\nIt takes 4 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nThyme needs dry soil to grow.","thym"],  #Page droite
 ]
 
