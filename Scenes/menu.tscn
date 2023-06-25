@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://d4idxbd54drta"]
+[gd_scene load_steps=51 format=3 uid="uid://d4idxbd54drta"]
 
 [ext_resource type="LabelSettings" uid="uid://dtbvo0w76rap1" path="res://fonts/label_setting.tres" id="1_ni0yg"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_vd1g2"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://bvqit0s4mjmxl" path="res://Assets/Plant/titre-menu.png" id="12_pioy4"]
 [ext_resource type="Texture2D" uid="uid://cidwcxdjw4snn" path="res://Assets/sprites/sprite-panneau-menu.png" id="14_t2tpg"]
 [ext_resource type="FontFile" uid="uid://bc1k56qxxei71" path="res://fonts/PixelOperatorMono8-Bold.ttf" id="18_w605f"]
+[ext_resource type="Script" path="res://Scripts/envoie_message.gd" id="21_cav6d"]
+[ext_resource type="FontFile" uid="uid://dagdtawwoj7oe" path="res://fonts/PixelOperatorMono8.ttf" id="21_gmi13"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4w73x"]
 atlas = ExtResource("2_u67cp")
@@ -142,6 +144,18 @@ Button/styles/normal = ExtResource("6_nunw6")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opafc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gplpn"]
+
+[sub_resource type="Theme" id="Theme_b1tj8"]
+default_font = ExtResource("21_gmi13")
+
+[sub_resource type="Theme" id="Theme_xeycv"]
+default_font = ExtResource("21_gmi13")
+default_font_size = 8
+LineEdit/fonts/font = ExtResource("21_gmi13")
+
+[sub_resource type="Theme" id="Theme_noms6"]
+default_font = ExtResource("18_w605f")
+default_font_size = 8
 
 [node name="Menu" type="Node2D"]
 texture_filter = 1
@@ -286,6 +300,95 @@ text = "Quit"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ClickSFX"]
 stream = ExtResource("9_cbrca")
 
+[node name="Envoie_message" type="Panel" parent="."]
+offset_left = 424.0
+offset_top = 100.0
+offset_right = 574.0
+offset_bottom = 221.0
+script = ExtResource("21_cav6d")
+
+[node name="Label" type="Label" parent="Envoie_message"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 148.0
+offset_bottom = 32.0
+text = "Des idées, remarques ou mots d'amour ? :"
+label_settings = ExtResource("1_ni0yg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LineEdit" type="LineEdit" parent="Envoie_message"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 39.0
+offset_right = 288.0
+offset_bottom = 70.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_b1tj8")
+placeholder_text = "Name"
+alignment = 1
+max_length = 10
+
+[node name="LineEdit2" type="TextEdit" parent="Envoie_message"]
+texture_filter = 1
+clip_contents = true
+layout_mode = 0
+offset_left = 4.0
+offset_top = 55.0
+offset_right = 288.0
+offset_bottom = 151.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_xeycv")
+placeholder_text = "Message"
+scroll_smooth = true
+scroll_fit_content_height = true
+
+[node name="Button" type="Button" parent="Envoie_message"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 6.0
+offset_top = 104.0
+offset_right = 48.0
+offset_bottom = 120.0
+theme = SubResource("Theme_noms6")
+text = "Send"
+
+[node name="success" type="Label" parent="Envoie_message"]
+visible = false
+modulate = Color(0.392157, 0.490196, 0.203922, 1)
+layout_mode = 0
+offset_left = 54.0
+offset_top = 103.0
+offset_right = 207.0
+offset_bottom = 133.0
+scale = Vector2(0.6, 0.6)
+text = "Message was sent !"
+label_settings = ExtResource("1_ni0yg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="fail" type="Label" parent="Envoie_message"]
+visible = false
+modulate = Color(0.615686, 0.188235, 0.231373, 1)
+layout_mode = 0
+offset_left = 54.0
+offset_top = 103.0
+offset_right = 207.0
+offset_bottom = 133.0
+scale = Vector2(0.6, 0.6)
+text = "An error occured :/"
+label_settings = ExtResource("1_ni0yg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Envoie_message"]
+timeout = 1.0
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Play3" to="." method="_on_play_3_pressed"]
+[connection signal="pressed" from="Envoie_message/Button" to="Envoie_message" method="_on_button_pressed"]

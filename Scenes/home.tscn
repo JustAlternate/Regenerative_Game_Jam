@@ -322,6 +322,9 @@ top_level = true
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
 position = Vector2(542.477, 34.0615)
 
+[node name="HTTPRequest" type="HTTPRequest" parent="Game"]
+timeout = 4.0
+
 [connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant1" to="Game" method="_on_plant_calling_contextual_menu"]
 [connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant2" to="Game" method="_on_plant_calling_contextual_menu"]
 [connection signal="calling_contextual_menu" from="Game/plant_spot_container/plant3" to="Game" method="_on_plant_calling_contextual_menu"]

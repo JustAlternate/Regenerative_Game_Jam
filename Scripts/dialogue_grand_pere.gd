@@ -8,8 +8,8 @@ extends Node2D
 @export var time_betwen_dialogue:float = 2
 @export var time_after_dialogue:float = 3
 var number_of_time_grandpa_talked = 0
-var number_of_time_until_mongolian = 1000000
-
+var number_of_time_until_mongolian = 30
+var skip
 
 var state = "none"
 
@@ -63,6 +63,10 @@ func player_just_did_something(thing):
 	if thing[0] == "closed_book":
 		if tutorial_progress == 0:
 			grandpa_talk("Lore2")
+			tutorial_progress+=1
+			
+	if thing[0] == "closed_book":
+		if tutorial_progress == 1:
 			grandpa_talk("Soil")
 			grandpa_talk("Meteo")
 			grandpa_talk("Lore3")
@@ -71,19 +75,19 @@ func player_just_did_something(thing):
 	
 	if thing[0] == "planted":
 		if thing[1] == "radish":
-			if tutorial_progress == 1:
+			if tutorial_progress == 2:
 				tutorial_progress += 1
 				grandpa_talk("Lore5")
 				grandpa_talk("Clock")
 	
 	if thing[0] == "skiped_to_next_season":
-		if tutorial_progress == 2:
+		if tutorial_progress == 3:
 			tutorial_progress += 1
 			grandpa_talk("Lore6")
 	
 	if thing[0] == "harvested":
 		if thing[1] == "radish":
-			if tutorial_progress == 3:
+			if tutorial_progress == 4:
 				$button_skip_tuto.visible = false
 				tutorial_progress += 1
 				grandpa_talk("Lore7")
@@ -93,7 +97,7 @@ func player_just_did_something(thing):
 				
 	if thing[0] == "skiped_to_next_season":
 		if thing[1] == "winter":
-			if tutorial_progress == 4:
+			if tutorial_progress == 5:
 				tutorial_progress += 1
 				grandpa_talk("give_tomatoes")
 				get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
@@ -101,7 +105,7 @@ func player_just_did_something(thing):
 			
 	
 	if GlobalVariables.inventory["tomatoes"]["plant"] > 4 or GlobalVariables.inventory["tomatoes"]["seed"] == 0:
-		if tutorial_progress == 5:
+		if tutorial_progress == 6:
 			tutorial_progress += 1
 			grandpa_talk("give_pea_and_wheat")
 			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=2
@@ -110,7 +114,7 @@ func player_just_did_something(thing):
 			
 	if thing[0] == "skiped_to_next_season":
 		if thing[1] == "spring":
-			if tutorial_progress == 6:
+			if tutorial_progress == 7:
 				tutorial_progress +=1
 				grandpa_talk("give_pumpkin")
 				get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
@@ -118,21 +122,21 @@ func player_just_did_something(thing):
 				
 	if thing[0] == "meteo":
 		if thing[1] == "pluie":
-			if tutorial_progress == 7:
+			if tutorial_progress == 8:
 				tutorial_progress += 1
 				grandpa_talk("give_zucchini")
 				get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 				GlobalVariables.update_invertory("zucchini","seed",2)
 	
 	if GlobalVariables.inventory["zucchini"]["plant"] > 4 or GlobalVariables.inventory["zucchini"]["seed"] == 0:
-		if tutorial_progress == 8:
+		if tutorial_progress == 9:
 			tutorial_progress += 1
 			grandpa_talk("give_mint")
 			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 			GlobalVariables.update_invertory("mint","seed",2)
 	
 	if GlobalVariables.inventory["mint"]["plant"] > 4 or GlobalVariables.inventory["mint"]["seed"] == 0 or GlobalVariables.inventory["pumpkin"]["plant"] > 4 or GlobalVariables.inventory["pumpkin"]["seed"] == 0  :
-		if tutorial_progress == 9:
+		if tutorial_progress == 10:
 			tutorial_progress += 1
 			grandpa_talk("give_corn")
 			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
@@ -140,14 +144,14 @@ func player_just_did_something(thing):
 	
 	if thing[0] == "meteo":
 		if thing[1] == "soleil":
-			if tutorial_progress == 10:
+			if tutorial_progress == 11:
 				tutorial_progress += 1
 				grandpa_talk("give_carrot")
 				get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 				GlobalVariables.update_invertory("carrot","seed",2)
 	
 	if GlobalVariables.inventory["carrot"]["plant"] > 4 or GlobalVariables.inventory["carrot"]["seed"] == 0:
-		if tutorial_progress == 11:
+		if tutorial_progress == 12:
 			tutorial_progress += 1
 			grandpa_talk("give_le_reste")
 			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=3
@@ -210,11 +214,13 @@ func grandpa_start_talk():
 	else:
 		$GrandpaSFX/AudioStreamPlayer3.play()
 	for i in range(len(dico_dialogue[text][1])):
-		await writing_text(dico_dialogue[text][1][i])
-		state = "pending"
-		await get_tree().create_timer(time_betwen_dialogue).timeout #attend prochain dialogue
-		$GrandpaSFX/AudioStreamPlayer.play()
+		if not(skip):
+			await writing_text(dico_dialogue[text][1][i])
+			state = "pending"
+			await get_tree().create_timer(time_betwen_dialogue).timeout #attend prochain dialogue
+			$GrandpaSFX/AudioStreamPlayer.play()
 	
+	skip = false
 	state = "none"
 	$Panel.visible = false
 	
@@ -237,6 +243,8 @@ func _on_button_pressed():
 		state = "speed_talk"
 	
 func _on_button_skip_tuto_pressed():
-	tutorial_progress = 3
+	tutorial_progress = 4
 	$button_skip_tuto.visible = false
+	dialogue_queue = []
+	skip = true
 	

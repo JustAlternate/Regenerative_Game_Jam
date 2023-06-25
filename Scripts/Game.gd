@@ -11,9 +11,11 @@ var random_event = "rien"
 # Load the custom images for the mouse cursor.
 var arrow_game = load("res://Assets/sprites/cursor_game.png")
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+
 	if cheat_mode == true:
 		for seed in GlobalVariables.inventory:
 			GlobalVariables.update_invertory(seed,"seed",10)
