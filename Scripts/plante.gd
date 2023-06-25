@@ -129,6 +129,7 @@ func bonus_malus_seasons(actual_season):
 			# Si la plante est une graine mais quelle n'est pas dans une season valide alors on met le malus.
 			plant_health += GlobalVariables.dico_bonus_malus["season"][1]
 func bonus_malus_nutriment(nutriment_value):
+	print("aaa ça c'est ma nutrient value:",nutriment_value)
 	if state == 0: # Si la plante est une graine
 		if nutriment_value >= GlobalVariables.dico_caracteristique["minimum_nutriment_values"][plant_type]:
 			await afficher_feeling("nutrient+")
@@ -237,16 +238,12 @@ func next_quarter_of_season(new_phase,random_event):
 			temp_humidity_value -= 1
 	
 	change_dirt(temp_humidity_value, random_event)
-	change_nutrient_visual()
 	if plant_type == "None":
 		# Si la terre est vide, on lui fait regagner des nutriments a chaque passage de quarter of season.
 		if nutriment_value < 2:
 			nutriment_value += 1
+			change_nutrient_visual()
 	else:
-		
-		if state == 0 and nutriment_value > 0:
-			# Si on a posé une graine au quarter de season précédent, alors on baisse le nutriment de la terre de 1.
-			nutriment_value -= 1
 		
 		if random_event == "pluie":
 			if temp_humidity_value < 2:
@@ -269,6 +266,10 @@ func next_quarter_of_season(new_phase,random_event):
 			if state == 0:
 				await bonus_malus_seasons(before_season)
 				await bonus_malus_nutriment(nutriment_value)
+			if state == 0 and nutriment_value > 0:
+				# Si on a posé une graine au quarter de season précédent, alors on baisse le nutriment de la terre de 1.
+				nutriment_value -= 1
+				change_nutrient_visual()
 			
 			if voisin_droit != null:
 				voisin_droit_plant = voisin_droit.plant_type
@@ -289,6 +290,8 @@ func next_quarter_of_season(new_phase,random_event):
 				# Sinon on la remove pour l'instant.
 				remove_plant()
 				print("la plante est morte")
+				
+
 				
 	if plant_type != "None":
 		print("==================================")
