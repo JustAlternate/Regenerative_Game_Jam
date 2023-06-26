@@ -174,7 +174,7 @@ var dico_bonus_malus = { #[Bonus si respectée, Bonus si pas respectée]
 	"season":[0,-4],
 	"humidities_bonus":[1,0],
 	"humidities_possible":[0,-1],
-	"minimum_nutriment_values":[1,"requis-actual"], # ATTENTION NE PAS CHANGER CETTE LIGNE
+	"minimum_nutriment_values":[2,"requis-actual"], # ATTENTION NE PAS CHANGER CETTE LIGNE
 	"appreciated_adjacents_plants":[1,0],
 	"unapreciated_adjacents_plants":[-1,0],
 	"sunlight_bonus":[1,0],

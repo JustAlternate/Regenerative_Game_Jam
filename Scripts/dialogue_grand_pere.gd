@@ -29,7 +29,7 @@ var dico_dialogue = {
 	"Proximity":[true,["Remember that plants influence each other.","Some plants like to be close to specific plants, and some do not like each other."]],
 	
 	"Lore1":[false,["Hello my grandchild! So, this is it: our society is falling appart...","We must survive on our own! We are a long way from anywhere.","Here, take this book."]],
-	"Lore2":[false,["There is not much in it because in the past","we did not have to know how to produce food by ourselves.","We were fools back then...","Anyways, I will teach you what little I know."]],
+	"Lore2":[false,["There is not much in it because in the past, we did not have to know how to produce food by ourselves.","We were fools back then...","Anyways, I will teach you what little I know."]],
 	"Lore3":[false,["Now look what is best for radishes in the encyclopedia."]],
 	"Lore4":[false,["Look on your left is a drawer where you will store your seeds.","Pick some radish seeds and plant them on the right type of soil."]],
 	"Lore5":[false,["Well done, grandchild! Now let us wait for a bit."]],
