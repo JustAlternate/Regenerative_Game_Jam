@@ -61,8 +61,8 @@ var dico_dialogue = {
 	"lost_seed_ail":[false,["work in progress"]],
 
 
-	"lost_seed_forever_radish":[false,["You lost your radishes again...\nI wont be able to find more seeds.","Byby lovely radishies."]],
-	"lost_seed_forever_tomatoes":[false,["You lost your tomatoes again...\nI wont be able to find more seeds.","Byby delicious tomatoes."]],
+	"lost_seed_forever_radish":[false,["You lost your radishes again...\nI wont be able to find more seeds.","Bye bye lovely radishies."]],
+	"lost_seed_forever_tomatoes":[false,["You lost your tomatoes again...\nI wont be able to find more seeds.","Bye bye delicious tomatoes."]],
 	"lost_seed_forever_pea":[false,["work in progress"]],
 	"lost_seed_forever_leek":[false,["work in progress"]],
 	"lost_seed_forever_corn":[false,["work in progress"]],
@@ -75,8 +75,8 @@ var dico_dialogue = {
 	"lost_seed_forever_zucchini":[false,["work in progress"]],
 	"lost_seed_forever_ail":[false,["work in progress"]],
 
-	"recover_radish":[false,["I find those seeds in my pocket\nWith those we can continue to cultivate radish","But be carful, I think I wont be able to find more of them","Remeber, they like nitrient rich and soaked dirt"]],
-	"recover_tomatoes":[false,["I find those seeds in my pocket\nWith those we can continue to cultivate tomatoes","But be carful, I think I wont be able to find more of them","Remeber, they have to be sown around spring 1"]],
+	"recover_radish":[false,["I found those seeds in my pocket.\nWith those we can continue to cultivate radishes.","But be careful, I think I won't be able to find more of them.","Remember, they like nutrient rich and soaked soil."]],
+	"recover_tomatoes":[false,["I find those seeds in my pocket.\nWith those we can continue to cultivate tomatoes.","But be careful, I think I won't be able to find more of them.","Remember, they have to be sown around spring 1."]],
 	"recover_pea":[false,["work in progress"]],
 	"recover_leek":[false,["work in progress"]],
 	"recover_corn":[false,["work in progress"]],

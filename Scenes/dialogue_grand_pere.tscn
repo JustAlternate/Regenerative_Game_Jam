@@ -1,14 +1,14 @@
 [gd_scene load_steps=17 format=3 uid="uid://du2q4bvo17ea"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_grand_pere.gd" id="1_5a700"]
-[ext_resource type="Texture2D" uid="uid://jh1pda531gv5" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
-[ext_resource type="Texture2D" uid="uid://cmwang0rv3rv4" path="res://Assets/Plant/bulle-dialogue.png" id="3_cxmly"]
-[ext_resource type="FontFile" uid="uid://dagdtawwoj7oe" path="res://fonts/PixelOperatorMono8.ttf" id="4_m1jhc"]
-[ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="4_tce1e"]
-[ext_resource type="AudioStream" uid="uid://bry0bfjp10mlg" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
-[ext_resource type="AudioStream" uid="uid://cb11fdf7ie1mb" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
-[ext_resource type="PackedScene" uid="uid://ctaxigaw1ef6x" path="res://Scenes/button_for_grandpa.tscn" id="8_kgdim"]
-[ext_resource type="AudioStream" uid="uid://bihflxsrul0av" path="res://Assets/sfx/mongolian.mp3" id="8_ns56r"]
+[ext_resource type="Texture2D" uid="uid://c2qw8mrllqdfp" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
+[ext_resource type="Texture2D" uid="uid://c2y1kogmk3ti0" path="res://Assets/Plant/bulle-dialogue.png" id="3_cxmly"]
+[ext_resource type="FontFile" uid="uid://b0qwbv0faoxi5" path="res://fonts/PixelOperatorMono8.ttf" id="4_m1jhc"]
+[ext_resource type="PackedScene" uid="uid://b05j16p7wwoul" path="res://Scenes/sound_pool.tscn" id="4_tce1e"]
+[ext_resource type="AudioStream" uid="uid://bq2np43o8mf3a" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
+[ext_resource type="AudioStream" uid="uid://c278ral4jj446" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
+[ext_resource type="PackedScene" uid="uid://do6kg650xnlrx" path="res://Scenes/button_for_grandpa.tscn" id="8_kgdim"]
+[ext_resource type="AudioStream" uid="uid://do4dbn6gr1gvp" path="res://Assets/sfx/mongolian.mp3" id="8_ns56r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tnvqk"]
 
