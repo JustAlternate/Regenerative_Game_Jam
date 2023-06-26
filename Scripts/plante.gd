@@ -98,8 +98,9 @@ func remove_plant(): #appelée quand remove avec la pelle OU morte
 			$sprite/pour_vine_1.visible = false
 			$sprite/pour_vine_2.visible = false
 			$sprite/vine_final.visible = false
+		
 		var temp = plant_type
-		plant_type = "None"	
+		plant_type = "None"
 		$sprite.animation = "vide"
 		$sign_container.hide()
 		#on dit que une plante a été remove (si plus de seeds -> joker)

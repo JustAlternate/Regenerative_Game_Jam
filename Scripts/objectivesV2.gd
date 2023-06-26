@@ -48,7 +48,7 @@ func start_objective_diversity(start_amount = 50):
 
 func start_objective_taste(start_amount = 50):
 	$sign_taste.show()
-	diversity = start_amount
+	taste = start_amount
 	activation_state = 2
 
 func recolte(plant, number):

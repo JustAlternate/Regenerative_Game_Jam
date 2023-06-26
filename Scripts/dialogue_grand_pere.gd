@@ -8,7 +8,7 @@ extends Node2D
 @export var time_betwen_dialogue:float = 2
 @export var time_after_dialogue:float = 3
 var number_of_time_grandpa_talked = 0
-var number_of_time_until_mongolian = 30
+var number_of_time_until_mongolian = 40
 var skip
 var list_plant_to_recover:Array
 
@@ -100,7 +100,6 @@ func player_just_did_something(thing):
 	
 	if thing[0] == "talk":
 		if thing[1] == "Lore3":
-			GlobalVariables.update_invertory("radish","seed",1)
 			get_tree().root.get_node("home/Game/seed_drawer")._on_open_drawer_button_toggled()
 			get_tree().root.get_node("home/Game/Objectives").start_objective_diversity()
 
@@ -256,6 +255,7 @@ func maj_buttons():
 
 
 func _ready():
+	GlobalVariables.update_invertory("radish","seed",1)
 	maj_buttons()
 	show_buttons()
 	grandpa_talk("Lore1")

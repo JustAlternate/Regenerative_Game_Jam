@@ -84,4 +84,3 @@ position = Vector2(469, 285)
 texture = ExtResource("9_1c6eh")
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
-
