@@ -9,13 +9,13 @@ var summary = {
 	"pea":4,
 	"wheat":4,
 	"pumpkin":6,
-	"zucchini":6,
+	"thyme":6,
+	"zucchini":8,
 	"mint":8,
-	"corn":8,
+	"corn":10,
 	"carrot":10,
-	"garlic":10,
+	"garlic":12,
 	"vine":12,
-	"thyme":12,
 }
 
 var real_page_number = {
@@ -51,18 +51,18 @@ var real_page_number = {
 
 	#Page 7 - 8
 		["Pumpkin","Pumpkin is a vegetable that can be sown in spring 1 and summer 1, but prefers to be planted in [b]spring 2[/b].\nIt takes 3 phases to grow.\n\nIt prefers the shade and the rain, but can grow in any weather except under strong sunlight.\n\nIt does not need a lot of nutrients in the soil.\n\nIt needs moist or soaked soil to grow.","pumpkin"], #Page gauche
-		["Zucchini","Zucchini is a vegetable that can be sown in winter 2 and spring 2, but prefers [b]spring 1[/b].\nIt takes 2 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-rich soil is necessary.\n\nIt needs soaked soil to grow.\n\nIt likes to be next to peas, but doesn’t like radishes.","zucchini"],   #Page droite
+		["Vine","Vine is a fruit plant that can be sown in fall 2 and spring 2, but prefers to be planted in [b]winter 1 & 2[/b].\nIt takes 6 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nIt needs moist soil to grow.\n\nThe fully grown vine protect its direct right neighbor from the sun malus !","vine"], #Page droite
 
 	#Page 9 - 10
-		["Mint","Mint is an herb that can be sown in winter 2 and spring 2, but prefers to be planted in [b]spring 1[/b].\nIt takes 3 phases to grow.\n\nIt can grow in any weather.\n\nNutrient-rich soil is necessary.\n\nIt needs moist soil to grow.\n\nMint appreciates to be next to thyme, radishes, tomatoes and peas.\nIt doesn’t like carrots and corn.","mint"], #Page gauche
-		["Corn","Corn is a cereal that can be sown in spring 2, but prefers to be planted in [b]spring 1[/b].\nIt takes 2 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nIt must have a minimum of nutrients in the soil.\n\nIt needs soaked soil to grow.\n\nCorn appreciates to be next to pumpkins.","corn"],   #Page droite
+		["Zucchini","Zucchini is a vegetable that can be sown in winter 2 and spring 2, but prefers [b]spring 1[/b].\nIt takes 2 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-rich soil is necessary.\n\nIt needs soaked soil to grow.\n\nIt likes to be next to peas, but doesn’t like radishes.","zucchini"],   #Page gauche
+		["Mint","Mint is an herb that can be sown in winter 2 and spring 2, but prefers to be planted in [b]spring 1[/b].\nIt takes 3 phases to grow.\n\nIt can grow in any weather.\n\nNutrient-rich soil is necessary.\n\nIt needs moist soil to grow.\n\nMint appreciates to be next to thyme, radishes, tomatoes and peas.\nIt doesn’t like carrots and corn.","mint"], #Page droite
 
 	#Page 11 - 12
+		["Corn","Corn is a cereal that can be sown in spring 2, but prefers to be planted in [b]spring 1[/b].\nIt takes 2 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nIt must have a minimum of nutrients in the soil.\n\nIt needs soaked soil to grow.\n\nCorn appreciates to be next to pumpkins.","corn"],   #Page droite
 		["Carrot","Carrot is a vegetable that can be sown in winter 2 and spring 2, but prefers to be planted in [b]spring 1[/b].\nIt takes 3 phases to grow.\n\nIt can grow in any weather.\n\nNutrient-rich soil is necessary.\n\nIt needs moist or soaked soil to grow.\n\nCarrots appreciate to be next to tomatoes, radishes, peas and garlic.","carrot"], #Page gauche
-		["Garlic","Garlic is an herb that can be sown in [b]fall 2 and winter 2[/b].\nIt takes 3 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nIt needs dry soil to grow.\n\nGarlic appreciates to be next to tomatoes and doesn’t like peas.","ail"],   #Page droite
 
 	#Page 13 - 14
-		["Vine","Vine is a fruit plant that can be sown in fall 2 and spring 2, but prefers to be planted in [b]winter 1 & 2[/b].\nIt takes 6 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nIt needs moist soil to grow.\n\nThe fully grown vine protect its direct right neighbor from the sun malus !","vine"], #Page gauche
+		["Garlic","Garlic is an herb that can be sown in [b]fall 2 and winter 2[/b].\nIt takes 3 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nIt needs dry soil to grow.\n\nGarlic appreciates to be next to tomatoes and doesn’t like peas.","garlic"],   #Page droite
 		["Thyme","Thyme is an herb that can be sown in spring 1 & 2, but prefers to be planted in [b]fall 1[/b].\nIt takes 4 phases to grow.\n\nIt prefers strong sunlight, but can grow in any weather except in the shade or under the rain.\n\nNutrient-poor soil is necessary.\n\nThyme needs dry soil to grow.","thym"],  #Page droite
 ]
 

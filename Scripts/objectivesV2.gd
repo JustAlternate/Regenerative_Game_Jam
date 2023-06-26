@@ -3,19 +3,19 @@ extends Node2D
 var compteur = -1
 
 var relation_ressource = {
-		"pea":1,
-		"leek":1,
-		"corn":1,
-		"wheat":1,
-		"carrot":1,
+		"pea":0.5,
+		"leek":0.5,
+		"corn":0.5,
+		"wheat":0.5,
+		"carrot":0.5,
 		"mint":0.1,
-		"pumpkin":1,
-		"tomatoes":1,
+		"pumpkin":0.5,
+		"tomatoes":0.5,
 		"thyme":0.1,
 		"vine":1,
-		"zucchini":1,
-		"ail":0.5,
-		"radish":0.5,
+		"zucchini":0.5,
+		"garlic":0.5,
+		"radish":0.3,
 }
 
 var relation_taste = {
@@ -30,7 +30,7 @@ var relation_taste = {
 		"thyme":1,
 		"vine":0.5,
 		"zucchini":0.1,
-		"ail":1,
+		"garlic":1,
 		"radish":0.1,
 }
 
@@ -65,7 +65,7 @@ func recolte(plant, number):
 	if activation_state >= 2:
 		taste += number * relation_taste[plant] * GlobalVariables.dico_caracteristique["number_of_phases"][plant]
 		taste = min(taste, 100)
-		$sign_taste/cursor_taste.positio.x = taste/100*115
+		$sign_taste/cursor_taste.position.x = taste/100*115
 	
 func next_season():
 	compteur +=1

@@ -26,7 +26,7 @@ var dico_caracteristique = {
 		"thyme":[[3,1]],
 		"vine":[[4,1],[4,2]],
 		"zucchini":[[1,1]],
-		"ail":[],
+		"garlic":[],
 		"radish":[],
 	},
 	"season":
@@ -42,7 +42,7 @@ var dico_caracteristique = {
 		"thyme":[[1,1],[1,2]],
 		"vine":[[3,2],[1,1]],
 		"zucchini":[[4,2],[1,2]],
-		"ail":[[3,2],[4,2]],
+		"garlic":[[3,2],[4,2]],
 		"radish":[[4,1],[4,2],[1,1],[1,2],[2,1],[2,2],[3,1]],
 	},
 	"number_of_phases":{
@@ -57,7 +57,7 @@ var dico_caracteristique = {
 		"thyme":4,
 		"vine":6,
 		"zucchini":2,
-		"ail":3,
+		"garlic":3,
 		"radish":1,
 	},
 	"humidities_bonus":{ #0 = sec, 1 = normal, 2 = trempé
@@ -72,7 +72,7 @@ var dico_caracteristique = {
 		"thyme":[0],
 		"vine":[1],
 		"zucchini":[2],
-		"ail":[0],
+		"garlic":[0],
 		"radish":[2],
 	},
 	"humidities_possible":{ #0 = sec, 1 = normal, 2 = trempé
@@ -87,7 +87,7 @@ var dico_caracteristique = {
 		"thyme":[0,1],
 		"vine":[0,1,2],
 		"zucchini":[1,2],
-		"ail":[0,1],
+		"garlic":[0,1],
 		"radish":[1,2],
 	},
 	"minimum_nutriment_values":{ # 0 = pas de nutriment, 1 = un peu nutriment, 2 = tres nutriments
@@ -102,7 +102,7 @@ var dico_caracteristique = {
 		"thyme":0,
 		"vine":0,
 		"zucchini":2,
-		"ail":0,
+		"garlic":0,
 		"radish":2,
 	},
 	"sunlight_possible":{
@@ -117,7 +117,7 @@ var dico_caracteristique = {
 		"thyme":[1,2],
 		"vine":[1,2],
 		"zucchini":[1,2],
-		"ail":[1,2],
+		"garlic":[1,2],
 		"radish":[0,1],
 	},
 	"sunlight_bonus":{
@@ -132,7 +132,7 @@ var dico_caracteristique = {
 		"thyme":2,
 		"vine":2,
 		"zucchini":2,
-		"ail":2,
+		"garlic":2,
 		"radish":0,
 	},
 	"appreciated_adjacents_plants":{
@@ -140,15 +140,15 @@ var dico_caracteristique = {
 		"leek":["carrot","tomatoes"],
 		"corn":["pumpkin"],
 		"wheat":[],
-		"carrot":["tomatoes","leek","pea","radish","ail"],
+		"carrot":["tomatoes","leek","pea","radish","garlic"],
 		"mint":["thyme","tomatoes","pea","fadish"],
 		"pumpkin":[],
 		"tomatoes":["radish"],
 		"thyme":["mint"],
 		"vine":[],
 		"zucchini":["pea"],
-		"ail":["tomatoes"],
-		"radish":["carrot","ail","pea","tomatoes"],
+		"garlic":["tomatoes"],
+		"radish":["carrot","garlic","pea","tomatoes"],
 		"None":[]
 	},
 	"unapreciated_adjacents_plants":{
@@ -163,7 +163,7 @@ var dico_caracteristique = {
 		"thyme":[],
 		"vine":[],
 		"zucchini":[],
-		"ail":["pea"],
+		"garlic":["pea"],
 		"radish":[],
 		"None":[]
 	},
@@ -213,7 +213,7 @@ var inventory = {
 	"thyme":{"seed": 0, "plant": 0, "joker": 1},
 	"vine":{"seed": 0, "plant": 0, "joker": 1},
 	"zucchini":{"seed": 0, "plant": 0, "joker": 1},
-	"ail":{"seed": 0, "plant": 0, "joker": 1},
+	"garlic":{"seed": 0, "plant": 0, "joker": 1},
 	"radish":{"seed": 0, "plant": 0, "joker": 1}
 }
 

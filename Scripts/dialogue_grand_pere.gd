@@ -38,8 +38,8 @@ var dico_dialogue = {
 	"Lore8":[false,["Now I will let you work in peace. If you need any advice you can ask me!","I will come back to you later. See ya!"]],
 	
 	"give_tomatoes":[false,["Well I think you should take those tomato seeds, Winter 2 is the best season to plant them!"]],
-	"give_pea_and_wheat":[false,["Hello grandchild! Look, I found multiple new seeds for our garden!","Hopefully they will be enough diversify our food."]],
-	"give_pumpkin":[false,["Its time to plant some pumpkins so we can have them next Fall season !"]],
+	"give_pea_and_wheat":[false,["Hello grandchild! Our family is tired of eating always the same food, try to cultivate different types of plants.","I found multiple new seeds for our garden!","Hopefully they will be enough diversify our food."]],
+	"give_pumpkin_and_vine":[false,["Its time to plant some pumpkins so we can have them next Fall season !","pumpkins love shade and those nex vine seeds i found can help to that"]],
 	"give_zucchini":[false,["Its rainy today. Be careful and avoid  planting those zucchini seeds on rainy seasons!"]],
 	"give_mint":[false,["Here you can take those mint seeds, it is a fantastic crop to enhance flavor!"]],
 	"give_corn":[false,["Finally I found corn seeds. This is a great plant you can grow during Spring 1"]],
@@ -58,22 +58,22 @@ var dico_dialogue = {
 	"lost_seed_thyme":[false,["work in progress"]],
 	"lost_seed_vine":[false,["work in progress"]],
 	"lost_seed_zucchini":[false,["work in progress"]],
-	"lost_seed_ail":[false,["work in progress"]],
+	"lost_seed_garlic":[false,["work in progress"]],
 
 
 	"lost_seed_forever_radish":[false,["You lost your radishes again...\nI wont be able to find more seeds.","Bye bye lovely radishies."]],
 	"lost_seed_forever_tomatoes":[false,["You lost your tomatoes again...\nI wont be able to find more seeds.","Bye bye delicious tomatoes."]],
-	"lost_seed_forever_pea":[false,["work in progress"]],
-	"lost_seed_forever_leek":[false,["work in progress"]],
-	"lost_seed_forever_corn":[false,["work in progress"]],
-	"lost_seed_forever_wheat":[false,["work in progress"]],
-	"lost_seed_forever_carrot":[false,["work in progress"]],
-	"lost_seed_forever_mint":[false,["work in progress"]],
-	"lost_seed_forever_pumkin":[false,["work in progress"]],
-	"lost_seed_forever_thyme":[false,["work in progress"]],
-	"lost_seed_forever_vine":[false,["work in progress"]],
-	"lost_seed_forever_zucchini":[false,["work in progress"]],
-	"lost_seed_forever_ail":[false,["work in progress"]],
+	"lost_seed_forever_pea":[false,["You lost your peas again...\nI wont be able to find more seeds.","I wont forget you, peas."]],
+	"lost_seed_forever_leek":[false,["You lost your leeks again...\nI wont be able to find more seeds.","Bye bye sweet leeks."]],
+	"lost_seed_forever_corn":[false,["You lost your corns again...\nI wont be able to find more seeds.","Bye bye graceful corn."]],
+	"lost_seed_forever_wheat":[false,["You lost your wheat again...\nI wont be able to find more seeds.","Bye bye cool wheat."]],
+	"lost_seed_forever_carrot":[false,["You lost your carrot again...\nI wont be able to find more seeds.","Bye bye pretty carrot."]],
+	"lost_seed_forever_mint":[false,["You lost your mint again...\nI wont be able to find more seeds.","Bye bye tasty mint."]],
+	"lost_seed_forever_pumkin":[false,["You lost your pumpkin again...\nI wont be able to find more seeds.","Bye bye nice pumpkin."]],
+	"lost_seed_forever_thyme":[false,["You lost your thyme again...\nI wont be able to find more seeds.","Bye bye appetizing thyme."]],
+	"lost_seed_forever_vine":[false,["You lost your vine again...\nI wont be able to find more seeds.","Bye bye shady vine."]],
+	"lost_seed_forever_zucchini":[false,["You lost your zucchini again...\nI wont be able to find more seeds.","Bye bye magic zucchini.","Wait...  \nWhat?"]],
+	"lost_seed_forever_garlic":[false,["You lost your garlic again...\nI wont be able to find more seeds.","Bye bye smooth garlic."]],
 
 	"recover_radish":[false,["I found those seeds in my pocket.\nWith those we can continue to cultivate radishes.","But be careful, I think I won't be able to find more of them.","Remember, they like nutrient rich and soaked soil."]],
 	"recover_tomatoes":[false,["I find those seeds in my pocket.\nWith those we can continue to cultivate tomatoes.","But be careful, I think I won't be able to find more of them.","Remember, they have to be sown around spring 1."]],
@@ -87,7 +87,7 @@ var dico_dialogue = {
 	"recover_thyme":[false,["work in progress"]],
 	"recover_vine":[false,["work in progress"]],
 	"recover_zucchini":[false,["work in progress"]],
-	"recover_ail":[false,["work in progress"]],
+	"recover_garlic":[false,["work in progress"]],
 }
 func player_just_did_something(thing):
 	if thing[0] == "planted":
@@ -101,7 +101,6 @@ func player_just_did_something(thing):
 	if thing[0] == "talk":
 		if thing[1] == "Lore3":
 			get_tree().root.get_node("home/Game/seed_drawer")._on_open_drawer_button_toggled()
-			get_tree().root.get_node("home/Game/Objectives").start_objective_diversity()
 
 	
 	if thing[0] == "closed_book":
@@ -151,6 +150,7 @@ func player_just_did_something(thing):
 	if GlobalVariables.inventory["tomatoes"]["plant"] > 4 or GlobalVariables.inventory["tomatoes"]["seed"] == 0:
 		if tutorial_progress == 6:
 			tutorial_progress += 1
+			get_tree().root.get_node("home/Game/Objectives").start_objective_diversity()
 			grandpa_talk("give_pea_and_wheat")
 			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=2
 			GlobalVariables.update_invertory("pea","seed",2)
@@ -159,10 +159,11 @@ func player_just_did_something(thing):
 	if thing[0] == "skiped_to_next_season":
 		if thing[1] == "spring":
 			if tutorial_progress == 7:
-				tutorial_progress +=1
-				grandpa_talk("give_pumpkin")
+				tutorial_progress +=2
+				grandpa_talk("give_pumpkin_and_vine")
 				get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 				GlobalVariables.update_invertory("pumpkin","seed",2)
+				GlobalVariables.update_invertory("vine","seed",2)
 				
 	if thing[0] == "meteo":
 		if thing[1] == "pluie":
@@ -176,6 +177,7 @@ func player_just_did_something(thing):
 		if tutorial_progress == 9:
 			tutorial_progress += 1
 			grandpa_talk("give_mint")
+			get_tree().root.get_node("home/Game/Objectives").start_objective_taste()
 			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 			GlobalVariables.update_invertory("mint","seed",2)
 	
@@ -198,9 +200,8 @@ func player_just_did_something(thing):
 		if tutorial_progress == 12:
 			tutorial_progress += 1
 			grandpa_talk("give_le_reste")
-			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=3
-			GlobalVariables.update_invertory("ail","seed",2)
-			GlobalVariables.update_invertory("vine","seed",2)
+			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=2
+			GlobalVariables.update_invertory("garlic","seed",2)
 			GlobalVariables.update_invertory("thyme","seed",2)
 	
 	# Jokers:
