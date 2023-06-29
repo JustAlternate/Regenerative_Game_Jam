@@ -3,24 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://dftuedx82aneu" path="res://Scenes/encyclopedia.tscn" id="1_1gyia"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_mivhc"]
 [ext_resource type="PackedScene" uid="uid://du2q4bvo17ea" path="res://Scenes/dialogue_grand_pere.tscn" id="2_005re"]
-[ext_resource type="Texture2D" uid="uid://7iu6ttth2wqn" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_bqiwa"]
-[ext_resource type="Texture2D" uid="uid://dnbrxcwa3sxag" path="res://Assets/Plant/case-eau-centre-transparent.png" id="2_yhosm"]
-[ext_resource type="Texture2D" uid="uid://c513m0wacn6m2" path="res://Assets/Plant/background-animé.png" id="4_7lsg4"]
-
-[ext_resource type="Texture2D" uid="uid://tmipe0ex6lx7" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_bqiwa"]
-[ext_resource type="Texture2D" uid="uid://dp35kjrksxd5u" path="res://Assets/Plant/case-eau-centre-transparent.png" id="2_yhosm"]
-[ext_resource type="Texture2D" uid="uid://81673o2l86g3" path="res://Assets/Plant/background-animé.png" id="4_7lsg4"]
+[ext_resource type="Texture2D" uid="uid://topyesc2mlib" path="res://Assets/Plant/sprite-case-eau-centre-animé.png" id="2_bqiwa"]
+[ext_resource type="Texture2D" uid="uid://ibt3u1vmheac" path="res://Assets/Plant/case-eau-centre-transparent.png" id="2_yhosm"]
+[ext_resource type="Texture2D" uid="uid://ds1g3n8qrgbu" path="res://Assets/Plant/background-animé.png" id="4_7lsg4"]
 [ext_resource type="PackedScene" uid="uid://cpc1baduxkefv" path="res://Scenes/seed_drawer.tscn" id="4_fw8ti"]
 [ext_resource type="PackedScene" uid="uid://slb4mijat6jh" path="res://Scenes/clock.tscn" id="5_gjtvy"]
 [ext_resource type="PackedScene" uid="uid://c751d7ivsjn33" path="res://Scenes/meteo.tscn" id="6_2mes2"]
 [ext_resource type="PackedScene" uid="uid://c5fwrbut46wua" path="res://Scenes/plante.tscn" id="6_5hxrd"]
-[ext_resource type="Texture2D" uid="uid://b61vvtpmx54qh" path="res://Assets/sprites/dirt-moist.png" id="8_dmgkt"]
+[ext_resource type="Texture2D" uid="uid://cbnbl06sr3vdm" path="res://Assets/sprites/rain.png" id="7_ng7x1"]
+[ext_resource type="Texture2D" uid="uid://ckp0ebqofge0o" path="res://Assets/sprites/dirt-moist.png" id="8_dmgkt"]
 [ext_resource type="PackedScene" uid="uid://cd4110b2l4fjg" path="res://Scenes/objectives_v_2.tscn" id="8_p0yy8"]
-[ext_resource type="Texture2D" uid="uid://cfphv0b6rly3m" path="res://Assets/sprites/dirt-soaked.png" id="9_2h3e1"]
-[ext_resource type="Texture2D" uid="uid://bdnm6q44m5amg" path="res://Assets/sprites/rain.png" id="7_ng7x1"]
-[ext_resource type="Texture2D" uid="uid://bsk2yn4bty732" path="res://Assets/sprites/dirt-moist.png" id="8_dmgkt"]
-[ext_resource type="PackedScene" uid="uid://cd4110b2l4fjg" path="res://Scenes/objectives_v_2.tscn" id="8_p0yy8"]
-[ext_resource type="Texture2D" uid="uid://6vc4iqfxlbb8" path="res://Assets/sprites/dirt-soaked.png" id="9_2h3e1"]
+[ext_resource type="Texture2D" uid="uid://hc57kejf33hk" path="res://Assets/sprites/dirt-soaked.png" id="9_2h3e1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2ibs"]
 atlas = ExtResource("2_yhosm")
@@ -384,7 +377,7 @@ top_level = true
 z_index = 1
 
 [node name="Clock" parent="Game" instance=ExtResource("5_gjtvy")]
-position = Vector2(542.477, 34.0615)
+position = Vector2(538, 37)
 
 [node name="HTTPRequest" type="HTTPRequest" parent="Game"]
 timeout = 4.0

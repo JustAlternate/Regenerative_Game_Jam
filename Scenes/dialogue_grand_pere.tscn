@@ -1,14 +1,14 @@
 [gd_scene load_steps=17 format=3 uid="uid://du2q4bvo17ea"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_grand_pere.gd" id="1_5a700"]
-[ext_resource type="Texture2D" uid="uid://jh1pda531gv5" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
-[ext_resource type="Texture2D" uid="uid://cmwang0rv3rv4" path="res://Assets/Plant/bulle-dialogue.png" id="3_cxmly"]
-[ext_resource type="FontFile" uid="uid://dagdtawwoj7oe" path="res://fonts/PixelOperatorMono8.ttf" id="4_m1jhc"]
-[ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="4_tce1e"]
-[ext_resource type="AudioStream" uid="uid://bry0bfjp10mlg" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
-[ext_resource type="AudioStream" uid="uid://cb11fdf7ie1mb" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
+[ext_resource type="Texture2D" uid="uid://0hgd6xic8lo3" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
+[ext_resource type="Texture2D" uid="uid://d1c3xbiqr0bxx" path="res://Assets/Plant/bulle-dialogue.png" id="3_cxmly"]
+[ext_resource type="FontFile" uid="uid://w7elt7hece40" path="res://fonts/PixelOperatorMono8.ttf" id="4_m1jhc"]
+[ext_resource type="PackedScene" uid="uid://b05j16p7wwoul" path="res://Scenes/sound_pool.tscn" id="4_tce1e"]
+[ext_resource type="AudioStream" uid="uid://daf7m34ibxnha" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
+[ext_resource type="AudioStream" uid="uid://bonnihrjbe3gf" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
 [ext_resource type="PackedScene" uid="uid://ctaxigaw1ef6x" path="res://Scenes/button_for_grandpa.tscn" id="8_kgdim"]
-[ext_resource type="AudioStream" uid="uid://bihflxsrul0av" path="res://Assets/sfx/mongolian.mp3" id="8_ns56r"]
+[ext_resource type="AudioStream" uid="uid://b2eakv6chr8je" path="res://Assets/sfx/mongolian.mp3" id="8_ns56r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tnvqk"]
 
@@ -99,9 +99,9 @@ stream = ExtResource("6_86aom")
 stream = ExtResource("8_ns56r")
 
 [node name="button_skip_tuto" parent="." instance=ExtResource("8_kgdim")]
-offset_left = -62.0
+offset_left = -129.0
 offset_top = -113.0
-offset_right = 37.0
+offset_right = -30.0
 offset_bottom = -92.0
 scale = Vector2(0.5, 0.5)
 text = "Skip tutorial"

@@ -1,16 +1,20 @@
-[gd_scene load_steps=40 format=3 uid="uid://slb4mijat6jh"]
+[gd_scene load_steps=41 format=3 uid="uid://slb4mijat6jh"]
 
 [ext_resource type="Script" path="res://Scripts/Clock.gd" id="1_23s68"]
-[ext_resource type="Texture2D" uid="uid://cfobqweci08qy" path="res://Assets/sprites/clock/clock_background.png" id="2_7aaup"]
-[ext_resource type="Texture2D" uid="uid://dqg08pxuur238" path="res://Assets/sprites/clock/clock_hand.png" id="3_erggn"]
-[ext_resource type="Texture2D" uid="uid://br6w8af42c8et" path="res://Assets/sprites/accelerated_button.png" id="4_e4dpt"]
-[ext_resource type="AudioStream" uid="uid://7rx44mg5v8ka" path="res://Assets/sfx/clock_tick.wav" id="5_80v2i"]
+[ext_resource type="Texture2D" uid="uid://dn5q3pq70kqwk" path="res://Assets/sprites/clock/clock_background_2.png" id="2_ab2f7"]
+[ext_resource type="Texture2D" uid="uid://e80kh71b3kye" path="res://Assets/sprites/clock/clock_hand.png" id="3_erggn"]
+[ext_resource type="Texture2D" uid="uid://bkdui0mma5nlx" path="res://Assets/sprites/accelerated_button.png" id="4_e4dpt"]
+[ext_resource type="AudioStream" uid="uid://dysfn0spie27v" path="res://Assets/sfx/clock_tick.wav" id="5_80v2i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mvjh"]
+atlas = ExtResource("2_ab2f7")
+region = Rect2(0, 0, 74, 89)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sxf4i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7aaup")
+"texture": SubResource("AtlasTexture_7mvjh")
 }],
 "loop": true,
 "name": &"default",
@@ -289,7 +293,9 @@ script = ExtResource("1_23s68")
 
 [node name="BackgroundSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(-37, -36)
 sprite_frames = SubResource("SpriteFrames_sxf4i")
+centered = false
 
 [node name="ArrowSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
