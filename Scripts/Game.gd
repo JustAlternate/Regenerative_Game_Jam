@@ -83,11 +83,13 @@ func _on_clock_phase_changed(new_phase):
 	
 	if random_event == "pluie":
 		$Meteo.go_meteo(3,5)
-		$Meteo/Rain.visible = true
+		$background/Rain.set_visibility_layer_bit(1,1)
+		$background/Rain.play("default")
 		$Meteo.rain_fade_in()
 		$Meteo/Sun/DirectionalLight2D.energy = 0.5
 	else:
-		$Meteo/Rain.visible = false
+		$background/Rain.set_visibility_layer_bit(1,0)
+		$background/Rain.stop()
 		$Meteo.rain_fade_out()
 	
 	if random_event=="soleil":
