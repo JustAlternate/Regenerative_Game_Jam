@@ -301,6 +301,7 @@ sprite_frames = SubResource("SpriteFrames_hjora")
 animation = &"normal"
 
 [node name="Rain" type="AnimatedSprite2D" parent="Game/background"]
+top_level = true
 visibility_layer = 0
 position = Vector2(288, 128)
 sprite_frames = SubResource("SpriteFrames_xnh44")
