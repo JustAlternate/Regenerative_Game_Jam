@@ -10,7 +10,7 @@ var random_event = "rien"
 
 # Load the custom images for the mouse cursor.
 var arrow_game = load("res://Assets/sprites/cursor_game.png")
-
+var year:int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,6 +60,9 @@ var list_proba_events = [
 ]
 
 func generate_random_event(new_phase):
+	if year == 0 :
+		return "rien"
+		
 	var number = randf()
 	if number <= list_proba_events[new_phase][0]:
 		return "pluie"
@@ -78,6 +81,7 @@ func _on_clock_phase_changed(new_phase):
 	# Here on va decider des random events :
 	GlobalVariables.game_state = "clock"
 	random_event = generate_random_event(new_phase)
+	year+=1
 	
 	$Meteo/Nuages.kill_nuages()
 	

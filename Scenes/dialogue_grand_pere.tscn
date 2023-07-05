@@ -1,14 +1,14 @@
 [gd_scene load_steps=17 format=3 uid="uid://du2q4bvo17ea"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_grand_pere.gd" id="1_5a700"]
-[ext_resource type="Texture2D" uid="uid://0hgd6xic8lo3" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
-[ext_resource type="Texture2D" uid="uid://d1c3xbiqr0bxx" path="res://Assets/Plant/bulle-dialogue.png" id="3_cxmly"]
-[ext_resource type="FontFile" uid="uid://w7elt7hece40" path="res://fonts/PixelOperatorMono8.ttf" id="4_m1jhc"]
-[ext_resource type="PackedScene" uid="uid://b05j16p7wwoul" path="res://Scenes/sound_pool.tscn" id="4_tce1e"]
-[ext_resource type="AudioStream" uid="uid://daf7m34ibxnha" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
-[ext_resource type="AudioStream" uid="uid://bonnihrjbe3gf" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
-[ext_resource type="PackedScene" uid="uid://ctaxigaw1ef6x" path="res://Scenes/button_for_grandpa.tscn" id="8_kgdim"]
-[ext_resource type="AudioStream" uid="uid://b2eakv6chr8je" path="res://Assets/sfx/mongolian.mp3" id="8_ns56r"]
+[ext_resource type="Texture2D" uid="uid://cvwqs7osof5vw" path="res://Assets/sprites/vieux_fou.png" id="2_uole0"]
+[ext_resource type="Texture2D" uid="uid://bj3cpgukwmya4" path="res://Assets/Plant/bulle-dialogue.png" id="3_cxmly"]
+[ext_resource type="FontFile" uid="uid://cft7e5tnq3ciq" path="res://fonts/PixelOperatorMono8.ttf" id="4_m1jhc"]
+[ext_resource type="PackedScene" path="res://Scenes/sound_pool.tscn" id="4_tce1e"]
+[ext_resource type="AudioStream" uid="uid://blfejlquw22a4" path="res://Assets/sfx/grandpa/grandpa1.wav" id="5_2k5xx"]
+[ext_resource type="AudioStream" uid="uid://6eowc6smsx3x" path="res://Assets/sfx/grandpa/grandpa2.wav" id="6_86aom"]
+[ext_resource type="PackedScene" uid="uid://do6kg650xnlrx" path="res://Scenes/button_for_grandpa.tscn" id="8_kgdim"]
+[ext_resource type="AudioStream" uid="uid://brucbypa5sla6" path="res://Assets/sfx/mongolian.mp3" id="8_ns56r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tnvqk"]
 

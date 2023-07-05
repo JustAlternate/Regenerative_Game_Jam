@@ -13,7 +13,7 @@ var skip
 var list_plant_to_recover:Array
 
 var state = "none"
-
+var index_dialogue = 0
 var tutorial_progress = 0
 
 var dialogue_queue = []
@@ -281,34 +281,30 @@ func grandpa_talk(text):
 		number_of_time_grandpa_talked+=1
 	
 func grandpa_start_talk():
-	state = "talking"
-	$Panel.visible = true
-	
-	text = dialogue_queue.pop_front()
-	
-	if number_of_time_grandpa_talked < number_of_time_until_mongolian:
-		$GrandpaSFX/AudioStreamPlayer2.play()
-	else:
-		$GrandpaSFX/AudioStreamPlayer3.play()
-	for i in range(len(dico_dialogue[text][1])):
-		if not(skip):
-			await writing_text(dico_dialogue[text][1][i])
-			state = "pending"
-			await get_tree().create_timer(time_betwen_dialogue).timeout #attend prochain dialogue
-			$GrandpaSFX/AudioStreamPlayer.play()
-	
-	skip = false
-	state = "none"
-	$Panel.visible = false
-	
-	player_just_did_something(["talk",text])
+	await writing_text(dico_dialogue[text][1][index_dialogue])
+	state = "pending"
+	await get_tree().create_timer(time_betwen_dialogue).timeout #attend prochain dialogue
 
 func _process(delta):
 	
+	#print(state)
 	#look if something is in dialogue queue, if so, say if nothing is being said already
 	if dialogue_queue != [] and state == "none":
-		grandpa_start_talk()
-		
+		# PREPARE THE TALKING
+		state = "talking"
+		$Panel.visible = true
+		text = dialogue_queue[0]
+		#print(dialogue_queue)
+		$GrandpaSFX/AudioStreamPlayer2.play()
+		if index_dialogue < len(dico_dialogue[text][1]):
+			grandpa_start_talk() # MAKE HIM TALK THE index_dialogue DIALOGUE
+			index_dialogue+=1
+			$GrandpaSFX/AudioStreamPlayer.play()
+		if index_dialogue == len(dico_dialogue[text][1]):
+			#print("fin text")
+			index_dialogue = 0
+			text = dialogue_queue.pop_front()
+			player_just_did_something(["talk",text])
 	
 	if ($RichTextLabel.position.x <= get_local_mouse_position()[0] and get_local_mouse_position()[0] <=  $RichTextLabel.position.x + $RichTextLabel.size.x and $RichTextLabel.position.y <= get_local_mouse_position()[1] and get_local_mouse_position()[1] <= $RichTextLabel.position.y + $RichTextLabel.size.y) :
 		$RichTextLabel.visible = true
@@ -318,6 +314,9 @@ func _process(delta):
 func _on_button_pressed():
 	if state == "talking":
 		state = "speed_talk"
+	if state == "pending":
+		state = "none"
+		$Panel.visible = false
 	
 func _on_button_skip_tuto_pressed():
 	if tutorial_progress < 4:tutorial_progress = 4
