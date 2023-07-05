@@ -303,6 +303,7 @@ animation = &"normal"
 [node name="Rain" type="AnimatedSprite2D" parent="Game/background"]
 top_level = true
 visibility_layer = 0
+texture_filter = 1
 position = Vector2(288, 128)
 sprite_frames = SubResource("SpriteFrames_xnh44")
 speed_scale = 2.0
