@@ -159,9 +159,9 @@ func player_just_did_something(thing):
 	if thing[0] == "skiped_to_next_season":
 		if thing[1] == "spring":
 			if tutorial_progress == 7:
-				tutorial_progress +=2
+				tutorial_progress +=1
 				grandpa_talk("give_pumpkin_and_vine")
-				get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
+				get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=2
 				GlobalVariables.update_invertory("pumpkin","seed",2)
 				GlobalVariables.update_invertory("vine","seed",2)
 				
