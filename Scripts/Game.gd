@@ -128,7 +128,7 @@ func _on_clock_phase_changed(new_phase):
 		$"/root/PersistentSfx/WinterMusic".play_song_phase2()
 	
 	#wait then turn on the game:
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(2).timeout
 	GlobalVariables.game_state = "playing"
 
 
