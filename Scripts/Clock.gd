@@ -5,6 +5,8 @@ signal phase_changed(new_phase: int)
 @export var number_of_phases = 8
 var current_phase
 
+var current_year:int = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_phase(0)
@@ -19,6 +21,9 @@ func set_phase(phase_number):
 func increase_phase():
 	$TickSFX.play()
 	current_phase = (current_phase + 1) % number_of_phases
+	if current_phase == 0:
+		current_year += 1
+		$Label.text = "Year " + str(current_year)
 	$ArrowSprite.animation = str(current_phase)
 	$ArrowSprite.frame = 0
 	$ArrowSprite.play()
