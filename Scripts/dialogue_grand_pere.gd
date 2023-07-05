@@ -7,6 +7,7 @@ extends Node2D
 @export var time_betwen_carac:float = 0.03
 @export var time_betwen_dialogue:float = 2
 @export var time_after_dialogue:float = 3
+@export var time_before_skip:float = 0.5
 var number_of_time_grandpa_talked = 0
 var number_of_time_until_mongolian = 40
 var skip
@@ -271,9 +272,15 @@ func writing_text(text):
 	for letter in text: 
 		if state == "speed_talk":
 			$Panel/Label.text = text
+			await get_tree().create_timer(time_before_skip).timeout
 			return
 		$Panel/Label.text += letter
 		await get_tree().create_timer(time_betwen_carac).timeout
+	print("tim")
+	await get_tree().create_timer(time_before_skip).timeout
+	print("mer")
+	return
+
 
 func grandpa_talk(text):
 	if not(text in dialogue_queue):
