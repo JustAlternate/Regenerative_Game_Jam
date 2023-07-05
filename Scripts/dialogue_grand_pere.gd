@@ -5,13 +5,18 @@ extends Node2D
 @export var text = "Grosse murge"
 @export var taille_police:int
 @export var time_betwen_carac:float = 0.03
-@export var time_betwen_dialogue:float = 2
+@export var time_betwen_dialogue:float = 7
 @export var time_after_dialogue:float = 3
 @export var time_before_skip:float = 0.5
 var number_of_time_grandpa_talked = 0
 var number_of_time_until_mongolian = 40
 var skip
 var list_plant_to_recover:Array
+
+#for the papi to autotalk AND talk on clic at the same time
+var talking_advancement_id:int = 0
+
+
 
 var state = "none"
 var index_dialogue = 0
@@ -288,9 +293,14 @@ func grandpa_talk(text):
 		number_of_time_grandpa_talked+=1
 	
 func grandpa_start_talk():
+	var remember_id = talking_advancement_id
 	await writing_text(dico_dialogue[text][1][index_dialogue])
 	state = "pending"
 	await get_tree().create_timer(time_betwen_dialogue).timeout #attend prochain dialogue
+	if remember_id == talking_advancement_id:
+		state = "none"
+		$Panel.visible = false
+		talking_advancement_id +=1
 
 func _process(delta):
 	
@@ -324,6 +334,7 @@ func _on_button_pressed():
 	if state == "pending":
 		state = "none"
 		$Panel.visible = false
+		talking_advancement_id +=1
 	
 func _on_button_skip_tuto_pressed():
 	if tutorial_progress < 4:tutorial_progress = 4
