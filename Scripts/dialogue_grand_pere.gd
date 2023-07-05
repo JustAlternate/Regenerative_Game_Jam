@@ -50,7 +50,7 @@ var dico_dialogue = {
 	"give_mint":[false,["Here you can take those mint seeds, it is a fantastic crop to enhance flavor!"]],
 	"give_corn":[false,["Finally I found corn seeds. This is a great plant you can grow during Spring 1"]],
 	"give_carrot":[false,["I see you are doing great with our garden! Here, take thoses carrots seeds so we can have something new to eat."]],
-	"give_le_reste":[false,["Here take those seeds I found. I think I do not have any more seeds.","Well done harvesting all of this! I know you will make good use of these seeds.","I am going to take some rest now."]],
+	"give_le_reste":[false,["Our family wants more taste in our food.\nTakes thoses seed, garlic and thyme are perfect for a tasty diner","Well done harvesting all of this! I know you will make good use of these seeds.","I am going to take some rest now."]],
 
 	"lost_seed_radish":[false,["Looks like all of your radishes died.","I will try to see if i can find some more seeds."]],
 	"lost_seed_tomatoes":[false,["Looks like all of your tomatoes died.","I will try to see if i can find some more seeds."]],
@@ -183,7 +183,6 @@ func player_just_did_something(thing):
 		if tutorial_progress == 9:
 			tutorial_progress += 1
 			grandpa_talk("give_mint")
-			get_tree().root.get_node("home/Game/Objectives").start_objective_taste()
 			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=1
 			GlobalVariables.update_invertory("mint","seed",2)
 	
@@ -206,6 +205,7 @@ func player_just_did_something(thing):
 		if tutorial_progress == 12:
 			tutorial_progress += 1
 			grandpa_talk("give_le_reste")
+			get_tree().root.get_node("home/Game/Objectives").start_objective_taste()
 			get_tree().root.get_node("home/Game/Encyclopedia").Pages_unlocked+=2
 			GlobalVariables.update_invertory("garlic","seed",2)
 			GlobalVariables.update_invertory("thyme","seed",2)

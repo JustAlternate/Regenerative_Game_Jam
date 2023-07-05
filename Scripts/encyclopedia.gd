@@ -9,13 +9,13 @@ var summary = {
 	"pea":4,
 	"wheat":4,
 	"pumpkin":6,
-	"thyme":6,
+	"vine":6,
 	"zucchini":8,
 	"mint":8,
 	"corn":10,
 	"carrot":10,
 	"garlic":12,
-	"vine":12,
+	"thyme":12,
 }
 
 var real_page_number = {
